@@ -1,0 +1,38 @@
+quản lí đơn hàng: 3 trạng thái
+- đang chờ xử lí: khi khách hàng đặt hàng thành công sẽ khởi tạo đơn hàng và xuất hiện trong danh sách đang chờ xử lí.
+<table>
+- Mã ĐH - time - Sản phẩm - Tổng tiển - Địa chỉ - Trạng thái ĐH
+</table>
+
+và khi admin click vào mã ĐH thì hiện ra ĐH chi tiết để xác nhận
+Admin có thể chỉnh xoá, sửa đơn hàng:
++ tình trạng đơn hàng
++ địa chỉ người nhận
++ phương thức vận chuyển
++ phương thức thanh toán
++ tên sản phẩm
++ số lượng
++ giảm giá
+
+và nhấn nút chấp nhận hoặc nút huỷ đơn hàng
+
+
+-- san pham --
+product_id
+product_name
+product_description
+product_label
+product_price
+
+khi KH đặt hàng thì sẽ tạo 1 đơn hàng
+-- đơn hàng --
+key: mã đơn hàng
+ngày đặt hàng
+trạng thái đơn hàng
+
+-- chi tiết đơn hàng --
+key: mã đơn hàng, mã sản phẩm
+số lượng
+giá
+giảm giá
+

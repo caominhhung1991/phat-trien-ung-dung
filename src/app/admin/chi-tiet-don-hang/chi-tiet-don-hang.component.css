@@ -1,0 +1,14 @@
+.donhang {
+    font-size: 13px;
+}
+.card {
+    cursor: pointer;
+}
+.card-title {
+    font-size: 13px;
+}
+
+table {
+    background-color: #fff;
+    border-radius: 5px;
+}

@@ -1,0 +1,41 @@
+<app-nav-admin [isActive]="2"></app-nav-admin>
+
+<div class="container-fluid quan-ly-san-pham">
+    <div class="row d-flex d-md-block flex-nowrap wrapper">
+        <div class="col-md-2 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
+            <div class="list-group border-0 card text-center text-md-left">
+                <a href="" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+                    <i class="fa fa-hand-lizard-o"></i> 
+                    <span class="d-none d-md-inline">
+                        Thêm sản phẩm 
+                    </span> 
+                </a>
+
+                <a href="#loai-san-pham" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false">
+                    <i class="fa fa-truck"></i> 
+                    <span class="d-none d-md-inline">Loại sản phẩm</span> 
+                </a>
+
+                <div class="collapse" id="loai-san-pham">
+                    <a class="list-group-item" data-parent="#loai-san-pham" [style.cursor]="'pointer'">Chăm sóc da <span class="badge badge-light">30</span></a>
+
+                    <a class="list-group-item" data-parent="#loai-san-pham" [style.cursor]="'pointer'">Chăm sóc body <span class="badge badge-light">10</span></a>
+
+                    <a class="list-group-item" data-parent="#loai-san-pham" [style.cursor]="'pointer'">Son môi <span class="badge badge-light">15</span></a>
+                </div>
+
+                <a href="#all" class="list-group-item d-inline-block collapsed">
+                        <i class="fa fa-database"></i> 
+                        <span class="d-none d-md-inline">All 
+                            <span class="badge badge-info">55</span>
+                        </span> 
+                </a>
+            </div>
+
+        </div>
+
+        <main class="col-md-10 main pb-4 pt-3">
+            <app-them-san-pham></app-them-san-pham>
+        </main>
+    </div>
+</div>

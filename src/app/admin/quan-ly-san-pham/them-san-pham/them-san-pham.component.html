@@ -1,0 +1,66 @@
+<form (submit)="onSubmit()" class="row">
+  
+  <div class="flex-item col-md-4">
+    <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Thêm sản phẩm">
+        
+    </div>
+
+    <div class="form-group">
+      <label>Product name: </label>
+      <input type="text" class="form-control" [(ngModel)]="product.product_name" name="product_name" placeholder="Tên sản phẩm">
+    </div>
+
+    <div class="form-group">
+      <label>Size: </label>
+      <input type="text" class="form-control" [(ngModel)]="product.product_size" name="product_size" placeholder="Trọng lượng, dung lượng sản phẩm">
+    </div>
+
+   
+  </div>
+
+  <div class="flex-item col-md-4">
+    <div class="form-group">
+      <label>Made in: </label>
+      <input type="text" class="form-control" [(ngModel)]="product.product_madein" name="product_madein" placeholder="Made in">
+    </div>
+
+    <div class="form-group">
+      <label>Quantity: </label>
+      <input type="number" class="form-control" [(ngModel)]="product.product_quantity" name="product_quantity" placeholder="Nhập vào số lượng sản phẩm">
+    </div>
+
+    <div class="form-group">
+        <label>Price: </label>
+        <input type="text" class="form-control" [(ngModel)]="product.product_price" name="product_price" placeholder="Giá sản phẩm">
+      </div>
+
+  </div>
+
+  <div class="flex-item col-md-4">
+    <div class="form-group">
+      <label>Decription: </label>
+      <textarea type="text" class="form-control" [(ngModel)]="product.product_decription" name="product_decription" placeholder="Mô tả sản phẩm"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Instruction: </label>
+      <textarea type="text" class="form-control" [(ngModel)]="product.product_instruction" name="product_instruction" placeholder="Hướng dẫn sử dụng"></textarea>
+    </div>
+  </div>
+</form>
+
+<div class="row justify-content-sm-center">
+    <div class="form-group col-sm-6 col-sm-auto" >
+        <label>Product Images: </label>
+        <ng2-file-input 
+          class="form-control" 
+          [multiple]="true" 
+          [drop-text]="''"
+          [browse-text]="'Chọn hình'"
+          [remove-text]="'Xoá hình'"></ng2-file-input>
+    
+        <!-- <input type="file" class="form-control form-control-file" [(ngModel)]="product.product_image" name="product_image" 
+                placeholder="Hình sản phẩm" multiple> -->
+      </div>
+</div>

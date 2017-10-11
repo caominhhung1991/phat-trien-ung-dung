@@ -1,0 +1,65 @@
+<div *ngIf="donhang" class="donhang mb-5 mt-2">
+  <span class="pull-left">Chi tiết đơn hàng #{{donhang.donhang_id}}</span> - {{donhang.status}}
+  <span class="pull-right">Ngày đặt hàng: {{donhang.order_date}}</span>
+
+  <div class="row mt-4 mb-4">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Địa chỉ người nhận</h4>
+          <p class="card-text">Địa chỉ: {{donhang.address}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Phương thức vận chuyển</h4>
+          <p class="card-text">{{donhang.transport}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Phương thức thanh toán</h4>
+          <p class="card-text">{{donhang.payment}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="product">
+    <table class="table">
+      <thead class="thead-default">
+        <tr>
+          <th width="50%">Sản phẩm</th>
+          <th>Giá</th>
+          <th>Số lượng</th>
+          <th>Giảm giá</th>
+          <th>Tạm tính</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let product of donhang.products">
+          <td width="50%">{{product.product_name}}</td>
+          <td>{{product.price}}</td>
+          <td><input type="number" placeholder="{{product.quantity}}"></td>
+          <td>{{product.sale}}</td>
+          <td>{{product.quantity * product.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="xac-nhan">
+    <button class="btn btn-sm btn-danger pull-right ml-1">Huỷ bỏ đơn hàng</button>
+    <button class="btn btn-sm btn-primary pull-right ml-1">Cập nhật</button>
+    <button class="btn btn-sm btn-info pull-right">Refresh</button>
+
+    <button class="btn btn-lg btn-success pull-left mb-5">Xác nhận</button>
+  </div>
+</div>

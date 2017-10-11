@@ -1,0 +1,62 @@
+<app-nav-admin [isActive]="1"></app-nav-admin>
+<div class="container-fluid quan-ly-don-hang">
+    <div class="row d-flex d-md-block flex-nowrap wrapper">
+        <div class="col-md-2 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
+            <div class="list-group border-0 card text-center text-md-left">
+                <a href="#chua-xu-ly" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
+                    <i class="fa fa-hand-lizard-o"></i> 
+                    <span class="d-none d-md-inline">
+                        Chưa xử lý 
+                        <span class="badge badge-danger">2</span> 
+                    </span> 
+                </a>
+                <div class="collapse" id="chua-xu-ly">
+                    <a class="list-group-item donhang-id" data-parent="#chua-xu-ly" *ngFor="let donhang of donhangsChuaXuLy" (click)="onSelect(donhang)"
+                        [style.cursor]="'pointer'">{{donhang.donhang_id}}</a>
+                </div>
+
+                <a href="#dang-cho-giao" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false">
+                        <i class="fa fa-truck"></i> 
+                        <span class="d-none d-md-inline">
+                            Đang chờ giao 
+                            <span class="badge badge-warning">1</span>
+                        </span> 
+                    </a>
+                <div class="collapse" id="dang-cho-giao">
+                    <a class="list-group-item donhang-id" data-parent="#dang-cho-giao" [style.cursor]="'pointer'">Item 1</a>
+                </div>
+
+                <a href="#da-hoan-thanh" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false">
+                        <i class="fa fa-smile-o"></i> 
+                        <span class="d-none d-md-inline">
+                            Đã hoàn thành 
+                            <span class="badge badge-info">1</span>
+                        </span> 
+                    </a>
+                <div class="collapse" id="da-hoan-thanh">
+                    <a class="list-group-item donhang-id" data-parent="#da-hoan-thanh" [style.cursor]="'pointer'">Item 1</a>
+                </div>
+
+                <a href="#all" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false">
+                        <i class="fa fa-database"></i> 
+                        <span class="d-none d-md-inline">
+                            All 
+                            <span class="badge badge-info">4</span>
+                        </span> 
+                    </a>
+                <div class="collapse" id="all">
+                    <a class="list-group-item donhang-id" data-parent="#all" [style.cursor]="'pointer'">Item 1</a>
+                </div>
+            </div>
+
+        </div>
+
+        <main class="col-md-10 main">
+            <div class="row">
+                <div class="col-md-12">
+                    <app-chi-tiet-don-hang [donhang]="selectedDonhang"></app-chi-tiet-don-hang>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
