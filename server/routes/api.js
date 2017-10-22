@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const MongoClient = require('mongodb').MongoClient;
-const ObjectID = require('mongodb').ObjectID;
+const ObjectID = require('mongodb').ObjectId;
 
+var url = "mongodb://caominhhung1991:Hung1991@ds123182.mlab.com:23182/myphamonline";
 // Connect
 const connection = (closure) => {
     return MongoClient.connect('mongodb://caominhhung1991:Hung1991@ds123182.mlab.com:23182/myphamonline', (err, db) => {
@@ -14,7 +15,7 @@ const connection = (closure) => {
 // Error handling
 const sendError = (err, res) => {
     response.status = 501;
-    response.message = typeof err == 'object' ? err.message: err;
+    response.message = typeof err == 'object' ? err.message : err;
     res.status(501).json(response);
 };
 
@@ -64,7 +65,7 @@ router.post('/product', (req, res, next) => {
     console.log("add product api");
     connection((db) => {
         db.collection('product').save(task, (err, task) => {
-            if(err) {
+            if (err) {
                 res.send(err);
             }
             res.json(task);
@@ -72,6 +73,147 @@ router.post('/product', (req, res, next) => {
     });
 })
 
+// Update product
+router.put('/product/:id', (req, res, next) => {
+    var productUpdate = req.body;
+    productUpdate._id = new ObjectID(productUpdate._id);
+    console.log("update product api");
+    console.log(req.params.id);
+    var request = {'_id': new ObjectID(req.params.id)};
+    connection((db) => {
+        db.collection('product')
+            .update(request, productUpdate, {save:true}, (err, product) => {
+                if (err) {
+                    res.send(err);
+                }
+                res.json(product);
+                console.log(product);
+            });
+    });
+});
 
+// delete product 
+router.delete('/product/:id', (req, res, next) => {
+    console.log("delete product api");
+    var request = {'_id': new ObjectID(req.params.id)};
+    connection((db) => {
+        db.collection('product')
+            .remove(request, (err, product)=> {
+                if(err) {
+                    res.send(err);
+                }
+                res.json(product);
+            })
+    })
+});
+
+
+// --- Phiếu nhập kho ---
+// Add one purchasing
+router.post('/purchasing', (req, res, next) => {
+    var purchase = req.body;
+    console.log("add purchase order to purchasing");
+    connection((db) => {
+        db.collection("purchasing")
+            .save(purchase, (err, aa) => {
+                if(err) {
+                    res.send(err);
+                }
+                res.json(aa);
+            })
+            // .catch(err => {
+            //     sendError(err, res);
+            // })
+    })
+});
+
+// --- Kho ---
+// Get one product from inventory
+router.get('/inventory/:id', (req, res, next) => {
+    console.log("get 1 product from inventory!")
+    var request = {'_id': new ObjectID(req.params.id)};
+    connection((db) => {
+        db.collection('inventory')
+            .findOne(request, (err, aa) => {
+                if(err) {
+                    res.send(err);
+                }
+                res.json(aa);
+            })
+    })
+});
+// // Add one product to inventory
+router.post('/inventory', (req, res, next) => {
+    console.log("Add one product to inventory");
+    var product = req.body;
+    product._id = new ObjectID(product._id);
+    connection(db => {
+        db.collection("inventory")
+            .save(product)
+            .then(res.json())
+    });
+});
+
+// Update one product to inventory
+router.put('/inventory/:id', (req, res, next) => {
+    console.log("Update one product to inventory");
+    var product = req.body;
+    product._id = new ObjectID(product._id);
+    var request = {'_id': new ObjectID(req.params.id)};
+    connection((db) => {
+        db.collection('inventory')
+            .update(request, product, {save:true}, (err, product) => {
+                if (err) {
+                    res.send(err);
+                }
+                res.json(product);
+            });
+    });
+});
+
+// --- List product by join ---
+// Get list of products
+router.get('/products-guest', (req, res, next) => {
+    console.log("get products guest by join api");
+    connection((db) => {
+        db.collection('product')
+            .aggregate([
+                { $lookup:
+                    {
+                        from: 'inventory',
+                        localField: '_id',
+                        foreignField: '_id',
+                        as: 'sub_prod'
+                    }
+                }
+            ])
+            .toArray()
+            .then((users) => {
+                response.data = users;
+                res.json(response);
+            })
+            .catch((err) => {
+                sendError(err, res);
+            });
+    });
+});
+
+
+// --- Users ---
+// Registration
+router.post('/users', (req, res, next) => {
+    console.log("Registration One User");
+    var user = req.body;
+    // user._id = new ObjectID(product._id);
+    connection(db => {
+        db.collection("user")
+            .save(product)
+            .then(res.json())
+    });
+})
+// Get one user by username, password
+// router.get('/users/:username&:password', (req, res, next) => {
+    
+// });
 
 module.exports = router;

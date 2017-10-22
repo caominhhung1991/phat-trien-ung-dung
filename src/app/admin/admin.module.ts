@@ -15,7 +15,11 @@ import { GoBackComponent } from './../components/go-back/go-back.component';
 import { NavAdminComponent } from './nav-admin/nav-admin.component';
 import { ChiTietDonHangComponent } from './chi-tiet-don-hang/chi-tiet-don-hang.component';
 import { ThemSanPhamComponent } from './quan-ly-san-pham/them-san-pham/them-san-pham.component';
-
+import { AllProductComponent } from './quan-ly-san-pham/all-product/all-product.component';
+import { ModalProductComponent} from './../components/modals/modal-product/modal-product.component';
+import { PhieuNhapKhoComponent } from './quan-ly-san-pham/phieu-nhap-kho/phieu-nhap-kho.component';
+import { ModalAddProductToRepositoryComponent } from './../components/modals/modal-add-product-to-repository/modal-add-product-to-repository.component'
+ 
 @NgModule({
   imports: [
     CommonModule,
@@ -33,7 +37,11 @@ import { ThemSanPhamComponent } from './quan-ly-san-pham/them-san-pham/them-san-
     GoBackComponent,
     NavAdminComponent,
     ChiTietDonHangComponent,
-    ThemSanPhamComponent
+    ThemSanPhamComponent,
+    AllProductComponent,
+    ModalProductComponent,
+    PhieuNhapKhoComponent,
+    ModalAddProductToRepositoryComponent
   ]
 })
 export class AdminModule { }

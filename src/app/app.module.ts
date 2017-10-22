@@ -4,11 +4,14 @@ import { HttpModule } from '@angular/http';
 // module
 import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module';
+import { GuestModule} from './guest/guest.module';
 // guard 
 import { AuthguardGuard } from './guard/authguard.guard'
 // services
-import { MainService } from './service/main.service'
-import { AdminService } from './service/admin.service'
+import { MainService } from './service/main.service';
+import { AdminService } from './service/admin.service';
+import { GuestService } from './service/guest.service';
+import { TestService } from './service/test.service';
 // components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -16,13 +19,16 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserComponent } from './admin/user/user.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
-import { HomePageComponent } from './guest/home-page/home-page.component';
+import { SignUpComponent} from './components/sign-up/sign-up.component';
+// import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component'
+
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
     AppRoutingModule,
-    AdminModule
+    AdminModule,
+    GuestModule
   ],
   declarations: [
     AppComponent,
@@ -30,12 +36,15 @@ import { HomePageComponent } from './guest/home-page/home-page.component';
     HeaderComponent,
     FooterComponent,
     UserComponent,
-    NotfoundComponent,
-    HomePageComponent,
+    SignUpComponent,
+    // ShoppingCartComponent,
+    NotfoundComponent
   ],
   providers: [
     MainService,
     AdminService,
+    GuestService,
+    TestService,
     AuthguardGuard
   ],
   bootstrap: [AppComponent]

@@ -1,0 +1,230 @@
+{{testProducts | json}}
+<div class="container mt-4 mb-4">
+  <div class="side-bar">
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 col-sm-4 col-xs-6 product" *ngFor="let product of products">
+      <a class="product-a">
+        <div class="card" style="width: 20rem;">
+          <!-- <a href="/product-detail"> -->
+          <img class="card-img-top" [src]="product.product_image" alt="Card image cap" (click)="onSelect(product)" data-toggle="modal"
+            data-target="#product-detail" style="cursor: pointer">
+          <!-- </a> -->
+          <div class="card-body" *ngIf="product">
+            <p class="product-info card-text">{{product.product_name}}</p>
+            <p class="card-text product-price">{{product.sub_prod[0].price | number}}đ</p>
+            <!-- <a class="btn btn-primary add-to-cart" (click)="onSelect(product)" data-toggle="modal" data-target="#shopping-cart">Cho vào giỏ hàng</a> -->
+            <button class="btn btn-primary add-to-cart" (click)="onSelect(product)" data-toggle="modal" data-target="#shopping-cart">Cho vào giỏ hàng</button>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal shopping cart giỏ hàng của khách hàng -->
+<app-shopping-cart *ngIf="selectedProduct" (products)="pushProducts($event)" [product]="selectedProduct"></app-shopping-cart>
+<!-- <app-modal-product-detail *ngIf="selectedProduct" [productInput]="selectedProduct"></app-modal-product-detail> -->
+
+<!-- Modal -->
+<div *ngIf="selectedProduct"   class="modal fade" id="product-detail" tabindex="-1" role="dialog" aria-labelledby="product-detail"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="product-detailLabel">Thông Tin Sản Phẩm</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div style="background: #f5f5f5;">
+          <div class="">
+            <div class="gioi-thieu-san-pham row mb-4">
+              <div class="product-image col-md-4">
+                <img class="image" [src]="product2.product_image" alt="">
+              </div>
+              <div class="product-info col-md-8">
+                <h2 class="display-4">{{product2.product_name }}</h2>
+                <div class="price">
+                  <span class="price-present">{{product2.sub_prod[0].price | number}}</span>
+                </div>
+
+                <hr>
+
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                  <button type="button" class="btn btn-danger" (click)="decrease()">-</button>
+                  <input type="text" style="width: 40px !important;" name="quantity" value="{{product2.quantity }}" min="1" max="20" disabled>
+                  <button type="button" class="btn btn-danger" (click)="increase()">+</button>
+                </div>
+                <br>
+                <br>
+                <button class="btn btn-primary" (click)="onSelect2(product2)">Cho vào giỏ hàng</button>
+
+                <br>
+                <br>
+              </div>
+            </div>
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-expanded="true">
+                  <h2 class="display-4">Thông số sản phẩm</h2>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" required>
+                  <h2 class="display-4">Thông tin sản phẩm</h2>
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="thong-so-san-pham" id="tab_content_product_specifications">
+
+                  <table class="table table-bordered" id="tblGeneralAttribute">
+                    <tbody>
+                      <tr class="row-info">
+                        <td>
+                          <strong>Xuất xứ</strong>
+                        </td>
+                        <td>{{product2.product_madein}}</td>
+                      </tr>
+
+                      <tr class="row-info">
+                        <td>
+                          <strong>Giới tính</strong>
+                        </td>
+                        <td>{{product2.product_gender}}</td>
+                      </tr>
+
+                      <tr class="row-info">
+                        <td>
+                          <strong>Hướng dẫn sử dụng</strong>
+                        </td>
+                        <td>{{product2.product_instruction}}</td>
+                      </tr>
+
+                      <tr class="row-info">
+                        <td>
+                          <strong>Hướng dẫn bảo quản</strong>
+                        </td>
+                        <td>Bảo quản nơi khô ráo, thoáng mát</td>
+                      </tr>
+                      <tr class="row-info">
+                        <td>
+                          <strong>Dung tích</strong>
+                        </td>
+                        <td>{{product2.product_size}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!-- end table.table -->
+
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="thong-tin-san-pham mb-4">
+
+                  <h3>{{product2.product_name}}</h3>
+                  <p>{{product2.product_decription}}</p>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- <app-san-pham-tuong-tu></app-san-pham-tuong-tu> -->
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="hoan-tat-don-hang" tabindex="-1" role="dialog" aria-labelledby="product-detail" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="product-detailLabel">Hoàn tất đơn hàng</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Địa chỉ nhận hàng</h5>
+        <div class="input-group">
+          <span class="input-group-addon" id="ho-ten">Họ tên: </span>
+          <input type="text" class="form-control" placeholder="Ví dụ: Cao Minh Hưng">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="ho-ten">Điện thoại: </span>
+          <input type="text" class="form-control" placeholder="Ví dụ: 01218815991">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="ho-ten">Email: </span>
+          <input type="email" class="form-control" placeholder="support@gmail.com">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="ho-ten">Tên đường phố: </span>
+          <input type="text" class="form-control" placeholder="Phường 4, Quận Gò Vấp, Hồ Chí Minh">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="ho-ten">Địa chỉ chi tiết: </span>
+          <input type="text" class="form-control" placeholder="Ví dụ: số 10, Ngõ 50, Ngách 100, Hẽm 22">
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon" id="ho-ten">Lời nhắn: </span>
+          <textarea name="" id="" cols="20" rows="2" class="form-control" placeholder="Ví dụ: Giao ngoài giờ hành chính"></textarea>
+        </div>
+
+        <table class="table mt-4">
+            <thead class="thead-default">
+              <tr>
+                <th>SẢN PHẨM</th>
+                <th>ĐƠN GIÁ</th>
+                <th>SỐ LƯỢNG</th>
+                <th>THÀNH TIỀN</th> 
+              </tr>
+            </thead>
+            <tr *ngFor="let item of products2, let i = index">
+              <td class="product-info w-100">
+                <img class ="d-inline-block img-thumbnail w-25 h-25 mr-2" [src]="item.product_image">
+                <span class="d-inline-block">{{item.product_name}}
+                  <br> <i class="fa fa-window-close" (click)="DeleteProduct(i)"></i>
+                </span>
+              </td>
+              <td>{{item.sub_prod[0].price}}</td>
+              <td>
+                <input #quantity type="number" value="{{item.quantity}}" min="1" max="1000" (change)="[tinhTotalPrice(quantity.value, item.sub_prod[0].price, i), TinhTongTienCart()]">
+              </td>
+              <td id="thanh-tien" class="thanh-tien">{{ item.total_price | number }}</td>
+            </tr>
+  
+            <tr>
+              <td class="" colspan="3" style="font-weight: bold; text-align: right;  font-size: 20px">Tổng tiền</td>
+              <!-- <td style="font-weight: bold; color: rgb(207, 6, 6); font-size: 20px">{{products2.tong_tien | number}}</td> -->
+            </tr>
+          </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

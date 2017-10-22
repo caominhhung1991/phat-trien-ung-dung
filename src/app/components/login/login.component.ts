@@ -28,6 +28,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  goBack() {
+    window.history.back();
+  }
+
   ngOnInit() {
   }
 }

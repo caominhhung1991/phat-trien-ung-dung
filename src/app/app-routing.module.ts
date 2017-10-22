@@ -11,9 +11,11 @@ import { LoginComponent } from './components/login/login.component';
 import { UserComponent } from './admin/user/user.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { HomePageComponent } from './guest/home-page/home-page.component';
+import { ProductDetailComponent} from './guest/product-detail/product-detail.component';
+import { ShoppingCartComponent} from './components/shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/admin', pathMatch: 'full' },
+    { path: '', redirectTo: '/home-page', pathMatch: 'full' },
     // { path: 'admin', canActivate: [AuthguardGuard], component: AdminComponent },
     { path: 'admin', component: AdminComponent },
     { path: 'login', component: LoginComponent },
@@ -21,9 +23,10 @@ const routes: Routes = [
         { path: ':name', component: UserComponent },
         { path: ':name/:id', component: UserComponent }
     ]},
+    { path: 'shopping-cart', component: ShoppingCartComponent },
     { path: 'home-page', component: HomePageComponent },
+    { path: 'product-detail', component: ProductDetailComponent },
     { path: '**', component: NotfoundComponent }
-
 ]
 
 @NgModule({
