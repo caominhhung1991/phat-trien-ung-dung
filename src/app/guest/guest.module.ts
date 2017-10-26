@@ -10,6 +10,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { SanPhamTuongTuComponent } from './san-pham-tuong-tu/san-pham-tuong-tu.component';
 import { ShoppingCartComponent } from '../components/shopping-cart/shopping-cart.component';
 import { ModalProductDetailComponent } from './../components/modals/modal-product-detail/modal-product-detail.component';
+import { HoanTatThanhToanComponent } from './hoan-tat-thanh-toan/hoan-tat-thanh-toan.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { ModalProductDetailComponent } from './../components/modals/modal-produc
     ProductDetailComponent,
     SanPhamTuongTuComponent,
     ShoppingCartComponent,
-    ModalProductDetailComponent
+    ModalProductDetailComponent,
+    HoanTatThanhToanComponent
   ]
 })
 export class GuestModule { }

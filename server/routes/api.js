@@ -59,6 +59,19 @@ router.get('/products', (req, res) => {
     });
 });
 
+router.get('/product/:id', (req, res, next)  => {
+    var request = {'_id': new ObjectID(req.params.id)};
+    connection((db) => {
+        db.collection('product')
+            .findOne(request, (err, product) => {
+                if (err) {
+                    res.send(err);
+                }
+                res.json(product);
+            });
+    });
+});
+
 // Add product
 router.post('/product', (req, res, next) => {
     var task = req.body;
@@ -134,13 +147,13 @@ router.get('/inventory/:id', (req, res, next) => {
     var request = {'_id': new ObjectID(req.params.id)};
     connection((db) => {
         db.collection('inventory')
-            .findOne(request, (err, aa) => {
-                if(err) {
+            .findOne(request, (err, product) => {
+                if (err) {
                     res.send(err);
                 }
-                res.json(aa);
-            })
-    })
+                res.json(product);
+            });
+    });
 });
 // // Add one product to inventory
 router.post('/inventory', (req, res, next) => {
@@ -197,7 +210,6 @@ router.get('/products-guest', (req, res, next) => {
             });
     });
 });
-
 
 // --- Users ---
 // Registration

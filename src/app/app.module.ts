@@ -11,6 +11,7 @@ import { AuthguardGuard } from './guard/authguard.guard'
 import { MainService } from './service/main.service';
 import { AdminService } from './service/admin.service';
 import { GuestService } from './service/guest.service';
+import { UsersService } from './service/users.service';
 import { TestService } from './service/test.service';
 // components
 import { AppComponent } from './app.component';
@@ -44,6 +45,7 @@ import { SignUpComponent} from './components/sign-up/sign-up.component';
     MainService,
     AdminService,
     GuestService,
+    UsersService,
     TestService,
     AuthguardGuard
   ],

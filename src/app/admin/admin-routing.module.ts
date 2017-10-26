@@ -6,11 +6,13 @@ import { QuanLyDonHangComponent } from './quan-ly-don-hang/quan-ly-don-hang.comp
 import { QuanLySanPhamComponent } from './quan-ly-san-pham/quan-ly-san-pham.component';
 import { DoanhThuComponent } from './thongke/doanh-thu/doanh-thu.component';
 import { ChiTietDonHangComponent } from './chi-tiet-don-hang/chi-tiet-don-hang.component';
+// guard
+import { AuthguardGuard } from './../guard/authguard.guard'
 
 const routes: Routes = [
-  { path: "admin", component: QuanLySanPhamComponent},
-  { path: "quanlydonhang", component: QuanLyDonHangComponent},
-  { path: "quanlysanpham", component: QuanLySanPhamComponent},
+  // { path: "admin", component: QuanLySanPhamComponent},
+  { path: "quanlydonhang", canActivate:[AuthguardGuard], component: QuanLyDonHangComponent},
+  { path: "quanlysanpham", canActivate:[AuthguardGuard], component: QuanLySanPhamComponent},
   { path: "quanlydoanhthu", component: DoanhThuComponent},
   { path: "donhang/:id", component: ChiTietDonHangComponent}
 ]

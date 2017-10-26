@@ -14,7 +14,8 @@ export class AdminComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.name = this.mainService.username;
+
   }
 
 }
+ 

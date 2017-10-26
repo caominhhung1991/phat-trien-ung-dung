@@ -24,6 +24,7 @@ webpackEmptyAsyncContext.id = "../../../../../src lazy recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__quan_ly_san_pham_quan_ly_san_pham_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/quan-ly-san-pham.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__thongke_doanh_thu_doanh_thu_component__ = __webpack_require__("../../../../../src/app/admin/thongke/doanh-thu/doanh-thu.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__chi_tiet_don_hang_chi_tiet_don_hang_component__ = __webpack_require__("../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__guard_authguard_guard__ = __webpack_require__("../../../../../src/app/guard/authguard.guard.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -37,10 +38,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+// guard
+
 var routes = [
-    { path: "admin", component: __WEBPACK_IMPORTED_MODULE_3__quan_ly_san_pham_quan_ly_san_pham_component__["a" /* QuanLySanPhamComponent */] },
-    { path: "quanlydonhang", component: __WEBPACK_IMPORTED_MODULE_2__quan_ly_don_hang_quan_ly_don_hang_component__["a" /* QuanLyDonHangComponent */] },
-    { path: "quanlysanpham", component: __WEBPACK_IMPORTED_MODULE_3__quan_ly_san_pham_quan_ly_san_pham_component__["a" /* QuanLySanPhamComponent */] },
+    // { path: "admin", component: QuanLySanPhamComponent},
+    { path: "quanlydonhang", canActivate: [__WEBPACK_IMPORTED_MODULE_6__guard_authguard_guard__["a" /* AuthguardGuard */]], component: __WEBPACK_IMPORTED_MODULE_2__quan_ly_don_hang_quan_ly_don_hang_component__["a" /* QuanLyDonHangComponent */] },
+    { path: "quanlysanpham", canActivate: [__WEBPACK_IMPORTED_MODULE_6__guard_authguard_guard__["a" /* AuthguardGuard */]], component: __WEBPACK_IMPORTED_MODULE_3__quan_ly_san_pham_quan_ly_san_pham_component__["a" /* QuanLySanPhamComponent */] },
     { path: "quanlydoanhthu", component: __WEBPACK_IMPORTED_MODULE_4__thongke_doanh_thu_doanh_thu_component__["a" /* DoanhThuComponent */] },
     { path: "donhang/:id", component: __WEBPACK_IMPORTED_MODULE_5__chi_tiet_don_hang_chi_tiet_don_hang_component__["a" /* ChiTietDonHangComponent */] }
 ];
@@ -196,7 +199,6 @@ var AdminComponent = (function () {
         this.mainService = mainService;
     }
     AdminComponent.prototype.ngOnInit = function () {
-        this.name = this.mainService.username;
     };
     return AdminComponent;
 }());
@@ -316,7 +318,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/nav-admin/nav-admin.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-md navbar-dark bg-dark\">\r\n  <a class=\"navbar-brand\" routerLink=\"/\">Quản lí Shop Online</a>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExample04\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarsExample04\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\" [class.active]=\"isActive == 1\">\r\n        <a class=\"nav-link\" routerLink=\"/quanlydonhang\">Quản lí đơn hàng</a>\r\n      </li>\r\n\r\n      <li class=\"nav-item\" [class.active]=\"isActive == 2\">\r\n        <a class=\"nav-link\" routerLink=\"/quanlysanpham\">Quản lí sản phẩm</a>\r\n      </li>\r\n\r\n\r\n      <li class=\"nav-item dropdown\" [class.active]=\"isActive == 3\">\r\n        <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"\">Thống kê</a>\r\n        <div class=\"dropdown-menu\">\r\n          <a href=\"/quanlydoanhthu\" class=\"dropdown-item\">Quản lý doanh thu</a>\r\n        </div>\r\n      </li>\r\n\r\n      <!-- Welcome -->\r\n      <li class=\"nav-item dropdown\">\r\n        <a class=\"nav-link dropdown-toggle\" href=\"http://example.com\" data-toggle=\"dropdown\">Welcome {{name}}</a>\r\n        <div class=\"dropdown-menu\">\r\n          <a class=\"dropdown-item\" routerLink=\"/login\">{{name=='unknown' ? 'Sign In': \"Logout\"}}</a>\r\n          <a class=\"dropdown-item\">......</a>\r\n          <a class=\"dropdown-item\">......</a>\r\n        </div>\r\n      </li>\r\n    </ul>\r\n\r\n  </div>\r\n</nav>"
+module.exports = "<nav class=\"navbar navbar-expand-md navbar-dark bg-dark\">\r\n  <a class=\"navbar-brand\" routerLink=\"/\">Quản lí Shop Online</a>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExample04\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarsExample04\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\" [class.active]=\"isActive == 1\">\r\n        <a class=\"nav-link\" routerLink=\"/quanlydonhang\">Quản lí đơn hàng</a>\r\n      </li>\r\n\r\n      <li class=\"nav-item\" [class.active]=\"isActive == 2\">\r\n        <a class=\"nav-link\" routerLink=\"/quanlysanpham\">Quản lí sản phẩm</a>\r\n      </li>\r\n\r\n\r\n      <li class=\"nav-item dropdown\" [class.active]=\"isActive == 3\">\r\n        <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"\">Thống kê</a>\r\n        <div class=\"dropdown-menu\">\r\n          <a href=\"/quanlydoanhthu\" class=\"dropdown-item\">Quản lý doanh thu</a>\r\n        </div>\r\n      </li>\r\n\r\n      <!-- Welcome -->\r\n      <li class=\"nav-item dropdown\">\r\n        <a class=\"nav-link dropdown-toggle\" href=\"http://example.com\" data-toggle=\"dropdown\">Welcome {{name}}</a>\r\n        <div class=\"dropdown-menu\">\r\n          <a class=\"dropdown-item\" routerLink=\"/login\" (click)=\"logout()\">{{name=='unknown' ? 'Sign In': \"Logout\"}}</a>\r\n        </div>\r\n      </li>\r\n    </ul>\r\n\r\n  </div>\r\n</nav>"
 
 /***/ }),
 
@@ -342,8 +344,11 @@ var NavAdminComponent = (function () {
     function NavAdminComponent(mainService) {
         this.mainService = mainService;
     }
+    NavAdminComponent.prototype.logout = function () {
+        localStorage.removeItem('currentUser');
+    };
     NavAdminComponent.prototype.ngOnInit = function () {
-        this.name = this.mainService.username;
+        this.name = this.mainService.getUserLoggedIn().name;
     };
     return NavAdminComponent;
 }());
@@ -992,13 +997,15 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_admin_routing_module__ = __webpack_require__("../../../../../src/app/admin/admin-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__admin_admin_admin_component__ = __webpack_require__("../../../../../src/app/admin/admin/admin.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__admin_user_user_component__ = __webpack_require__("../../../../../src/app/admin/user/user.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_notfound_notfound_component__ = __webpack_require__("../../../../../src/app/components/notfound/notfound.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__guest_home_page_home_page_component__ = __webpack_require__("../../../../../src/app/guest/home-page/home-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__guest_product_detail_product_detail_component__ = __webpack_require__("../../../../../src/app/guest/product-detail/product-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_shopping_cart_shopping_cart_component__ = __webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__guard_authguard_guard__ = __webpack_require__("../../../../../src/app/guard/authguard.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_admin_admin_component__ = __webpack_require__("../../../../../src/app/admin/admin/admin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__admin_user_user_component__ = __webpack_require__("../../../../../src/app/admin/user/user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_notfound_notfound_component__ = __webpack_require__("../../../../../src/app/components/notfound/notfound.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__guest_home_page_home_page_component__ = __webpack_require__("../../../../../src/app/guest/home-page/home-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__guest_product_detail_product_detail_component__ = __webpack_require__("../../../../../src/app/guest/product-detail/product-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_shopping_cart_shopping_cart_component__ = __webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__guest_hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__ = __webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1009,6 +1016,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 // module
 
+// guard
+
+
 
 
 
@@ -1018,17 +1028,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var routes = [
     { path: '', redirectTo: '/home-page', pathMatch: 'full' },
-    // { path: 'admin', canActivate: [AuthguardGuard], component: AdminComponent },
-    { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_3__admin_admin_admin_component__["a" /* AdminComponent */] },
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_4__components_login_login_component__["a" /* LoginComponent */] },
+    { path: 'admin', canActivate: [__WEBPACK_IMPORTED_MODULE_3__guard_authguard_guard__["a" /* AuthguardGuard */]], component: __WEBPACK_IMPORTED_MODULE_4__admin_admin_admin_component__["a" /* AdminComponent */] },
+    // { path: 'admin', component: AdminComponent},
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_5__components_login_login_component__["a" /* LoginComponent */] },
     { path: 'users', pathMatch: 'prefix', children: [
-            { path: ':name', component: __WEBPACK_IMPORTED_MODULE_5__admin_user_user_component__["a" /* UserComponent */] },
-            { path: ':name/:id', component: __WEBPACK_IMPORTED_MODULE_5__admin_user_user_component__["a" /* UserComponent */] }
+            { path: ':name', component: __WEBPACK_IMPORTED_MODULE_6__admin_user_user_component__["a" /* UserComponent */] },
+            { path: ':name/:id', component: __WEBPACK_IMPORTED_MODULE_6__admin_user_user_component__["a" /* UserComponent */] }
         ] },
-    { path: 'shopping-cart', component: __WEBPACK_IMPORTED_MODULE_9__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */] },
-    { path: 'home-page', component: __WEBPACK_IMPORTED_MODULE_7__guest_home_page_home_page_component__["a" /* HomePageComponent */] },
-    { path: 'product-detail', component: __WEBPACK_IMPORTED_MODULE_8__guest_product_detail_product_detail_component__["a" /* ProductDetailComponent */] },
-    { path: '**', component: __WEBPACK_IMPORTED_MODULE_6__components_notfound_notfound_component__["a" /* NotfoundComponent */] }
+    { path: 'hoan-tat-thanh-toan', component: __WEBPACK_IMPORTED_MODULE_11__guest_hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */] },
+    { path: 'product/:id', component: __WEBPACK_IMPORTED_MODULE_9__guest_product_detail_product_detail_component__["a" /* ProductDetailComponent */] },
+    { path: 'shopping-cart', component: __WEBPACK_IMPORTED_MODULE_10__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */] },
+    { path: 'home-page', component: __WEBPACK_IMPORTED_MODULE_8__guest_home_page_home_page_component__["a" /* HomePageComponent */] },
+    // { path: 'product-detail', component: ProductDetailComponent },
+    { path: '**', component: __WEBPACK_IMPORTED_MODULE_7__components_notfound_notfound_component__["a" /* NotfoundComponent */] }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
@@ -1070,7 +1082,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <app-header></app-header> -->\r\n<!-- Modal sign up đăng ký tài khoản mới -->\r\n<app-sign-up></app-sign-up>\r\n\r\n<router-outlet></router-outlet>\r\n\r\n\r\n<app-footer></app-footer>\r\n\r\n"
+module.exports = "<!-- <app-header></app-header> -->\r\n<!-- Modal sign up đăng ký tài khoản mới -->\r\n<app-sign-up></app-sign-up>\r\n\r\n<router-outlet></router-outlet>\r\n\r\n<app-footer></app-footer>\r\n\r\n"
 
 /***/ }),
 
@@ -1141,14 +1153,15 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__service_admin_service__ = __webpack_require__("../../../../../src/app/service/admin.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__service_test_service__ = __webpack_require__("../../../../../src/app/service/test.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_header_header_component__ = __webpack_require__("../../../../../src/app/components/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_footer_footer_component__ = __webpack_require__("../../../../../src/app/components/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__admin_user_user_component__ = __webpack_require__("../../../../../src/app/admin/user/user.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_notfound_notfound_component__ = __webpack_require__("../../../../../src/app/components/notfound/notfound.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_sign_up_sign_up_component__ = __webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__service_users_service__ = __webpack_require__("../../../../../src/app/service/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__service_test_service__ = __webpack_require__("../../../../../src/app/service/test.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_header_header_component__ = __webpack_require__("../../../../../src/app/components/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_footer_footer_component__ = __webpack_require__("../../../../../src/app/components/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__admin_user_user_component__ = __webpack_require__("../../../../../src/app/admin/user/user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_notfound_notfound_component__ = __webpack_require__("../../../../../src/app/components/notfound/notfound.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_sign_up_sign_up_component__ = __webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1165,6 +1178,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 // guard 
 
 // services
+
 
 
 
@@ -1193,23 +1207,24 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_5__guest_guest_module__["a" /* GuestModule */]
         ],
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__components_login_login_component__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__components_header_header_component__["a" /* HeaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_footer_footer_component__["a" /* FooterComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__admin_user_user_component__["a" /* UserComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__components_login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__components_header_header_component__["a" /* HeaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__components_footer_footer_component__["a" /* FooterComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__admin_user_user_component__["a" /* UserComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
             // ShoppingCartComponent,
-            __WEBPACK_IMPORTED_MODULE_16__components_notfound_notfound_component__["a" /* NotfoundComponent */]
+            __WEBPACK_IMPORTED_MODULE_17__components_notfound_notfound_component__["a" /* NotfoundComponent */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_7__service_main_service__["a" /* MainService */],
             __WEBPACK_IMPORTED_MODULE_8__service_admin_service__["a" /* AdminService */],
             __WEBPACK_IMPORTED_MODULE_9__service_guest_service__["a" /* GuestService */],
-            __WEBPACK_IMPORTED_MODULE_10__service_test_service__["a" /* TestService */],
+            __WEBPACK_IMPORTED_MODULE_10__service_users_service__["a" /* UsersService */],
+            __WEBPACK_IMPORTED_MODULE_11__service_test_service__["a" /* TestService */],
             __WEBPACK_IMPORTED_MODULE_6__guard_authguard_guard__["a" /* AuthguardGuard */]
         ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_12__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -1460,12 +1475,12 @@ var LoginComponent = (function () {
     }
     LoginComponent.prototype.loginUser = function (e) {
         e.preventDefault();
-        console.log(e);
+        // console.log(e);
         var username = e.target.elements[0].value;
         var password = e.target.elements[1].value;
         if (username == 'admin' && password == 'admin') {
-            this.mainService.setUserLoggedIn();
-            this.router.navigate(['admin']);
+            this.mainService.setUserLoggedIn(username);
+            this.router.navigate([username]);
         }
     };
     LoginComponent.prototype.goBack = function () {
@@ -1609,7 +1624,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/modals/modal-product-detail/modal-product-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"product-detail\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"product-detail\" aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"product-detailLabel\">Thông Tin Sản Phẩm</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n\n        <div style=\"background: #f5f5f5;\">\n          <div class=\"\">\n            <div class=\"gioi-thieu-san-pham row mb-4\">\n              <div class=\"product-image col-md-4\">\n                <img class=\"image\" [src]=\"product.product_image\" alt=\"\">\n              </div>\n              <div class=\"product-info col-md-8\">\n                <h2 class=\"display-4\">Nước Hoa Nữ Bright Crystal - Nước Hoa Nữ Versace - nước hoa nữ Thuần Khiết - Nước hoa nữ 90ml</h2>\n                <div class=\"price\">\n                  <span class=\"price-present\">235.235đ</span>\n                </div>\n\n                <hr>\n\n                <div class=\"shopee-product-info-body__row shopee-product-info-body__free-shipping\">\n                  <span class=\"shopee-product-info-body__free-shipping-text\">Miễn Phí Vận Chuyển cho đơn hàng có giá trị từ ₫180.000 (giảm tối đa 50.000 VNĐ)</span>\n                </div>\n                <div class=\"shopee-product-info-body__shipping-block-label\">Vận chuyển tới: Hà Nội, Huyện Ba Vì</div>\n                <div class=\"shopee-product-info-body__shipping-block-label\">phí vận chuyển: ₫0</div>\n\n                <hr>\n\n                <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\n                  <button type=\"button\" class=\"btn btn-danger\" (click)=\"decrease()\">-</button>\n                  <input type=\"text\" style=\"width: 40px !important;\" name=\"quantity\" value=\"{{product.quantity }}\" min=\"1\" max=\"20\" disabled>\n                  <button type=\"button\" class=\"btn btn-danger\" (click)=\"increase()\">+</button>\n                </div>\n                <br>\n                <br>\n\n                <a href=\"#\" class=\"btn btn-danger add-to-cart\">Cho vào giỏ hàng</a>\n                <a href=\"#\" class=\"btn btn-info add-to-cart\">Mua ngay</a>\n              </div>\n            </div>\n\n            <ul class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\n              <li class=\"nav-item\">\n                <a class=\"nav-link active\" id=\"home-tab\" data-toggle=\"tab\" href=\"#home\" role=\"tab\" aria-controls=\"home\" aria-expanded=\"true\">\n                  <h2 class=\"display-4\">Thông số sản phẩm</h2>\n                </a>\n              </li>\n              <li class=\"nav-item\">\n                <a class=\"nav-link\" id=\"profile-tab\" data-toggle=\"tab\" href=\"#profile\" role=\"tab\" aria-controls=\"profile\">\n                  <h2 class=\"display-4\">Thông tin sản phẩm</h2>\n                </a>\n              </li>\n\n              <li class=\"nav-item\">\n                <a class=\"nav-link\" id=\"binh-luan\" data-toggle=\"tab\" href=\"#profile\" role=\"tab\" aria-controls=\"profile\">\n                  <h2 class=\"display-4\">Bình luận</h2>\n                </a>\n              </li>\n            </ul>\n            <div class=\"tab-content\" id=\"myTabContent\">\n              <div class=\"tab-pane fade show active\" id=\"home\" role=\"tabpanel\" aria-labelledby=\"home-tab\">\n                <div class=\"thong-so-san-pham\" id=\"tab_content_product_specifications\">\n\n                  <table class=\"table table-bordered\" id=\"tblGeneralAttribute\">\n                    <tbody>\n                      <tr class=\"row-info\">\n                        <td>\n                          <strong>Xuất xứ</strong>\n                        </td>\n                        <td>Pháp</td>\n                      </tr>\n                      <tr class=\"row-info\">\n                        <td>\n                          <strong>Hạn sử dụng</strong>\n                        </td>\n                        <td>3 năm kể từ ngày sản xuất</td>\n                      </tr>\n                      <tr class=\"row-info\">\n                        <td>\n                          <strong>Thành phần</strong>\n                        </td>\n                        <td>15 loại khoáng chất lấy từ nguồn nước khoáng Vichy</td>\n                      </tr>\n                      <tr class=\"row-info\">\n                        <td>\n                          <strong>Loại da phù hợp</strong>\n                        </td>\n                        <td>Mọi loại da</td>\n                      </tr>\n                      <tr class=\"row-info\">\n                        <td>\n                          <strong>Hướng dẫn bảo quản</strong>\n                        </td>\n                        <td>Bảo quản nơi khô ráo, thoáng mát</td>\n                      </tr>\n                      <tr class=\"row-info\">\n                        <td>\n                          <strong>Dung tích</strong>\n                        </td>\n                        <td>150 (ml)</td>\n                      </tr>\n                    </tbody>\n                  </table>\n                  <!-- end table.table -->\n\n                </div>\n              </div>\n\n              <div class=\"tab-pane fade\" id=\"profile\" role=\"tabpanel\" aria-labelledby=\"profile-tab\">\n                <div class=\"thong-tin-san-pham mb-4\" id=\"tab_content_product_introduction\">\n\n                  <h3>Xịt khoáng dưỡng da Vichy Eau Thermale 150ml</h3>\n                  <p>\n                    <strong>Nước khoáng dưỡng da Vichy Thermal Spa Water</strong>&nbsp;được làm từ 15 khoáng chất quý hiếm trong\n                    tự nhiên bao gồm sắt, Potassium, Canxi, Manganese, Silicon,... Nước khoáng đã được công nhận bởi tác\n                    dụng làm dịu, củng cố và làm đẹp da hiệu quả, được kiểm chứng bởi 34 thí nghệm trên hơn 600 người thuộc\n                    mọi loại da, thậm chí làn da nhạy cảm nhất và dưới sự giám sát của chuyên gia da liễu.</p>\n                  <p>\n                    <strong>Hướng dẫn sử dụng</strong>\n                  </p>\n\n                  <ul>\n                    <li>Xịt khắp mặt, vỗ nhẹ, để yên 1 lát rồi thấm khô nhẹ nhàng</li>\n                    <li>Có thể sử dụng nhiều lần trong ngày</li>\n                  </ul>\n\n                  <p>\n                    <strong>Thông tin thương hiệu</strong>\n                  </p>\n\n                  <div>Vichy là thương hiệu nổi tiếng của Pháp được thành lập vào năm 1931 tại thành phố cùng tên Vichy bởi bác\n                    sĩ da liễu Haller và nhà kinh doanh Guerin. Với nhiều năm kinh nghiệm, viện nghiên cứu Vichy đã sáng\n                    tạo ra nhiều phương thức mới và hiệu quả để chăm sóc sức khỏe làn da. Tất cả sản phẩm Vichy được kiểm\n                    nghiệm một cách toàn diện và khắt khe dưới sự giám sát của chuyên gia da liễu về độ an toàn và dịu nhẹ\n                    cho da, đặc biệt đối với làn da nhạy cảm. Ngoài ra, các sản phẩm của Vichy đã được chứng minh không gây\n                    dị ứng, không gây mụn, chứa nước khoáng Vichy giàu khoáng chất có tác dụng củng cố và tăng cường tái\n                    tạo da.</div>\n                </div>\n              </div>\n            </div>\n\n            <!-- <app-san-pham-tuong-tu></app-san-pham-tuong-tu> -->\n          </div>\n        </div>\n\n      </div>\n\n\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"pushOneProduct()\">Save changes</button>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"product-detail\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"product-detail\" aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"product-detailLabel\">Thông Tin Sản Phẩm</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n\n        <div style=\"background: #f5f5f5;\">\n          <div class=\"\">\n            <div class=\"gioi-thieu-san-pham row mb-4\">\n              <div class=\"product-image col-md-4\">\n                <img class=\"image\" [src]=\"product.product_image\" alt=\"\">\n              </div>\n              <div class=\"product-info col-md-8\">\n                <h2 class=\"display-4\">Nước Hoa Nữ Bright Crystal - Nước Hoa Nữ Versace - nước hoa nữ Thuần Khiết - Nước hoa nữ 90ml</h2>\n                <div class=\"price\">\n                  <span class=\"price-present\">235.235đ</span>\n                </div>\n\n                <hr>\n\n                <div class=\"shopee-product-info-body__row shopee-product-info-body__free-shipping\">\n                  <span class=\"shopee-product-info-body__free-shipping-text\">Miễn Phí Vận Chuyển cho đơn hàng có giá trị từ ₫180.000 (giảm tối đa 50.000 VNĐ)</span>\n                </div>\n                <div class=\"shopee-product-info-body__shipping-block-label\">Vận chuyển tới: Hà Nội, Huyện Ba Vì</div>\n                <div class=\"shopee-product-info-body__shipping-block-label\">phí vận chuyển: ₫0</div>\n\n                <hr>\n\n                <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\n                  <button type=\"button\" class=\"btn btn-danger\" (click)=\"decrease()\">-</button>\n                  <input type=\"text\" style=\"width: 40px !important;\" name=\"quantity\" value=\"{{product.quantity }}\" min=\"1\" max=\"20\" disabled>\n                  <button type=\"button\" class=\"btn btn-danger\" (click)=\"increase()\">+</button>\n                </div>\n                <br>\n                <br>\n\n                <a href=\"#\" class=\"btn btn-danger add-to-cart\">Cho vào giỏ hàng</a>\n                <a href=\"#\" class=\"btn btn-info add-to-cart\">Mua ngay</a>\n              </div>\n            </div>\n\n\n\n            <!-- <app-san-pham-tuong-tu></app-san-pham-tuong-tu> -->\n          </div>\n        </div>\n\n      </div>\n\n\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"pushOneProduct()\">Save changes</button>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1860,7 +1875,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/shopping-cart/shopping-cart.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"shopping-cart\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Giỏ hàng của bạn</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button> \n      </div>\n      <div class=\"modal-body\">\n        <table class=\"table\">\n          <thead class=\"thead-default\">\n            <tr>\n              <th>SẢN PHẨM</th>\n              <th>ĐƠN GIÁ</th>\n              <th>SỐ LƯỢNG</th>\n              <th>THÀNH TIỀN</th> \n            </tr>\n          </thead>\n          <tr *ngFor=\"let item of cart_products, let i = index\">\n            <td class=\"product-info w-100\">\n              <img class =\"d-inline-block img-thumbnail w-25 h-25 mr-2\" [src]=\"item.product_image\">\n              <span class=\"d-inline-block\">{{item.product_name}}\n                <br> <i class=\"fa fa-window-close\" (click)=\"DeleteProduct(i)\"></i>\n              </span>\n            </td>\n            <td>{{item.sub_prod[0].price}}</td>\n            <td>\n              <input #quantity type=\"number\" value=\"{{item.quantity}}\" min=\"1\" max=\"1000\" (change)=\"[tinhTotalPrice(quantity.value, item.sub_prod[0].price, i), TinhTongTienCart()]\">\n            </td>\n            <td id=\"thanh-tien\" class=\"thanh-tien\">{{ item.total_price | number }}</td>\n          </tr>\n\n          <tr>\n            <td class=\"\" colspan=\"3\" style=\"font-weight: bold; text-align: right;  font-size: 20px\">Tổng tiền</td>\n            <td style=\"font-weight: bold; color: rgb(207, 6, 6); font-size: 20px\">{{cart_products.tong_tien | number}}</td>\n          </tr>\n        </table>\n      </div>\n\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\"><i class=\"fa fa-arrow-left\"></i> Tiếp tục mua hàng</button>\n        <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#hoan-tat-thanh-toan\" (click)=\"thanhToan()\">Tiếp tục thanh toán<i class=\"fa fa-arrow-right\"></i></button>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"shopping-cart\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Giỏ hàng của bạn - có {{testNum}} sản phẩm trong giỏ</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button> \n      </div>\n      <div class=\"modal-body\">\n        <table class=\"table\">\n          <thead class=\"thead-default\">\n            <tr>\n              <th>SẢN PHẨM</th>\n              <th>ĐƠN GIÁ</th>\n              <th>SỐ LƯỢNG</th>\n              <th>THÀNH TIỀN</th> \n            </tr>\n          </thead>\n          <tr *ngFor=\"let item of cart_products, let i = index\">\n            <td class=\"product-info w-100\">\n              <img class =\"d-inline-block img-thumbnail w-25 h-25 mr-2\" [src]=\"item.product_image\" (click)=\"selectProductDetail(item)\">\n              <span class=\"d-inline-block\">{{item.product_name}}\n                <br> <i class=\"fa fa-window-close\" (click)=\"DeleteProduct(i)\"></i>\n              </span>\n            </td>\n            <td>{{item.price}}</td>\n            <td>\n              <input #quantity type=\"number\" value=\"{{item.quantity}}\" min=\"1\" max=\"1000\" (change)=\"[tinhTotalPrice(quantity.value, item.price, i), TinhTongTienCart()]\">\n            </td>\n            <td id=\"thanh-tien\" class=\"thanh-tien\">{{ item.total_price | number }}</td>\n          </tr>\n\n          <tr>\n            <td class=\"\" colspan=\"3\" style=\"font-weight: bold; text-align: right;  font-size: 20px\">Tổng tiền</td>\n            <td style=\"font-weight: bold; color: rgb(207, 6, 6); font-size: 20px\">{{cart_products.tong_tien | number}}</td>\n          </tr>\n        </table>\n      </div>\n\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\"><i class=\"fa fa-arrow-left\"></i> Tiếp tục mua hàng</button>\n        <button type=\"button\" class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#hoan-tat-thanh-toan\" (click)=\"hoanTatThanhToan()\">Tiếp tục thanh toán<i class=\"fa fa-arrow-right\"></i></button>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1870,6 +1885,8 @@ module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"shopping-cart\"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShoppingCartComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__guest_nav_guest_nav_guest_component__ = __webpack_require__("../../../../../src/app/guest/nav-guest/nav-guest.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1880,20 +1897,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+// service
+
+// component
+
 var ShoppingCartComponent = (function () {
-    function ShoppingCartComponent() {
+    function ShoppingCartComponent(navGuest, guestService) {
+        this.navGuest = navGuest;
+        this.guestService = guestService;
+        this.testNum = 0;
         this.cart_products = new Array();
-        this.products = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
     }
-    Object.defineProperty(ShoppingCartComponent.prototype, "product", {
+    Object.defineProperty(ShoppingCartComponent.prototype, "productOP", {
         get: function () { return this._product; },
         set: function (product) {
-            this._product = product;
-            this._product.quantity = 1;
-            this._product.total_price = this._product.quantity * this._product.sub_prod[0].price;
-            this.cart_products.push(this._product);
-            this.TinhTongTienCart();
-            // $("#shopping-cart").modal("show");
+            if (product !== undefined) {
+                var list = JSON.parse(localStorage.getItem('cart'));
+                if (list) {
+                    this.cart_products = Object.values(list);
+                }
+                this._product = product;
+                var check = 1;
+                for (var i = 0; i < this.cart_products.length; i++) {
+                    if (this.cart_products[i]._id == product._id) {
+                        check = 0;
+                        this.cart_products[i].quantity += this._product.quantity;
+                        this.cart_products[i].total_price = this.cart_products[i].quantity * this.cart_products[i].price;
+                        ;
+                        this.TinhTongTienCart();
+                    }
+                }
+                if (check == 1) {
+                    this._product.total_price = this._product.quantity * this._product.price;
+                    console.log(this._product.total_price);
+                    console.log("1222");
+                    this.cart_products.push(this._product);
+                    this.TinhTongTienCart();
+                }
+            }
         },
         enumerable: true,
         configurable: true
@@ -1901,28 +1942,32 @@ var ShoppingCartComponent = (function () {
     ShoppingCartComponent.prototype.tinhTotalPrice = function (quantity, price, i) {
         this.totalPrice = quantity * price;
         this.cart_products[i].total_price = this.totalPrice;
-        // console.log(`${quantity} ${price} ${i} ${this.totalPrice}`);
+        this.cart_products[i].quantity = parseInt(quantity);
     };
     ShoppingCartComponent.prototype.TinhTongTienCart = function () {
         this.cart_products.tong_tien = 0;
+        this.numberProduct = 0;
         for (var _i = 0, _a = this.cart_products; _i < _a.length; _i++) {
             var item = _a[_i];
             this.cart_products.tong_tien += item.total_price;
+            this.numberProduct += parseInt(item.quantity);
         }
+        localStorage.setItem('cart', JSON.stringify(this.cart_products));
+        this.testNum = this.numberProduct;
+    };
+    ShoppingCartComponent.prototype.selectProductDetail = function (product) {
+        $("#shopping-cart").modal("hide");
+        this.guestService.selectProductDetail(product._id);
     };
     ShoppingCartComponent.prototype.DeleteProduct = function (index) {
         this.cart_products.splice(index, 1);
         this.TinhTongTienCart();
     };
-    ShoppingCartComponent.prototype.thanhToan = function () {
-        this.products.emit(this.cart_products);
-        // console.log(this.cart_products);
+    ShoppingCartComponent.prototype.hoanTatThanhToan = function () {
         $("#shopping-cart").modal("hide");
-        $("#hoan-tat-don-hang").modal("show");
+        this.guestService.hoanTatThanhToan();
     };
     ShoppingCartComponent.prototype.ngOnInit = function () {
-        // this.initCart();
-        // this.TinhTongTienCart();
     };
     ShoppingCartComponent.prototype.initCart = function () {
         this.cart_products.tong_tien = 0;
@@ -1930,23 +1975,21 @@ var ShoppingCartComponent = (function () {
     return ShoppingCartComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["U" /* Output */])(),
-    __metadata("design:type", Object)
-], ShoppingCartComponent.prototype, "products", void 0);
-__decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
-], ShoppingCartComponent.prototype, "product", null);
+], ShoppingCartComponent.prototype, "productOP", null);
 ShoppingCartComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-shopping-cart',
         template: __webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.css")]
+        styles: [__webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_2__guest_nav_guest_nav_guest_component__["a" /* NavGuestComponent */]]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__guest_nav_guest_nav_guest_component__["a" /* NavGuestComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__guest_nav_guest_nav_guest_component__["a" /* NavGuestComponent */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__service_guest_service__["a" /* GuestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_guest_service__["a" /* GuestService */]) === "function" && _b || Object])
 ], ShoppingCartComponent);
 
+var _a, _b;
 //# sourceMappingURL=shopping-cart.component.js.map
 
 /***/ }),
@@ -2039,8 +2082,12 @@ var AuthguardGuard = (function () {
         this.router = router;
     }
     AuthguardGuard.prototype.canActivate = function (next, state) {
-        // this.router.navigate(['/login']);
-        return this.mainService.getUserLoggedIn();
+        console.log(this.mainService.getUserLoggedIn());
+        if (this.mainService.getUserLoggedIn()) {
+            return this.mainService.getUserLoggedIn().user;
+        }
+        this.router.navigate(['/login']);
+        return false;
     };
     return AuthguardGuard;
 }());
@@ -2069,6 +2116,7 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__san_pham_tuong_tu_san_pham_tuong_tu_component__ = __webpack_require__("../../../../../src/app/guest/san-pham-tuong-tu/san-pham-tuong-tu.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_shopping_cart_shopping_cart_component__ = __webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_modals_modal_product_detail_modal_product_detail_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-product-detail/modal-product-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__ = __webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2078,6 +2126,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 //import component
+
 
 
 
@@ -2104,12 +2153,74 @@ GuestModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_6__product_detail_product_detail_component__["a" /* ProductDetailComponent */],
             __WEBPACK_IMPORTED_MODULE_7__san_pham_tuong_tu_san_pham_tuong_tu_component__["a" /* SanPhamTuongTuComponent */],
             __WEBPACK_IMPORTED_MODULE_8__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__components_modals_modal_product_detail_modal_product_detail_component__["a" /* ModalProductDetailComponent */]
+            __WEBPACK_IMPORTED_MODULE_9__components_modals_modal_product_detail_modal_product_detail_component__["a" /* ModalProductDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */]
         ]
     })
 ], GuestModule);
 
 //# sourceMappingURL=guest.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<app-nav-guest></app-nav-guest>\n<h1>Hoan tat thanh toan</h1>\n<div class=\"modal-body\">\n  <h5>Địa chỉ nhận hàng</h5>\n  <div class=\"input-group\">\n    <span class=\"input-group-addon\" id=\"ho-ten\">Họ tên: </span>\n    <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: Cao Minh Hưng\">\n  </div>\n\n  <div class=\"input-group\">\n    <span class=\"input-group-addon\" id=\"ho-ten\">Điện thoại: </span>\n    <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: 01218815991\">\n  </div>\n\n  <div class=\"input-group\">\n    <span class=\"input-group-addon\" id=\"ho-ten\">Email: </span>\n    <input type=\"email\" class=\"form-control\" placeholder=\"support@gmail.com\">\n  </div>\n\n  <div class=\"input-group\">\n    <span class=\"input-group-addon\" id=\"ho-ten\">Tên đường phố: </span>\n    <input type=\"text\" class=\"form-control\" placeholder=\"Phường 4, Quận Gò Vấp, Hồ Chí Minh\">\n  </div>\n\n  <div class=\"input-group\">\n    <span class=\"input-group-addon\" id=\"ho-ten\">Địa chỉ chi tiết: </span>\n    <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: số 10, Ngõ 50, Ngách 100, Hẽm 22\">\n  </div>\n\n  <div class=\"input-group\">\n    <span class=\"input-group-addon\" id=\"ho-ten\">Lời nhắn: </span>\n    <textarea name=\"\" id=\"\" cols=\"20\" rows=\"2\" class=\"form-control\" placeholder=\"Ví dụ: Giao ngoài giờ hành chính\"></textarea>\n  </div>\n\n  <table class=\"table mt-4\">\n    <thead class=\"thead-default\">\n      <tr>\n        <th>SẢN PHẨM</th>\n        <th>ĐƠN GIÁ</th>\n        <th>SỐ LƯỢNG</th>\n        <th>THÀNH TIỀN</th>\n      </tr>\n    </thead>\n    <tr *ngFor=\"let item of products2, let i = index\">\n      <td class=\"product-info w-100\">\n        <img class=\"d-inline-block img-thumbnail w-25 h-25 mr-2\" [src]=\"item.product_image\">\n        <span class=\"d-inline-block\">{{item.product_name}}\n          <br>\n          <i class=\"fa fa-window-close\" (click)=\"DeleteProduct(i)\"></i>\n        </span>\n      </td>\n      <td>{{item.sub_prod[0].price}}</td>\n      <td>\n        <input #quantity type=\"number\" value=\"{{item.quantity}}\" min=\"1\" max=\"1000\" (change)=\"[tinhTotalPrice(quantity.value, item.sub_prod[0].price, i), TinhTongTienCart()]\">\n      </td>\n      <td id=\"thanh-tien\" class=\"thanh-tien\">{{ item.total_price | number }}</td>\n    </tr>\n\n    <tr>\n      <td class=\"\" colspan=\"3\" style=\"font-weight: bold; text-align: right;  font-size: 20px\">Tổng tiền</td>\n      <!-- <td style=\"font-weight: bold; color: rgb(207, 6, 6); font-size: 20px\">{{products2.tong_tien | number}}</td> -->\n    </tr>\n  </table>\n\n</div>\n\n<app-shopping-cart></app-shopping-cart>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HoanTatThanhToanComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var HoanTatThanhToanComponent = (function () {
+    function HoanTatThanhToanComponent() {
+    }
+    HoanTatThanhToanComponent.prototype.ngOnInit = function () {
+    };
+    return HoanTatThanhToanComponent;
+}());
+HoanTatThanhToanComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-hoan-tat-thanh-toan',
+        template: __webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], HoanTatThanhToanComponent);
+
+//# sourceMappingURL=hoan-tat-thanh-toan.component.js.map
 
 /***/ }),
 
@@ -2134,7 +2245,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/home-page/home-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-guest></app-nav-guest>\r\n\r\n<app-slider-guest></app-slider-guest>\r\n\r\n<app-products></app-products>\r\n\r\n\r\n<!-- <img src=\"./../../../assets/logo.svg\" class=\"d-inline-block align-top\" alt=\"\"> -->"
+module.exports = "<app-products></app-products>\r\n\r\n<!-- <img src=\"./../../../assets/logo.svg\" class=\"d-inline-block align-top\" alt=\"\"> -->"
 
 /***/ }),
 
@@ -2182,7 +2293,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "nav {\r\n    background: #FAEFF4 !important;\r\n    /* position: relative; */\r\n}\r\n\r\ninput[type=search] {\r\n    background: #FAEFF4 !important;\r\n    border-radius: 20px; \r\n    border-right: none;\r\n}\r\n\r\ninput[type=search]:focus {\r\n    \r\n}\r\n\r\n.input-group-addon {\r\n    background: #FAEFF4;\r\n    border-top-right-radius: 20px;\r\n    border-bottom-right-radius: 20px;\r\n    cursor: pointer;\r\n    border-left: none;\r\n    color: lightgray;\r\n}\r\n\r\n.shopping-cart {\r\n    font-size: 30px;\r\n    color: white;\r\n    background: #D87179;\r\n    padding: 10px;\r\n    position: absolute;\r\n    right: 0;\r\n    cursor: pointer;\r\n}\r\n\r\n/* Điều hướng */\r\n/* .slider {\r\n    padding: 50px 0 50px 0;\r\n    background-image: url(\"../../../assets/gioi-thieu6.jpg\");\r\n    background-size: cover;\r\n} */\r\n\r\n\r\n.nav2 {\r\n    position: relative;\r\n    \r\n}\r\n\r\n.dieu-huong {\r\n    list-style-type: none;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    margin: 0;\r\n    padding: 15px 0;\r\n}\r\n\r\n.dieu-huong li {\r\n    float: left;\r\n    \r\n}\r\n\r\n\r\n.dieu-huong a {\r\n    display: block;\r\n    background: white;\r\n    padding: 8px 18px;\r\n    color: black;\r\n    border: 0.5px solid rgb(228, 228, 228);\r\n}\r\n\r\n.dieu-huong a:hover {\r\n    background: #FAEFF4;\r\n    text-decoration: none;\r\n    color: #333 !important;\r\n}\r\n\r\n.active {\r\n    background: #D87179 !important;\r\n    color: white !important;\r\n}\r\n\r\n\r\n.left {\r\n    border-top-left-radius: 25px;\r\n    border-bottom-left-radius: 25px;\r\n}\r\n\r\n.right {\r\n    border-top-right-radius: 25px;\r\n    border-bottom-right-radius: 25px;\r\n}\r\n\r\n.dang-ky {\r\n    position: absolute;\r\n    right: 20px;\r\n    top: 17px;\r\n    font-size: 17px;\r\n}\r\n\r\n.dang-ky a {\r\n    color: black;\r\n    \r\n}\r\n\r\n.dang-ky a:hover {\r\n    color: darkred;\r\n    text-decoration: underline;\r\n}\r\n", ""]);
+exports.push([module.i, "nav {\r\n    background: #FAEFF4 !important;\r\n    /* position: relative; */\r\n}\r\n\r\ninput[type=search] {\r\n    background: #FAEFF4 !important;\r\n    border-radius: 20px; \r\n    border-right: none;\r\n}\r\n\r\ninput[type=search]:focus {\r\n    \r\n}\r\n\r\n.input-group-addon {\r\n    background: #FAEFF4;\r\n    border-top-right-radius: 20px;\r\n    border-bottom-right-radius: 20px;\r\n    cursor: pointer;\r\n    border-left: none;\r\n    color: lightgray;\r\n}\r\n\r\n.shopping-cart {\r\n    font-size: 30px;\r\n    color: white;\r\n    background: #D87179;\r\n    padding: 10px;\r\n    position: absolute;\r\n    right: 0;\r\n    cursor: pointer;\r\n}\r\n\r\n.num-of-product {\r\n    position: absolute;\r\n    right: 0;\r\n    font-size: 13px;\r\n    color: white;\r\n    height: 20px;\r\n    width: 20px;\r\n    line-height: -10px;\r\n    font-weight: bold;\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    background-color: rgb(224, 0, 0);\r\n}\r\n/* Điều hướng */\r\n/* .slider {\r\n    padding: 50px 0 50px 0;\r\n    background-image: url(\"../../../assets/gioi-thieu6.jpg\");\r\n    background-size: cover;\r\n} */\r\n\r\n\r\n.nav2 {\r\n    position: relative;\r\n    \r\n}\r\n\r\n.dieu-huong {\r\n    list-style-type: none;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    margin: 0;\r\n    padding: 15px 0;\r\n}\r\n\r\n.dieu-huong li {\r\n    float: left;\r\n    \r\n}\r\n\r\n\r\n.dieu-huong a {\r\n    display: block;\r\n    background: white;\r\n    padding: 8px 18px;\r\n    color: black;\r\n    border: 0.5px solid rgb(228, 228, 228);\r\n}\r\n\r\n.dieu-huong a:hover {\r\n    background: #FAEFF4;\r\n    text-decoration: none;\r\n    color: #333 !important;\r\n}\r\n\r\n.active {\r\n    background: #D87179 !important;\r\n    color: white !important;\r\n}\r\n\r\n\r\n.left {\r\n    border-top-left-radius: 25px;\r\n    border-bottom-left-radius: 25px;\r\n}\r\n\r\n.right {\r\n    border-top-right-radius: 25px;\r\n    border-bottom-right-radius: 25px;\r\n}\r\n\r\n.dang-ky {\r\n    position: absolute;\r\n    right: 20px;\r\n    top: 17px;\r\n    font-size: 17px;\r\n}\r\n\r\n.dang-ky a {\r\n    color: black;\r\n    \r\n}\r\n\r\n.dang-ky a:hover {\r\n    color: darkred;\r\n    text-decoration: underline;\r\n}\r\n", ""]);
 
 // exports
 
@@ -2195,7 +2306,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/nav-guest/nav-guest.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-sm navbar-light bg-light sticky-top\">\n  <a class=\"navbar-brand\" href=\"/home-page\">\n    <img src=\"../../../assets/logo.svg\" width=\"40\" height=\"40\" class=\"d-inline-block align-top\" alt=\"\">\n  </a>\n\n  <ul class=\"navbar-nav mr-auto\">\n    <li class=\"nav-item\">\n      <form class=\"form-inline\">\n        <div class=\"input-group\">\n          <input type=\"search\" class=\"form-control\" placeholder=\"Tìm kiếm ...\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n          <span class=\"input-group-addon\" id=\"basic-addon1\">\n            <i class=\"fa fa-search\"></i>\n          </span>\n        </div>\n      </form>\n    </li>\n  </ul>\n\n  <div class=\"shopping-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\">\n    <i class=\"fa fa-shopping-basket\"></i>\n  </div>\n</nav>\n\n<!-- <div class=\"nav2\" style=\"background: #f5f5f5;\">\n  <ul class=\"justify-content-center dieu-huong\">\n    <li class=\"\">\n      <a class=\"active left\" href=\"#\">Khám Phá</a>\n    </li>\n    <li class=\"\">\n      <a class=\"\" href=\"#\">Cửa Hàng</a>\n    </li>\n    <li class=\"\">\n      <a class=\"right\" href=\"#\">Ngành Hàng</a>\n    </li>\n  </ul>\n\n</div> -->"
+module.exports = "<nav class=\"navbar navbar-expand-sm navbar-light bg-light sticky-top\">\n  <a class=\"navbar-brand\" href=\"/home-page\">\n    <img src=\"../../../assets/logo.svg\" width=\"40\" height=\"40\" class=\"d-inline-block align-top\" alt=\"\">\n  </a>\n\n  <ul class=\"navbar-nav mr-auto\">\n    <li class=\"nav-item\">\n      <form class=\"form-inline\">\n        <div class=\"input-group\">\n          <input type=\"search\" class=\"form-control\" placeholder=\"Tìm kiếm ...\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n          <span class=\"input-group-addon\" id=\"basic-addon1\">\n            <i class=\"fa fa-search\"></i>\n          </span>\n        </div>\n      </form>\n    </li>\n  </ul>\n \n  <div class=\"shopping-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\">\n    <i class=\"fa fa-shopping-basket\"></i>\n  </div>\n</nav>\n\n<div class=\"nav2\" style=\"background: #f5f5f5;\">\n  <ul class=\"justify-content-center dieu-huong\">\n    <li class=\"\">\n      <a class=\"active left\" href=\"#\">Khám Phá</a>\n    </li>\n    <li class=\"\">\n      <a class=\"\" href=\"#\">Cửa Hàng</a>\n    </li>\n    <li class=\"\">\n      <a class=\"right\" href=\"#\">Ngành Hàng</a>\n    </li>\n  </ul>\n</div>"
 
 /***/ }),
 
@@ -2205,6 +2316,7 @@ module.exports = "<nav class=\"navbar navbar-expand-sm navbar-light bg-light sti
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavGuestComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2215,22 +2327,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var NavGuestComponent = (function () {
-    function NavGuestComponent() {
+    function NavGuestComponent(mainService) {
+        this.mainService = mainService;
     }
+    Object.defineProperty(NavGuestComponent.prototype, "numOfProduct", {
+        set: function (num) {
+            this.numProduct = num;
+            console.log("num");
+            console.log(this.numProduct);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ;
     NavGuestComponent.prototype.ngOnInit = function () {
+        this.numProduct = 0;
     };
     return NavGuestComponent;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], NavGuestComponent.prototype, "numOfProduct", null);
 NavGuestComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-nav-guest',
         template: __webpack_require__("../../../../../src/app/guest/nav-guest/nav-guest.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/nav-guest/nav-guest.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */]) === "function" && _a || Object])
 ], NavGuestComponent);
 
+var _a;
 //# sourceMappingURL=nav-guest.component.js.map
 
 /***/ }),
@@ -2256,7 +2387,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/product-detail/product-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <app-nav-guest></app-nav-guest> -->\n\n<div style=\"background: #f5f5f5;\">\n  <div class=\"\">\n    <div class=\"gioi-thieu-san-pham row mb-4\">\n      <div class=\"product-image col-md-4\">\n        <img class=\"image\" [src]=\"product.product_image\" alt=\"\">\n      </div>\n      <div class=\"product-info col-md-8\">\n        <h2 class=\"display-4\">Nước Hoa Nữ Bright Crystal - Nước Hoa Nữ Versace - nước hoa nữ Thuần Khiết - Nước hoa nữ 90ml</h2>\n        <div class=\"price\">\n          <span class=\"price-present\">235.235đ</span>\n        </div>\n\n        <hr>\n\n        <div class=\"shopee-product-info-body__row shopee-product-info-body__free-shipping\">\n          <span class=\"shopee-product-info-body__free-shipping-text\">Miễn Phí Vận Chuyển cho đơn hàng có giá trị từ ₫180.000 (giảm tối đa 50.000 VNĐ)</span>\n        </div>\n        <div class=\"shopee-product-info-body__shipping-block-label\">Vận chuyển tới: Hà Nội, Huyện Ba Vì</div>\n        <div class=\"shopee-product-info-body__shipping-block-label\">phí vận chuyển: ₫0</div>\n\n        <hr>\n\n        <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\n          <button type=\"button\" class=\"btn btn-danger\">-</button>\n          <input type=\"number\" style=\"width: 40px !important;\" value=\"1\" min=\"1\" max=\"20\">\n          <button type=\"button\" class=\"btn btn-danger\">+</button>\n        </div>\n        <br>\n        <br>\n\n        <a href=\"#\" class=\"btn btn-danger add-to-cart\">Cho vào giỏ hàng</a>\n        <a href=\"#\" class=\"btn btn-info add-to-cart\">Mua ngay</a>\n      </div>\n    </div>\n\n    <ul class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link active\" id=\"home-tab\" data-toggle=\"tab\" href=\"#home\" role=\"tab\" aria-controls=\"home\" aria-expanded=\"true\">\n            <h2 class=\"display-4\">Thông số sản phẩm</h2>\n        </a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" id=\"profile-tab\" data-toggle=\"tab\" href=\"#profile\" role=\"tab\" aria-controls=\"profile\"><h2 class=\"display-4\">Thông tin sản phẩm</h2></a>\n      </li>\n\n      <li class=\"nav-item\">\n          <a class=\"nav-link\" id=\"binh-luan\" data-toggle=\"tab\" href=\"#profile\" role=\"tab\" aria-controls=\"profile\"><h2 class=\"display-4\">Bình luận</h2></a>\n        </li>\n    </ul>\n    <div class=\"tab-content\" id=\"myTabContent\">\n      <div class=\"tab-pane fade show active\" id=\"home\" role=\"tabpanel\" aria-labelledby=\"home-tab\">\n        <div class=\"thong-so-san-pham\" id=\"tab_content_product_specifications\">\n          \n          <table class=\"table table-bordered\" id=\"tblGeneralAttribute\">\n            <tbody>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Xuất xứ</strong>\n                </td>\n                <td>Pháp</td>\n              </tr>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Hạn sử dụng</strong>\n                </td>\n                <td>3 năm kể từ ngày sản xuất</td>\n              </tr>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Thành phần</strong>\n                </td>\n                <td>15 loại khoáng chất lấy từ nguồn nước khoáng Vichy</td>\n              </tr>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Loại da phù hợp</strong>\n                </td>\n                <td>Mọi loại da</td>\n              </tr>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Hướng dẫn bảo quản</strong>\n                </td>\n                <td>Bảo quản nơi khô ráo, thoáng mát</td>\n              </tr>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Dung tích</strong>\n                </td>\n                <td>150 (ml)</td>\n              </tr>\n            </tbody>\n          </table>\n          <!-- end table.table -->\n\n        </div>\n      </div>\n\n      <div class=\"tab-pane fade\" id=\"profile\" role=\"tabpanel\" aria-labelledby=\"profile-tab\">\n        <div class=\"thong-tin-san-pham mb-4\" id=\"tab_content_product_introduction\">\n          \n          <h3>Xịt khoáng dưỡng da Vichy Eau Thermale 150ml</h3>\n          <p>\n            <strong>Nước khoáng dưỡng da Vichy Thermal Spa Water</strong>&nbsp;được làm từ 15 khoáng chất quý hiếm trong tự nhiên\n            bao gồm sắt, Potassium, Canxi, Manganese, Silicon,... Nước khoáng đã được công nhận bởi tác dụng làm dịu, củng\n            cố và làm đẹp da hiệu quả, được kiểm chứng bởi 34 thí nghệm trên hơn 600 người thuộc mọi loại da, thậm chí làn\n            da nhạy cảm nhất và dưới sự giám sát của chuyên gia da liễu.</p>\n          <p>\n            <strong>Hướng dẫn sử dụng</strong>\n          </p>\n\n          <ul>\n            <li>Xịt khắp mặt, vỗ nhẹ, để yên 1 lát rồi thấm khô nhẹ nhàng</li>\n            <li>Có thể sử dụng nhiều lần trong ngày</li>\n          </ul>\n\n          <p>\n            <strong>Thông tin thương hiệu</strong>\n          </p>\n\n          <div>Vichy là thương hiệu nổi tiếng của Pháp được thành lập vào năm 1931 tại thành phố cùng tên Vichy bởi bác sĩ da\n            liễu Haller và nhà kinh doanh Guerin. Với nhiều năm kinh nghiệm, viện nghiên cứu Vichy đã sáng tạo ra nhiều phương\n            thức mới và hiệu quả để chăm sóc sức khỏe làn da. Tất cả sản phẩm Vichy được kiểm nghiệm một cách toàn diện và\n            khắt khe dưới sự giám sát của chuyên gia da liễu về độ an toàn và dịu nhẹ cho da, đặc biệt đối với làn da nhạy\n            cảm. Ngoài ra, các sản phẩm của Vichy đã được chứng minh không gây dị ứng, không gây mụn, chứa nước khoáng Vichy\n            giàu khoáng chất có tác dụng củng cố và tăng cường tái tạo da.</div>\n        </div>\n      </div>\n    </div>\n\n    <!-- <app-san-pham-tuong-tu></app-san-pham-tuong-tu> -->\n  </div>\n</div>"
+module.exports = "<app-nav-guest></app-nav-guest>\n\n<div style=\"background: #f5f5f5;\">\n  <div class=\"\">\n    <div class=\"gioi-thieu-san-pham row mb-4\">\n      <div class=\"product-image col-md-4\">\n        <img class=\"image\" [src]=\"product?.product_image\" alt=\"\">\n      </div>\n      <div class=\"product-info col-md-8\">\n        <h2 class=\"display-4\">{{product?.product_name}}</h2>\n        <div class=\"price\">\n          <span class=\"price-present\">{{product?.price | number}}đ</span>\n        </div>\n\n        <!-- <hr>\n\n        <div class=\"shopee-product-info-body__row shopee-product-info-body__free-shipping\">\n          <span class=\"shopee-product-info-body__free-shipping-text\">Miễn Phí Vận Chuyển cho đơn hàng có giá trị từ ₫180.000 (giảm tối đa 50.000 VNĐ)</span>\n        </div>\n        <div class=\"shopee-product-info-body__shipping-block-label\">Vận chuyển tới: Hà Nội, Huyện Ba Vì</div>\n        <div class=\"shopee-product-info-body__shipping-block-label\">phí vận chuyển: ₫0</div> -->\n\n        <hr>\n\n        <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\n          <button type=\"button\" class=\"btn btn-danger\" (click)=\"decrease()\">-</button>\n          <input type=\"number\" style=\"width: 40px !important;\" value=\"{{product?.quantity}}\" min=\"1\" max=\"20\">\n          <button type=\"button\" class=\"btn btn-danger\" (click)=\"increase()\">+</button>\n        </div>\n        <br>\n        <br>\n\n        <button class=\"btn btn-danger add-to-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\" (click)=\"onSelect(product)\">Cho vào giỏ hàng</button>\n        <!-- <a href=\"#\" class=\"btn btn-info add-to-cart\">Mua ngay</a> -->\n      </div>\n    </div>\n\n    <ul class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link active\" id=\"home-tab\" data-toggle=\"tab\" href=\"#home\" role=\"tab\" aria-controls=\"home\" aria-expanded=\"true\">\n          <h2 class=\"display-4\">Thông số sản phẩm</h2>\n        </a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" id=\"profile-tab\" data-toggle=\"tab\" href=\"#profile\" role=\"tab\" aria-controls=\"profile\" required>\n          <h2 class=\"display-4\">Thông tin sản phẩm</h2>\n        </a>\n      </li>\n    </ul>\n    <div class=\"tab-content\" id=\"myTabContent\">\n      <div class=\"tab-pane fade show active\" id=\"home\" role=\"tabpanel\" aria-labelledby=\"home-tab\">\n        <div class=\"thong-so-san-pham\" id=\"tab_content_product_specifications\">\n\n          <table class=\"table table-bordered\" id=\"tblGeneralAttribute\">\n            <tbody>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Xuất xứ</strong>\n                </td>\n                <td>{{product?.product_madein}}</td>\n              </tr>\n\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Giới tính</strong>\n                </td>\n                <td>{{product?.product_gender}}</td>\n              </tr>\n\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Hướng dẫn sử dụng</strong>\n                </td>\n                <td>{{product?.product_instruction}}</td>\n              </tr>\n\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Hướng dẫn bảo quản</strong>\n                </td>\n                <td>Bảo quản nơi khô ráo, thoáng mát</td>\n              </tr>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Dung tích</strong>\n                </td>\n                <td>{{product?.product_size}}</td>\n              </tr>\n            </tbody>\n          </table>\n\n        </div>\n      </div>\n\n      <div class=\"tab-pane fade\" id=\"profile\" role=\"tabpanel\" aria-labelledby=\"profile-tab\">\n        <div class=\"thong-tin-san-pham mb-4\">\n          <h3>{{product?.product_name}}</h3>\n          <p>{{product?.product_decription}}</p>\n        </div>\n      </div>\n    </div>\n    <app-shopping-cart [productOP]=\"selectedProduct\" ></app-shopping-cart>\n    <!-- <app-san-pham-tuong-tu></app-san-pham-tuong-tu> -->\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2266,6 +2397,12 @@ module.exports = "<!-- <app-nav-guest></app-nav-guest> -->\n\n<div style=\"backg
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductDetailComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__ = __webpack_require__("../../../../rxjs/add/operator/switchMap.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2276,10 +2413,54 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+// service
+
+
+
 var ProductDetailComponent = (function () {
-    function ProductDetailComponent() {
+    function ProductDetailComponent(mainService, guestService, route, location) {
+        this.mainService = mainService;
+        this.guestService = guestService;
+        this.route = route;
+        this.location = location;
     }
+    ProductDetailComponent.prototype.onSelect = function (product) {
+        this.selectedProduct = {
+            _id: product._id,
+            product_id: product.product_id,
+            product_name: product.product_name,
+            product_image: product.product_image,
+            price: product.price,
+            quantity: product.quantity
+        };
+        console.log(this.selectedProduct);
+    };
+    ProductDetailComponent.prototype.getProduct = function () {
+    };
+    ;
+    ProductDetailComponent.prototype.increase = function () {
+        this.product.quantity += 1;
+    };
+    ProductDetailComponent.prototype.decrease = function () {
+        if (this.product.quantity > 1) {
+            this.product.quantity -= 1;
+        }
+    };
     ProductDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.paramMap.switchMap(function (params) {
+            _this.id = params.get('id');
+            return _this.guestService.getProductDetail(_this.id);
+        })
+            .subscribe(function (res) {
+            _this.product = res;
+            _this.product.quantity = 1;
+            _this.guestService.getProductfromInventory(_this.product._id).subscribe(function (res) {
+                _this.product.price = res.price;
+            });
+        });
     };
     return ProductDetailComponent;
 }());
@@ -2289,9 +2470,10 @@ ProductDetailComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/guest/product-detail/product-detail.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/product-detail/product-detail.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__service_main_service__["a" /* MainService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__service_guest_service__["a" /* GuestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__service_guest_service__["a" /* GuestService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */]) === "function" && _d || Object])
 ], ProductDetailComponent);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=product-detail.component.js.map
 
 /***/ }),
@@ -2317,7 +2499,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/products/products.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "{{testProducts | json}}\n<div class=\"container mt-4 mb-4\">\n  <div class=\"side-bar\">\n\n  </div>\n\n  <div class=\"row\">\n    <div class=\"col-md-3 col-sm-4 col-xs-6 product\" *ngFor=\"let product of products\">\n      <a class=\"product-a\">\n        <div class=\"card\" style=\"width: 20rem;\">\n          <!-- <a href=\"/product-detail\"> -->\n          <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" (click)=\"onSelect(product)\" data-toggle=\"modal\"\n            data-target=\"#product-detail\" style=\"cursor: pointer\">\n          <!-- </a> -->\n          <div class=\"card-body\" *ngIf=\"product\">\n            <p class=\"product-info card-text\">{{product.product_name}}</p>\n            <p class=\"card-text product-price\">{{product.sub_prod[0].price | number}}đ</p>\n            <!-- <a class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</a> -->\n            <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n          </div>\n        </div>\n      </a>\n    </div>\n  </div>\n</div>\n\n<!-- Modal shopping cart giỏ hàng của khách hàng -->\n<app-shopping-cart *ngIf=\"selectedProduct\" (products)=\"pushProducts($event)\" [product]=\"selectedProduct\"></app-shopping-cart>\n<!-- <app-modal-product-detail *ngIf=\"selectedProduct\" [productInput]=\"selectedProduct\"></app-modal-product-detail> -->\n\n<!-- Modal -->\n<div *ngIf=\"selectedProduct\"   class=\"modal fade\" id=\"product-detail\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"product-detail\"\n  aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"product-detailLabel\">Thông Tin Sản Phẩm</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n\n        <div style=\"background: #f5f5f5;\">\n          <div class=\"\">\n            <div class=\"gioi-thieu-san-pham row mb-4\">\n              <div class=\"product-image col-md-4\">\n                <img class=\"image\" [src]=\"product2.product_image\" alt=\"\">\n              </div>\n              <div class=\"product-info col-md-8\">\n                <h2 class=\"display-4\">{{product2.product_name }}</h2>\n                <div class=\"price\">\n                  <span class=\"price-present\">{{product2.sub_prod[0].price | number}}</span>\n                </div>\n\n                <hr>\n\n                <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\n                  <button type=\"button\" class=\"btn btn-danger\" (click)=\"decrease()\">-</button>\n                  <input type=\"text\" style=\"width: 40px !important;\" name=\"quantity\" value=\"{{product2.quantity }}\" min=\"1\" max=\"20\" disabled>\n                  <button type=\"button\" class=\"btn btn-danger\" (click)=\"increase()\">+</button>\n                </div>\n                <br>\n                <br>\n                <button class=\"btn btn-primary\" (click)=\"onSelect2(product2)\">Cho vào giỏ hàng</button>\n\n                <br>\n                <br>\n              </div>\n            </div>\n\n            <ul class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\n              <li class=\"nav-item\">\n                <a class=\"nav-link active\" id=\"home-tab\" data-toggle=\"tab\" href=\"#home\" role=\"tab\" aria-controls=\"home\" aria-expanded=\"true\">\n                  <h2 class=\"display-4\">Thông số sản phẩm</h2>\n                </a>\n              </li>\n              <li class=\"nav-item\">\n                <a class=\"nav-link\" id=\"profile-tab\" data-toggle=\"tab\" href=\"#profile\" role=\"tab\" aria-controls=\"profile\" required>\n                  <h2 class=\"display-4\">Thông tin sản phẩm</h2>\n                </a>\n              </li>\n            </ul>\n            <div class=\"tab-content\" id=\"myTabContent\">\n              <div class=\"tab-pane fade show active\" id=\"home\" role=\"tabpanel\" aria-labelledby=\"home-tab\">\n                <div class=\"thong-so-san-pham\" id=\"tab_content_product_specifications\">\n\n                  <table class=\"table table-bordered\" id=\"tblGeneralAttribute\">\n                    <tbody>\n                      <tr class=\"row-info\">\n                        <td>\n                          <strong>Xuất xứ</strong>\n                        </td>\n                        <td>{{product2.product_madein}}</td>\n                      </tr>\n\n                      <tr class=\"row-info\">\n                        <td>\n                          <strong>Giới tính</strong>\n                        </td>\n                        <td>{{product2.product_gender}}</td>\n                      </tr>\n\n                      <tr class=\"row-info\">\n                        <td>\n                          <strong>Hướng dẫn sử dụng</strong>\n                        </td>\n                        <td>{{product2.product_instruction}}</td>\n                      </tr>\n\n                      <tr class=\"row-info\">\n                        <td>\n                          <strong>Hướng dẫn bảo quản</strong>\n                        </td>\n                        <td>Bảo quản nơi khô ráo, thoáng mát</td>\n                      </tr>\n                      <tr class=\"row-info\">\n                        <td>\n                          <strong>Dung tích</strong>\n                        </td>\n                        <td>{{product2.product_size}}</td>\n                      </tr>\n                    </tbody>\n                  </table>\n                  <!-- end table.table -->\n\n                </div>\n              </div>\n\n              <div class=\"tab-pane fade\" id=\"profile\" role=\"tabpanel\" aria-labelledby=\"profile-tab\">\n                <div class=\"thong-tin-san-pham mb-4\">\n\n                  <h3>{{product2.product_name}}</h3>\n                  <p>{{product2.product_decription}}</p>\n\n                </div>\n              </div>\n            </div>\n\n            <!-- <app-san-pham-tuong-tu></app-san-pham-tuong-tu> -->\n          </div>\n        </div>\n\n      </div>\n\n\n      <div class=\"modal-footer\">\n        <!-- <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button> -->\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"modal fade\" id=\"hoan-tat-don-hang\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"product-detail\" aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\" id=\"product-detailLabel\">Hoàn tất đơn hàng</h4>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <h5>Địa chỉ nhận hàng</h5>\n        <div class=\"input-group\">\n          <span class=\"input-group-addon\" id=\"ho-ten\">Họ tên: </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: Cao Minh Hưng\">\n        </div>\n\n        <div class=\"input-group\">\n          <span class=\"input-group-addon\" id=\"ho-ten\">Điện thoại: </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: 01218815991\">\n        </div>\n\n        <div class=\"input-group\">\n          <span class=\"input-group-addon\" id=\"ho-ten\">Email: </span>\n          <input type=\"email\" class=\"form-control\" placeholder=\"support@gmail.com\">\n        </div>\n\n        <div class=\"input-group\">\n          <span class=\"input-group-addon\" id=\"ho-ten\">Tên đường phố: </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Phường 4, Quận Gò Vấp, Hồ Chí Minh\">\n        </div>\n\n        <div class=\"input-group\">\n          <span class=\"input-group-addon\" id=\"ho-ten\">Địa chỉ chi tiết: </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: số 10, Ngõ 50, Ngách 100, Hẽm 22\">\n        </div>\n\n        <div class=\"input-group\">\n          <span class=\"input-group-addon\" id=\"ho-ten\">Lời nhắn: </span>\n          <textarea name=\"\" id=\"\" cols=\"20\" rows=\"2\" class=\"form-control\" placeholder=\"Ví dụ: Giao ngoài giờ hành chính\"></textarea>\n        </div>\n\n        <table class=\"table mt-4\">\n            <thead class=\"thead-default\">\n              <tr>\n                <th>SẢN PHẨM</th>\n                <th>ĐƠN GIÁ</th>\n                <th>SỐ LƯỢNG</th>\n                <th>THÀNH TIỀN</th> \n              </tr>\n            </thead>\n            <tr *ngFor=\"let item of products2, let i = index\">\n              <td class=\"product-info w-100\">\n                <img class =\"d-inline-block img-thumbnail w-25 h-25 mr-2\" [src]=\"item.product_image\">\n                <span class=\"d-inline-block\">{{item.product_name}}\n                  <br> <i class=\"fa fa-window-close\" (click)=\"DeleteProduct(i)\"></i>\n                </span>\n              </td>\n              <td>{{item.sub_prod[0].price}}</td>\n              <td>\n                <input #quantity type=\"number\" value=\"{{item.quantity}}\" min=\"1\" max=\"1000\" (change)=\"[tinhTotalPrice(quantity.value, item.sub_prod[0].price, i), TinhTongTienCart()]\">\n              </td>\n              <td id=\"thanh-tien\" class=\"thanh-tien\">{{ item.total_price | number }}</td>\n            </tr>\n  \n            <tr>\n              <td class=\"\" colspan=\"3\" style=\"font-weight: bold; text-align: right;  font-size: 20px\">Tổng tiền</td>\n              <!-- <td style=\"font-weight: bold; color: rgb(207, 6, 6); font-size: 20px\">{{products2.tong_tien | number}}</td> -->\n            </tr>\n          </table>\n\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<app-nav-guest></app-nav-guest>\n\n<app-slider-guest></app-slider-guest>\n\n<div class=\"container mt-4 mb-4\">\n  <div class=\"row\">\n    <div class=\"col-md-3 col-sm-4 col-xs-6 product\" *ngFor=\"let product of products\">\n      <a class=\"product-a\">\n        <div class=\"card\" style=\"width: 20rem;\">\n          <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n            style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n          <div class=\"card-body\" *ngIf=\"product\">\n            <p class=\"product-info card-text\">{{product.product_name}}</p>\n            <p class=\"card-text product-price\">{{product.sub_prod[0].price | number}}đ</p>\n\n            <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n          </div>\n        </div>\n      </a>\n    </div>\n  </div>\n</div>\n\n<!-- Modal shopping cart giỏ hàng của khách hàng -->\n<app-shopping-cart [productOP]=\"selectedProduct\"></app-shopping-cart>"
 
 /***/ }),
 
@@ -2327,9 +2509,10 @@ module.exports = "{{testProducts | json}}\n<div class=\"container mt-4 mb-4\">\n
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_test_service__ = __webpack_require__("../../../../../src/app/service/test.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_test_service__ = __webpack_require__("../../../../../src/app/service/test.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2340,16 +2523,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 // service 
 
 
 
 var ProductsComponent = (function () {
-    function ProductsComponent(mainService, guestService, test) {
+    function ProductsComponent(mainService, guestService, test, router) {
         this.mainService = mainService;
         this.guestService = guestService;
         this.test = test;
+        this.router = router;
         this.products = new Array();
+        this.listArray = new Array();
     }
     ProductsComponent.prototype.addProduct = function () {
         this.test.addToCarts(this.selectedProduct);
@@ -2363,27 +2549,26 @@ var ProductsComponent = (function () {
         }, function (res) { return console.log(res); });
     };
     ProductsComponent.prototype.onSelect = function (product) {
-        this.selectedProduct = product;
-        this.product2 = product;
-        this.product2.quantity = 1;
-    };
-    ProductsComponent.prototype.onSelect2 = function (product2) {
-        this.selectedProduct = product2;
-        $("#product-detail").modal("toggle");
-        $("#shopping-cart").modal("toggle");
-    };
-    ProductsComponent.prototype.increase = function () {
-        this.product2.quantity += 1;
-    };
-    ProductsComponent.prototype.decrease = function () {
-        if (this.product2.quantity > 1) {
-            this.product2.quantity -= 1;
-        }
+        this.selectedProduct = {
+            _id: product._id,
+            product_id: product.product_id,
+            product_name: product.product_name,
+            product_image: product.product_image,
+            price: product.sub_prod[0].price,
+            quantity: 1
+        };
     };
     ProductsComponent.prototype.pushProducts = function (products) {
         this.products2 = products;
         console.log(this.products2);
     };
+    ProductsComponent.prototype.putToNav = function (event) {
+        this.numToNav = event;
+    };
+    ProductsComponent.prototype.selectProductDetail = function (product) {
+        this.guestService.selectProductDetail(product._id);
+    };
+    ;
     ProductsComponent.prototype.ngOnInit = function () {
         this.getProducts();
         this.testProducts = this.test.getCarts();
@@ -2397,10 +2582,10 @@ ProductsComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/guest/products/products.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/products/products.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__service_guest_service__["a" /* GuestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__service_guest_service__["a" /* GuestService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__service_test_service__["a" /* TestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__service_test_service__["a" /* TestService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__service_main_service__["a" /* MainService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__service_guest_service__["a" /* GuestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__service_guest_service__["a" /* GuestService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__service_test_service__["a" /* TestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__service_test_service__["a" /* TestService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _d || Object])
 ], ProductsComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=products.component.js.map
 
 /***/ }),
@@ -2663,11 +2848,12 @@ var _a;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GuestService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2681,20 +2867,59 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 // @Injectable()
 // export class GuestService {
 //   constructor() { }
 // }
 var GuestService = (function () {
-    function GuestService(_http) {
+    function GuestService(_http, router) {
         this._http = _http;
-        this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
+        this.router = router;
+        this.headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
     }
     // Get list of products for guest
     GuestService.prototype.GetListProductsByJoin = function () {
         var _this = this;
         return this._http.get("/api/products-guest")
             .map(function (result) { return _this.result = result.json().data; });
+    };
+    GuestService.prototype.getNumOfProduct = function () {
+        var num = (JSON.parse(localStorage.getItem('shopping-cart'))).length;
+        if (localStorage.getItem('shopping-cart')) {
+        }
+        console.log(num);
+        return num;
+    };
+    GuestService.prototype.addProductSession = function (product) {
+        var products = new Array();
+        products = JSON.parse(localStorage.getItem('shopping-cart'));
+        products.push(product);
+        localStorage.setItem('shopping-cart', JSON.stringify(products));
+        console.log(JSON.parse(localStorage.getItem('shopping-cart')));
+    };
+    GuestService.prototype.getProductSession = function () {
+        var products = new Array();
+        products = JSON.parse(localStorage.getItem('shopping-cart'));
+        return products;
+    };
+    GuestService.prototype.getProductDetail = function (id) {
+        var _this = this;
+        var url = "/api/product/" + id;
+        return this._http.get(url, { headers: this.headers })
+            .map(function (res) { return _this.result = res.json(); });
+    };
+    GuestService.prototype.getProductfromInventory = function (id) {
+        var _this = this;
+        var url = "/api/inventory/" + id;
+        return this._http.get(url, { headers: this.headers })
+            .map(function (res) { return _this.result = res.json(); });
+    };
+    GuestService.prototype.selectProductDetail = function (id) {
+        this.router.navigate(['product/' + id]);
+    };
+    GuestService.prototype.hoanTatThanhToan = function () {
+        this.router.navigate(['hoan-tat-thanh-toan']);
     };
     GuestService.prototype.handleError = function (error) {
         console.error('An error occurred', error); //for demo purposes only
@@ -2704,10 +2929,10 @@ var GuestService = (function () {
 }());
 GuestService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object])
 ], GuestService);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=guest.service.js.map
 
 /***/ }),
@@ -2740,15 +2965,13 @@ var MainService = (function () {
     function MainService(_http) {
         this._http = _http;
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
-        this.username = "unknown";
-        this.isUserLoggedIn = false;
+        // localStorage.setItem('currentUser', JSON.stringify({name: 'unknown', user: false}))
     }
-    MainService.prototype.setUserLoggedIn = function () {
-        this.isUserLoggedIn = true;
-        this.username = "admin";
+    MainService.prototype.setUserLoggedIn = function (username) {
+        localStorage.setItem('currentUser', JSON.stringify({ name: username, user: true }));
     };
     MainService.prototype.getUserLoggedIn = function () {
-        return this.isUserLoggedIn;
+        return JSON.parse(localStorage.getItem('currentUser'));
     };
     // get api
     MainService.prototype.getUsers = function () {
@@ -2822,6 +3045,9 @@ var MainService = (function () {
             .then(function (res) { return product; })
             .catch(this.handleError);
     };
+    MainService.prototype.deleteSessionCart = function () {
+        localStorage.removeItem('shopping-cart');
+    };
     MainService.prototype.handleError = function (error) {
         console.error('An error occurred', error); //for demo purposes only
         return Promise.reject(error.massage || error);
@@ -2872,6 +3098,36 @@ TestService = __decorate([
 ], TestService);
 
 //# sourceMappingURL=test.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/service/users.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsersService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var UsersService = (function () {
+    function UsersService() {
+    }
+    return UsersService;
+}());
+UsersService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [])
+], UsersService);
+
+//# sourceMappingURL=users.service.js.map
 
 /***/ }),
 

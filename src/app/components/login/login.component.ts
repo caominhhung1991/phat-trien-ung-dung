@@ -18,13 +18,13 @@ export class LoginComponent implements OnInit {
 
   loginUser(e) {
     e.preventDefault();
-    console.log(e);
+    // console.log(e);
     let username = e.target.elements[0].value;
     let password = e.target.elements[1].value;
 
     if(username == 'admin' && password == 'admin') {
-        this.mainService.setUserLoggedIn();
-        this.router.navigate(['admin']);
+        this.mainService.setUserLoggedIn(username);
+        this.router.navigate([username]);
     }
   }
 

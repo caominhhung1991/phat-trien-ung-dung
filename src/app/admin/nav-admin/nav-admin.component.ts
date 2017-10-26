@@ -14,8 +14,11 @@ export class NavAdminComponent implements OnInit {
     private mainService: MainService
   ) { }
 
-  ngOnInit() {
-    this.name = this.mainService.username;
+  logout() {
+    localStorage.removeItem('currentUser');
   }
-
+  ngOnInit() {
+    this.name = this.mainService.getUserLoggedIn().name;
+  }
+ 
 }

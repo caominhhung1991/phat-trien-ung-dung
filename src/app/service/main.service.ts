@@ -12,20 +12,18 @@ export class MainService {
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private _http: Http) {
-    this.isUserLoggedIn = false;
+    // localStorage.setItem('currentUser', JSON.stringify({name: 'unknown', user: false}))
   }
   
-  private isUserLoggedIn;
-  public username = "unknown";
 
-  setUserLoggedIn() {
-    this.isUserLoggedIn = true;
-    this.username = "admin";
+  setUserLoggedIn(username) {
+    localStorage.setItem('currentUser', JSON.stringify({name: username, user: true}))
   }
-
+ 
   getUserLoggedIn() {
-    return this.isUserLoggedIn;
+    return JSON.parse(localStorage.getItem('currentUser'));
   }
+    
   // get api
   getUsers() {
     return this._http.get("/api/users")
@@ -101,6 +99,9 @@ export class MainService {
       .catch(this.handleError);
   }
  
+  deleteSessionCart() {
+    localStorage.removeItem('shopping-cart');
+  }
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); //for demo purposes only
     return Promise.reject(error.massage || error);
