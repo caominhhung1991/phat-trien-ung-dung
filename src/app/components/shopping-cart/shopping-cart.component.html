@@ -25,11 +25,11 @@
                 <br> <i class="fa fa-window-close" (click)="DeleteProduct(i)"></i>
               </span>
             </td>
-            <td>{{item.price}}</td>
+            <td>{{item.price | number}}đ</td>
             <td>
               <input #quantity type="number" value="{{item.quantity}}" min="1" max="1000" (change)="[tinhTotalPrice(quantity.value, item.price, i), TinhTongTienCart()]">
             </td>
-            <td id="thanh-tien" class="thanh-tien">{{ item.total_price | number }}</td>
+            <td id="thanh-tien" class="thanh-tien">{{ item.total_price | number }}đ</td>
           </tr>
 
           <tr>
@@ -37,11 +37,12 @@
             <td style="font-weight: bold; color: rgb(207, 6, 6); font-size: 20px">{{cart_products.tong_tien | number}}</td>
           </tr>
         </table>
+        
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-arrow-left"></i> Tiếp tục mua hàng</button>
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hoan-tat-thanh-toan" (click)="hoanTatThanhToan()">Tiếp tục thanh toán<i class="fa fa-arrow-right"></i></button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hoan-tat-thanh-toan" (click)="hoanTatThanhToan()">Tiếp tục thanh toán <i class="fa fa-arrow-right"></i></button>
       </div>
     </div>
   </div>

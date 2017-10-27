@@ -41,7 +41,7 @@ router.get('/users', (req, res) => {
     });
 });
 
-// --------- Product API --------------
+// --------- San pham - Product API --------------
 // Get list of product
 router.get('/products', (req, res) => {
     console.log("get products api");
@@ -121,7 +121,7 @@ router.delete('/product/:id', (req, res, next) => {
 });
 
 
-// --- Phiếu nhập kho ---
+// --- Phiếu nhập kho - purchase - purchasing ---
 // Add one purchasing
 router.post('/purchasing', (req, res, next) => {
     var purchase = req.body;
@@ -140,7 +140,7 @@ router.post('/purchasing', (req, res, next) => {
     })
 });
 
-// --- Kho ---
+// --- Kho - inventory ---
 // Get one product from inventory
 router.get('/inventory/:id', (req, res, next) => {
     console.log("get 1 product from inventory!")
@@ -223,6 +223,52 @@ router.post('/users', (req, res, next) => {
             .then(res.json())
     });
 })
+
+// --- Đơn đặt hàng - Order - Order Detail ---
+router.post('/order', (req, res, next) => {
+    console.log("Order product from client");
+    var order = req.body;
+    // user._id = new ObjectID(product._id);
+    connection(db => {
+        db.collection("order")
+            .save(order)
+            .then(res.json())
+    });
+})
+
+router.get('/order', (req, res, next) => {
+    console.log("get orders from admin");
+    connection((db) => {
+        db.collection('order')
+            .find()
+            .toArray()
+            .then((orders) => {
+                response.data = orders;
+                res.json(response);
+            })
+            .catch((err) => {
+                sendError(err, res);
+            });
+    });
+});
+
+router.put('/order/:id', (req, res, next) => {
+    var order = req.body;
+    order._id = new ObjectID(productUpdate._id);
+    console.log("update order from admin");
+    var request = {'_id': new ObjectID(req.params.id)};
+    connection((db) => {
+        db.collection('order')
+            .update(request, order, {save:true}, (err, order) => {
+                if (err) {
+                    res.send(err);
+                }
+                res.json(order);
+            });
+    });
+});
+
+
 // Get one user by username, password
 // router.get('/users/:username&:password', (req, res, next) => {
     

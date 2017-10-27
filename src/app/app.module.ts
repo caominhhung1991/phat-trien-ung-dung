@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 // module
 import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module';
@@ -21,6 +22,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { UserComponent } from './admin/user/user.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { SignUpComponent} from './components/sign-up/sign-up.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 // import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component'
 
 @NgModule({
@@ -29,7 +31,8 @@ import { SignUpComponent} from './components/sign-up/sign-up.component';
     HttpModule,
     AppRoutingModule,
     AdminModule,
-    GuestModule
+    GuestModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,

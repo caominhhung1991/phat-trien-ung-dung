@@ -34,10 +34,19 @@ export class ProductsComponent implements OnInit {
   }
 
   getProducts() {
-    this.guestService.GetListProductsByJoin().subscribe(res => {
-      this.products = res;
-      console.log(res);
-    },res => console.log(res));
+    if(JSON.parse(sessionStorage.getItem('products')) != null) {
+      this.products = JSON.parse(sessionStorage.getItem('products'));
+    } else {
+      this.guestService.GetListProductsByJoin().subscribe(res => {
+      console.log(res)
+        for(let item of res) {
+          if(item.sub_prod[0]) {
+            this.products.push(item);
+          }
+        }
+        sessionStorage.setItem('products', JSON.stringify( this.products));
+      },res => console.log(res));
+    }
   }
 
   onSelect(product:any) {
@@ -65,9 +74,9 @@ export class ProductsComponent implements OnInit {
   };
 
   ngOnInit() {
+    // localStorage.removeItem('products')
     this.getProducts();
     this.testProducts = this.test.getCarts();
     // $("#hoan-tat-don-hang").modal("show");
   }
-
 }

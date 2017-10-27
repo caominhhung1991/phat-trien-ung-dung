@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router} from '@angular/router';
+import { Location } from '@angular/common'
 //Object
 import { Product } from '../objects/product';
 
@@ -7,19 +8,21 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
-// @Injectable()
-// export class GuestService {
+// declare variable jquery and $ to use jquery plugin
+declare var jquery:any;
+declare var $:any;
 
-//   constructor() { }
-
-// }
 @Injectable()
 export class GuestService {
   result:any;
   
   private headers = new Headers({'Content-Type': 'application/json'});
 
-  constructor(private _http: Http, private router:Router) {
+  constructor(
+    private _http: Http, 
+    private router:Router,
+    private location: Location
+  ) {
   }
 
   // Get list of products for guest
@@ -55,6 +58,7 @@ export class GuestService {
     return this._http.get(url, {headers: this.headers})
     .map(res => this.result = res.json());
   }
+
   getProductfromInventory(id:string) {
     const url = "/api/inventory/" + id;
     return this._http.get(url, {headers: this.headers})
@@ -67,6 +71,16 @@ export class GuestService {
 
   hoanTatThanhToan() {
     this.router.navigate(['hoan-tat-thanh-toan']);
+    location.reload();
+  }
+
+  // Hoàn thành đơn đặt hàng từ khách hàng
+  addOrderFromGuest(order:any):Promise<any> {
+    const url = "/api/order";
+    return this._http.post(url, JSON.stringify(order), {headers: this.headers})
+      .toPromise()
+      .then(res => this.result = res)
+      .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {

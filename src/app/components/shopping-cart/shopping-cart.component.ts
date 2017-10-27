@@ -20,6 +20,8 @@ export class ShoppingCartComponent implements OnInit {
   numberProduct:number;
   cart_products:any = new Array();
   totalPrice:number;
+  checkCart:number;
+
   @Input() set productOP(product) {
     if(product !== undefined) {
       let list = JSON.parse(localStorage.getItem('cart'))
@@ -61,6 +63,7 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   TinhTongTienCart() {
+    console.log("\nTính tổng tiền cart")
     this.cart_products.tong_tien = 0;
     this.numberProduct = 0;
     for(let item of this.cart_products) {
@@ -71,8 +74,12 @@ export class ShoppingCartComponent implements OnInit {
     this.testNum = this.numberProduct;
   }
 
+  layTongTien() {
+    return this.cart_products.tong_tien;
+  }
+
   selectProductDetail(product) {
-    $("#shopping-cart").modal("hide");
+    // $("#shopping-cart").modal("hide");
     this.guestService.selectProductDetail(product._id);
   }
 
@@ -83,12 +90,16 @@ export class ShoppingCartComponent implements OnInit {
 
 
   hoanTatThanhToan() {
-    $("#shopping-cart").modal("hide");
+    // $("#shopping-cart").modal("hide");
     this.guestService.hoanTatThanhToan();
   }
  
   ngOnInit() {
-    
+    let list = JSON.parse(localStorage.getItem('cart'))
+    if(list) {
+      this.cart_products = Object.values(list);
+      this.TinhTongTienCart();
+    }
   }
 
 

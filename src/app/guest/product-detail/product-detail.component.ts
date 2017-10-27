@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 // service
 import { GuestService } from './../../service/guest.service';
 import { MainService } from './../../service/main.service';
+import { TestService} from './../../service/test.service';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -14,10 +15,12 @@ import 'rxjs/add/operator/switchMap';
 })
 export class ProductDetailComponent implements OnInit {
   product:any;
+  testProducts:any;
   selectedProduct:any;
   constructor(
     private mainService: MainService,
     private guestService: GuestService,
+    private testService: TestService,
     private route: ActivatedRoute,
     private location: Location
   ) { }
@@ -47,18 +50,37 @@ export class ProductDetailComponent implements OnInit {
       this.product.quantity -= 1;
     }
   }
+
+  goBack() {
+    this.location.back();
+  }
+  
   id:string;
   ngOnInit() {
+    let _id: string = "";
     this.route.paramMap.switchMap((params: ParamMap) => {
-      this.id = params.get('id');
-      return this.guestService.getProductDetail(this.id);
+      return params.get('id').toString();
+    }).subscribe(res => {
+      _id += res;
     })
-    .subscribe(res => {
-      this.product = res;
-      this.product.quantity = 1;
-      this.guestService.getProductfromInventory(this.product._id).subscribe( res => {
-        this.product.price = res.price;
+
+    if(JSON.parse(sessionStorage.getItem(_id)) == null) {
+      this.route.paramMap.switchMap((params: ParamMap) => {
+        this.id = params.get('id');
+        return this.guestService.getProductDetail(this.id);
       })
-    });
+      .subscribe(res => {
+          this.product = res;
+          this.product.quantity = 1;
+          this.guestService.getProductfromInventory(this.product._id).subscribe( res => {
+            this.product.price = res.price;
+            sessionStorage.setItem(res._id, JSON.stringify(this.product));
+            console.log("add product detail to session");
+          }) 
+      });
+    } else {
+      this.product = JSON.parse(sessionStorage.getItem(_id));
+    }
+    
   }
 }

@@ -4,20 +4,20 @@
 
 <div class="container mt-4 mb-4">
   <div class="row">
-    <div class="col-md-3 col-sm-4 col-xs-6 product" *ngFor="let product of products">
-      <a class="product-a">
-        <div class="card" style="width: 20rem;">
-          <img class="card-img-top" [src]="product.product_image" alt="Card image cap" data-toggle="modal" data-target="#product-detail"
-            style="cursor: pointer" (click)="selectProductDetail(product)">
-          <div class="card-body" *ngIf="product">
-            <p class="product-info card-text">{{product.product_name}}</p>
-            <p class="card-text product-price">{{product.sub_prod[0].price | number}}đ</p>
-
-            <button class="btn btn-primary add-to-cart" (click)="onSelect(product)" data-toggle="modal" data-target="#shopping-cart">Cho vào giỏ hàng</button>
-          </div>
+      <div *ngFor="let product of products" class="col-md-3 col-sm-4 col-xs-6 product" >
+          <a class="product-a">
+            <div class="card" style="width: 20rem;">
+              <img class="card-img-top" [src]="product.product_image" alt="Card image cap" data-toggle="modal" data-target="#product-detail"
+                style="cursor: pointer" (click)="selectProductDetail(product)">
+              <div class="card-body" >
+                <p class="product-info card-text">{{product?.product_name}}</p>
+                <p class="card-text product-price">{{product?.sub_prod[0].price | number}}đ</p>
+    
+                <button class="btn btn-primary add-to-cart" (click)="onSelect(product)" data-toggle="modal" data-target="#shopping-cart">Cho vào giỏ hàng</button>
+              </div>
+            </div>
+          </a>
         </div>
-      </a>
-    </div>
   </div>
 </div>
 

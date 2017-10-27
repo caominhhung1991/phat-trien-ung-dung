@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule} from '@angular/forms'
 import { CommonModule } from '@angular/common';
 
 //import component
@@ -14,7 +15,8 @@ import { HoanTatThanhToanComponent } from './hoan-tat-thanh-toan/hoan-tat-thanh-
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   declarations: [
     HomePageComponent,

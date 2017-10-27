@@ -4,6 +4,7 @@ table {
 
 td {
     padding: 10px;
+    font-size: 14px;
 }
 
 tr:first-child {
@@ -43,6 +44,5 @@ tr:first-child td:nth-child(4)  {
 }
 
 .thanh-tien {
-    font-size: 19px !important;
     font-weight: bold;
 }
