@@ -224,7 +224,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".donhang {\r\n    font-size: 13px;\r\n}\r\n.card {\r\n    cursor: pointer;\r\n}\r\n.card-title {\r\n    font-size: 13px;\r\n}\r\n\r\ntable {\r\n    background-color: #fff;\r\n    border-radius: 5px;\r\n}\r\n", ""]);
+exports.push([module.i, ".donhang {\r\n    font-size: 13px;\r\n}\r\n.card {\r\n    cursor: pointer;\r\n}\r\n.card-title {\r\n    font-size: 13px;\r\n}\r\n\r\ntable {\r\n    background-color: #fff;\r\n    border-radius: 5px;\r\n}\r\n\r\n.form-control {\r\n    margin-bottom: 8px;\r\n}\r\n\r\n.product {\r\n    cursor: pointer;\r\n\r\n}\r\n\r\nth {\r\n    text-align: center;\r\n}\r\n\r\n.product:hover {\r\n    background: rgba(0,0,0,0.05);\r\n}\r\n\r\n.badge-danger:hover {\r\n    background: #343a40;\r\n}\r\n\r\n/* .fa-window-close {\r\n    font-size: 19px;\r\n    color: red;\r\n}\r\n\r\n.fa-window-close:hover {\r\n    color: #333;\r\n} */", ""]);
 
 // exports
 
@@ -237,7 +237,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"donhang\" class=\"donhang mb-5 mt-2\">\r\n  <span class=\"pull-left\">Chi tiết đơn hàng #{{donhang.donhang_id}}</span> - {{donhang.status}}\r\n  <span class=\"pull-right\">Ngày đặt hàng: {{donhang.order_date}}</span>\r\n\r\n  <div class=\"row mt-4 mb-4\">\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Địa chỉ người nhận</h4>\r\n          <p class=\"card-text\">Địa chỉ: {{donhang.address}}</p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Phương thức vận chuyển</h4>\r\n          <p class=\"card-text\">{{donhang.transport}}</p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Phương thức thanh toán</h4>\r\n          <p class=\"card-text\">{{donhang.payment}}</p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"product\">\r\n    <table class=\"table\">\r\n      <thead class=\"thead-default\">\r\n        <tr>\r\n          <th width=\"50%\">Sản phẩm</th>\r\n          <th>Giá</th>\r\n          <th>Số lượng</th>\r\n          <th>Giảm giá</th>\r\n          <th>Tạm tính</th>\r\n        </tr>\r\n      </thead>\r\n\r\n      <tbody>\r\n        <tr *ngFor=\"let product of donhang.products\">\r\n          <td width=\"50%\">{{product.product_name}}</td>\r\n          <td>{{product.price}}</td>\r\n          <td><input type=\"number\" placeholder=\"{{product.quantity}}\"></td>\r\n          <td>{{product.sale}}</td>\r\n          <td>{{product.quantity * product.price }}</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n\r\n  <div class=\"xac-nhan\">\r\n    <button class=\"btn btn-sm btn-danger pull-right ml-1\">Huỷ bỏ đơn hàng</button>\r\n    <button class=\"btn btn-sm btn-primary pull-right ml-1\">Cập nhật</button>\r\n    <button class=\"btn btn-sm btn-info pull-right\">Refresh</button>\r\n\r\n    <button class=\"btn btn-lg btn-success pull-left mb-5\">Xác nhận</button>\r\n  </div>\r\n</div>"
+module.exports = "<div *ngIf=\"donhang\" class=\"donhang mb-5 mt-2\">\r\n  <span class=\"pull-left\">Chi tiết đơn hàng #{{donhang.id}} </span> - <b>{{donhang.status}}</b>\r\n  <span class=\"pull-right\">Ngày đặt hàng: {{donhang.timeModified | date:'hh:mm - dd/MM/y'}}</span>\r\n\r\n  <div class=\"row mt-4 mb-4\">\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Địa chỉ người nhận</h4>\r\n          <label for=\"detail\" class=\"label-control\">Số:</label>\r\n          <input type=\"text\" id=\"detail\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.detail\" name=\"detail\">\r\n          <label for=\"address\" class=\"label-control\">Địa chỉ:</label>\r\n          <input type=\"text\" id=\"address\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.address\" name=\"address\">\r\n          \r\n          <!-- <p class=\"card-text\">Địa chỉ: {{donhang.detail}} {{donhang.address}}</p> -->\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Thông tin khách hàng</h4>\r\n          <label for=\"name\" class=\"label-control\">Tên:</label>\r\n          <input type=\"text\" id=\"name\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.name\" name=\"name\">\r\n          <label for=\"phone\" class=\"label-control\">Phone:</label>\r\n          <input type=\"text\" id=\"phone\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.phone\" name=\"phone\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Lời nhắn</h4>\r\n          <textarea class=\"form-control form-control-sm\" name=\"payment\" id=\"payment\" cols=\"32\" rows=\"2\" \r\n            [(ngModel)]=\"donhang.loi_nhan\" placeholder=\"Lời nhắn của khách hàng\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <button data-toggle=\"modal\" data-target=\"#sanPham\" class=\"btn btn-outline-info btn-sm mb-2\">Thêm sản phẩm</button>\r\n  <!-- Thông tin chi tiết sản phẩm của đơn hàng -->\r\n  <div class=\"product\">\r\n    <table class=\"table\">\r\n      <thead class=\"thead-default\">\r\n        <tr>\r\n          <th>Mã SP</th>\r\n          <th width=\"45%\">Sản phẩm</th>\r\n          <th>Giá</th>\r\n          <th>Số lượng</th>\r\n          <th>Giảm giá</th>\r\n          <th width=\"10%\">Tạm tính</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let product of donhang.order_detail, index as i\">\r\n          <td>{{product.product_id}}</td>\r\n          <td width=\"50%\">\r\n            {{product.product_name}} <span class=\"badge badge-danger\" (click)=\"removeProduct(i)\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Delete this product\"> X</span>\r\n          </td>\r\n          <td style=\"text-align: right\">{{product.price | number}}</td>\r\n          <td><input type=\"number\" [(ngModel)]=\"product.quantity\" placeholder=\"{{product.quantity}}\" (change)=\"tinhTien(product)\"></td>\r\n          <td>{{product.sale}}0%</td>\r\n          <td style=\"text-align: right\">{{product.total_price | number}}</td>\r\n        </tr>\r\n        <tr>\r\n          <td colspan=\"5\" style=\"text-align: right\" width=\"10%\"><b>Tổng tiền</b></td>\r\n          <td style=\"text-align: right;\"><b>{{ donhang.tong_tien | number}}</b></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n\r\n  \r\n  <div class=\"xac-nhan\">\r\n    <button class=\"btn btn-sm btn-outline-danger pull-right ml-1\" (click)=\"deleteOrderByAdmin()\">Huỷ bỏ đơn hàng</button>\r\n    <button class=\"btn btn-sm btn-outline-primary pull-right ml-1\" (click)=\"updateOrderByAdmin()\">Cập nhật</button>\r\n    <button class=\"btn btn-sm btn-outline-info pull-right\" (click)=\"refresh()\">Refresh</button>\r\n\r\n    <button class=\"btn btn-lg btn-success pull-left mb-5\" (click)=\"accessOrderByAdmin()\">Xác nhận</button>\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n<div class=\"modal fade\" id=\"sanPham\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"sanPhamTitle\" aria-hidden=\"true\">\r\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h5 class=\"modal-title\" id=\"sanPhamTitle\">Thêm Sản Phẩm </h5>\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n          </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <table class=\"table\">\r\n            <thead>\r\n              <tr>\r\n                <th>STT</th>\r\n                <th>ID</th>\r\n                <th>Tên</th>\r\n                <th width=\"10%\">Hình</th>\r\n                <th width=\"15%\">Giá(đ)</th>\r\n              </tr>\r\n            </thead>\r\n\r\n            <tbody>\r\n                <tr *ngFor=\"let product of products, index as i_product\" class=\"product\" (click)=\"onAddProduct(product)\">\r\n                    <td><b>{{i_product+1}}</b></td>\r\n                    <td>{{product.product_id}}</td>\r\n                    <td>{{product.product_name}}</td>\r\n                    <td width=\"10%\">\r\n                      <img class=\"img-fluid\" [src]=\"product.product_image\" alt=\"image\">\r\n                    </td>\r\n                    <td style=\"text-align: right\" width=\"15%\"><strong>{{product.sub_prod[0].price | number}}</strong></td>\r\n                  </tr>\r\n            </tbody>\r\n            \r\n          </table>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>"
 
 /***/ }),
 
@@ -248,9 +248,12 @@ module.exports = "<div *ngIf=\"donhang\" class=\"donhang mb-5 mt-2\">\r\n  <span
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChiTietDonHangComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_switchMap__ = __webpack_require__("../../../../rxjs/add/operator/switchMap.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_switchMap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_admin_service__ = __webpack_require__("../../../../../src/app/service/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__("../../../../rxjs/add/operator/switchMap.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_admin_service__ = __webpack_require__("../../../../../src/app/service/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -263,16 +266,83 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 // service
+
+
 
 var ChiTietDonHangComponent = (function () {
     // private donhang: any;
-    function ChiTietDonHangComponent(adminService, route) {
+    function ChiTietDonHangComponent(mainService, guestService, adminService, route, location) {
+        this.mainService = mainService;
+        this.guestService = guestService;
         this.adminService = adminService;
         this.route = route;
+        this.location = location;
         this.donhang = {};
+        this.products = new Array();
     }
+    // order - access, update, delete order
+    ChiTietDonHangComponent.prototype.accessOrderByAdmin = function () {
+        var check = confirm("Bạn có muốn chấp nhận đơn hàng này?");
+        if (check) {
+            this.donhang.status = "Đang chờ giao";
+            this.donhang.access_person = (JSON.parse(localStorage.getItem("currentUser"))).name;
+            this.guestService.updateOrderByAdmin(this.donhang).then(function (res) {
+                console.log(res);
+                alert("success!");
+                location.reload();
+            }, function (res) { return console.log(res); });
+        }
+    };
+    ChiTietDonHangComponent.prototype.updateOrderByAdmin = function () {
+        var check = confirm("Bạn có muốn cập nhật lại đơn hàng?");
+        if (check) {
+            this.guestService.updateOrderByAdmin(this.donhang).then(function (res) {
+                console.log(res);
+                alert("success!");
+                // location.reload();
+            }, function (res) { return console.log(res); });
+        }
+    };
+    ChiTietDonHangComponent.prototype.deleteOrderByAdmin = function () {
+        var check = confirm("Bạn có muốn huỷ bỏ đơn hàng?");
+        if (check) {
+            this.donhang.status = "Huỷ";
+            this.guestService.updateOrderByAdmin(this.donhang).then(function (res) {
+                console.log(res);
+                alert("success!");
+                location.reload();
+            }, function (res) { return console.log(res); });
+        }
+    };
+    // edit product 
+    ChiTietDonHangComponent.prototype.onAddProduct = function (product) {
+        product.price = product.sub_prod[0].price;
+        product.quantity = 1;
+        product.total_price = product.price * product.quantity;
+        this.donhang.order_detail.push(product);
+    };
+    ChiTietDonHangComponent.prototype.removeProduct = function (index) {
+        this.donhang.order_detail.splice(index, 1);
+    };
+    ChiTietDonHangComponent.prototype.tinhTien = function (product) {
+        product.total_price = product.quantity * product.price;
+        this.tinhTongTien();
+    };
+    ChiTietDonHangComponent.prototype.tinhTongTien = function () {
+        this.donhang.tong_tien = 0;
+        for (var _i = 0, _a = this.donhang.order_detail; _i < _a.length; _i++) {
+            var item = _a[_i];
+            this.donhang.tong_tien += item.total_price;
+        }
+    };
+    ChiTietDonHangComponent.prototype.refresh = function () {
+        location.reload();
+    };
     ChiTietDonHangComponent.prototype.ngOnInit = function () {
+        this.products = JSON.parse(localStorage.getItem("products"));
+        console.log(this.products);
         // this.route.paramMap
         //   .switchMap((params: ParamMap) => this.adminService.getDonHang(+params.get('id')))
         //   .subscribe(donhang => this.donhang = donhang);
@@ -289,10 +359,10 @@ ChiTietDonHangComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__service_admin_service__["a" /* AdminService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__service_admin_service__["a" /* AdminService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__service_main_service__["a" /* MainService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__service_guest_service__["a" /* GuestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__service_guest_service__["a" /* GuestService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__service_admin_service__["a" /* AdminService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__service_admin_service__["a" /* AdminService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */]) === "function" && _e || Object])
 ], ChiTietDonHangComponent);
 
-var _a, _b;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=chi-tiet-don-hang.component.js.map
 
 /***/ }),
@@ -391,7 +461,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/quan-ly-don-hang/quan-ly-don-hang.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-admin [isActive]=\"1\"></app-nav-admin>\r\n<div class=\"container-fluid quan-ly-don-hang\">\r\n    <div class=\"row d-flex d-md-block flex-nowrap wrapper\">\r\n        <div class=\"col-md-2 float-left col-1 pl-0 pr-0 collapse width show\" id=\"sidebar\">\r\n            <div class=\"list-group border-0 card text-center text-md-left\">\r\n                <a href=\"#chua-xu-ly\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" data-parent=\"#sidebar\" aria-expanded=\"false\">\r\n                    <i class=\"fa fa-hand-lizard-o\"></i> \r\n                    <span class=\"d-none d-md-inline\">\r\n                        Chưa xử lý \r\n                        <span class=\"badge badge-danger\">2</span> \r\n                    </span> \r\n                </a>\r\n                <div class=\"collapse\" id=\"chua-xu-ly\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#chua-xu-ly\" *ngFor=\"let donhang of donhangsChuaXuLy\" (click)=\"onSelect(donhang)\"\r\n                        [style.cursor]=\"'pointer'\">{{donhang.donhang_id}}</a>\r\n                </div>\r\n\r\n                <a href=\"#dang-cho-giao\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-truck\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            Đang chờ giao \r\n                            <span class=\"badge badge-warning\">1</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"dang-cho-giao\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#dang-cho-giao\" [style.cursor]=\"'pointer'\">Item 1</a>\r\n                </div>\r\n\r\n                <a href=\"#da-hoan-thanh\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-smile-o\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            Đã hoàn thành \r\n                            <span class=\"badge badge-info\">1</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"da-hoan-thanh\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#da-hoan-thanh\" [style.cursor]=\"'pointer'\">Item 1</a>\r\n                </div>\r\n\r\n                <a href=\"#all\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-database\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            All \r\n                            <span class=\"badge badge-info\">4</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"all\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#all\" [style.cursor]=\"'pointer'\">Item 1</a>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n\r\n        <main class=\"col-md-10 main\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <app-chi-tiet-don-hang [donhang]=\"selectedDonhang\"></app-chi-tiet-don-hang>\r\n                </div>\r\n            </div>\r\n        </main>\r\n    </div>\r\n</div>"
+module.exports = "<app-nav-admin [isActive]=\"1\"></app-nav-admin>\r\n<div class=\"container-fluid quan-ly-don-hang\">\r\n    <div class=\"row d-flex d-md-block flex-nowrap wrapper\">\r\n        <div class=\"col-md-2 float-left col-1 pl-0 pr-0 collapse width show\" id=\"sidebar\">\r\n            <div class=\"list-group border-0 card text-center text-md-left\">\r\n\r\n                <!-- Đang chờ xử lý -->\r\n                <a href=\"#chua-xu-ly\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" data-parent=\"#sidebar\" aria-expanded=\"false\">\r\n                    <i class=\"fa fa-hand-lizard-o\"></i> \r\n                    <span class=\"d-none d-md-inline\">\r\n                        Chưa xử lý \r\n                        <span class=\"badge badge-danger\">{{numCXL}}</span> \r\n                    </span> \r\n                </a>\r\n                \r\n                <div class=\"collapse\" id=\"chua-xu-ly\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#chua-xu-ly\" *ngFor=\"let item_cxl of chuaXuLy, index as i_cxl\" \r\n                        (click)=\"onSelect(item_cxl)\" [style.cursor]=\"'pointer'\">\r\n                        {{i_cxl+1}} - {{item_cxl.id}}\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Đang chờ giao -->\r\n                <a href=\"#dang-cho-giao\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-truck\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            Đang chờ giao \r\n                            <span class=\"badge badge-warning\">{{numDCG}}</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"dang-cho-giao\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#dang-cho-giao\" *ngFor=\"let item_dcg of dangChoGiao, index as i_dcg\" \r\n                        (click)=\"onSelect(item_dcg)\" [style.cursor]=\"'pointer'\" >\r\n                        {{i_dcg+1}} - {{item_dcg.id}}\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Đã hoàn thành -->\r\n                <a href=\"#da-hoan-thanh\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-smile-o\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            Đã hoàn thành \r\n                            <span class=\"badge badge-info\">{{numDHT}}</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"da-hoan-thanh\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#da-hoan-thanh\" *ngFor=\"let item_dht of daHoanThanh, index as i_dht\"\r\n                        (click)=\"onSelect(item_dht)\" [style.cursor]=\"'pointer'\">\r\n                    {{i_dht+1}} - {{item_dht.id}}\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Đơn hàng khác -->\r\n                <a href=\"#all\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-database\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            All rest\r\n                            <span class=\"badge badge-info\">{{numAD}}</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"all\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#all\" *ngFor=\"let item_ad of allOrder, index as i_ad\"\r\n                    (click)=\"onSelect(item_ad)\" [style.cursor]=\"'pointer'\" >\r\n                        {{i_ad+1}} - {{item_ad.id}}\r\n                    </a>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n\r\n        <main class=\"col-md-10 main\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <app-chi-tiet-don-hang [donhang]=\"selectedDonhang\"></app-chi-tiet-don-hang>\r\n                </div>\r\n            </div>\r\n        </main>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -402,6 +472,7 @@ module.exports = "<app-nav-admin [isActive]=\"1\"></app-nav-admin>\r\n<div class
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QuanLyDonHangComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_admin_service__ = __webpack_require__("../../../../../src/app/service/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -414,12 +485,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 // service
 
+
 var QuanLyDonHangComponent = (function () {
-    function QuanLyDonHangComponent(adminService) {
+    function QuanLyDonHangComponent(adminService, guestService) {
         this.adminService = adminService;
+        this.guestService = guestService;
+        this.chuaXuLy = new Array();
+        this.dangChoGiao = new Array();
+        this.daHoanThanh = new Array();
+        this.allOrder = new Array();
     }
     QuanLyDonHangComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.guestService.getOrderByAdmin().then(function (res) {
+            for (var _i = 0, res_1 = res; _i < res_1.length; _i++) {
+                var item = res_1[_i];
+                if (item.status == "Chưa xử lý") {
+                    _this.chuaXuLy.push(item);
+                }
+                else if (item.status == "Đang chờ giao") {
+                    _this.dangChoGiao.push(item);
+                }
+                else if (item.status == "Đã hoàn thành") {
+                    _this.daHoanThanh.push(item);
+                }
+                else {
+                    _this.allOrder.push(item);
+                }
+            }
+            _this.selectedDonhang = _this.chuaXuLy[0];
+            _this.numCXL = _this.chuaXuLy.length;
+            _this.numDCG = _this.dangChoGiao.length;
+            _this.numDHT = _this.daHoanThanh.length;
+            _this.numAD = _this.allOrder.length;
+        });
+        console.log(this.chuaXuLy);
         this.adminService.getDonHangs().then(function (res) {
             _this.donhangsChuaXuLy = res;
             _this.selectedDonhang = _this.donhangsChuaXuLy[0];
@@ -436,10 +536,10 @@ QuanLyDonHangComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/admin/quan-ly-don-hang/quan-ly-don-hang.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/quan-ly-don-hang/quan-ly-don-hang.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_admin_service__["a" /* AdminService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_admin_service__["a" /* AdminService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_admin_service__["a" /* AdminService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_admin_service__["a" /* AdminService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__service_guest_service__["a" /* GuestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__service_guest_service__["a" /* GuestService */]) === "function" && _b || Object])
 ], QuanLyDonHangComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=quan-ly-don-hang.component.js.map
 
 /***/ }),
@@ -600,16 +700,18 @@ var PhieuNhapKhoComponent = (function () {
         this.phieuNhapKho.phieuNhapKho_id = $('#ma_phieu').val();
         this.phieuNhapKho.products_detail = this.products;
         this.phieuNhapKho.nguoi_lap_phieu = $("#nguoi_lap_phieu").html();
-        this.mainService.addPhieuNhapKho(this.phieuNhapKho)
-            .then(function (res) {
-            console.log("Add Purchasing Success!");
-            alert("Thêm phiếu nhập hàng thành công.");
-            _this.initPhieuNhapKho();
-            /*Sau khi thêm phiếu thành công thì thêm sp vào kho
-                - Nếu sản phẩm chưa có trong kho từ phiếu nhập hàng thì thêm mới
-                - Nếu sản phẩm đã có trong kho thì update*/
-            _this.addProductsToInventory(res);
-        }, function (res) { return console.log(res); });
+        if (this.products.length != 0) {
+            this.mainService.addPhieuNhapKho(this.phieuNhapKho)
+                .then(function (res) {
+                console.log("Add Purchasing Success!");
+                alert("Thêm phiếu nhập hàng thành công.");
+                _this.initPhieuNhapKho();
+                /*Sau khi thêm phiếu thành công thì thêm sp vào kho
+                    - Nếu sản phẩm chưa có trong kho từ phiếu nhập hàng thì thêm mới
+                    - Nếu sản phẩm đã có trong kho thì update*/
+                _this.addProductsToInventory(res);
+            }, function (res) { return console.log(res); });
+        }
     };
     // Inventory
     // inventory
@@ -663,19 +765,13 @@ var PhieuNhapKhoComponent = (function () {
         this.initPhieuNhapKho();
     };
     // "59e63617c7cd085478653d98"
-    // Not important function
-    PhieuNhapKhoComponent.prototype.convertTime = function () {
-        var time = new Date();
-        var convertTime = time.getFullYear() + "" + (time.getMonth() + 1) + "" + time.getDate() + "" + time.getHours() + "" + time.getMinutes() + "" + time.getSeconds();
-        return convertTime;
-    };
     PhieuNhapKhoComponent.prototype.initPhieuNhapKho = function () {
         this.products = new Array();
         this.phieuNhapKho = {
             nowDate: new Date(),
             tong_tien: 0
         };
-        $("#ma_phieu").val("PNK" + this.convertTime());
+        $("#ma_phieu").val("PNK" + this.mainService.convertTime());
     };
     return PhieuNhapKhoComponent;
 }());
@@ -781,7 +877,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "form {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-flow: row wrap;\r\n            flex-flow: row wrap;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n}\r\n\r\n.flex-item-input-image {\r\n    /* margin: auto; */\r\n}\r\n\r\n.flex-item {\r\n    /* margin: 0 15px; */\r\n    /* margin: auto; */\r\n    /* flex: 1 10%; */\r\n    /* align-self: flex-end; */\r\n}\r\n\r\n@media only screen and (max-width: 768px) {\r\n    form {\r\n        margin-left: 20px;\r\n    }\r\n    label {\r\n        display: none;\r\n    }\r\n}", ""]);
+exports.push([module.i, "form {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-flow: row wrap;\r\n            flex-flow: row wrap;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center;\r\n}\r\n\r\n.flex-item-input-image {\r\n    /* margin: auto; */\r\n}\r\n\r\n.flex-item {\r\n    /* margin: 0 15px; */\r\n    /* margin: auto; */\r\n    /* flex: 1 10%; */\r\n    /* align-self: flex-end; */\r\n}\r\n\r\n.required {\r\n    color: #dc143c;\r\n    font-size: 11px;\r\n}\r\n\r\n@media only screen and (max-width: 768px) {\r\n    form {\r\n        margin-left: 20px;\r\n    }\r\n    label {\r\n        display: none;\r\n    }\r\n}", ""]);
 
 // exports
 
@@ -794,7 +890,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/quan-ly-san-pham/them-san-pham/them-san-pham.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form (submit)=\"onSubmit()\" class=\"row\" #themsanpham=\"ngForm\">\r\n  <div class=\"flex-item col-md-4\">\r\n    <div class=\"form-group\">\r\n      <input type=\"submit\" class=\"btn btn-success\" value=\"Thêm sản phẩm\">\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>ID: </label>\r\n      <input type=\"text\" class=\"form-control\" id=\"product_id\" [(ngModel)]=\"product.product_id\" name=\"product_id\" placeholder=\"Mã sản phẩm\">\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Tên: </label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_name\" name=\"product_name\" placeholder=\"Tên sản phẩm\">\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Dung tích: </label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_size\" name=\"product_size\" placeholder=\"Trọng lượng, dung lượng sản phẩm\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"flex-item col-md-4\">\r\n    <div class=\"form-group\">\r\n      <label>Xuất xứ: </label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_madein\" name=\"product_madein\" placeholder=\"Xuất xứ\">\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Loại sản phẩm: </label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_kind\" name=\"product_kind\" placeholder=\"Loại sản phẩm\">\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Nhãn hiệu: </label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_label\" name=\"product_label\" placeholder=\"Nhãn hiệu\">\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Giới tính: </label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_gender\" name=\"product_gender\" placeholder=\"Giới tính\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"flex-item col-md-4\">\r\n    <div class=\"form-group\">\r\n      <label>Thông tin sản phẩm: </label>\r\n      <textarea type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_decription\" name=\"product_decription\" placeholder=\"Mô tả sản phẩm\"></textarea>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Hướng dẫn xử dụng: </label>\r\n      <textarea type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_instruction\" name=\"product_instruction\" placeholder=\"Hướng dẫn sử dụng\"></textarea>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Hình sản phẩm: </label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_image\" name=\"product_image\" placeholder=\"Hình sản phẩm\">\r\n    </div>\r\n  </div>\r\n</form>"
+module.exports = "<form (submit)=\"onSubmit()\" class=\"row\" #themsanpham=\"ngForm\">\r\n  <div class=\"flex-item col-md-4\">\r\n    <div class=\"form-group\">\r\n      <input type=\"submit\" class=\"btn btn-success\" value=\"Thêm sản phẩm\">\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>ID: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" id=\"product_id\" placeholder=\"Mã sản phẩm\" required [(ngModel)]=\"product.product_id\" name=\"product_id\"  #productID=\"ngModel\">\r\n\r\n      <div *ngIf=\"productID.invalid && (productID.dirty || productID.touched || messageError.productID)\">\r\n        <div *ngIf=\"productID.errors.required\">\r\n          <span class=\"required\">Mã sản phẩm không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Tên: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" required [(ngModel)]=\"product.product_name\" name=\"product_name\" placeholder=\"Tên sản phẩm\" #name=\"ngModel\">\r\n      <div *ngIf=\"name.invalid && (name.dirty || name.touched || messageError.name)\">\r\n        <div *ngIf=\"name.errors.required\">\r\n          <span class=\"required\">Tên sản phẩm không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Dung tích: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_size\" required name=\"product_size\" placeholder=\"Trọng lượng, dung lượng sản phẩm\" #size=\"ngModel\">\r\n      <div *ngIf=\"size.invalid && (size.dirty || size.touched || messageError.size)\">\r\n        <div *ngIf=\"size.errors.required\">\r\n          <span class=\"required\">Dung tích sản phẩm không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n\r\n  <div class=\"flex-item col-md-4\">\r\n    <div class=\"form-group\">\r\n      <label>Xuất xứ: </label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_madein\" name=\"product_madein\" placeholder=\"Xuất xứ\">\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Loại sản phẩm: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_kind\" required name=\"product_kind\" placeholder=\"Loại sản phẩm\" #kind=\"ngModel\">\r\n      <div *ngIf=\"kind.invalid && (kind.dirty || kind.touched || messageError.kind)\">\r\n        <div *ngIf=\"kind.errors.required\">\r\n          <span class=\"required\">Loại sản phẩm không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Nhãn hiệu: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_label\" name=\"product_label\" placeholder=\"Nhãn hiệu\" required #label=\"ngModel\">\r\n      <div *ngIf=\"label.invalid && (label.dirty || label.touched || messageError.label)\">\r\n        <div *ngIf=\"label.errors.required\">\r\n          <span class=\"required\">Nhãn hiệu không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Giới tính: </label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_gender\" name=\"product_gender\" placeholder=\"Giới tính\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"flex-item col-md-4\">\r\n    <div class=\"form-group\">\r\n      <label>Thông tin sản phẩm: </label>\r\n      <textarea type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_decription\" name=\"product_decription\" placeholder=\"Mô tả sản phẩm\"></textarea>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Hướng dẫn xử dụng: </label>\r\n      <textarea type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_instruction\" name=\"product_instruction\" placeholder=\"Hướng dẫn sử dụng\"></textarea>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Hình sản phẩm: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_image\" name=\"product_image\" placeholder=\"Hình sản phẩm\" required #image=\"ngModel\">\r\n      <div *ngIf=\"image.invalid && (image.dirty || image.touched || messageError.image)\">\r\n        <div *ngIf=\"image.errors.required\">\r\n          <span class=\"required\">Hình ảnh không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</form>"
 
 /***/ }),
 
@@ -804,8 +900,10 @@ module.exports = "<form (submit)=\"onSubmit()\" class=\"row\" #themsanpham=\"ngF
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ThemSanPhamComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__objects_product__ = __webpack_require__("../../../../../src/app/objects/product.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__objects_product__ = __webpack_require__("../../../../../src/app/objects/product.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -816,33 +914,90 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 // service
 
 // Object
 
 var ThemSanPhamComponent = (function () {
-    function ThemSanPhamComponent(mainService) {
+    function ThemSanPhamComponent(mainService, router, location) {
         this.mainService = mainService;
-        this.product = new __WEBPACK_IMPORTED_MODULE_2__objects_product__["a" /* Product */]("", "", "", "", "", "", "", "", "", "");
+        this.router = router;
+        this.location = location;
+        this.messageError = {};
+        this.product = new __WEBPACK_IMPORTED_MODULE_4__objects_product__["a" /* Product */]("", "", "", "", "", "", "", "", "", "");
     }
     ThemSanPhamComponent.prototype.onSubmit = function () {
-        var _this = this;
-        console.log(this.product);
-        this.mainService.addProduct(this.product).subscribe(function (res) {
-            console.log("Thêm sản phẩm thành công!");
-            var check = confirm("Thêm sản phẩm thành công! Nhấn Yes để xoá thông tin cũ, No để giữ lại thông tin");
-            if (check == true) {
-                _this.product = new __WEBPACK_IMPORTED_MODULE_2__objects_product__["a" /* Product */]("", "", "", "", "", "", "", "", "", "");
-                $("#product_id").focus();
-            }
-            else {
-                _this.product.product_id = "";
-                $("#product_id").focus();
-            }
-        });
+        this.checkFormInput(this.product);
     };
+    // onSubmit(event) {
+    //   event.preventDefault();
+    //   this.checkFormInput(this.ttdh);
+    //   // for(let item of JSON.parse(this.ttdh.order_detail)) {
+    //   //   console.log(item);
+    //   // }
+    //   // console.log(this.ttdh);
+    // }
     ThemSanPhamComponent.prototype.ngOnInit = function () {
+        this.initMessageError();
         // console.log(this.product);
+    };
+    ThemSanPhamComponent.prototype.checkFormInput = function (form) {
+        var _this = this;
+        if (form.product_id == "" || form.product_id == undefined) {
+            this.messageError.productID = true;
+        }
+        else if (form.product_name == "" || form.product_name == undefined) {
+            this.messageError.name = true;
+        }
+        else if (form.product_size == "" || form.product_size == undefined) {
+            this.messageError.size = true;
+        }
+        else if (form.product_kind == "" || form.product_kind == undefined) {
+            this.messageError.kind = true;
+        }
+        else if (form.product_label == "" || form.product_label == undefined) {
+            this.messageError.label = true;
+        }
+        else if (form.product_image == "" || form.product_image == undefined) {
+            this.messageError.image = true;
+        }
+        else {
+            console.log(this.product);
+            this.mainService.addProduct(this.product).subscribe(function (res) {
+                console.log("Thêm sản phẩm thành công!");
+                var check = confirm("Thêm sản phẩm thành công! Nhấn Yes để xoá thông tin cũ, No để giữ lại thông tin");
+                if (check == true) {
+                    _this.product = new __WEBPACK_IMPORTED_MODULE_4__objects_product__["a" /* Product */]("", "", "", "", "", "", "", "", "", "");
+                    $("#product_id").focus();
+                }
+                else {
+                    _this.product.product_id = "";
+                    $("#product_id").focus();
+                }
+            });
+            // this.ttdh.order_detail = this.products;
+            // this.guestService.addOrderFromGuest(this.ttdh).then(res => {
+            //   console.log(res);
+            //   localStorage.removeItem('cart');
+            //   let check = confirm("Chúc mừng bạn đã đặt hàng thành công. Chọn Ok để khám phá các sản phẩm khác!.");
+            //   if(check == true) {
+            //     this.router.navigate(["/home-page"]);
+            //   }
+            //   // this.location.back();
+            // }, res => console.log(res));
+        }
+    };
+    ThemSanPhamComponent.prototype.initMessageError = function () {
+        this.messageError = {
+            productID: false,
+            name: false,
+            size: false,
+            kind: false,
+            label: false,
+            image: false
+        };
     };
     return ThemSanPhamComponent;
 }());
@@ -852,10 +1007,10 @@ ThemSanPhamComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/them-san-pham/them-san-pham.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/them-san-pham/them-san-pham.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__service_main_service__["a" /* MainService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */]) === "function" && _c || Object])
 ], ThemSanPhamComponent);
 
-var _a;
+var _a, _b, _c;
 //# sourceMappingURL=them-san-pham.component.js.map
 
 /***/ }),
@@ -1163,6 +1318,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__admin_user_user_component__ = __webpack_require__("../../../../../src/app/admin/user/user.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_notfound_notfound_component__ = __webpack_require__("../../../../../src/app/components/notfound/notfound.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_sign_up_sign_up_component__ = __webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_modals_modal_choose_product_modal_choose_product_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-choose-product/modal-choose-product.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1186,6 +1342,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 // components
+
 
 
 
@@ -1217,7 +1374,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_17__admin_user_user_component__["a" /* UserComponent */],
             __WEBPACK_IMPORTED_MODULE_19__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
             // ShoppingCartComponent,
-            __WEBPACK_IMPORTED_MODULE_18__components_notfound_notfound_component__["a" /* NotfoundComponent */]
+            __WEBPACK_IMPORTED_MODULE_18__components_notfound_notfound_component__["a" /* NotfoundComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__components_modals_modal_choose_product_modal_choose_product_component__["a" /* ModalChooseProductComponent */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_8__service_main_service__["a" /* MainService */],
@@ -1606,6 +1764,67 @@ var _a;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/modals/modal-choose-product/modal-choose-product.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/modals/modal-choose-product/modal-choose-product.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  modal-choose-product works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/modals/modal-choose-product/modal-choose-product.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalChooseProductComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ModalChooseProductComponent = (function () {
+    function ModalChooseProductComponent() {
+    }
+    ModalChooseProductComponent.prototype.ngOnInit = function () {
+    };
+    return ModalChooseProductComponent;
+}());
+ModalChooseProductComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-modal-choose-product',
+        template: __webpack_require__("../../../../../src/app/components/modals/modal-choose-product/modal-choose-product.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/modals/modal-choose-product/modal-choose-product.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], ModalChooseProductComponent);
+
+//# sourceMappingURL=modal-choose-product.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/modals/modal-product-detail/modal-product-detail.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1865,7 +2084,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "table {\r\n    width: 100%;\r\n}\r\n\r\ntd {\r\n    padding: 10px;\r\n    font-size: 14px;\r\n}\r\n\r\ntr:first-child {\r\n    font-size: 13px;\r\n    padding-bottom: 10px;\r\n}\r\n\r\ntr:first-child td:nth-child(1) {\r\n    width: 50%;\r\n}\r\n\r\ntr:first-child td:nth-child(2) {\r\n    width: 15%;\r\n}\r\n\r\ntr:first-child td:nth-child(3){\r\n    width: 15%;\r\n}\r\n\r\ntr:first-child td:nth-child(4)  {\r\n    width: 20%;\r\n}\r\n\r\n.product-info {\r\n    \r\n    display: -webkit-box;\r\n    \r\n    display: -ms-flexbox;\r\n    \r\n    display: flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-flow: row nowrap;\r\n            flex-flow: row nowrap;\r\n}\r\n\r\n.fa-window-close {\r\n    font-size: 19px;\r\n    color: red;\r\n}\r\n\r\n.fa-window-close:hover {\r\n    color: #333;\r\n}\r\n\r\n.thanh-tien {\r\n    font-weight: bold;\r\n}", ""]);
+exports.push([module.i, "table {\r\n    width: 100%;\r\n}\r\n\r\ntd {\r\n    padding: 10px;\r\n    font-size: 14px;\r\n}\r\n\r\ntr:first-child {\r\n    font-size: 13px;\r\n    padding-bottom: 10px;\r\n}\r\n\r\ntr:first-child td:nth-child(1) {\r\n    width: 50%;\r\n}\r\n\r\ntr:first-child td:nth-child(2) {\r\n    width: 15%;\r\n}\r\n\r\ntr:first-child td:nth-child(3){\r\n    width: 15%;\r\n}\r\n\r\ntr:first-child td:nth-child(4)  {\r\n    width: 20%;\r\n}\r\n\r\n.product-info {\r\n    \r\n    display: -webkit-box;\r\n    \r\n    display: -ms-flexbox;\r\n    \r\n    display: flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-flow: row nowrap;\r\n            flex-flow: row nowrap;\r\n}\r\n\r\n/* .fa-window-close {\r\n    font-size: 19px;\r\n    color: red;\r\n}\r\n\r\n.fa-window-close:hover {\r\n    color: #333;\r\n} */\r\n\r\n.thanh-tien {\r\n    font-weight: bold;\r\n}", ""]);
 
 // exports
 
@@ -2186,7 +2405,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".input-group {\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.dia-chi-nhan-hang {\r\n    padding: 10px;\r\n    border: 1px solid #e9ecef;\r\n    font-size: 14px;\r\n}\r\n\r\ninput::-webkit-input-placeholder {\r\n    font-size: 14px;\r\n}\r\n\r\n.dcnh-title {\r\n    border-bottom: 1px solid #e9ecef;\r\n    margin-bottom: 5;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.edit-dh {\r\n    color: red;\r\n    cursor: pointer;\r\n}\r\n\r\n.edit-dh:hover {\r\n    color: darkred;\r\n    cursor: pointer;\r\n    text-decoration: underline;\r\n}\r\n\r\n.required {\r\n    color: #dc143c;\r\n    font-size: 11px;\r\n}\r\n\r\ntable {\r\n    font-size: 13px;\r\n}\r\n\r\nth {\r\n    font-size: 11px;\r\n}\r\n.form-group {\r\n    margin-bottom: 0.7rem;\r\n}\r\n.form-control {\r\n    padding: .25rem .55rem;\r\n    border-radius: .35rem;\r\n}", ""]);
+exports.push([module.i, ".input-group {\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.dia-chi-nhan-hang {\r\n    padding: 10px;\r\n    border: 1px solid #e9ecef;\r\n    font-size: 14px;\r\n}\r\n\r\n/* input::-webkit-input-placeholder {\r\n    font-size: 14px;\r\n} */\r\n\r\n.dcnh-title {\r\n    border-bottom: 1px solid #e9ecef;\r\n    margin-bottom: 5;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.edit-dh {\r\n    color: red;\r\n    cursor: pointer;\r\n}\r\n\r\n.edit-dh:hover {\r\n    color: darkred;\r\n    cursor: pointer;\r\n    text-decoration: underline;\r\n}\r\n\r\n.required {\r\n    color: #dc143c;\r\n    font-size: 11px;\r\n}\r\n\r\ntable {\r\n    font-size: 13px;\r\n}\r\n\r\nth {\r\n    font-size: 11px;\r\n}\r\n.form-group {\r\n    margin-bottom: 0.7rem;\r\n}\r\n/* .form-control {\r\n    padding: .25rem .55rem;\r\n    border-radius: .35rem;\r\n} */", ""]);
 
 // exports
 
@@ -2199,7 +2418,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-guest></app-nav-guest>\n<div class=\"container\">\n  <div class=\"row hoan-tat-thanh-toan mt-3\">\n    <div class=\"col-md-6\">\n      <form class=\"dia-chi-nhan-hang\" (submit)=\"onSubmit($event)\">\n        <h5 class=\"dcnh-title\">\n          <div class=\"fa fa-map-marker\"></div> Địa chỉ nhận hàng</h5>\n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Họ tên:\n            <span class=\"required\">*</span>\n          </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: Cao Minh Hưng\" required name=\"name\" [(ngModel)]=\"ttdh.name\" #name=\"ngModel\">\n\n          <div *ngIf=\"name.invalid && (name.dirty || name.touched || messageError.name)\">\n            <div *ngIf=\"name.errors.required\">\n              <span class=\"required\">Họ tên không được để trống</span>\n            </div>\n          </div>\n        </div>\n        \n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Điện thoại:\n            <span class=\"required\" >*</span>\n          </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: 01218815991\" required name=\"phone\" [(ngModel)]=\"ttdh.phone\" #phone=\"ngModel\">\n\n          <div *ngIf=\"phone.invalid && (phone.dirty || phone.touched || messageError.phone)\">\n            <div *ngIf=\"phone.errors.required\">\n              <span class=\"required\">Số điện thoại không được để trống</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Email:</span>\n          <input type=\"email\" class=\"form-control\" placeholder=\"support@gmail.com\">\n        </div>\n\n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Tên đường phố:\n            <span class=\"required\">*</span>\n          </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Phường 4, Quận Gò Vấp, Hồ Chí Minh\" required name=\"address\" [(ngModel)]=\"ttdh.address\" #address=\"ngModel\">\n          <div *ngIf=\"address.invalid && (address.dirty || address.touched || messageError.address)\">\n            <div *ngIf=\"address.errors.required\">\n              <span class=\"required\">Địa chỉ không được để trống</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Địa chỉ chi tiết:\n            <span class=\"required\">*</span>\n          </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: số 10, Ngõ 50, Ngách 100, Hẽm 22\" required name=\"detail\" [(ngModel)]=\"ttdh.detail\" #detail=\"ngModel\">\n          <div *ngIf=\"detail.invalid && (detail.dirty || detail.touched || messageError.detail)\">\n            <div *ngIf=\"detail.errors.required\">\n              <span class=\"required\">Địa chỉ chi tiết không được để trống</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Lời nhắn:</span>\n          <textarea name=\"\" id=\"\" cols=\"20\" rows=\"2\" class=\"form-control\" placeholder=\"Ví dụ: Giao ngoài giờ hành chính\"></textarea>\n        </div>\n        <button class=\"btn btn-danger\" type=\"submit\" style=\"cursor: pointer\">Hoàn tất đặt hàng\n          <i class=\"fa fa-arrow-right\"></i>\n        </button>\n\n      </form>\n    </div>\n    <div class=\"col-md-6\">\n      <table class=\"table\">\n        <thead class=\"thead-default\">\n          <tr>\n            <th>Sản phẩm -\n              <span class=\"edit-dh\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Sửa đơn hàng</span>\n            </th>\n            <th>Đơn giá</th>\n            <th>SLượng</th>\n            <th>Thành tiền</th>\n          </tr>\n        </thead>\n        <tr *ngFor=\"let item of products, let i = index\">\n          <td class=\"product-info w-100\">\n            <img class=\"d-inline-block img-thumbnail w-25 mr-2\" [src]=\"item.product_image\">\n            <span class=\"d-inline-block\">{{item.product_name}}\n            </span>\n          </td>\n\n          <td>{{item.price | number}}</td>\n          <td>\n            {{item.quantity}}\n          </td>\n          <td id=\"thanh-tien\" class=\"thanh-tien\" style=\"font-weight: bold;\">{{ item.total_price | number }}</td>\n        </tr>\n\n        <tr>\n          <td class=\"\" colspan=\"3\" style=\"font-weight: bold; text-align: right;  font-size: 20px\">Tổng tiền</td>\n          <td style=\"font-weight: bold; color: rgb(207, 6, 6); font-size: 20px\">{{products.tong_tien | number}}</td>\n        </tr>\n      </table>\n    </div>\n  </div>\n</div>\n<app-shopping-cart></app-shopping-cart>"
+module.exports = "<app-nav-guest></app-nav-guest>\n<div class=\"container\">\n  <div class=\"row hoan-tat-thanh-toan mt-3\">\n    <div class=\"col-md-6\">\n      <form class=\"dia-chi-nhan-hang\" (submit)=\"onSubmit($event)\">\n        <h5 class=\"dcnh-title\">\n          <div class=\"fa fa-map-marker\"></div> Địa chỉ nhận hàng</h5>\n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Họ tên:\n            <span class=\"required\">*</span>\n          </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: Cao Minh Hưng\" required name=\"name\" [(ngModel)]=\"ttdh.name\" #name=\"ngModel\">\n\n          <div *ngIf=\"name.invalid && (name.dirty || name.touched || messageError.name)\">\n            <div *ngIf=\"name.errors.required\">\n              <span class=\"required\">Họ tên không được để trống</span>\n            </div>\n          </div>\n        </div>\n        \n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Điện thoại:\n            <span class=\"required\" >*</span>\n          </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: 01218815991\" required name=\"phone\" [(ngModel)]=\"ttdh.phone\" #phone=\"ngModel\">\n\n          <div *ngIf=\"phone.invalid && (phone.dirty || phone.touched || messageError.phone)\">\n            <div *ngIf=\"phone.errors.required\">\n              <span class=\"required\">Số điện thoại không được để trống</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Email:</span>\n          <input type=\"email\" class=\"form-control\" placeholder=\"support@gmail.com\">\n        </div>\n\n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Tên đường phố:\n            <span class=\"required\">*</span>\n          </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Phường 4, Quận Gò Vấp, Hồ Chí Minh\" required name=\"address\" [(ngModel)]=\"ttdh.address\" #address=\"ngModel\">\n          <div *ngIf=\"address.invalid && (address.dirty || address.touched || messageError.address)\">\n            <div *ngIf=\"address.errors.required\">\n              <span class=\"required\">Địa chỉ không được để trống</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Địa chỉ chi tiết:\n            <span class=\"required\">*</span>\n          </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: số 10, Ngõ 50, Ngách 100, Hẽm 22\" required name=\"detail\" [(ngModel)]=\"ttdh.detail\" #detail=\"ngModel\">\n          <div *ngIf=\"detail.invalid && (detail.dirty || detail.touched || messageError.detail)\">\n            <div *ngIf=\"detail.errors.required\">\n              <span class=\"required\">Địa chỉ chi tiết không được để trống</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-group\">\n          <label class=\"label-control\" for=\"loi-nhan\">Lời nhắn:</label>\n          <textarea name=\"loi-nhan\" id=\"loi-nhan\" cols=\"20\" rows=\"2\" class=\"form-control\" [(ngModel)]=\"ttdh.loi_nhan\" placeholder=\"Ví dụ: Giao ngoài giờ hành chính\"></textarea>\n        </div>\n        <button class=\"btn btn-danger\" type=\"submit\" style=\"cursor: pointer\">Hoàn tất đặt hàng\n          <i class=\"fa fa-arrow-right\"></i>\n        </button>\n\n      </form>\n    </div>\n    <div class=\"col-md-6\">\n      <table class=\"table\">\n        <thead class=\"thead-default\">\n          <tr>\n            <th>Sản phẩm -\n              <span class=\"edit-dh\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Sửa đơn hàng</span>\n            </th>\n            <th>Đơn giá</th>\n            <th>SLượng</th>\n            <th>Thành tiền</th>\n          </tr>\n        </thead>\n        <tr *ngFor=\"let item of products, let i = index\">\n          <td class=\"product-info w-100\">\n            <img class=\"d-inline-block img-thumbnail w-25 mr-2\" [src]=\"item.product_image\">\n            <span class=\"d-inline-block\">{{item.product_name}}\n            </span>\n          </td>\n\n          <td>{{item.price | number}}</td>\n          <td>\n            {{item.quantity}}\n          </td>\n          <td id=\"thanh-tien\" class=\"thanh-tien\" style=\"font-weight: bold;\">{{ item.total_price | number }}</td>\n        </tr>\n\n        <tr>\n          <td class=\"\" colspan=\"3\" style=\"font-weight: bold; text-align: right;  font-size: 20px\">Tổng tiền</td>\n          <td style=\"font-weight: bold; color: rgb(207, 6, 6); font-size: 20px\">{{products?.tong_tien | number}}</td>\n        </tr>\n      </table>\n    </div>\n  </div>\n</div>\n<app-shopping-cart></app-shopping-cart>"
 
 /***/ }),
 
@@ -2211,7 +2430,8 @@ module.exports = "<app-nav-guest></app-nav-guest>\n<div class=\"container\">\n  
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2226,22 +2446,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 // service
 
+
 var HoanTatThanhToanComponent = (function () {
     function HoanTatThanhToanComponent(
         // private shoppingCartComponent: ShoppingCartComponent
-        guestService, location, router) {
+        mainService, guestService, location, router) {
+        this.mainService = mainService;
         this.guestService = guestService;
         this.location = location;
         this.router = router;
-        this.ttdh = {};
         this.messageError = {};
+        this.ttdh = {};
     }
     HoanTatThanhToanComponent.prototype.TinhTongTienCart = function () {
         console.log("\nTính tổng tiền cart");
-        this.products.tong_tien = 0;
-        for (var _i = 0, _a = this.products; _i < _a.length; _i++) {
-            var item = _a[_i];
-            this.products.tong_tien += item.total_price;
+        if (this.products != null) {
+            this.products.tong_tien = 0;
+            for (var _i = 0, _a = this.products; _i < _a.length; _i++) {
+                var item = _a[_i];
+                this.products.tong_tien += item.total_price;
+            }
         }
     };
     HoanTatThanhToanComponent.prototype.onSubmit = function (event) {
@@ -2266,7 +2490,7 @@ var HoanTatThanhToanComponent = (function () {
         else if (form.detail == "" || form.detail == undefined) {
             this.messageError.detail = true;
         }
-        else if (this.products.length == 0) {
+        else if (this.products == null) {
             var check = confirm("Bạn chưa chọn sản phẩm nào. Chọn Ok để khám phá các sản phẩm khác!.");
             if (check == true) {
                 this.router.navigate(["/home-page"]);
@@ -2274,6 +2498,9 @@ var HoanTatThanhToanComponent = (function () {
         }
         else {
             this.ttdh.order_detail = this.products;
+            this.ttdh.id = "DH" + this.mainService.convertTime();
+            this.ttdh.timeModified = new Date();
+            this.ttdh.status = "Chưa xử lý";
             this.guestService.addOrderFromGuest(this.ttdh).then(function (res) {
                 console.log(res);
                 localStorage.removeItem('cart');
@@ -2306,10 +2533,10 @@ HoanTatThanhToanComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.css")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__service_guest_service__["a" /* GuestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__service_guest_service__["a" /* GuestService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__service_main_service__["a" /* MainService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__service_guest_service__["a" /* GuestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__service_guest_service__["a" /* GuestService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _d || Object])
 ], HoanTatThanhToanComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=hoan-tat-thanh-toan.component.js.map
 
 /***/ }),
@@ -2665,6 +2892,7 @@ var ProductsComponent = (function () {
                     }
                 }
                 sessionStorage.setItem('products', JSON.stringify(_this.products));
+                localStorage.setItem('products', JSON.stringify(_this.products));
             }, function (res) { return console.log(res); });
         }
     };
@@ -3051,6 +3279,24 @@ var GuestService = (function () {
             .then(function (res) { return _this.result = res; })
             .catch(this.handleError);
     };
+    // Admin lấy đơn hàng từ order
+    GuestService.prototype.getOrderByAdmin = function () {
+        var _this = this;
+        var url = "/api/order";
+        return this._http.get(url, { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res.json().data; })
+            .catch(this.handleError);
+    };
+    // Admin cập nhật đơn hàng
+    GuestService.prototype.updateOrderByAdmin = function (order) {
+        var _this = this;
+        var url = "api/order/" + order._id;
+        return this._http.put(url, JSON.stringify(order), { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res; })
+            .catch(this.handleError);
+    };
     GuestService.prototype.handleError = function (error) {
         console.error('An error occurred', error); //for demo purposes only
         return Promise.reject(error.massage || error);
@@ -3181,6 +3427,11 @@ var MainService = (function () {
     MainService.prototype.handleError = function (error) {
         console.error('An error occurred', error); //for demo purposes only
         return Promise.reject(error.massage || error);
+    };
+    MainService.prototype.convertTime = function () {
+        var time = new Date();
+        var convertTime = time.getFullYear() + "" + (time.getMonth() + 1) + "" + time.getDate() + "" + time.getHours() + "" + time.getMinutes() + "" + time.getSeconds();
+        return convertTime;
     };
     return MainService;
 }());

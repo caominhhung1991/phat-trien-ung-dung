@@ -23,6 +23,7 @@ import { UserComponent } from './admin/user/user.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { SignUpComponent} from './components/sign-up/sign-up.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ModalChooseProductComponent } from './components/modals/modal-choose-product/modal-choose-product.component';
 // import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component'
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     UserComponent,
     SignUpComponent,
     // ShoppingCartComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    ModalChooseProductComponent
   ],
   providers: [
     MainService,

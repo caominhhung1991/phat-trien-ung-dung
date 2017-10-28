@@ -106,4 +106,10 @@ export class MainService {
     console.error('An error occurred', error); //for demo purposes only
     return Promise.reject(error.massage || error);
   }
+
+  convertTime():string {
+    let time = new Date();
+    let convertTime = time.getFullYear()+""+ (time.getMonth()+1)+""+ time.getDate()+"" + time.getHours()+"" + time.getMinutes()+"" + time.getSeconds();
+    return convertTime;
+  }
 } 

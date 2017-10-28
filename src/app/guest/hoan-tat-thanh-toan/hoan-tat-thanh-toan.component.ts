@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 // service
+import { MainService } from './../../service/main.service';
 import { GuestService } from './../../service/guest.service';
 // component
 import { ShoppingCartComponent } from './../../components/shopping-cart/shopping-cart.component';
@@ -14,10 +15,12 @@ import { ShoppingCartComponent } from './../../components/shopping-cart/shopping
 })
 export class HoanTatThanhToanComponent implements OnInit {
   products:any;
+  messageError:any = {};
   ttdh:any = {};
   
   constructor(
     // private shoppingCartComponent: ShoppingCartComponent
+    private mainService: MainService,
     private guestService: GuestService,
     private location: Location,
     private router: Router
@@ -25,10 +28,13 @@ export class HoanTatThanhToanComponent implements OnInit {
 
   TinhTongTienCart() {
     console.log("\nTính tổng tiền cart") 
-    this.products.tong_tien = 0;
-    for(let item of this.products) {
-      this.products.tong_tien += item.total_price;
+    if(this.products != null) {
+      this.products.tong_tien = 0;
+      for(let item of this.products) {
+        this.products.tong_tien += item.total_price;
+      }
     }
+    
   }
 
   onSubmit(event) {
@@ -39,7 +45,7 @@ export class HoanTatThanhToanComponent implements OnInit {
     // }
     // console.log(this.ttdh);
   }
-  messageError:any = {};
+
   checkFormInput(form) {
     if(form.name == "" || form.name == undefined) {
       this.messageError.name = true;
@@ -49,13 +55,16 @@ export class HoanTatThanhToanComponent implements OnInit {
       this.messageError.address = true;
     } else if(form.detail == "" || form.detail == undefined) {
       this.messageError.detail = true;
-    } else if(this.products.length == 0) {
+    } else if(this.products == null) {
       let check = confirm("Bạn chưa chọn sản phẩm nào. Chọn Ok để khám phá các sản phẩm khác!.");
       if(check == true) {
         this.router.navigate(["/home-page"]);
       }
     } else {
       this.ttdh.order_detail = this.products;
+      this.ttdh.id = "DH" + this.mainService.convertTime();
+      this.ttdh.timeModified = new Date();
+      this.ttdh.status = "Chưa xử lý";
       this.guestService.addOrderFromGuest(this.ttdh).then(res => {
         console.log(res);
         localStorage.removeItem('cart');

@@ -45,6 +45,7 @@ export class ProductsComponent implements OnInit {
           }
         }
         sessionStorage.setItem('products', JSON.stringify( this.products));
+        localStorage.setItem('products', JSON.stringify( this.products));
       },res => console.log(res));
     }
   }

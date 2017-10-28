@@ -5,19 +5,36 @@
     </div>
 
     <div class="form-group">
-      <label>ID: </label>
-      <input type="text" class="form-control" id="product_id" [(ngModel)]="product.product_id" name="product_id" placeholder="Mã sản phẩm">
+      <label>ID: <span class="required">*</span></label>
+      <input type="text" class="form-control" id="product_id" placeholder="Mã sản phẩm" required [(ngModel)]="product.product_id" name="product_id"  #productID="ngModel">
+
+      <div *ngIf="productID.invalid && (productID.dirty || productID.touched || messageError.productID)">
+        <div *ngIf="productID.errors.required">
+          <span class="required">Mã sản phẩm không được để trống</span>
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
-      <label>Tên: </label>
-      <input type="text" class="form-control" [(ngModel)]="product.product_name" name="product_name" placeholder="Tên sản phẩm">
+      <label>Tên: <span class="required">*</span></label>
+      <input type="text" class="form-control" required [(ngModel)]="product.product_name" name="product_name" placeholder="Tên sản phẩm" #name="ngModel">
+      <div *ngIf="name.invalid && (name.dirty || name.touched || messageError.name)">
+        <div *ngIf="name.errors.required">
+          <span class="required">Tên sản phẩm không được để trống</span>
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
-      <label>Dung tích: </label>
-      <input type="text" class="form-control" [(ngModel)]="product.product_size" name="product_size" placeholder="Trọng lượng, dung lượng sản phẩm">
+      <label>Dung tích: <span class="required">*</span></label>
+      <input type="text" class="form-control" [(ngModel)]="product.product_size" required name="product_size" placeholder="Trọng lượng, dung lượng sản phẩm" #size="ngModel">
+      <div *ngIf="size.invalid && (size.dirty || size.touched || messageError.size)">
+        <div *ngIf="size.errors.required">
+          <span class="required">Dung tích sản phẩm không được để trống</span>
+        </div>
+      </div>
     </div>
+    
   </div>
 
   <div class="flex-item col-md-4">
@@ -27,13 +44,23 @@
     </div>
 
     <div class="form-group">
-      <label>Loại sản phẩm: </label>
-      <input type="text" class="form-control" [(ngModel)]="product.product_kind" name="product_kind" placeholder="Loại sản phẩm">
+      <label>Loại sản phẩm: <span class="required">*</span></label>
+      <input type="text" class="form-control" [(ngModel)]="product.product_kind" required name="product_kind" placeholder="Loại sản phẩm" #kind="ngModel">
+      <div *ngIf="kind.invalid && (kind.dirty || kind.touched || messageError.kind)">
+        <div *ngIf="kind.errors.required">
+          <span class="required">Loại sản phẩm không được để trống</span>
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
-      <label>Nhãn hiệu: </label>
-      <input type="text" class="form-control" [(ngModel)]="product.product_label" name="product_label" placeholder="Nhãn hiệu">
+      <label>Nhãn hiệu: <span class="required">*</span></label>
+      <input type="text" class="form-control" [(ngModel)]="product.product_label" name="product_label" placeholder="Nhãn hiệu" required #label="ngModel">
+      <div *ngIf="label.invalid && (label.dirty || label.touched || messageError.label)">
+        <div *ngIf="label.errors.required">
+          <span class="required">Nhãn hiệu không được để trống</span>
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
@@ -54,8 +81,13 @@
     </div>
 
     <div class="form-group">
-      <label>Hình sản phẩm: </label>
-      <input type="text" class="form-control" [(ngModel)]="product.product_image" name="product_image" placeholder="Hình sản phẩm">
+      <label>Hình sản phẩm: <span class="required">*</span></label>
+      <input type="text" class="form-control" [(ngModel)]="product.product_image" name="product_image" placeholder="Hình sản phẩm" required #image="ngModel">
+      <div *ngIf="image.invalid && (image.dirty || image.touched || messageError.image)">
+        <div *ngIf="image.errors.required">
+          <span class="required">Hình ảnh không được để trống</span>
+        </div>
+      </div>
     </div>
   </div>
 </form>

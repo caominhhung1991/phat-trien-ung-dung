@@ -82,7 +82,23 @@ export class GuestService {
       .then(res => this.result = res)
       .catch(this.handleError);
   }
-
+  // Admin lấy đơn hàng từ order
+  getOrderByAdmin():Promise<any> {
+    const url = "/api/order";
+    return this._http.get(url, {headers: this.headers})
+    .toPromise()
+    .then(res => this.result = res.json().data)
+    .catch(this.handleError);
+  }
+  // Admin cập nhật đơn hàng
+  updateOrderByAdmin(order:any):Promise<any> {
+    const url = `api/order/${order._id}`;
+    return this._http.put(url, JSON.stringify(order), {headers: this.headers})
+      .toPromise()
+      .then(res => this.result = res)
+      .catch(this.handleError);
+  }
+  
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); //for demo purposes only
     return Promise.reject(error.massage || error);

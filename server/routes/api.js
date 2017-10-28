@@ -254,7 +254,7 @@ router.get('/order', (req, res, next) => {
 
 router.put('/order/:id', (req, res, next) => {
     var order = req.body;
-    order._id = new ObjectID(productUpdate._id);
+    order._id = new ObjectID(order._id);
     console.log("update order from admin");
     var request = {'_id': new ObjectID(req.params.id)};
     connection((db) => {
