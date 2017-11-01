@@ -14,10 +14,12 @@ import { HomePageComponent } from './guest/home-page/home-page.component';
 import { ProductDetailComponent} from './guest/product-detail/product-detail.component';
 import { ShoppingCartComponent} from './components/shopping-cart/shopping-cart.component';
 import { HoanTatThanhToanComponent } from './guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component';
+import { QuanLyTaiKhoanComponent } from './guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home-page', pathMatch: 'full' },
     { path: 'admin', canActivate: [AuthguardGuard], component: AdminComponent },
+    { path: 'guest', component: QuanLyTaiKhoanComponent},
     // { path: 'admin', component: AdminComponent},
     { path: 'login', component: LoginComponent },
     { path: 'users', pathMatch: 'prefix', children: [

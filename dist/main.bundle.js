@@ -1161,6 +1161,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__guest_product_detail_product_detail_component__ = __webpack_require__("../../../../../src/app/guest/product-detail/product-detail.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_shopping_cart_shopping_cart_component__ = __webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__guest_hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__ = __webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__guest_quan_ly_tai_khoan_quan_ly_tai_khoan_component__ = __webpack_require__("../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1181,9 +1182,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var routes = [
     { path: '', redirectTo: '/home-page', pathMatch: 'full' },
     { path: 'admin', canActivate: [__WEBPACK_IMPORTED_MODULE_3__guard_authguard_guard__["a" /* AuthguardGuard */]], component: __WEBPACK_IMPORTED_MODULE_4__admin_admin_admin_component__["a" /* AdminComponent */] },
+    { path: 'guest', component: __WEBPACK_IMPORTED_MODULE_12__guest_quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */] },
     // { path: 'admin', component: AdminComponent},
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_5__components_login_login_component__["a" /* LoginComponent */] },
     { path: 'users', pathMatch: 'prefix', children: [
@@ -1237,7 +1240,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <app-header></app-header> -->\r\n<!-- Modal sign up đăng ký tài khoản mới -->\r\n<app-sign-up></app-sign-up>\r\n\r\n<router-outlet></router-outlet>\r\n\r\n<app-footer></app-footer>\r\n\r\n"
+module.exports = "<!-- <app-header></app-header> -->\r\n<!-- Modal sign up đăng ký tài khoản mới -->\r\n<!-- <app-sign-up></app-sign-up> -->\r\n\r\n<router-outlet></router-outlet>\r\n\r\n<app-footer></app-footer>\r\n\r\n"
 
 /***/ }),
 
@@ -1312,13 +1315,11 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__service_users_service__ = __webpack_require__("../../../../../src/app/service/users.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__service_test_service__ = __webpack_require__("../../../../../src/app/service/test.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_header_header_component__ = __webpack_require__("../../../../../src/app/components/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_footer_footer_component__ = __webpack_require__("../../../../../src/app/components/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__admin_user_user_component__ = __webpack_require__("../../../../../src/app/admin/user/user.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_notfound_notfound_component__ = __webpack_require__("../../../../../src/app/components/notfound/notfound.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_sign_up_sign_up_component__ = __webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_modals_modal_choose_product_modal_choose_product_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-choose-product/modal-choose-product.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_header_header_component__ = __webpack_require__("../../../../../src/app/components/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_footer_footer_component__ = __webpack_require__("../../../../../src/app/components/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__admin_user_user_component__ = __webpack_require__("../../../../../src/app/admin/user/user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_notfound_notfound_component__ = __webpack_require__("../../../../../src/app/components/notfound/notfound.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_modals_modal_choose_product_modal_choose_product_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-choose-product/modal-choose-product.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1348,8 +1349,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
 // import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component'
 var AppModule = (function () {
     function AppModule() {
@@ -1368,14 +1367,13 @@ AppModule = __decorate([
         ],
         declarations: [
             __WEBPACK_IMPORTED_MODULE_13__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_login_login_component__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__components_header_header_component__["a" /* HeaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__components_footer_footer_component__["a" /* FooterComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__admin_user_user_component__["a" /* UserComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__components_header_header_component__["a" /* HeaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__components_footer_footer_component__["a" /* FooterComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__admin_user_user_component__["a" /* UserComponent */],
+            // SignUpComponent,
             // ShoppingCartComponent,
-            __WEBPACK_IMPORTED_MODULE_18__components_notfound_notfound_component__["a" /* NotfoundComponent */],
-            __WEBPACK_IMPORTED_MODULE_20__components_modals_modal_choose_product_modal_choose_product_component__["a" /* ModalChooseProductComponent */]
+            __WEBPACK_IMPORTED_MODULE_17__components_notfound_notfound_component__["a" /* NotfoundComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__components_modals_modal_choose_product_modal_choose_product_component__["a" /* ModalChooseProductComponent */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_8__service_main_service__["a" /* MainService */],
@@ -1604,7 +1602,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- LOGIN FORM -->\r\n\r\n<div class=\"text-center\" style=\"padding:30px 0 60px 0\">\r\n\t<div class=\"logo\">login</div>\r\n\t<!-- Main Form -->\r\n\t<div class=\"login-form-1\" >\r\n\t\t<form class=\"text-left\" (submit)=\"loginUser($event)\">\r\n\t\t\t<div class=\"login-form-main-message\"></div>\r\n\t\t\t<div class=\"main-login-form\">\r\n\t\t\t\t<div class=\"login-group\">\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"username\" name=\"username\" \r\n\t\t\t\t\t\t#myInputText placeholder=\"username\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" id=\"password\" name=\"password\" placeholder=\"password\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group login-group-checkbox\">\r\n\t\t\t\t\t\t<input type=\"checkbox\" id=\"remember\" name=\"remember\">\r\n\t\t\t\t\t\t<label for=\"remember\">remember</label>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<button type=\"submit\" class=\"login-button\" value=\"login\">\r\n\t\t\t\t\t<i class=\"fa fa-chevron-right\"></i>\r\n\t\t\t\t</button>\r\n\t\t\t</div>\r\n\t\t\t<button class=\"btn btn-info\" (click)=\"goBack()\">Back</button>\r\n\r\n\t\t\t<div class=\"etc-login-form\">\r\n\t\t\t\t<p>forgot your password? <a routerLink=\"\">click here</a></p>\r\n\t\t\t\t<p>new user? <a routerLink=\"\">create new account</a></p>\r\n\t\t\t</div>\r\n\t\t</form>\r\n\t</div>\r\n\t<!-- end:Main Form -->\r\n</div>\r\n\r\n<!-- REGISTRATION FORM -->\r\n<!-- <div class=\"text-center\" style=\"padding:50px 0\">\r\n\t<div class=\"logo\">register</div>\r\n\t<div class=\"login-form-1\">\r\n\t\t<form id=\"register-form\" class=\"text-left\">\r\n\t\t\t<div class=\"login-form-main-message\"></div>\r\n\t\t\t<div class=\"main-login-form\">\r\n\t\t\t\t<div class=\"login-group\">\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label for=\"reg_username\" class=\"sr-only\">Email address</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"reg_username\" name=\"reg_username\" placeholder=\"username\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label for=\"reg_password\" class=\"sr-only\">Password</label>\r\n\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" id=\"reg_password\" name=\"reg_password\" placeholder=\"password\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label for=\"reg_password_confirm\" class=\"sr-only\">Password Confirm</label>\r\n\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" id=\"reg_password_confirm\" name=\"reg_password_confirm\" placeholder=\"confirm password\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label for=\"reg_email\" class=\"sr-only\">Email</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"reg_email\" name=\"reg_email\" placeholder=\"email\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label for=\"reg_fullname\" class=\"sr-only\">Full Name</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"reg_fullname\" name=\"reg_fullname\" placeholder=\"full name\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<div class=\"form-group login-group-checkbox\">\r\n\t\t\t\t\t\t<input type=\"radio\" class=\"\" name=\"reg_gender\" id=\"male\" placeholder=\"username\">\r\n\t\t\t\t\t\t<label for=\"male\">male</label>\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t<input type=\"radio\" class=\"\" name=\"reg_gender\" id=\"female\" placeholder=\"username\">\r\n\t\t\t\t\t\t<label for=\"female\">female</label>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<div class=\"form-group login-group-checkbox\">\r\n\t\t\t\t\t\t<input type=\"checkbox\" class=\"\" id=\"reg_agree\" name=\"reg_agree\">\r\n\t\t\t\t\t\t<label for=\"reg_agree\">i agree with <a href=\"#\">terms</a></label>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<button type=\"submit\" class=\"login-button\"><i class=\"fa fa-chevron-right\"></i></button>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"etc-login-form\">\r\n\t\t\t\t<p>already have an account? <a href=\"#\">login here</a></p>\r\n\t\t\t</div>\r\n\t\t</form>\r\n\t</div>\r\n</div> -->\r\n\r\n<!-- FORGOT PASSWORD FORM -->\r\n<!-- <div class=\"text-center\" style=\"padding:50px 0\">\r\n\t<div class=\"logo\">forgot password</div>\r\n\t<div class=\"login-form-1\">\r\n\t\t<form id=\"forgot-password-form\" class=\"text-left\">\r\n\t\t\t<div class=\"etc-login-form\">\r\n\t\t\t\t<p>When you fill in your registered email address, you will be sent instructions on how to reset your password.</p>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"login-form-main-message\"></div>\r\n\t\t\t<div class=\"main-login-form\">\r\n\t\t\t\t<div class=\"login-group\">\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label for=\"fp_email\" class=\"sr-only\">Email address</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"fp_email\" name=\"fp_email\" placeholder=\"email address\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<button type=\"submit\" class=\"login-button\"><i class=\"fa fa-chevron-right\"></i></button>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"etc-login-form\">\r\n\t\t\t\t<p>already have an account? <a href=\"#\">login here</a></p>\r\n\t\t\t\t<p>new user? <a href=\"#\">create new account</a></p>\r\n\t\t\t</div>\r\n\t\t</form>\r\n\t</div>\r\n</div> -->"
+module.exports = "<!-- LOGIN FORM -->\r\n\r\n<div class=\"text-center\" style=\"padding:30px 0 60px 0\">\r\n\t<div class=\"logo\">login</div>\r\n\t<!-- Main Form -->\r\n\t<div class=\"login-form-1\" >\r\n\t\t<form class=\"text-left\" (submit)=\"loginUser($event)\">\r\n\t\t\t<div class=\"login-form-main-message\"></div>\r\n\t\t\t<div class=\"main-login-form\">\r\n\t\t\t\t<div class=\"login-group\">\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"username\" name=\"username\" \r\n\t\t\t\t\t\t#myInputText placeholder=\"Email\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" id=\"password\" name=\"password\" placeholder=\"password\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group login-group-checkbox\">\r\n\t\t\t\t\t\t<input type=\"checkbox\" id=\"remember\" name=\"remember\">\r\n\t\t\t\t\t\t<label for=\"remember\">remember</label>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<button type=\"submit\" class=\"login-button\" value=\"login\">\r\n\t\t\t\t\t<i class=\"fa fa-chevron-right\"></i>\r\n\t\t\t\t</button>\r\n\t\t\t</div>\r\n\t\t\t<button class=\"btn btn-info\" (click)=\"goBack()\">Back</button>\r\n\r\n\t\t\t<div class=\"etc-login-form\">\r\n\t\t\t\t<p>forgot your password? <a routerLink=\"\">click here</a></p>\r\n\t\t\t\t<p>new user? <a routerLink=\"\">create new account</a></p>\r\n\t\t\t</div>\r\n\t\t</form>\r\n\t</div>\r\n\t<!-- end:Main Form -->\r\n</div>\r\n\r\n<!-- REGISTRATION FORM -->\r\n<!-- <div class=\"text-center\" style=\"padding:50px 0\">\r\n\t<div class=\"logo\">register</div>\r\n\t<div class=\"login-form-1\">\r\n\t\t<form id=\"register-form\" class=\"text-left\">\r\n\t\t\t<div class=\"login-form-main-message\"></div>\r\n\t\t\t<div class=\"main-login-form\">\r\n\t\t\t\t<div class=\"login-group\">\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label for=\"reg_username\" class=\"sr-only\">Email address</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"reg_username\" name=\"reg_username\" placeholder=\"username\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label for=\"reg_password\" class=\"sr-only\">Password</label>\r\n\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" id=\"reg_password\" name=\"reg_password\" placeholder=\"password\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label for=\"reg_password_confirm\" class=\"sr-only\">Password Confirm</label>\r\n\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" id=\"reg_password_confirm\" name=\"reg_password_confirm\" placeholder=\"confirm password\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label for=\"reg_email\" class=\"sr-only\">Email</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"reg_email\" name=\"reg_email\" placeholder=\"email\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label for=\"reg_fullname\" class=\"sr-only\">Full Name</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"reg_fullname\" name=\"reg_fullname\" placeholder=\"full name\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<div class=\"form-group login-group-checkbox\">\r\n\t\t\t\t\t\t<input type=\"radio\" class=\"\" name=\"reg_gender\" id=\"male\" placeholder=\"username\">\r\n\t\t\t\t\t\t<label for=\"male\">male</label>\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t<input type=\"radio\" class=\"\" name=\"reg_gender\" id=\"female\" placeholder=\"username\">\r\n\t\t\t\t\t\t<label for=\"female\">female</label>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<div class=\"form-group login-group-checkbox\">\r\n\t\t\t\t\t\t<input type=\"checkbox\" class=\"\" id=\"reg_agree\" name=\"reg_agree\">\r\n\t\t\t\t\t\t<label for=\"reg_agree\">i agree with <a href=\"#\">terms</a></label>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<button type=\"submit\" class=\"login-button\"><i class=\"fa fa-chevron-right\"></i></button>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"etc-login-form\">\r\n\t\t\t\t<p>already have an account? <a href=\"#\">login here</a></p>\r\n\t\t\t</div>\r\n\t\t</form>\r\n\t</div>\r\n</div> -->\r\n\r\n<!-- FORGOT PASSWORD FORM -->\r\n<!-- <div class=\"text-center\" style=\"padding:50px 0\">\r\n\t<div class=\"logo\">forgot password</div>\r\n\t<div class=\"login-form-1\">\r\n\t\t<form id=\"forgot-password-form\" class=\"text-left\">\r\n\t\t\t<div class=\"etc-login-form\">\r\n\t\t\t\t<p>When you fill in your registered email address, you will be sent instructions on how to reset your password.</p>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"login-form-main-message\"></div>\r\n\t\t\t<div class=\"main-login-form\">\r\n\t\t\t\t<div class=\"login-group\">\r\n\t\t\t\t\t<div class=\"form-group\">\r\n\t\t\t\t\t\t<label for=\"fp_email\" class=\"sr-only\">Email address</label>\r\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" id=\"fp_email\" name=\"fp_email\" placeholder=\"email address\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<button type=\"submit\" class=\"login-button\"><i class=\"fa fa-chevron-right\"></i></button>\r\n\t\t\t</div>\r\n\t\t\t<div class=\"etc-login-form\">\r\n\t\t\t\t<p>already have an account? <a href=\"#\">login here</a></p>\r\n\t\t\t\t<p>new user? <a href=\"#\">create new account</a></p>\r\n\t\t\t</div>\r\n\t\t</form>\r\n\t</div>\r\n</div> -->"
 
 /***/ }),
 
@@ -1633,16 +1631,42 @@ var LoginComponent = (function () {
     function LoginComponent(router, mainService) {
         this.router = router;
         this.mainService = mainService;
+        this.user = {};
     }
     LoginComponent.prototype.loginUser = function (e) {
+        var _this = this;
         e.preventDefault();
-        // console.log(e);
         var username = e.target.elements[0].value;
         var password = e.target.elements[1].value;
-        if (username == 'admin' && password == 'admin') {
-            this.mainService.setUserLoggedIn(username);
-            this.router.navigate([username]);
-        }
+        this.mainService.getUserByEmail(username).then(function (res) {
+            _this.user = res.data;
+            console.log(_this.user);
+            if (_this.user != null) {
+                if (password == _this.user.password) {
+                    // this.mainService.setUserLoggedIn(username);
+                    localStorage.setItem('currentUser', JSON.stringify(_this.user));
+                    if (_this.user.role == "guest") {
+                        // $("#dang-nhap").modal("hide");
+                        location.reload();
+                        // this.router.navigate(['/guest']);
+                    }
+                    else if (_this.user.role == 'admin') {
+                        $("#dang-nhap").modal("hide");
+                        _this.router.navigate(['/admin']);
+                    }
+                }
+                else {
+                    console.log("Sai password!");
+                }
+            }
+            else {
+                console.log("Tài khoản chưa tồn tại!");
+            }
+        });
+        // if(username == 'admin' && password == 'admin') {
+        //     this.mainService.setUserLoggedIn(username);
+        //     this.router.navigate([username]);
+        // }
     };
     LoginComponent.prototype.goBack = function () {
         window.history.back();
@@ -1686,7 +1710,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/modals/modal-add-product-to-repository/modal-add-product-to-repository.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"add-product-to-repository\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"add-product-to-repositoryLabel\"\n  aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"add-product-to-repositoryLabel\">Thêm một sản phẩm</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n \n        <form>\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <label for=\"product_name\">Tên sản phẩm</label>\n                <select #productName class=\"form-control\" id=\"product_name\" (change)=\"onSelect(productName.value)\">\n                  <option *ngFor=\"let product of products\" [ngValue]=\"product\">{{ product.product_name}}</option>\n                </select>\n              </div>\n              <div class=\"col-md-6\">\n                <label for=\"product_id\">Mã sản phẩm</label>\n                <input *ngIf=\"selectedProduct\" type=\"text\" class=\"form-control\" id=\"product_id\" placeholder=\"Mã sản phẩm\" [(ngModel)]=\"selectedProduct.product_id\"\n                  name=\"product_id\">\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"don-vi-tinh\">Đơn vị tính</label>\n            <select *ngIf=\"selectedProduct\" id=\"don-vi-tinh\" class=\"form-control\" [(ngModel)]=\"selectedProduct.don_vi_tinh\"  name=\"don_vi_tinh\">\n              <option value=\"Hộp\">Hộp</option>\n              <option value=\"Thỏi\">Thỏi</option>\n              <option value=\"Tuýt\">Tuýt</option>\n            </select>\n          </div>\n\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <label for=\"quantity\">Số lượng</label>\n                <input *ngIf=\"selectedProduct\" id=\"quantity\" class=\"form-control\" type=\"number\" min=\"1\" max=\"1000\" (blur)=\"tinhThanhTien()\"\n                  [(ngModel)]=\"selectedProduct.quantity\" name=\"quantity\">\n              </div>\n              <div class=\"col-md-6\">\n                <label for=\"price\">Đơn giá</label>\n                <input *ngIf=\"selectedProduct\" id=\"price\" class=\"form-control\" type=\"number\" min=\"1000\" max=\"10000000\" step=\"1000\" (blur)=\"tinhThanhTien()\"\n                  [(ngModel)]=\"selectedProduct.price\" name=\"price\">\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"thanh-tien\">Thành tiền</label>\n            <input *ngIf=\"selectedProduct\" id=\"thanh-tien\" class=\"form-control\" type=\"number\" [(ngModel)]=\"selectedProduct.thanh_tien\"\n              name=\"thanh_tien\" disabled>\n          </div>\n        </form>\n      </div>\n\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"pushOneProduct()\">Save changes</button>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"add-product-to-repository\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"add-product-to-repositoryLabel\"\n  aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"add-product-to-repositoryLabel\">Thêm một sản phẩm</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n \n        <form>\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <label for=\"product_name\">Tên sản phẩm</label>\n                <select #productName class=\"form-control\" id=\"product_name\" (change)=\"onSelect(productName.value)\">\n                  <option *ngFor=\"let product of products\" >{{ product.product_name}}</option>\n                </select>\n              </div>\n              <div class=\"col-md-6\">\n                <label for=\"product_id\">Mã sản phẩm</label>\n                <input *ngIf=\"selectedProduct\" type=\"text\" class=\"form-control\" id=\"product_id\" placeholder=\"Mã sản phẩm\" [(ngModel)]=\"selectedProduct.product_id\"\n                  name=\"product_id\">\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"don-vi-tinh\">Đơn vị tính</label>\n            <select *ngIf=\"selectedProduct\" id=\"don-vi-tinh\" class=\"form-control\" [(ngModel)]=\"selectedProduct.don_vi_tinh\"  name=\"don_vi_tinh\">\n              <option value=\"Hộp\" selected>Hộp</option>\n              <option value=\"Thỏi\">Thỏi</option>\n              <option value=\"Tuýt\">Tuýt</option>\n            </select>\n          </div>\n\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <label for=\"quantity\">Số lượng</label>\n                <input *ngIf=\"selectedProduct\" id=\"quantity\" class=\"form-control\" type=\"number\" min=\"1\" max=\"1000\" (blur)=\"tinhThanhTien()\"\n                  [(ngModel)]=\"selectedProduct.quantity\" name=\"quantity\">\n              </div>\n              <div class=\"col-md-6\">\n                <label for=\"price\">Đơn giá</label>\n                <input *ngIf=\"selectedProduct\" id=\"price\" class=\"form-control\" type=\"number\" min=\"1000\" max=\"10000000\" step=\"1000\" (blur)=\"tinhThanhTien()\"\n                  [(ngModel)]=\"selectedProduct.price\" name=\"price\">\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"thanh-tien\">Thành tiền</label>\n            <input *ngIf=\"selectedProduct\" id=\"thanh-tien\" class=\"form-control\" type=\"number\" [(ngModel)]=\"selectedProduct.thanh_tien\"\n              name=\"thanh_tien\" disabled>\n          </div>\n        </form>\n      </div>\n\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"pushOneProduct()\">Save changes</button>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2084,7 +2108,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "table {\r\n    width: 100%;\r\n}\r\n\r\ntd {\r\n    padding: 10px;\r\n    font-size: 14px;\r\n}\r\n\r\ntr:first-child {\r\n    font-size: 13px;\r\n    padding-bottom: 10px;\r\n}\r\n\r\ntr:first-child td:nth-child(1) {\r\n    width: 50%;\r\n}\r\n\r\ntr:first-child td:nth-child(2) {\r\n    width: 15%;\r\n}\r\n\r\ntr:first-child td:nth-child(3){\r\n    width: 15%;\r\n}\r\n\r\ntr:first-child td:nth-child(4)  {\r\n    width: 20%;\r\n}\r\n\r\n.product-info {\r\n    \r\n    display: -webkit-box;\r\n    \r\n    display: -ms-flexbox;\r\n    \r\n    display: flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-flow: row nowrap;\r\n            flex-flow: row nowrap;\r\n}\r\n\r\n/* .fa-window-close {\r\n    font-size: 19px;\r\n    color: red;\r\n}\r\n\r\n.fa-window-close:hover {\r\n    color: #333;\r\n} */\r\n\r\n.thanh-tien {\r\n    font-weight: bold;\r\n}", ""]);
+exports.push([module.i, "table {\r\n    width: 100%;\r\n}\r\n\r\ntd {\r\n    padding: 10px;\r\n    font-size: 14px;\r\n}\r\n\r\ntr:first-child {\r\n    font-size: 13px;\r\n    padding-bottom: 10px;\r\n}\r\n\r\ntr:first-child td:nth-child(1) {\r\n    width: 50%;\r\n}\r\n\r\ntr:first-child td:nth-child(2) {\r\n    width: 15%;\r\n}\r\n\r\ntr:first-child td:nth-child(3){\r\n    width: 15%;\r\n}\r\n\r\ntr:first-child td:nth-child(4)  {\r\n    width: 20%;\r\n}\r\n\r\n.product-info {\r\n    \r\n    display: -webkit-box;\r\n    \r\n    display: -ms-flexbox;\r\n    \r\n    display: flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-flow: row nowrap;\r\n            flex-flow: row nowrap;\r\n}\r\n\r\n.fa-window-close {\r\n    font-size: 19px;\r\n    color: red;\r\n}\r\n\r\n.fa-window-close:hover {\r\n    color: #333;\r\n}\r\n\r\n.thanh-tien {\r\n    font-weight: bold;\r\n}", ""]);
 
 // exports
 
@@ -2233,7 +2257,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".form-group {\r\n    margin-bottom: 5px;\r\n}\r\n\r\nlabel {\r\n    font-size: 13px;    \r\n    margin-bottom: 3px;\r\n}", ""]);
 
 // exports
 
@@ -2246,7 +2270,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/sign-up/sign-up.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"dang-ky\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Đăng ký tài khoản</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <form>\n\n          <div class=\"form-group\">\n            <label for=\"ho-ten\">Họ và Tên</label>\n            <input type=\"text\" class=\"form-control\" id=\"ho-ten\" aria-describedby=\"hotenHelp\" placeholder=\"Họ và Tên\">\n            <small id=\"hotenHelp\" class=\"form-text text-muted\">vd: Cao Minh Hưng</small>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"email\">Email</label>\n            <input type=\"email\" class=\"form-control\" id=\"email\" aria-describedby=\"emailHelp\" placeholder=\"Địa chỉ Email\">\n            <small id=\"emailHelp\" class=\"form-text text-muted\">vd: example@gmail.com</small>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"password\">Mật khẩu</label>\n            <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Mật khẩu từ 6-30 ký tự, bao gồm cả số và chữ\">\n          </div>\n          <div class=\"form-group\">\n            <label for=\"password\">Nhập lại mật khẩu</label>\n            <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Xác nhận mật khẩu\">\n          </div>\n        </form>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\">Đăng kí</button>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"dang-ky\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Đăng ký tài khoản</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <form>\n          <div class=\"form-group form-group\">\n            <label for=\"ho-ten\">Họ và Tên\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"text\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.name\" id=\"ho-ten\" aria-describedby=\"hotenHelp\"\n              placeholder=\"Họ và Tên\" name=\"name\" required #name=\"ngModel\">\n            <!-- <small id=\"hotenHelp\" class=\"form-text text-muted\">vd: Cao Minh Hưng</small> -->\n            <div *ngIf=\"name.invalid && (name.dirty || name.touched || messageError.name)\">\n              <div *ngIf=\"name.errors.required\">\n                <span class=\"required\">Họ tên không được để trống</span>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"email\">Email\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"email\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.email\" id=\"email\" aria-describedby=\"emailHelp\"\n              placeholder=\"Địa chỉ Email\" name=\"email\" required #email=\"ngModel\" email>\n            <div *ngIf=\"email.invalid && (email.dirty || email.touched || messageError.email.required)\">\n              <div *ngIf=\"email.errors.required\">\n                <span class=\"required\">Email không được để trống</span>\n              </div>\n              <div *ngIf=\"email.errors.email && !email.errors.required\">\n                <span class=\"required\">Email không đúng định dạng</span>\n              </div>\n            </div>\n\n            <div *ngIf=\"email.valid\">\n                <div *ngIf=\"messageError.email.existed.check\">\n                  <span class=\"required\">{{messageError.email.existed.message}}</span>\n                </div>\n              </div>\n          </div>\n          <!-- Password -->\n          <div class=\"form-row\">\n            <div class=\"form-group col-md-6\">\n              <label for=\"password\">Mật khẩu\n                <span class=\"required\">*</span>\n              </label>\n              <input type=\"password\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.password\" id=\"password\" placeholder=\"Mật khẩu từ 6-30 ký tự, bao gồm cả số và chữ\"\n                name=\"password\" required #password=\"ngModel\" (change)=\"checkConfirmPassword()\" minlength=\"6\" maxlength=\"30\">\n              <div *ngIf=\"password.invalid && (password.dirty || password.touched || messageError.password)\">\n                <div *ngIf=\"password.errors.required\">\n                  <span class=\"required\">Mật khẩu không được để trống</span>\n                </div>\n                <div *ngIf=\"password.errors.minlength && !password.errors.required\">\n                    <span class=\"required\">Mật khẩu tối thiểu 6 kí tự</span>\n                </div>\n              </div>\n            </div>\n            <div class=\"form-group col-md-6\">\n              <label for=\"re_password\">Nhập lại mật khẩu\n                <span class=\"required\">*</span>\n              </label>\n              <input type=\"password\" class=\"form-control form-control-sm\" [(ngModel)]=\"re_password\" (change)=\"checkConfirmPassword()\" id=\"re_password\"\n                placeholder=\"Xác nhận mật khẩu\" name=\"re_password\" required #rePassword=\"ngModel\">\n              <!-- Check required -->\n              <div *ngIf=\"rePassword.invalid && (rePassword.dirty || rePassword.touched || messageError.re_password.required.check)\">\n                <div *ngIf=\"rePassword.errors.required\">\n                  <span class=\"required\">Xác nhận mật khẩu không được để trống</span>\n                </div>\n              </div>\n              <!-- Check confirm password -->\n              <div *ngIf=\"rePassword.valid && (rePassword.dirty || rePassword.touched)\">\n                <div *ngIf=\"messageError.re_password.confirm.check\">\n                  <span class=\"required\">\n                    {{messageError.re_password.confirm.message}}\n                  </span>\n                </div>\n              </div>\n            </div>\n          </div>\n\n          <!-- Phone -->\n          <div class=\"form-group\">\n            <label for=\"phone\">Số điện thoại\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"phone\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.phone\" id=\"phone\" aria-describedby=\"phoneHelp\"\n              placeholder=\"Số điện thoại\" name=\"phone\" required #phone=\"ngModel\">\n            <div *ngIf=\"phone.invalid && (phone.dirty || phone.touched || messageError.phone)\">\n              <div *ngIf=\"phone.errors.required\">\n                <span class=\"required\">Số điện thoại không được để trống</span>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"birthday\">Ngày sinh</label>\n            <input type=\"date\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.birthday\" value=\"{{user.birthday}}\" id=\"birthday\"\n              aria-describedby=\"birthdayHelp\" placeholder=\"Ngày sinh\" min=\"1920-01-01\" max=\"2020-12-31\" name=\"birthday\">\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"address\">Địa chỉ\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"text\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.address\" id=\"address\" aria-describedby=\"addressHelp\"\n              placeholder=\"Địa chỉ\" name=\"address\" required #address=\"ngModel\">\n            <div *ngIf=\"address.invalid && (address.dirty || address.touched || messageError.address)\">\n              <div *ngIf=\"address.errors.required\">\n                <span class=\"required\">Địa chỉ không được để trống</span>\n              </div>\n            </div>\n          </div>\n        </form>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-info btn-md\" data-dismiss=\"modal\">Close</button>\n        <button type=\"submit\" class=\"btn btn-success btn-md\" (click)=\"addNewUser()\">Đăng kí</button>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2256,6 +2280,8 @@ module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"dang-ky\" tabin
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignUpComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__guest_nav_guest_nav_guest_component__ = __webpack_require__("../../../../../src/app/guest/nav-guest/nav-guest.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2266,22 +2292,156 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var SignUpComponent = (function () {
-    function SignUpComponent() {
+    function SignUpComponent(mainService, navGuest) {
+        this.mainService = mainService;
+        this.navGuest = navGuest;
+        // @Input() inputUser: any = {};
+        this.currentUser = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.updateUser = false;
+        this.messageError = {};
     }
+    Object.defineProperty(SignUpComponent.prototype, "inputUser", {
+        get: function () { return this.user; },
+        set: function (_user) {
+            this.updateUser = true;
+            this.user = (_user || {});
+            // this.getCurrentUser();
+            console.log(this.user);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    SignUpComponent.prototype.addNewUser = function () {
+        this.checkFormInput(this.user);
+    };
+    SignUpComponent.prototype.checkFormInput = function (form) {
+        var _this = this;
+        var check = /\S+@\S+\.\S+/;
+        if (form.name == "" || form.name == undefined) {
+            this.messageError.name = true;
+        }
+        else if (form.email == "" || form.email == undefined || check.test(form.email) == false) {
+            this.messageError.email.required = true;
+        }
+        else if ((form.password == "" || form.password == undefined) || form.password.length < 6) {
+            this.messageError.password = true;
+        }
+        else if (this.re_password == "" || this.re_password == undefined) {
+            this.messageError.re_password.required.check = true;
+        }
+        else if (this.re_password !== form.password) {
+            this.checkConfirmPassword();
+        }
+        else if (form.phone == "" || form.phone == undefined) {
+            this.messageError.phone = true;
+        }
+        else if (form.address == "" || form.address == undefined) {
+            this.messageError.address = true;
+        }
+        else {
+            this.mainService.getUserByEmail(form.email).then(function (res_check) {
+                console.log(res_check);
+                _this.messageError.email.existed.check = false;
+                if (res_check.data == null) {
+                    console.log("User chưa tồn tại");
+                    _this.mainService.addUserByAdmin(form).then(function (res_add) {
+                        console.log(res_add.message);
+                        console.log(res_add.data);
+                        var check = confirm(res_add.message + ". Để đăng nhập tự động chọn ok!");
+                        if (check == true) {
+                            localStorage.setItem("currentUser", JSON.stringify(form));
+                            $("#dang-ky").modal("hide");
+                            $("#user-login").collapse("toggle");
+                            _this.currentUser.emit(form);
+                        }
+                        _this.initUser();
+                    }, function (res_add) { return console.log(res_add); });
+                }
+                else {
+                    alert('Email đã được sử dụng!');
+                    _this.messageError.email.existed.check = true;
+                }
+            }, function (res) { return console.log(res); });
+        }
+    };
+    SignUpComponent.prototype.checkConfirmPassword = function () {
+        if (this.re_password !== this.user.password) {
+            this.messageError.re_password.confirm.check = true;
+        }
+        else {
+            this.messageError.re_password.confirm.check = false;
+        }
+        // console.log(JSON.stringify(this.messageError.re_password));
+    };
+    SignUpComponent.prototype.getCurrentUser = function () {
+        this.user = JSON.parse(localStorage.getItem('currentUser'));
+    };
     SignUpComponent.prototype.ngOnInit = function () {
+        this.initUser();
+        this.initMessageError();
+    };
+    SignUpComponent.prototype.initUser = function () {
+        this.user = {
+            name: "",
+            email: "",
+            password: "",
+            phone: "",
+            birthday: new Date(),
+            address: "",
+            role: "guest"
+        };
+    };
+    SignUpComponent.prototype.initMessageError = function () {
+        this.messageError = {
+            name: false,
+            email: {
+                required: false,
+                existed: {
+                    check: false,
+                    message: "Email đã được sử dụng!"
+                }
+            },
+            password: false,
+            re_password: {
+                confirm: {
+                    check: false,
+                    message: "Mật khẩu xác nhận không trùng nhau"
+                },
+                required: {
+                    check: false,
+                    message: "Mật khẩu xác nhận không được trống"
+                }
+            },
+            phone: false,
+            address: false
+        };
     };
     return SignUpComponent;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], SignUpComponent.prototype, "inputUser", null);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["U" /* Output */])(),
+    __metadata("design:type", Object)
+], SignUpComponent.prototype, "currentUser", void 0);
 SignUpComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-sign-up',
         template: __webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.css")]
+        styles: [__webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_2__guest_nav_guest_nav_guest_component__["a" /* NavGuestComponent */]]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__guest_nav_guest_nav_guest_component__["a" /* NavGuestComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__guest_nav_guest_nav_guest_component__["a" /* NavGuestComponent */]) === "function" && _b || Object])
 ], SignUpComponent);
 
+var _a, _b;
 //# sourceMappingURL=sign-up.component.js.map
 
 /***/ }),
@@ -2349,6 +2509,9 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_shopping_cart_shopping_cart_component__ = __webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_modals_modal_product_detail_modal_product_detail_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-product-detail/modal-product-detail.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__ = __webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_sign_up_sign_up_component__ = __webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__quan_ly_tai_khoan_quan_ly_tai_khoan_component__ = __webpack_require__("../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2359,6 +2522,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 //import component
+
+
+
 
 
 
@@ -2388,7 +2554,10 @@ GuestModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_8__san_pham_tuong_tu_san_pham_tuong_tu_component__["a" /* SanPhamTuongTuComponent */],
             __WEBPACK_IMPORTED_MODULE_9__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */],
             __WEBPACK_IMPORTED_MODULE_10__components_modals_modal_product_detail_modal_product_detail_component__["a" /* ModalProductDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */]
+            __WEBPACK_IMPORTED_MODULE_11__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__components_login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */]
         ]
     })
 ], GuestModule);
@@ -2405,7 +2574,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".input-group {\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.dia-chi-nhan-hang {\r\n    padding: 10px;\r\n    border: 1px solid #e9ecef;\r\n    font-size: 14px;\r\n}\r\n\r\n/* input::-webkit-input-placeholder {\r\n    font-size: 14px;\r\n} */\r\n\r\n.dcnh-title {\r\n    border-bottom: 1px solid #e9ecef;\r\n    margin-bottom: 5;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.edit-dh {\r\n    color: red;\r\n    cursor: pointer;\r\n}\r\n\r\n.edit-dh:hover {\r\n    color: darkred;\r\n    cursor: pointer;\r\n    text-decoration: underline;\r\n}\r\n\r\n.required {\r\n    color: #dc143c;\r\n    font-size: 11px;\r\n}\r\n\r\ntable {\r\n    font-size: 13px;\r\n}\r\n\r\nth {\r\n    font-size: 11px;\r\n}\r\n.form-group {\r\n    margin-bottom: 0.7rem;\r\n}\r\n/* .form-control {\r\n    padding: .25rem .55rem;\r\n    border-radius: .35rem;\r\n} */", ""]);
+exports.push([module.i, ".input-group {\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.dia-chi-nhan-hang {\r\n    padding: 10px;\r\n    border: 1px solid #e9ecef;\r\n    font-size: 14px;\r\n}\r\n\r\n/* input::-webkit-input-placeholder {\r\n    font-size: 14px;\r\n} */\r\n\r\n.dcnh-title {\r\n    border-bottom: 1px solid #e9ecef;\r\n    margin-bottom: 5;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.edit-dh {\r\n    color: red;\r\n    cursor: pointer;\r\n}\r\n\r\n.edit-dh:hover {\r\n    color: darkred;\r\n    cursor: pointer;\r\n    text-decoration: underline;\r\n}\r\n\r\ntable {\r\n    font-size: 13px;\r\n}\r\n\r\nth {\r\n    font-size: 11px;\r\n}\r\n.form-group {\r\n    margin-bottom: 0.7rem;\r\n}\r\n/* .form-control {\r\n    padding: .25rem .55rem;\r\n    border-radius: .35rem;\r\n} */", ""]);
 
 // exports
 
@@ -2610,7 +2779,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "nav {\r\n    background: #FAEFF4 !important;\r\n    /* position: relative; */\r\n}\r\n\r\ninput[type=search] {\r\n    background: #FAEFF4 !important;\r\n    border-radius: 20px; \r\n    border-right: none;\r\n}\r\n\r\ninput[type=search]:focus {\r\n    \r\n}\r\n\r\n.input-group-addon {\r\n    background: #FAEFF4;\r\n    border-top-right-radius: 20px;\r\n    border-bottom-right-radius: 20px;\r\n    cursor: pointer;\r\n    border-left: none;\r\n    color: lightgray;\r\n}\r\n\r\n.shopping-cart {\r\n    font-size: 30px;\r\n    color: white;\r\n    background: #D87179;\r\n    padding: 10px;\r\n    position: absolute;\r\n    right: 0;\r\n    cursor: pointer;\r\n}\r\n\r\n.num-of-product {\r\n    position: absolute;\r\n    right: 0;\r\n    font-size: 13px;\r\n    color: white;\r\n    height: 20px;\r\n    width: 20px;\r\n    line-height: -10px;\r\n    font-weight: bold;\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    background-color: rgb(224, 0, 0);\r\n}\r\n/* Điều hướng */\r\n/* .slider {\r\n    padding: 50px 0 50px 0;\r\n    background-image: url(\"../../../assets/gioi-thieu6.jpg\");\r\n    background-size: cover;\r\n} */\r\n\r\n\r\n.nav2 {\r\n    position: relative;\r\n    \r\n}\r\n\r\n.dieu-huong {\r\n    list-style-type: none;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    margin: 0;\r\n    padding: 15px 0;\r\n}\r\n\r\n.dieu-huong li {\r\n    float: left;\r\n    \r\n}\r\n\r\n\r\n.dieu-huong a {\r\n    display: block;\r\n    background: white;\r\n    padding: 8px 18px;\r\n    color: black;\r\n    border: 0.5px solid rgb(228, 228, 228);\r\n}\r\n\r\n.dieu-huong a:hover {\r\n    background: #FAEFF4;\r\n    text-decoration: none;\r\n    color: #333 !important;\r\n}\r\n\r\n.active {\r\n    background: #D87179 !important;\r\n    color: white !important;\r\n}\r\n\r\n\r\n.left {\r\n    border-top-left-radius: 25px;\r\n    border-bottom-left-radius: 25px;\r\n}\r\n\r\n.right {\r\n    border-top-right-radius: 25px;\r\n    border-bottom-right-radius: 25px;\r\n}\r\n\r\n.dang-ky {\r\n    position: absolute;\r\n    right: 20px;\r\n    top: 17px;\r\n    font-size: 17px;\r\n}\r\n\r\n.dang-ky a {\r\n    color: black;\r\n    \r\n}\r\n\r\n.dang-ky a:hover {\r\n    color: darkred;\r\n    text-decoration: underline;\r\n}\r\n", ""]);
+exports.push([module.i, "nav {\r\n    background: #FAEFF4 !important;\r\n    /* position: relative; */\r\n}\r\n\r\ninput[type=search] {\r\n    background: #FAEFF4 !important;\r\n    border-radius: 20px; \r\n    border-right: none;\r\n}\r\n\r\ninput[type=search]:focus {\r\n    \r\n}\r\n\r\n.input-group-addon {\r\n    background: #FAEFF4;\r\n    border-top-right-radius: 20px;\r\n    border-bottom-right-radius: 20px;\r\n    cursor: pointer;\r\n    border-left: none;\r\n    color: lightgray;\r\n}\r\n\r\n.shopping-cart {\r\n    font-size: 30px;\r\n    color: white;\r\n    background: #D87179;\r\n    padding: 10px;\r\n    position: absolute;\r\n    right: 0;\r\n    cursor: pointer;\r\n}\r\n\r\n.num-of-product {\r\n    position: absolute;\r\n    right: 0;\r\n    font-size: 13px;\r\n    color: white;\r\n    height: 20px;\r\n    width: 20px;\r\n    line-height: -10px;\r\n    font-weight: bold;\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    background-color: rgb(224, 0, 0);\r\n}\r\n/* Điều hướng */\r\n/* .slider {\r\n    padding: 50px 0 50px 0;\r\n    background-image: url(\"../../../assets/gioi-thieu6.jpg\");\r\n    background-size: cover;\r\n} */\r\n\r\n\r\n.nav2 {\r\n    position: relative;\r\n    \r\n}\r\n\r\n.dieu-huong {\r\n    list-style-type: none;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    margin: 0;\r\n    padding: 15px 0;\r\n}\r\n\r\n.dieu-huong li {\r\n    float: left;\r\n    \r\n}\r\n\r\n\r\n.dieu-huong a {\r\n    display: block;\r\n    background: white;\r\n    padding: 8px 18px;\r\n    color: black;\r\n    border: 0.5px solid rgb(228, 228, 228);\r\n}\r\n\r\n.dieu-huong a:hover {\r\n    background: #FAEFF4;\r\n    text-decoration: none;\r\n    color: #333 !important;\r\n}\r\n\r\n.active {\r\n    background: #D87179 !important;\r\n    color: white !important;\r\n}\r\n\r\n\r\n.left {\r\n    border-top-left-radius: 25px;\r\n    border-bottom-left-radius: 25px;\r\n}\r\n\r\n.right {\r\n    border-top-right-radius: 25px;\r\n    border-bottom-right-radius: 25px;\r\n}\r\n\r\n.dang-ky {\r\n    position: absolute;\r\n    right: 20px;\r\n    top: 17px;\r\n    font-size: 14px;\r\n}\r\n\r\n.dang-ky a {\r\n    color: black;\r\n    \r\n}\r\n\r\n.dang-ky a:hover {\r\n    color: darkred;\r\n    text-decoration: underline;\r\n}\r\n\r\n.fa-sort-desc {\r\n    position: relative;\r\n    top: -3px;\r\n}\r\n\r\n.fa-user-o {\r\n    font-size: 30px;\r\n}\r\n\r\n#user-login, #user-info {\r\n    width: 250px;\r\n    position: absolute;\r\n    top: 45px;\r\n    right: -30px;\r\n    z-index: 10;\r\n}\r\n\r\n.dktk {\r\n    color: rgb(2, 140, 253) !important;\r\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -2623,7 +2792,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/nav-guest/nav-guest.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-sm navbar-light bg-light sticky-top\">\n  <a class=\"navbar-brand\" href=\"/home-page\">\n    <img src=\"../../../assets/logo.svg\" width=\"40\" height=\"40\" class=\"d-inline-block align-top\" alt=\"\">\n  </a>\n\n  <ul class=\"navbar-nav mr-auto\">\n    <li class=\"nav-item\">\n      <form class=\"form-inline\">\n        <div class=\"input-group\">\n          <input type=\"search\" class=\"form-control\" placeholder=\"Tìm kiếm ...\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n          <span class=\"input-group-addon\" id=\"basic-addon1\">\n            <i class=\"fa fa-search\"></i>\n          </span>\n        </div>\n      </form>\n    </li>\n  </ul>\n \n  <div class=\"shopping-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\">\n    <i class=\"fa fa-shopping-basket\"></i>\n  </div>\n</nav>\n\n<div class=\"nav2\" style=\"background: #f5f5f5;\">\n  <ul class=\"justify-content-center dieu-huong\">\n    <li class=\"\">\n      <a class=\"active left\" href=\"/home-page\">Khám Phá</a>\n    </li>\n    <li class=\"\">\n      <a class=\"\" href=\"/home-page\">Cửa Hàng</a>\n    </li>\n    <li class=\"\">\n      <a class=\"right\" href=\"/home-page\">Ngành Hàng</a>\n    </li>\n  </ul>\n</div>"
+module.exports = "<nav class=\"navbar navbar-expand-sm navbar-light bg-light sticky-top\">\n  <a class=\"navbar-brand\" href=\"/home-page\">\n    <img src=\"../../../assets/logo.svg\" width=\"40\" height=\"40\" class=\"d-inline-block align-top\" alt=\"\">\n  </a>\n\n  <ul class=\"navbar-nav mr-auto\">\n    <li class=\"nav-item\">\n      <form class=\"form-inline\">\n        <div class=\"input-group\">\n          <input type=\"search\" class=\"form-control\" placeholder=\"Tìm kiếm ...\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n          <span class=\"input-group-addon\" id=\"basic-addon1\">\n            <i class=\"fa fa-search\"></i>\n          </span>\n        </div>\n      </form>\n    </li>\n  </ul>\n\n  <div class=\"shopping-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\">\n    <i class=\"fa fa-shopping-basket\"></i>\n  </div>\n</nav>\n\n<div class=\"nav2\" style=\"background: #f5f5f5;\">\n  <ul class=\"justify-content-center dieu-huong\">\n    <li class=\"\">\n      <a class=\"active left\" href=\"/home-page\">Khám Phá</a>\n    </li>\n    <li class=\"\">\n      <a class=\"\" href=\"/home-page\">Cửa Hàng</a>\n    </li>\n    <li class=\"\">\n      <a class=\"right\" href=\"/home-page\">Ngành Hàng</a>\n    </li>\n  </ul>\n\n  <!-- phần đăng ký -->\n  <form class=\"form-inline dang-ky mr-5\">\n    <span><i class=\"fa fa-user-o mr-2\"></i></span>\n    <span *ngIf=\"currentUser==null\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-login\" aria-expanded=\"false\" aria-controls=\"user-login\">\n      Đăng nhập & Đăng ký\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n\n    <span *ngIf=\"currentUser\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-info\" aria-expanded=\"false\" aria-controls=\"user-info\">\n      {{currentUser.name}}\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n    <!-- collapse đăng nhập -->\n    <div class=\"collapse\" id=\"user-login\">\n      <div class=\"card card-body\">\n        <button class=\"btn btn-danger mb-1\" data-toggle=\"modal\" data-target=\"#dang-nhap\">Đăng nhập</button>\n        <p>Chưa có tài khoản?\n          <br>\n          <a href=\"#\" class=\"dktk\" (click)=\"$event.preventDefault()\" data-toggle=\"modal\" data-target=\"#dang-ky\">Đăng ký tài khoản mới</a>\n        </p>\n      </div>\n    </div>\n    <!-- collapse đã đăng nhập -->\n    <div class=\"collapse\" id=\"user-info\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item pointer hover\" (click)=\"quanLyTaiKhoan()\">Quản lý tài khoản</li>\n        <li class=\"list-group-item pointer hover\">Đơn hàng của tôi</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"logOut()\">Đăng xuất</li>\n      </ul>\n    </div>\n  </form>\n</div>\n\n<!-- Modal đăng nhập -->\n<div class=\"modal fade\" id=\"dang-nhap\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Đăng nhập tài khoản</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <app-login></app-login>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- Modal Sign-up - đăng ký mới user -->\n<app-sign-up (currentUser)=\"getUser($event)\" [inputUser]=\"selectedUser\"></app-sign-up>"
 
 /***/ }),
 
@@ -2634,6 +2803,7 @@ module.exports = "<nav class=\"navbar navbar-expand-sm navbar-light bg-light sti
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavGuestComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2645,9 +2815,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var NavGuestComponent = (function () {
-    function NavGuestComponent(mainService) {
+    function NavGuestComponent(mainService, router) {
         this.mainService = mainService;
+        this.router = router;
+        this.currentUser = {};
     }
     Object.defineProperty(NavGuestComponent.prototype, "numOfProduct", {
         set: function (num) {
@@ -2659,8 +2832,22 @@ var NavGuestComponent = (function () {
         configurable: true
     });
     ;
+    NavGuestComponent.prototype.logOut = function () {
+        localStorage.removeItem('currentUser');
+        this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        $("#user-info").collapse('toggle');
+        // location.reload();
+    };
+    NavGuestComponent.prototype.quanLyTaiKhoan = function () {
+        this.router.navigate([this.currentUser.role]);
+    };
+    NavGuestComponent.prototype.getUser = function (event) {
+        this.currentUser = event;
+    };
     NavGuestComponent.prototype.ngOnInit = function () {
         this.numProduct = 0;
+        this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        console.log(this.currentUser);
     };
     return NavGuestComponent;
 }());
@@ -2675,10 +2862,10 @@ NavGuestComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/guest/nav-guest/nav-guest.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/nav-guest/nav-guest.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object])
 ], NavGuestComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=nav-guest.component.js.map
 
 /***/ }),
@@ -2936,6 +3123,75 @@ ProductsComponent = __decorate([
 
 var _a, _b, _c, _d;
 //# sourceMappingURL=products.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<app-nav-guest></app-nav-guest>\n\n<div class=\"container mt-3\">\n    <nav class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\n        <a class=\"nav-item nav-link active\" id=\"nav-home-tab\" data-toggle=\"tab\" href=\"#nav-home\" role=\"tab\" aria-controls=\"nav-home\"\n            aria-selected=\"true\">thông tin cơ bản</a>\n        <a class=\"nav-item nav-link\" id=\"nav-profile-tab\" data-toggle=\"tab\" href=\"#nav-profile\" role=\"tab\" aria-controls=\"nav-profile\"\n            aria-selected=\"false\">Lịch sử đơn hàng</a>\n    </nav>\n    <div class=\"tab-content mt-4\" id=\"nav-tabContent\">\n        <div class=\"tab-pane fade show active\" id=\"nav-home\" role=\"tabpanel\" aria-labelledby=\"nav-home-tab\">\n            <button class=\"btn btn-outline-info btn-sm\" (click)=\"onSelect()\" data-toggle=\"modal\" data-target=\"#dang-ky\" >Sửa thông tin</button>\n            <button class=\"btn btn-outline-danger btn-sm\">Đổi password</button>\n            <h4 class=\"mt-3\">THÔNG TIN CƠ BẢN VỀ TÀI KHOẢN CỦA QUÝ KHÁCH</h4>\n            <!-- <hr> -->\n            <table *ngIf=\"currentUser\" class=\"table mt-3\">\n                <tr>\n                    <td>Họ tên</td>\n                    <td>{{currentUser.name}}</td>\n                </tr>\n                <tr>\n                    <td>Email</td>\n                    <td>{{currentUser.email}}</td>\n                </tr>\n                <tr>\n                    <td>Ngày sinh</td>\n                    <td>{{currentUser.birthday || \"Chưa có thông tin\"}}</td>\n                </tr>\n                <tr>\n                    <td>Địa chỉ</td>\n                    <td>{{currentUser.address}}</td>\n                </tr>\n                <tr>\n                    <td>Điện thoại</td>\n                    <td>{{currentUser.phone}}</td>\n                </tr>\n            </table>\n            \n        </div>\n \n        <div class=\"tab-pane fade\" id=\"nav-profile\" role=\"tabpanel\" aria-labelledby=\"nav-profile-tab\">\n            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat suscipit vitae quae veritatis sequi voluptatum possimus\n            explicabo itaque, officiis laborum unde nihil nobis quibusdam cupiditate asperiores non impedit, nam illum.\n        </div>\n    </div>\n</div>\n\n<!-- <app-sign-up [inputUser]=\"selectedUser\"></app-sign-up> -->\n<app-shopping-cart></app-shopping-cart>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QuanLyTaiKhoanComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var QuanLyTaiKhoanComponent = (function () {
+    function QuanLyTaiKhoanComponent() {
+        this.selectedUser = {};
+    }
+    QuanLyTaiKhoanComponent.prototype.getCurrentUser = function () {
+        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    };
+    QuanLyTaiKhoanComponent.prototype.onSelect = function (user) {
+        this.selectedUser = this.currentUser;
+    };
+    QuanLyTaiKhoanComponent.prototype.ngOnInit = function () {
+        this.getCurrentUser();
+    };
+    return QuanLyTaiKhoanComponent;
+}());
+QuanLyTaiKhoanComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-quan-ly-tai-khoan',
+        template: __webpack_require__("../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], QuanLyTaiKhoanComponent);
+
+//# sourceMappingURL=quan-ly-tai-khoan.component.js.map
 
 /***/ }),
 
@@ -3433,6 +3689,32 @@ var MainService = (function () {
         var convertTime = time.getFullYear() + "" + (time.getMonth() + 1) + "" + time.getDate() + "" + time.getHours() + "" + time.getMinutes() + "" + time.getSeconds();
         return convertTime;
     };
+    // User API
+    MainService.prototype.getUserByEmail = function (email) {
+        var _this = this;
+        var url = "/api/user/" + email;
+        return this._http.get(url, { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res.json(); })
+            .catch(this.handleError);
+    };
+    // Login user by email and password
+    MainService.prototype.getUserByEmailPassword = function (email, pass) {
+        var _this = this;
+        var url = "/api/user/" + email + "/" + pass;
+        return this._http.get(url, { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res.json(); })
+            .catch(this.handleError);
+    };
+    MainService.prototype.addUserByAdmin = function (user) {
+        var _this = this;
+        var url = "/api/user";
+        return this._http.post(url, JSON.stringify(user), { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res.json(); })
+            .catch(this.handleError);
+    };
     return MainService;
 }());
 MainService = __decorate([
@@ -3441,6 +3723,12 @@ MainService = __decorate([
 ], MainService);
 
 var _a;
+// name: false,
+// email: false,
+// password: false,
+// phone: false,
+// birthday: false,
+// address: false 
 //# sourceMappingURL=main.service.js.map
 
 /***/ }),

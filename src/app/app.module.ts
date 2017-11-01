@@ -37,11 +37,10 @@ import { ModalChooseProductComponent } from './components/modals/modal-choose-pr
   ],
   declarations: [
     AppComponent,
-    LoginComponent,
     HeaderComponent,
     FooterComponent,
     UserComponent,
-    SignUpComponent,
+    // SignUpComponent,
     // ShoppingCartComponent,
     NotfoundComponent,
     ModalChooseProductComponent

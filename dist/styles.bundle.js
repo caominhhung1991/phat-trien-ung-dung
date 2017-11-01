@@ -62,7 +62,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\n.pointer {\r\n    cursor: pointer;\r\n}\r\n\r\n.required {\r\n    color: #dc143c;\r\n    font-size: 11px;\r\n}\r\n\r\n.hover:hover {\r\n    background: rgb(241, 241, 241);\r\n    font-weight: bold;\r\n}", ""]);
 
 // exports
 
@@ -546,7 +546,7 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__("../../../../bootstrap/dist/css/bootstrap.min.css");
@@ -557,5 +557,5 @@ module.exports = __webpack_require__("../../../../ng2-file-input/ng2-file-input.
 
 /***/ })
 
-},[3]);
+},[2]);
 //# sourceMappingURL=styles.bundle.js.map

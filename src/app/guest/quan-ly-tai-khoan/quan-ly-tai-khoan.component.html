@@ -1,0 +1,49 @@
+<app-nav-guest></app-nav-guest>
+
+<div class="container mt-3">
+    <nav class="nav nav-tabs" id="myTab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
+            aria-selected="true">thông tin cơ bản</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
+            aria-selected="false">Lịch sử đơn hàng</a>
+    </nav>
+    <div class="tab-content mt-4" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <button class="btn btn-outline-info btn-sm" (click)="onSelect()" data-toggle="modal" data-target="#dang-ky" >Sửa thông tin</button>
+            <button class="btn btn-outline-danger btn-sm">Đổi password</button>
+            <h4 class="mt-3">THÔNG TIN CƠ BẢN VỀ TÀI KHOẢN CỦA QUÝ KHÁCH</h4>
+            <!-- <hr> -->
+            <table *ngIf="currentUser" class="table mt-3">
+                <tr>
+                    <td>Họ tên</td>
+                    <td>{{currentUser.name}}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{currentUser.email}}</td>
+                </tr>
+                <tr>
+                    <td>Ngày sinh</td>
+                    <td>{{currentUser.birthday || "Chưa có thông tin"}}</td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ</td>
+                    <td>{{currentUser.address}}</td>
+                </tr>
+                <tr>
+                    <td>Điện thoại</td>
+                    <td>{{currentUser.phone}}</td>
+                </tr>
+            </table>
+            
+        </div>
+ 
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat suscipit vitae quae veritatis sequi voluptatum possimus
+            explicabo itaque, officiis laborum unde nihil nobis quibusdam cupiditate asperiores non impedit, nam illum.
+        </div>
+    </div>
+</div>
+
+<!-- <app-sign-up [inputUser]="selectedUser"></app-sign-up> -->
+<app-shopping-cart></app-shopping-cart>

@@ -69,7 +69,7 @@ export class ProductsComponent implements OnInit {
   putToNav(event) {
     this.numToNav = event;
   }
-
+ 
   selectProductDetail(product) {
       this.guestService.selectProductDetail(product._id);
   };

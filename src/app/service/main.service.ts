@@ -6,6 +6,10 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 
+// declare variable jquery and $ to use jquery plugin
+declare var jquery:any;
+declare var $:any;
+
 @Injectable()
 export class MainService {
   result:any;
@@ -15,7 +19,6 @@ export class MainService {
     // localStorage.setItem('currentUser', JSON.stringify({name: 'unknown', user: false}))
   }
   
-
   setUserLoggedIn(username) {
     localStorage.setItem('currentUser', JSON.stringify({name: username, user: true}))
   }
@@ -102,6 +105,7 @@ export class MainService {
   deleteSessionCart() {
     localStorage.removeItem('shopping-cart');
   }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); //for demo purposes only
     return Promise.reject(error.massage || error);
@@ -112,4 +116,36 @@ export class MainService {
     let convertTime = time.getFullYear()+""+ (time.getMonth()+1)+""+ time.getDate()+"" + time.getHours()+"" + time.getMinutes()+"" + time.getSeconds();
     return convertTime;
   }
+
+  // User API
+  getUserByEmail(email:any):Promise<any> {
+    const url = `/api/user/${email}`;
+    return this._http.get(url, {headers: this.headers} )
+      .toPromise()
+      .then(res => this.result = res.json())
+      .catch(this.handleError)
+  }
+  // Login user by email and password
+  getUserByEmailPassword(email, pass) {
+    const url = `/api/user/${email}/${pass}`;
+    return this._http.get(url, {headers: this.headers})
+      .toPromise()
+      .then(res => this.result = res.json())
+      .catch(this.handleError)
+  }
+  
+  addUserByAdmin(user:any):Promise<any> {
+    const url = `/api/user`;
+    return this._http.post(url, JSON.stringify(user), {headers: this.headers} )
+      .toPromise()
+      .then(res => this.result = res.json())
+      .catch(this.handleError)
+  }
 } 
+
+// name: false,
+// email: false,
+// password: false,
+// phone: false,
+// birthday: false,
+// address: false

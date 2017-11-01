@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+.pointer {
+    cursor: pointer;
+}
+
+.required {
+    color: #dc143c;
+    font-size: 11px;
+}
+
+.hover:hover {
+    background: rgb(241, 241, 241);
+    font-weight: bold;
+}

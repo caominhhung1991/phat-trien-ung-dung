@@ -12,7 +12,10 @@ import { SanPhamTuongTuComponent } from './san-pham-tuong-tu/san-pham-tuong-tu.c
 import { ShoppingCartComponent } from '../components/shopping-cart/shopping-cart.component';
 import { ModalProductDetailComponent } from './../components/modals/modal-product-detail/modal-product-detail.component';
 import { HoanTatThanhToanComponent } from './hoan-tat-thanh-toan/hoan-tat-thanh-toan.component';
+import { LoginComponent } from './../components/login/login.component';
 
+import { SignUpComponent} from './../components/sign-up/sign-up.component';
+import { QuanLyTaiKhoanComponent } from './quan-ly-tai-khoan/quan-ly-tai-khoan.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -27,7 +30,10 @@ import { HoanTatThanhToanComponent } from './hoan-tat-thanh-toan/hoan-tat-thanh-
     SanPhamTuongTuComponent,
     ShoppingCartComponent,
     ModalProductDetailComponent,
-    HoanTatThanhToanComponent
+    HoanTatThanhToanComponent,
+    LoginComponent,
+    SignUpComponent,
+    QuanLyTaiKhoanComponent
   ]
 })
 export class GuestModule { }

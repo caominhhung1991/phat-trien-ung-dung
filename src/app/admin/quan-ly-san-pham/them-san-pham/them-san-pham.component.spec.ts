@@ -2,24 +2,24 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ThemSanPhamComponent } from './them-san-pham.component';
 
-describe('ThemSanPhamComponent', () => {
-  let component: ThemSanPhamComponent;
-  let fixture: ComponentFixture<ThemSanPhamComponent>;
+// describe('ThemSanPhamComponent', () => {
+//   let component: ThemSanPhamComponent;
+//   let fixture: ComponentFixture<ThemSanPhamComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ThemSanPhamComponent ]
-    })
-    .compileComponents();
-  }));
+//   beforeEach(async(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [ ThemSanPhamComponent ]
+//     })
+//     .compileComponents();
+//   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ThemSanPhamComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(() => {
+//     fixture = TestBed.createComponent(ThemSanPhamComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should be created', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should be created', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });
