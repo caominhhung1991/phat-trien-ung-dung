@@ -14,6 +14,7 @@ import { ShoppingCartComponent } from './../../components/shopping-cart/shopping
   // providers: [ShoppingCartComponent]
 })
 export class HoanTatThanhToanComponent implements OnInit {
+  user:any = {};
   products:any;
   messageError:any = {};
   ttdh:any = {};
@@ -34,7 +35,6 @@ export class HoanTatThanhToanComponent implements OnInit {
         this.products.tong_tien += item.total_price;
       }
     }
-    
   }
 
   onSubmit(event) {
@@ -51,10 +51,10 @@ export class HoanTatThanhToanComponent implements OnInit {
       this.messageError.name = true;
     } else if(form.phone == "" || form.phone == undefined) {
       this.messageError.phone = true;
-    } else if(form.address == "" || form.address == undefined) {
+    } else if(form.city == "" || form.city == undefined) {
+      this.messageError.city = true;
+    }  else if(form.address == "" || form.address == undefined) {
       this.messageError.address = true;
-    } else if(form.detail == "" || form.detail == undefined) {
-      this.messageError.detail = true;
     } else if(this.products == null) {
       let check = confirm("Bạn chưa chọn sản phẩm nào. Chọn Ok để khám phá các sản phẩm khác!.");
       if(check == true) {
@@ -65,6 +65,7 @@ export class HoanTatThanhToanComponent implements OnInit {
       this.ttdh.id = "DH" + this.mainService.convertTime();
       this.ttdh.timeModified = new Date();
       this.ttdh.status = "Chưa xử lý";
+      this.ttdh.tong_tien = this.products.tong_tien;
       this.guestService.addOrderFromGuest(this.ttdh).then(res => {
         console.log(res);
         localStorage.removeItem('cart');
@@ -77,8 +78,12 @@ export class HoanTatThanhToanComponent implements OnInit {
     }
   }
 
-
   ngOnInit() {
+    this.user = (JSON.parse(localStorage.getItem("currentUser")) || {});
+    if(this.user != {}) {
+      console.log("Có user - Hàm khởi tạo");
+      this.ganUserVaoTTDH(this.user);
+    }
     this.initMessageError();
     this.products = JSON.parse(localStorage.getItem("cart")) ;
     this.TinhTongTienCart();
@@ -88,9 +93,22 @@ export class HoanTatThanhToanComponent implements OnInit {
     this.messageError = {
       name: false,
       phone: false,
+      city: false,
       address: false,
       detail: false
     }
   }
-  
+
+  reload() {
+    location.reload();
+  }  
+
+  ganUserVaoTTDH(user) {
+    this.ttdh.name = user.name;
+    this.ttdh.phone = user.phone;
+    this.ttdh.email = user.email;
+    this.ttdh.city = user.city;
+    this.ttdh.address = user.address;
+    this.ttdh.guest_id = user._id;
+  }
 }

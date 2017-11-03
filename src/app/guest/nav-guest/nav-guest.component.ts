@@ -38,6 +38,10 @@ export class NavGuestComponent implements OnInit {
   getUser(event) {
     this.currentUser = event;
   }
+  donHangCuaToi() {
+    this.router.navigate(['/hoan-tat-thanh-toan'])
+  }
+  
 
   ngOnInit() {
     this.numProduct = 0;

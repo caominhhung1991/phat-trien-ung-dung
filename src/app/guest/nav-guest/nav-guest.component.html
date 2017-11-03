@@ -62,7 +62,7 @@
     <div class="collapse" id="user-info">
       <ul class="list-group">
         <li class="list-group-item pointer hover" (click)="quanLyTaiKhoan()">Quản lý tài khoản</li>
-        <li class="list-group-item pointer hover">Đơn hàng của tôi</li>
+        <li class="list-group-item pointer hover" (click)="router.navigate(['/hoan-tat-thanh-toan'])">Đơn hàng của tôi</li>
         <li class="list-group-item pointer hover" (click)="logOut()">Đăng xuất</li>
       </ul>
     </div>
@@ -87,4 +87,4 @@
 </div>
 
 <!-- Modal Sign-up - đăng ký mới user -->
-<app-sign-up (currentUser)="getUser($event)" [inputUser]="selectedUser"></app-sign-up>
+<app-sign-up (currentUser)="getUser($event)" [inputUser]="selectedUser"></app-sign-up> 

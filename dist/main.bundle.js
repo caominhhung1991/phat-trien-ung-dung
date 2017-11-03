@@ -237,7 +237,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"donhang\" class=\"donhang mb-5 mt-2\">\r\n  <span class=\"pull-left\">Chi tiết đơn hàng #{{donhang.id}} </span> - <b>{{donhang.status}}</b>\r\n  <span class=\"pull-right\">Ngày đặt hàng: {{donhang.timeModified | date:'hh:mm - dd/MM/y'}}</span>\r\n\r\n  <div class=\"row mt-4 mb-4\">\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Địa chỉ người nhận</h4>\r\n          <label for=\"detail\" class=\"label-control\">Số:</label>\r\n          <input type=\"text\" id=\"detail\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.detail\" name=\"detail\">\r\n          <label for=\"address\" class=\"label-control\">Địa chỉ:</label>\r\n          <input type=\"text\" id=\"address\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.address\" name=\"address\">\r\n          \r\n          <!-- <p class=\"card-text\">Địa chỉ: {{donhang.detail}} {{donhang.address}}</p> -->\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Thông tin khách hàng</h4>\r\n          <label for=\"name\" class=\"label-control\">Tên:</label>\r\n          <input type=\"text\" id=\"name\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.name\" name=\"name\">\r\n          <label for=\"phone\" class=\"label-control\">Phone:</label>\r\n          <input type=\"text\" id=\"phone\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.phone\" name=\"phone\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Lời nhắn</h4>\r\n          <textarea class=\"form-control form-control-sm\" name=\"payment\" id=\"payment\" cols=\"32\" rows=\"2\" \r\n            [(ngModel)]=\"donhang.loi_nhan\" placeholder=\"Lời nhắn của khách hàng\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <button data-toggle=\"modal\" data-target=\"#sanPham\" class=\"btn btn-outline-info btn-sm mb-2\">Thêm sản phẩm</button>\r\n  <!-- Thông tin chi tiết sản phẩm của đơn hàng -->\r\n  <div class=\"product\">\r\n    <table class=\"table\">\r\n      <thead class=\"thead-default\">\r\n        <tr>\r\n          <th>Mã SP</th>\r\n          <th width=\"45%\">Sản phẩm</th>\r\n          <th>Giá</th>\r\n          <th>Số lượng</th>\r\n          <th>Giảm giá</th>\r\n          <th width=\"10%\">Tạm tính</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let product of donhang.order_detail, index as i\">\r\n          <td>{{product.product_id}}</td>\r\n          <td width=\"50%\">\r\n            {{product.product_name}} <span class=\"badge badge-danger\" (click)=\"removeProduct(i)\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Delete this product\"> X</span>\r\n          </td>\r\n          <td style=\"text-align: right\">{{product.price | number}}</td>\r\n          <td><input type=\"number\" [(ngModel)]=\"product.quantity\" placeholder=\"{{product.quantity}}\" (change)=\"tinhTien(product)\"></td>\r\n          <td>{{product.sale}}0%</td>\r\n          <td style=\"text-align: right\">{{product.total_price | number}}</td>\r\n        </tr>\r\n        <tr>\r\n          <td colspan=\"5\" style=\"text-align: right\" width=\"10%\"><b>Tổng tiền</b></td>\r\n          <td style=\"text-align: right;\"><b>{{ donhang.tong_tien | number}}</b></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n\r\n  \r\n  <div class=\"xac-nhan\">\r\n    <button class=\"btn btn-sm btn-outline-danger pull-right ml-1\" (click)=\"deleteOrderByAdmin()\">Huỷ bỏ đơn hàng</button>\r\n    <button class=\"btn btn-sm btn-outline-primary pull-right ml-1\" (click)=\"updateOrderByAdmin()\">Cập nhật</button>\r\n    <button class=\"btn btn-sm btn-outline-info pull-right\" (click)=\"refresh()\">Refresh</button>\r\n\r\n    <button class=\"btn btn-lg btn-success pull-left mb-5\" (click)=\"accessOrderByAdmin()\">Xác nhận</button>\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n<div class=\"modal fade\" id=\"sanPham\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"sanPhamTitle\" aria-hidden=\"true\">\r\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h5 class=\"modal-title\" id=\"sanPhamTitle\">Thêm Sản Phẩm </h5>\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n          </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <table class=\"table\">\r\n            <thead>\r\n              <tr>\r\n                <th>STT</th>\r\n                <th>ID</th>\r\n                <th>Tên</th>\r\n                <th width=\"10%\">Hình</th>\r\n                <th width=\"15%\">Giá(đ)</th>\r\n              </tr>\r\n            </thead>\r\n\r\n            <tbody>\r\n                <tr *ngFor=\"let product of products, index as i_product\" class=\"product\" (click)=\"onAddProduct(product)\">\r\n                    <td><b>{{i_product+1}}</b></td>\r\n                    <td>{{product.product_id}}</td>\r\n                    <td>{{product.product_name}}</td>\r\n                    <td width=\"10%\">\r\n                      <img class=\"img-fluid\" [src]=\"product.product_image\" alt=\"image\">\r\n                    </td>\r\n                    <td style=\"text-align: right\" width=\"15%\"><strong>{{product.sub_prod[0].price | number}}</strong></td>\r\n                  </tr>\r\n            </tbody>\r\n            \r\n          </table>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>"
+module.exports = "<div *ngIf=\"donhang\" class=\"donhang mb-5 mt-2\">\r\n  <span class=\"pull-left\">Chi tiết đơn hàng #{{donhang.id}} </span> - <b>{{donhang.status}}</b>\r\n  <span class=\"pull-right\">Ngày đặt hàng: {{donhang.timeModified | date:'hh:mm - dd/MM/y'}}</span>\r\n\r\n  <div class=\"row mt-4 mb-4\">\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Địa chỉ người nhận</h4>\r\n          <label for=\"city\" class=\"label-control\">Thành phố:</label>\r\n          <input type=\"text\" id=\"city\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.city\" name=\"city\">\r\n          <label for=\"address\" class=\"label-control\">Địa chỉ:</label>\r\n          <input type=\"text\" id=\"address\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.address\" name=\"address\">\r\n          \r\n          <!-- <p class=\"card-text\">Địa chỉ: {{donhang.detail}} {{donhang.address}}</p> -->\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Thông tin khách hàng</h4>\r\n          <label for=\"name\" class=\"label-control\">Tên:</label>\r\n          <input type=\"text\" id=\"name\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.name\" name=\"name\">\r\n          <label for=\"phone\" class=\"label-control\">Phone:</label>\r\n          <input type=\"text\" id=\"phone\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.phone\" name=\"phone\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Lời nhắn</h4>\r\n          <textarea class=\"form-control form-control-sm\" name=\"payment\" id=\"payment\" cols=\"32\" rows=\"2\" \r\n            [(ngModel)]=\"donhang.loi_nhan\" placeholder=\"Lời nhắn của khách hàng\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <button data-toggle=\"modal\" data-target=\"#sanPham\" class=\"btn btn-outline-info btn-sm mb-2\">Thêm sản phẩm</button>\r\n  <!-- Thông tin chi tiết sản phẩm của đơn hàng -->\r\n  <div class=\"product\">\r\n    <table class=\"table\">\r\n      <thead class=\"thead-default\">\r\n        <tr>\r\n          <th>Mã SP</th>\r\n          <th width=\"45%\">Sản phẩm</th>\r\n          <th>Giá</th>\r\n          <th>Số lượng</th>\r\n          <th>Giảm giá</th>\r\n          <th width=\"10%\">Tạm tính</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let product of donhang.order_detail, index as i\">\r\n          <td>{{product.product_id}}</td>\r\n          <td width=\"50%\">\r\n            {{product.product_name}} <span class=\"badge badge-danger\" (click)=\"removeProduct(i)\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Delete this product\"> X</span>\r\n          </td>\r\n          <td style=\"text-align: right\">{{product.price | number}}</td>\r\n          <td><input type=\"number\" [(ngModel)]=\"product.quantity\" placeholder=\"{{product.quantity}}\" (change)=\"tinhTien(product)\"></td>\r\n          <td>{{product.sale}}0%</td>\r\n          <td style=\"text-align: right\">{{product.total_price | number}}</td>\r\n        </tr>\r\n        <tr>\r\n          <td colspan=\"5\" style=\"text-align: right\" width=\"10%\"><b>Tổng tiền</b></td>\r\n          <td style=\"text-align: right;\"><b>{{ donhang.tong_tien | number}}</b></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n\r\n  \r\n  <div class=\"xac-nhan\">\r\n    <button class=\"btn btn-sm btn-outline-danger pull-right ml-1\" (click)=\"deleteOrderByAdmin()\">Huỷ bỏ đơn hàng</button>\r\n    <button class=\"btn btn-sm btn-outline-primary pull-right ml-1\" (click)=\"updateOrderByAdmin()\">Cập nhật</button>\r\n    <button class=\"btn btn-sm btn-outline-info pull-right\" (click)=\"refresh()\">Refresh</button>\r\n\r\n    <button class=\"btn btn-lg btn-success pull-left mb-5\" (click)=\"accessOrderByAdmin()\">Xác nhận</button>\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n<div class=\"modal fade\" id=\"sanPham\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"sanPhamTitle\" aria-hidden=\"true\">\r\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h5 class=\"modal-title\" id=\"sanPhamTitle\">Thêm Sản Phẩm </h5>\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n          </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <table class=\"table\">\r\n            <thead>\r\n              <tr>\r\n                <th>STT</th>\r\n                <th>ID</th>\r\n                <th>Tên</th>\r\n                <th width=\"10%\">Hình</th>\r\n                <th width=\"15%\">Giá(đ)</th>\r\n              </tr>\r\n            </thead>\r\n\r\n            <tbody>\r\n                <tr *ngFor=\"let product of products, index as i_product\" class=\"product\" (click)=\"onAddProduct(product)\">\r\n                    <td><b>{{i_product+1}}</b></td>\r\n                    <td>{{product.product_id}}</td>\r\n                    <td>{{product.product_name}}</td>\r\n                    <td width=\"10%\">\r\n                      <img class=\"img-fluid\" [src]=\"product.product_image\" alt=\"image\">\r\n                    </td>\r\n                    <td style=\"text-align: right\" width=\"15%\"><strong>{{product.sub_prod[0].price | number}}</strong></td>\r\n                  </tr>\r\n            </tbody>\r\n            \r\n          </table>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>"
 
 /***/ }),
 
@@ -461,7 +461,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/quan-ly-don-hang/quan-ly-don-hang.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-admin [isActive]=\"1\"></app-nav-admin>\r\n<div class=\"container-fluid quan-ly-don-hang\">\r\n    <div class=\"row d-flex d-md-block flex-nowrap wrapper\">\r\n        <div class=\"col-md-2 float-left col-1 pl-0 pr-0 collapse width show\" id=\"sidebar\">\r\n            <div class=\"list-group border-0 card text-center text-md-left\">\r\n\r\n                <!-- Đang chờ xử lý -->\r\n                <a href=\"#chua-xu-ly\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" data-parent=\"#sidebar\" aria-expanded=\"false\">\r\n                    <i class=\"fa fa-hand-lizard-o\"></i> \r\n                    <span class=\"d-none d-md-inline\">\r\n                        Chưa xử lý \r\n                        <span class=\"badge badge-danger\">{{numCXL}}</span> \r\n                    </span> \r\n                </a>\r\n                \r\n                <div class=\"collapse\" id=\"chua-xu-ly\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#chua-xu-ly\" *ngFor=\"let item_cxl of chuaXuLy, index as i_cxl\" \r\n                        (click)=\"onSelect(item_cxl)\" [style.cursor]=\"'pointer'\">\r\n                        {{i_cxl+1}} - {{item_cxl.id}}\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Đang chờ giao -->\r\n                <a href=\"#dang-cho-giao\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-truck\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            Đang chờ giao \r\n                            <span class=\"badge badge-warning\">{{numDCG}}</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"dang-cho-giao\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#dang-cho-giao\" *ngFor=\"let item_dcg of dangChoGiao, index as i_dcg\" \r\n                        (click)=\"onSelect(item_dcg)\" [style.cursor]=\"'pointer'\" >\r\n                        {{i_dcg+1}} - {{item_dcg.id}}\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Đã hoàn thành -->\r\n                <a href=\"#da-hoan-thanh\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-smile-o\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            Đã hoàn thành \r\n                            <span class=\"badge badge-info\">{{numDHT}}</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"da-hoan-thanh\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#da-hoan-thanh\" *ngFor=\"let item_dht of daHoanThanh, index as i_dht\"\r\n                        (click)=\"onSelect(item_dht)\" [style.cursor]=\"'pointer'\">\r\n                    {{i_dht+1}} - {{item_dht.id}}\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Đơn hàng khác -->\r\n                <a href=\"#all\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-database\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            All rest\r\n                            <span class=\"badge badge-info\">{{numAD}}</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"all\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#all\" *ngFor=\"let item_ad of allOrder, index as i_ad\"\r\n                    (click)=\"onSelect(item_ad)\" [style.cursor]=\"'pointer'\" >\r\n                        {{i_ad+1}} - {{item_ad.id}}\r\n                    </a>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n\r\n        <main class=\"col-md-10 main\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <app-chi-tiet-don-hang [donhang]=\"selectedDonhang\"></app-chi-tiet-don-hang>\r\n                </div>\r\n            </div>\r\n        </main>\r\n    </div>\r\n</div>"
+module.exports = "<app-nav-admin [isActive]=\"1\"></app-nav-admin>\r\n<div class=\"container-fluid quan-ly-don-hang\">\r\n    <div class=\"row d-flex d-md-block flex-nowrap wrapper\">\r\n        <div class=\"col-md-2 float-left col-1 pl-0 pr-0 collapse width show\" id=\"sidebar\">\r\n            <div class=\"list-group border-0 card text-center text-md-left\">\r\n\r\n                <!-- Đang chờ xử lý -->\r\n                <a href=\"#chua-xu-ly\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" data-parent=\"#sidebar\" aria-expanded=\"false\">\r\n                    <i class=\"fa fa-hand-lizard-o\"></i> \r\n                    <span class=\"d-none d-md-inline\">\r\n                        Chưa xử lý \r\n                        <span class=\"badge badge-danger\">{{numCXL}}</span> \r\n                    </span> \r\n                </a>\r\n                \r\n                <div class=\"collapse\" id=\"chua-xu-ly\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#chua-xu-ly\" *ngFor=\"let item_cxl of chuaXuLy, index as i_cxl\" \r\n                        (click)=\"onSelect(item_cxl)\" [style.cursor]=\"'pointer'\">\r\n                        {{i_cxl+1}} - {{item_cxl.id}}\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Đang chờ giao -->\r\n                <a href=\"#dang-cho-giao\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-truck\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            Đang chờ giao \r\n                            <span class=\"badge badge-warning\">{{numDCG}}</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"dang-cho-giao\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#dang-cho-giao\" *ngFor=\"let item_dcg of dangChoGiao, index as i_dcg\" \r\n                        (click)=\"onSelect(item_dcg)\" [style.cursor]=\"'pointer'\" >\r\n                        {{i_dcg+1}} - {{item_dcg.id}}\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Đã hoàn thành -->\r\n                <a href=\"#da-hoan-thanh\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-smile-o\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            Đã hoàn thành \r\n                            <span class=\"badge badge-info\">{{numDHT}}</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"da-hoan-thanh\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#da-hoan-thanh\" *ngFor=\"let item_dht of daHoanThanh, index as i_dht\"\r\n                        (click)=\"onSelect(item_dht)\" [style.cursor]=\"'pointer'\">\r\n                    {{i_dht+1}} - {{item_dht.id}}\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Đơn hàng khác -->\r\n                <a href=\"#all\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-database\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            All rest\r\n                            <span class=\"badge badge-info\">{{numAD}}</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"all\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#all\" *ngFor=\"let item_ad of allOrder, index as i_ad\"\r\n                    (click)=\"onSelect(item_ad)\" [style.cursor]=\"'pointer'\" >\r\n                        {{i_ad+1}} - {{item_ad.id}}\r\n                    </a>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n\r\n        <main class=\"col-md-10 main\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <app-chi-tiet-don-hang [donhang]=\"selectedDonhang\"></app-chi-tiet-don-hang>\r\n                </div>\r\n            </div>\r\n        </main>\r\n    </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -2270,7 +2270,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/sign-up/sign-up.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"dang-ky\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Đăng ký tài khoản</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <form>\n          <div class=\"form-group form-group\">\n            <label for=\"ho-ten\">Họ và Tên\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"text\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.name\" id=\"ho-ten\" aria-describedby=\"hotenHelp\"\n              placeholder=\"Họ và Tên\" name=\"name\" required #name=\"ngModel\">\n            <!-- <small id=\"hotenHelp\" class=\"form-text text-muted\">vd: Cao Minh Hưng</small> -->\n            <div *ngIf=\"name.invalid && (name.dirty || name.touched || messageError.name)\">\n              <div *ngIf=\"name.errors.required\">\n                <span class=\"required\">Họ tên không được để trống</span>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"email\">Email\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"email\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.email\" id=\"email\" aria-describedby=\"emailHelp\"\n              placeholder=\"Địa chỉ Email\" name=\"email\" required #email=\"ngModel\" email>\n            <div *ngIf=\"email.invalid && (email.dirty || email.touched || messageError.email.required)\">\n              <div *ngIf=\"email.errors.required\">\n                <span class=\"required\">Email không được để trống</span>\n              </div>\n              <div *ngIf=\"email.errors.email && !email.errors.required\">\n                <span class=\"required\">Email không đúng định dạng</span>\n              </div>\n            </div>\n\n            <div *ngIf=\"email.valid\">\n                <div *ngIf=\"messageError.email.existed.check\">\n                  <span class=\"required\">{{messageError.email.existed.message}}</span>\n                </div>\n              </div>\n          </div>\n          <!-- Password -->\n          <div class=\"form-row\">\n            <div class=\"form-group col-md-6\">\n              <label for=\"password\">Mật khẩu\n                <span class=\"required\">*</span>\n              </label>\n              <input type=\"password\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.password\" id=\"password\" placeholder=\"Mật khẩu từ 6-30 ký tự, bao gồm cả số và chữ\"\n                name=\"password\" required #password=\"ngModel\" (change)=\"checkConfirmPassword()\" minlength=\"6\" maxlength=\"30\">\n              <div *ngIf=\"password.invalid && (password.dirty || password.touched || messageError.password)\">\n                <div *ngIf=\"password.errors.required\">\n                  <span class=\"required\">Mật khẩu không được để trống</span>\n                </div>\n                <div *ngIf=\"password.errors.minlength && !password.errors.required\">\n                    <span class=\"required\">Mật khẩu tối thiểu 6 kí tự</span>\n                </div>\n              </div>\n            </div>\n            <div class=\"form-group col-md-6\">\n              <label for=\"re_password\">Nhập lại mật khẩu\n                <span class=\"required\">*</span>\n              </label>\n              <input type=\"password\" class=\"form-control form-control-sm\" [(ngModel)]=\"re_password\" (change)=\"checkConfirmPassword()\" id=\"re_password\"\n                placeholder=\"Xác nhận mật khẩu\" name=\"re_password\" required #rePassword=\"ngModel\">\n              <!-- Check required -->\n              <div *ngIf=\"rePassword.invalid && (rePassword.dirty || rePassword.touched || messageError.re_password.required.check)\">\n                <div *ngIf=\"rePassword.errors.required\">\n                  <span class=\"required\">Xác nhận mật khẩu không được để trống</span>\n                </div>\n              </div>\n              <!-- Check confirm password -->\n              <div *ngIf=\"rePassword.valid && (rePassword.dirty || rePassword.touched)\">\n                <div *ngIf=\"messageError.re_password.confirm.check\">\n                  <span class=\"required\">\n                    {{messageError.re_password.confirm.message}}\n                  </span>\n                </div>\n              </div>\n            </div>\n          </div>\n\n          <!-- Phone -->\n          <div class=\"form-group\">\n            <label for=\"phone\">Số điện thoại\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"phone\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.phone\" id=\"phone\" aria-describedby=\"phoneHelp\"\n              placeholder=\"Số điện thoại\" name=\"phone\" required #phone=\"ngModel\">\n            <div *ngIf=\"phone.invalid && (phone.dirty || phone.touched || messageError.phone)\">\n              <div *ngIf=\"phone.errors.required\">\n                <span class=\"required\">Số điện thoại không được để trống</span>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"birthday\">Ngày sinh</label>\n            <input type=\"date\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.birthday\" value=\"{{user.birthday}}\" id=\"birthday\"\n              aria-describedby=\"birthdayHelp\" placeholder=\"Ngày sinh\" min=\"1920-01-01\" max=\"2020-12-31\" name=\"birthday\">\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"address\">Địa chỉ\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"text\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.address\" id=\"address\" aria-describedby=\"addressHelp\"\n              placeholder=\"Địa chỉ\" name=\"address\" required #address=\"ngModel\">\n            <div *ngIf=\"address.invalid && (address.dirty || address.touched || messageError.address)\">\n              <div *ngIf=\"address.errors.required\">\n                <span class=\"required\">Địa chỉ không được để trống</span>\n              </div>\n            </div>\n          </div>\n        </form>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-info btn-md\" data-dismiss=\"modal\">Close</button>\n        <button type=\"submit\" class=\"btn btn-success btn-md\" (click)=\"addNewUser()\">Đăng kí</button>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"dang-ky\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Đăng ký tài khoản</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <form>\n          <div class=\"form-group form-group\">\n            <label for=\"ho-ten\">Họ và Tên\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"text\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.name\" id=\"ho-ten\" aria-describedby=\"hotenHelp\"\n              placeholder=\"Họ và Tên\" name=\"name\" required #name=\"ngModel\">\n            <!-- <small id=\"hotenHelp\" class=\"form-text text-muted\">vd: Cao Minh Hưng</small> -->\n            <div *ngIf=\"name.invalid && (name.dirty || name.touched || messageError.name)\">\n              <div *ngIf=\"name.errors.required\">\n                <span class=\"required\">Họ tên không được để trống</span>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"email\">Email\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"email\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.email\" id=\"email\" aria-describedby=\"emailHelp\"\n              placeholder=\"Địa chỉ Email\" name=\"email\" required #email=\"ngModel\" email>\n            <div *ngIf=\"email.invalid && (email.dirty || email.touched || messageError.email.required)\">\n              <div *ngIf=\"email.errors.required\">\n                <span class=\"required\">Email không được để trống</span>\n              </div>\n              <div *ngIf=\"email.errors.email && !email.errors.required\">\n                <span class=\"required\">Email không đúng định dạng</span>\n              </div>\n            </div>\n\n            <div *ngIf=\"email.valid\">\n                <div *ngIf=\"messageError.email.existed.check\">\n                  <span class=\"required\">{{messageError.email.existed.message}}</span>\n                </div>\n              </div>\n          </div>\n          <!-- Password -->\n          <div class=\"form-row\">\n            <div class=\"form-group col-md-6\">\n              <label for=\"password\">Mật khẩu\n                <span class=\"required\">*</span>\n              </label>\n              <input type=\"password\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.password\" id=\"password\" placeholder=\"Mật khẩu từ 6-30 ký tự, bao gồm cả số và chữ\"\n                name=\"password\" required #password=\"ngModel\" (change)=\"checkConfirmPassword()\" minlength=\"6\" maxlength=\"30\">\n              <div *ngIf=\"password.invalid && (password.dirty || password.touched || messageError.password)\">\n                <div *ngIf=\"password.errors.required\">\n                  <span class=\"required\">Mật khẩu không được để trống</span>\n                </div>\n                <div *ngIf=\"password.errors.minlength && !password.errors.required\">\n                    <span class=\"required\">Mật khẩu tối thiểu 6 kí tự</span>\n                </div>\n              </div>\n            </div>\n            <div class=\"form-group col-md-6\">\n              <label for=\"re_password\">Nhập lại mật khẩu\n                <span class=\"required\">*</span>\n              </label>\n              <input type=\"password\" class=\"form-control form-control-sm\" [(ngModel)]=\"re_password\" (change)=\"checkConfirmPassword()\" id=\"re_password\"\n                placeholder=\"Xác nhận mật khẩu\" name=\"re_password\" required #rePassword=\"ngModel\">\n              <!-- Check required -->\n              <div *ngIf=\"rePassword.invalid && (rePassword.dirty || rePassword.touched || messageError.re_password.required.check)\">\n                <div *ngIf=\"rePassword.errors.required\">\n                  <span class=\"required\">Xác nhận mật khẩu không được để trống</span>\n                </div>\n              </div>\n              <!-- Check confirm password -->\n              <div *ngIf=\"rePassword.valid && (rePassword.dirty || rePassword.touched)\">\n                <div *ngIf=\"messageError.re_password.confirm.check\">\n                  <span class=\"required\">\n                    {{messageError.re_password.confirm.message}}\n                  </span>\n                </div>\n              </div>\n            </div>\n          </div>\n\n          <!-- Phone -->\n          <div class=\"form-group\">\n            <label for=\"phone\">Số điện thoại\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"phone\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.phone\" id=\"phone\" aria-describedby=\"phoneHelp\"\n              placeholder=\"Số điện thoại\" name=\"phone\" required #phone=\"ngModel\">\n            <div *ngIf=\"phone.invalid && (phone.dirty || phone.touched || messageError.phone)\">\n              <div *ngIf=\"phone.errors.required\">\n                <span class=\"required\">Số điện thoại không được để trống</span>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"birthday\">Ngày sinh</label>\n            <input type=\"date\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.birthday\" value=\"{{user.birthday}}\" id=\"birthday\"\n              aria-describedby=\"birthdayHelp\" placeholder=\"Ngày sinh\" min=\"1920-01-01\" max=\"2020-12-31\" name=\"birthday\">\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"city\">Thành phố\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"text\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.city\" id=\"city\" aria-describedby=\"cityHelp\"\n              placeholder=\"Địa chỉ\" name=\"city\" required #city=\"ngModel\">\n            <div *ngIf=\"city.invalid && (city.dirty || city.touched || messageError.city)\">\n              <div *ngIf=\"city.errors.required\">\n                <span class=\"required\">Thành phố không được để trống</span>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"address\">Địa chỉ chi tiết\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"text\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.address\" id=\"address\" aria-describedby=\"addressHelp\"\n              placeholder=\"Địa chỉ\" name=\"address\" required #address=\"ngModel\">\n            <div *ngIf=\"address.invalid && (address.dirty || address.touched || messageError.address)\">\n              <div *ngIf=\"address.errors.required\">\n                <span class=\"required\">Địa chỉ không được để trống</span>\n              </div>\n            </div>\n          </div>\n\n        </form>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-info btn-md\" data-dismiss=\"modal\">Close</button>\n        <button type=\"submit\" class=\"btn btn-success btn-md\" (click)=\"addNewUser()\">Đăng kí</button>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2339,6 +2339,9 @@ var SignUpComponent = (function () {
         else if (form.phone == "" || form.phone == undefined) {
             this.messageError.phone = true;
         }
+        else if (form.city == "" || form.city == undefined) {
+            this.messageError.city = true;
+        }
         else if (form.address == "" || form.address == undefined) {
             this.messageError.address = true;
         }
@@ -2391,6 +2394,7 @@ var SignUpComponent = (function () {
             password: "",
             phone: "",
             birthday: new Date(),
+            city: "",
             address: "",
             role: "guest"
         };
@@ -2405,6 +2409,7 @@ var SignUpComponent = (function () {
                     message: "Email đã được sử dụng!"
                 }
             },
+            city: false,
             password: false,
             re_password: {
                 confirm: {
@@ -2492,6 +2497,158 @@ var _a, _b;
 
 /***/ }),
 
+/***/ "../../../../../src/app/guest/doi-password/doi-password.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/doi-password/doi-password.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"doi-password\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Thay đổi password</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <form>\n          <!-- Password cũ -->\n          <div class=\"form-row\">\n            <div class=\"form-group col-md-6\">\n              <label for=\"old-password\">Mật khẩu cũ\n                <span class=\"required\">*</span>\n              </label>\n              <input type=\"password\" class=\"form-control form-control-sm\" [(ngModel)]=\"old_password\" id=\"old-password\" placeholder=\"Mật khẩu cũ\"\n                name=\"oldPassword\" required #oldPassword=\"ngModel\" (change)=\"checkConfirmPassword()\" minlength=\"6\" maxlength=\"30\">\n              <div *ngIf=\"oldPassword.invalid && (oldPassword.dirty || oldPassword.touched || messageError.old_password)\">\n                <div *ngIf=\"oldPassword.errors.required\">\n                  <span class=\"required\">Mật khẩu không được để trống</span>\n                </div>\n              </div>\n            </div>\n          </div>\n\n          <!-- Password mới-->\n          <div class=\"form-row\">\n            <div class=\"form-group col-md-6\">\n              <label for=\"new-password\">Mật khẩu mới\n                <span class=\"required\">*</span>\n              </label>\n              <input type=\"password\" class=\"form-control form-control-sm\" [(ngModel)]=\"new_password\" id=\"password\" placeholder=\"Mật khẩu từ 6-30 ký tự\"\n                name=\"new_password\" required #newPassword=\"ngModel\" (change)=\"checkConfirmPassword()\" minlength=\"6\" maxlength=\"30\">\n              <div *ngIf=\"newPassword.invalid && (newPassword.dirty || newPassword.touched || messageError.new_password)\">\n                <div *ngIf=\"newPassword.errors.required\">\n                  <span class=\"required\">Mật khẩu không được để trống</span>\n                </div>\n                <div *ngIf=\"newPassword.errors.minlength && !newPassword.errors.required\">\n                  <span class=\"required\">Mật khẩu tối thiểu 6 kí tự</span>\n                </div>\n              </div>\n            </div>\n            <div class=\"form-group col-md-6\">\n              <label for=\"re_password\">Nhập lại mật khẩu\n                <span class=\"required\">*</span>\n              </label>\n              <input type=\"password\" class=\"form-control form-control-sm\" [(ngModel)]=\"re_password\" (change)=\"checkConfirmPassword()\" id=\"re_password\"\n                placeholder=\"Xác nhận mật khẩu\" name=\"re_password\" required #rePassword=\"ngModel\">\n              <!-- Check required -->\n              <div *ngIf=\"rePassword.invalid && (rePassword.dirty || rePassword.touched || messageError.re_password.required.check)\">\n                <div *ngIf=\"rePassword.errors.required\">\n                  <span class=\"required\">Xác nhận mật khẩu không được để trống</span>\n                </div>\n              </div>\n              <!-- Check confirm password -->\n              <div *ngIf=\"rePassword.valid && (rePassword.dirty || rePassword.touched)\">\n                <div *ngIf=\"messageError.re_password.confirm.check\">\n                  <span class=\"required\">\n                    {{messageError.re_password.confirm.message}}\n                  </span>\n                </div>\n              </div>\n            </div>\n          </div>\n        </form>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-info btn-md\" data-dismiss=\"modal\">Close</button>\n        <button type=\"submit\" class=\"btn btn-success btn-md\" (click)=\"updatePassword()\">Cập nhật</button>\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/doi-password/doi-password.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DoiPasswordComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DoiPasswordComponent = (function () {
+    function DoiPasswordComponent(mainService) {
+        this.mainService = mainService;
+        this.messageError = {};
+    }
+    Object.defineProperty(DoiPasswordComponent.prototype, "inputUserUpdate", {
+        get: function () { return this.user; },
+        set: function (_user) {
+            this.user = (_user || {});
+            // this.getCurrentUser();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    DoiPasswordComponent.prototype.updatePassword = function () {
+        console.log("update password!");
+        this.checkFormInput();
+    };
+    DoiPasswordComponent.prototype.checkFormInput = function () {
+        var _this = this;
+        if (this.old_password == "" || this.old_password == undefined) {
+            // Nếu pass cũ rỗng hoặc undefined
+            this.messageError.old_password = true;
+        }
+        else if ((this.new_password == "" || this.new_password == undefined) || this.new_password.length < 6) {
+            // Nếu pass mới rỗng hoặc undefined
+            this.messageError.new_password = true;
+        }
+        else if (this.re_password == "" || this.re_password == undefined) {
+            this.messageError.re_password.required.check = true;
+        }
+        else if (this.re_password !== this.new_password) {
+            this.checkConfirmPassword();
+        }
+        else if (this.old_password !== this.user.password) {
+            alert("Mật khẩu sai!");
+        }
+        else {
+            this.user.password = this.new_password;
+            this.mainService.updateUserByGuest(this.user).then(function (res) {
+                console.log(_this.user);
+                console.log(res);
+                localStorage.setItem("currentUser", JSON.stringify(_this.user));
+                alert(res.message);
+                location.reload();
+            }, function (res) { return console.log(res); });
+        }
+    };
+    DoiPasswordComponent.prototype.checkConfirmPassword = function () {
+        if (this.re_password !== this.new_password) {
+            this.messageError.re_password.confirm.check = true;
+        }
+        else {
+            this.messageError.re_password.confirm.check = false;
+        }
+    };
+    DoiPasswordComponent.prototype.ngOnInit = function () {
+        this.initUser();
+        this.initMessageError();
+    };
+    DoiPasswordComponent.prototype.initUser = function () {
+        this.user = {
+            name: "",
+            email: "",
+            password: "",
+            phone: "",
+            birthday: new Date(),
+            address: "",
+            role: "guest"
+        };
+    };
+    DoiPasswordComponent.prototype.initMessageError = function () {
+        this.messageError = {
+            old_password: false,
+            new_password: false,
+            re_password: {
+                confirm: {
+                    check: false,
+                    message: "Mật khẩu xác nhận không trùng nhau"
+                },
+                required: {
+                    check: false,
+                    message: "Mật khẩu xác nhận không được trống"
+                }
+            }
+        };
+    };
+    return DoiPasswordComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], DoiPasswordComponent.prototype, "inputUserUpdate", null);
+DoiPasswordComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-doi-password',
+        template: __webpack_require__("../../../../../src/app/guest/doi-password/doi-password.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/guest/doi-password/doi-password.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */]) === "function" && _a || Object])
+], DoiPasswordComponent);
+
+var _a;
+//# sourceMappingURL=doi-password.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/guest/guest.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2512,6 +2669,9 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_sign_up_sign_up_component__ = __webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__quan_ly_tai_khoan_quan_ly_tai_khoan_component__ = __webpack_require__("../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__sua_thong_tin_sua_thong_tin_component__ = __webpack_require__("../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__doi_password_doi_password_component__ = __webpack_require__("../../../../../src/app/guest/doi-password/doi-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__lich_su_don_hang_lich_su_don_hang_component__ = __webpack_require__("../../../../../src/app/guest/lich-su-don-hang/lich-su-don-hang.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2522,6 +2682,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 //import component
+
+
+
 
 
 
@@ -2557,7 +2720,10 @@ GuestModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_11__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */],
             __WEBPACK_IMPORTED_MODULE_12__components_login_login_component__["a" /* LoginComponent */],
             __WEBPACK_IMPORTED_MODULE_13__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */]
+            __WEBPACK_IMPORTED_MODULE_14__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__sua_thong_tin_sua_thong_tin_component__["a" /* SuaThongTinComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__doi_password_doi_password_component__["a" /* DoiPasswordComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__lich_su_don_hang_lich_su_don_hang_component__["a" /* LichSuDonHangComponent */]
         ]
     })
 ], GuestModule);
@@ -2587,7 +2753,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-guest></app-nav-guest>\n<div class=\"container\">\n  <div class=\"row hoan-tat-thanh-toan mt-3\">\n    <div class=\"col-md-6\">\n      <form class=\"dia-chi-nhan-hang\" (submit)=\"onSubmit($event)\">\n        <h5 class=\"dcnh-title\">\n          <div class=\"fa fa-map-marker\"></div> Địa chỉ nhận hàng</h5>\n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Họ tên:\n            <span class=\"required\">*</span>\n          </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: Cao Minh Hưng\" required name=\"name\" [(ngModel)]=\"ttdh.name\" #name=\"ngModel\">\n\n          <div *ngIf=\"name.invalid && (name.dirty || name.touched || messageError.name)\">\n            <div *ngIf=\"name.errors.required\">\n              <span class=\"required\">Họ tên không được để trống</span>\n            </div>\n          </div>\n        </div>\n        \n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Điện thoại:\n            <span class=\"required\" >*</span>\n          </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: 01218815991\" required name=\"phone\" [(ngModel)]=\"ttdh.phone\" #phone=\"ngModel\">\n\n          <div *ngIf=\"phone.invalid && (phone.dirty || phone.touched || messageError.phone)\">\n            <div *ngIf=\"phone.errors.required\">\n              <span class=\"required\">Số điện thoại không được để trống</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Email:</span>\n          <input type=\"email\" class=\"form-control\" placeholder=\"support@gmail.com\">\n        </div>\n\n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Tên đường phố:\n            <span class=\"required\">*</span>\n          </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Phường 4, Quận Gò Vấp, Hồ Chí Minh\" required name=\"address\" [(ngModel)]=\"ttdh.address\" #address=\"ngModel\">\n          <div *ngIf=\"address.invalid && (address.dirty || address.touched || messageError.address)\">\n            <div *ngIf=\"address.errors.required\">\n              <span class=\"required\">Địa chỉ không được để trống</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-group\">\n          <span class=\"label-control\" id=\"ho-ten\">Địa chỉ chi tiết:\n            <span class=\"required\">*</span>\n          </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: số 10, Ngõ 50, Ngách 100, Hẽm 22\" required name=\"detail\" [(ngModel)]=\"ttdh.detail\" #detail=\"ngModel\">\n          <div *ngIf=\"detail.invalid && (detail.dirty || detail.touched || messageError.detail)\">\n            <div *ngIf=\"detail.errors.required\">\n              <span class=\"required\">Địa chỉ chi tiết không được để trống</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-group\">\n          <label class=\"label-control\" for=\"loi-nhan\">Lời nhắn:</label>\n          <textarea name=\"loi-nhan\" id=\"loi-nhan\" cols=\"20\" rows=\"2\" class=\"form-control\" [(ngModel)]=\"ttdh.loi_nhan\" placeholder=\"Ví dụ: Giao ngoài giờ hành chính\"></textarea>\n        </div>\n        <button class=\"btn btn-danger\" type=\"submit\" style=\"cursor: pointer\">Hoàn tất đặt hàng\n          <i class=\"fa fa-arrow-right\"></i>\n        </button>\n\n      </form>\n    </div>\n    <div class=\"col-md-6\">\n      <table class=\"table\">\n        <thead class=\"thead-default\">\n          <tr>\n            <th>Sản phẩm -\n              <span class=\"edit-dh\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Sửa đơn hàng</span>\n            </th>\n            <th>Đơn giá</th>\n            <th>SLượng</th>\n            <th>Thành tiền</th>\n          </tr>\n        </thead>\n        <tr *ngFor=\"let item of products, let i = index\">\n          <td class=\"product-info w-100\">\n            <img class=\"d-inline-block img-thumbnail w-25 mr-2\" [src]=\"item.product_image\">\n            <span class=\"d-inline-block\">{{item.product_name}}\n            </span>\n          </td>\n\n          <td>{{item.price | number}}</td>\n          <td>\n            {{item.quantity}}\n          </td>\n          <td id=\"thanh-tien\" class=\"thanh-tien\" style=\"font-weight: bold;\">{{ item.total_price | number }}</td>\n        </tr>\n\n        <tr>\n          <td class=\"\" colspan=\"3\" style=\"font-weight: bold; text-align: right;  font-size: 20px\">Tổng tiền</td>\n          <td style=\"font-weight: bold; color: rgb(207, 6, 6); font-size: 20px\">{{products?.tong_tien | number}}</td>\n        </tr>\n      </table>\n    </div>\n  </div>\n</div>\n<app-shopping-cart></app-shopping-cart>"
+module.exports = "<app-nav-guest></app-nav-guest>\n<div class=\"container\">\n  <div class=\"row hoan-tat-thanh-toan mt-3\">\n    <div class=\"col-md-6\">\n      <form class=\"dia-chi-nhan-hang\" (submit)=\"onSubmit($event)\">\n        <h5 class=\"dcnh-title\">\n          <div class=\"fa fa-map-marker\"></div> Địa chỉ nhận hàng</h5>\n        <div class=\"form-group\">\n          <span class=\"label-control\" for=\"ho-ten\">Họ tên:\n            <span class=\"required\">*</span>\n          </span>\n          <input type=\"text\" id=\"ho-ten\" class=\"form-control\" placeholder=\"Ví dụ: Cao Minh Hưng\" required name=\"name\" [(ngModel)]=\"ttdh.name\" #name=\"ngModel\">\n\n          <div *ngIf=\"name.invalid && (name.dirty || name.touched || messageError.name)\">\n            <div *ngIf=\"name.errors.required\">\n              <span class=\"required\">Họ tên không được để trống</span>\n            </div>\n          </div>\n        </div>\n        \n        <div class=\"form-group\">\n          <span class=\"label-control\">Điện thoại:\n            <span class=\"required\" >*</span>\n          </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: 01218815991\" required name=\"phone\" [(ngModel)]=\"ttdh.phone\" #phone=\"ngModel\">\n\n          <div *ngIf=\"phone.invalid && (phone.dirty || phone.touched || messageError.phone)\">\n            <div *ngIf=\"phone.errors.required\">\n              <span class=\"required\">Số điện thoại không được để trống</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-group\">\n          <span class=\"label-control\">Email:</span>\n          <input type=\"email\" class=\"form-control\" [(ngModel)]=\"ttdh.email\" name=\"email\" placeholder=\"support@gmail.com\" >\n        </div>\n\n        <div class=\"form-group\">\n          <span class=\"label-control\">Thành phố:\n            <span class=\"required\">*</span>\n          </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Phường 4, Quận Gò Vấp, Hồ Chí Minh\" required name=\"city\" [(ngModel)]=\"ttdh.city\" #city=\"ngModel\">\n          <div *ngIf=\"city.invalid && (city.dirty || city.touched || messageError.city)\">\n            <div *ngIf=\"city.errors.required\">\n              <span class=\"required\">Thành phố không được để trống</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-group\">\n          <span class=\"label-control\" >Địa chỉ chi tiết:\n            <span class=\"required\">*</span>\n          </span>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Ví dụ: số 10, Ngõ 50, Ngách 100, Hẽm 22\" required name=\"address\" [(ngModel)]=\"ttdh.address\" #address=\"ngModel\">\n          <div *ngIf=\"address.invalid && (address.dirty || address.touched || messageError.address)\">\n            <div *ngIf=\"address.errors.required\">\n              <span class=\"required\">Địa chỉ chi tiết không được để trống</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-group\">\n          <label class=\"label-control\" for=\"loi-nhan\">Lời nhắn:</label>\n          <textarea name=\"loi-nhan\" id=\"loi-nhan\" cols=\"20\" rows=\"2\" class=\"form-control\" [(ngModel)]=\"ttdh.loi_nhan\" placeholder=\"Ví dụ: Giao ngoài giờ hành chính\"></textarea>\n        </div>\n        <button class=\"btn btn-danger\" type=\"submit\" style=\"cursor: pointer\">Hoàn tất đặt hàng\n          <i class=\"fa fa-arrow-right\"></i>\n        </button>\n        <button class=\"btn btn-info\" type=\"submit\" style=\"cursor: pointer\" (click)=\"reload()\">Refresh <i class=\"fa fa-refresh\"></i>\n        </button>\n      </form>\n    </div>\n    <div class=\"col-md-6\">\n      <table class=\"table\">\n        <thead class=\"thead-default\">\n          <tr>\n            <th>Sản phẩm -\n              <span class=\"edit-dh\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Sửa đơn hàng</span>\n            </th>\n            <th>Đơn giá</th>\n            <th>SLượng</th>\n            <th>Thành tiền</th>\n          </tr>\n        </thead>\n        <tr *ngFor=\"let item of products, let i = index\">\n          <td class=\"product-info w-100\">\n            <img class=\"d-inline-block img-thumbnail w-25 mr-2\" [src]=\"item.product_image\">\n            <span class=\"d-inline-block\">{{item.product_name}}\n            </span>\n          </td>\n\n          <td>{{item.price | number}}</td>\n          <td>\n            {{item.quantity}}\n          </td>\n          <td id=\"thanh-tien\" class=\"thanh-tien\" style=\"font-weight: bold;\">{{ item.total_price | number }}</td>\n        </tr>\n\n        <tr>\n          <td class=\"\" colspan=\"3\" style=\"font-weight: bold; text-align: right;  font-size: 20px\">Tổng tiền</td>\n          <td style=\"font-weight: bold; color: rgb(207, 6, 6); font-size: 20px\">{{products?.tong_tien | number}}</td>\n        </tr>\n      </table>\n    </div>\n  </div>\n</div>\n<app-shopping-cart></app-shopping-cart>"
 
 /***/ }),
 
@@ -2624,6 +2790,7 @@ var HoanTatThanhToanComponent = (function () {
         this.guestService = guestService;
         this.location = location;
         this.router = router;
+        this.user = {};
         this.messageError = {};
         this.ttdh = {};
     }
@@ -2653,11 +2820,11 @@ var HoanTatThanhToanComponent = (function () {
         else if (form.phone == "" || form.phone == undefined) {
             this.messageError.phone = true;
         }
+        else if (form.city == "" || form.city == undefined) {
+            this.messageError.city = true;
+        }
         else if (form.address == "" || form.address == undefined) {
             this.messageError.address = true;
-        }
-        else if (form.detail == "" || form.detail == undefined) {
-            this.messageError.detail = true;
         }
         else if (this.products == null) {
             var check = confirm("Bạn chưa chọn sản phẩm nào. Chọn Ok để khám phá các sản phẩm khác!.");
@@ -2670,6 +2837,7 @@ var HoanTatThanhToanComponent = (function () {
             this.ttdh.id = "DH" + this.mainService.convertTime();
             this.ttdh.timeModified = new Date();
             this.ttdh.status = "Chưa xử lý";
+            this.ttdh.tong_tien = this.products.tong_tien;
             this.guestService.addOrderFromGuest(this.ttdh).then(function (res) {
                 console.log(res);
                 localStorage.removeItem('cart');
@@ -2682,6 +2850,11 @@ var HoanTatThanhToanComponent = (function () {
         }
     };
     HoanTatThanhToanComponent.prototype.ngOnInit = function () {
+        this.user = (JSON.parse(localStorage.getItem("currentUser")) || {});
+        if (this.user != {}) {
+            console.log("Có user - Hàm khởi tạo");
+            this.ganUserVaoTTDH(this.user);
+        }
         this.initMessageError();
         this.products = JSON.parse(localStorage.getItem("cart"));
         this.TinhTongTienCart();
@@ -2690,9 +2863,21 @@ var HoanTatThanhToanComponent = (function () {
         this.messageError = {
             name: false,
             phone: false,
+            city: false,
             address: false,
             detail: false
         };
+    };
+    HoanTatThanhToanComponent.prototype.reload = function () {
+        location.reload();
+    };
+    HoanTatThanhToanComponent.prototype.ganUserVaoTTDH = function (user) {
+        this.ttdh.name = user.name;
+        this.ttdh.phone = user.phone;
+        this.ttdh.email = user.email;
+        this.ttdh.city = user.city;
+        this.ttdh.address = user.address;
+        this.ttdh.guest_id = user._id;
     };
     return HoanTatThanhToanComponent;
 }());
@@ -2771,6 +2956,94 @@ HomePageComponent = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/guest/lich-su-don-hang/lich-su-don-hang.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "td, th {\r\n    font-size: 14px;\r\n}\r\n.cxl {\r\n    color: green;\r\n}\r\n\r\n.cgh {\r\n    color: darkblue;\r\n}\r\n\r\n.dht {\r\n    color: darkred;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/lich-su-don-hang/lich-su-don-hang.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<table class=\"table\">\n  <thead>\n    <tr>\n      <th>Ngày xử lý</th>\n      <th>Mã đơn hàng</th>\n      <th>Tổng tiền đơn hàng</th>\n      <th>Trạng thái đơn hàng</th>\n      <th>Địa chỉ nhận hàng</th>\n      <th>Thông tin chi tiết</th>\n    </tr>\n  </thead>\n\n  <tbody *ngIf=\"donhangs\">\n    <tr *ngFor=\"let donhang of donhangs\">\n      <td>{{donhang.timeModified | date}}</td>\n      <td>{{donhang.id}}</td>\n      <td class=\"text-danger\"><strong>{{donhang.tong_tien | number}}đ</strong></td>\n      <td ><strong>{{donhang.status}}</strong> <i *ngIf=\"donhang.status == 'Chưa xử lý'\" class=\"fa fa-remove pointer text-danger hover-black\" (click)=\"huyDonHang(donhang.id)\"></i></td>\n      <td>{{donhang.address}} {{donhang.city}}</td>\n      <td>{{donhang.loi_nhan}}</td>\n    </tr>\n  </tbody>\n</table>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/lich-su-don-hang/lich-su-don-hang.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LichSuDonHangComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var LichSuDonHangComponent = (function () {
+    function LichSuDonHangComponent(guestService) {
+        this.guestService = guestService;
+        this.donhangs = new Array();
+    }
+    LichSuDonHangComponent.prototype.huyDonHang = function (donhangID) {
+        var check = confirm("Bạn có muốn huỷ?");
+        if (check == true) {
+            this.guestService.deleteOrderByGuest(donhangID).then(function (res) {
+                console.log(res);
+                if (res.data.n != 0) {
+                    alert(res.message);
+                }
+                else {
+                    alert("Đã có lỗi khi huỷ đơn hàng!");
+                }
+                location.reload();
+            }, function (res) { return console.log(res); });
+        }
+    };
+    LichSuDonHangComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.id = (JSON.parse(localStorage.getItem("currentUser")))._id;
+        console.log(this.id);
+        this.guestService.getOrdersByGuestID(this.id).then(function (res) {
+            _this.donhangs = res;
+            console.log(_this.donhangs);
+        }, function (res) { return console.log(res); });
+    };
+    return LichSuDonHangComponent;
+}());
+LichSuDonHangComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-lich-su-don-hang',
+        template: __webpack_require__("../../../../../src/app/guest/lich-su-don-hang/lich-su-don-hang.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/guest/lich-su-don-hang/lich-su-don-hang.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_guest_service__["a" /* GuestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_guest_service__["a" /* GuestService */]) === "function" && _a || Object])
+], LichSuDonHangComponent);
+
+var _a;
+//# sourceMappingURL=lich-su-don-hang.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/guest/nav-guest/nav-guest.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2792,7 +3065,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/nav-guest/nav-guest.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-sm navbar-light bg-light sticky-top\">\n  <a class=\"navbar-brand\" href=\"/home-page\">\n    <img src=\"../../../assets/logo.svg\" width=\"40\" height=\"40\" class=\"d-inline-block align-top\" alt=\"\">\n  </a>\n\n  <ul class=\"navbar-nav mr-auto\">\n    <li class=\"nav-item\">\n      <form class=\"form-inline\">\n        <div class=\"input-group\">\n          <input type=\"search\" class=\"form-control\" placeholder=\"Tìm kiếm ...\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n          <span class=\"input-group-addon\" id=\"basic-addon1\">\n            <i class=\"fa fa-search\"></i>\n          </span>\n        </div>\n      </form>\n    </li>\n  </ul>\n\n  <div class=\"shopping-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\">\n    <i class=\"fa fa-shopping-basket\"></i>\n  </div>\n</nav>\n\n<div class=\"nav2\" style=\"background: #f5f5f5;\">\n  <ul class=\"justify-content-center dieu-huong\">\n    <li class=\"\">\n      <a class=\"active left\" href=\"/home-page\">Khám Phá</a>\n    </li>\n    <li class=\"\">\n      <a class=\"\" href=\"/home-page\">Cửa Hàng</a>\n    </li>\n    <li class=\"\">\n      <a class=\"right\" href=\"/home-page\">Ngành Hàng</a>\n    </li>\n  </ul>\n\n  <!-- phần đăng ký -->\n  <form class=\"form-inline dang-ky mr-5\">\n    <span><i class=\"fa fa-user-o mr-2\"></i></span>\n    <span *ngIf=\"currentUser==null\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-login\" aria-expanded=\"false\" aria-controls=\"user-login\">\n      Đăng nhập & Đăng ký\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n\n    <span *ngIf=\"currentUser\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-info\" aria-expanded=\"false\" aria-controls=\"user-info\">\n      {{currentUser.name}}\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n    <!-- collapse đăng nhập -->\n    <div class=\"collapse\" id=\"user-login\">\n      <div class=\"card card-body\">\n        <button class=\"btn btn-danger mb-1\" data-toggle=\"modal\" data-target=\"#dang-nhap\">Đăng nhập</button>\n        <p>Chưa có tài khoản?\n          <br>\n          <a href=\"#\" class=\"dktk\" (click)=\"$event.preventDefault()\" data-toggle=\"modal\" data-target=\"#dang-ky\">Đăng ký tài khoản mới</a>\n        </p>\n      </div>\n    </div>\n    <!-- collapse đã đăng nhập -->\n    <div class=\"collapse\" id=\"user-info\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item pointer hover\" (click)=\"quanLyTaiKhoan()\">Quản lý tài khoản</li>\n        <li class=\"list-group-item pointer hover\">Đơn hàng của tôi</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"logOut()\">Đăng xuất</li>\n      </ul>\n    </div>\n  </form>\n</div>\n\n<!-- Modal đăng nhập -->\n<div class=\"modal fade\" id=\"dang-nhap\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Đăng nhập tài khoản</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <app-login></app-login>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- Modal Sign-up - đăng ký mới user -->\n<app-sign-up (currentUser)=\"getUser($event)\" [inputUser]=\"selectedUser\"></app-sign-up>"
+module.exports = "<nav class=\"navbar navbar-expand-sm navbar-light bg-light sticky-top\">\n  <a class=\"navbar-brand\" href=\"/home-page\">\n    <img src=\"../../../assets/logo.svg\" width=\"40\" height=\"40\" class=\"d-inline-block align-top\" alt=\"\">\n  </a>\n\n  <ul class=\"navbar-nav mr-auto\">\n    <li class=\"nav-item\">\n      <form class=\"form-inline\">\n        <div class=\"input-group\">\n          <input type=\"search\" class=\"form-control\" placeholder=\"Tìm kiếm ...\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n          <span class=\"input-group-addon\" id=\"basic-addon1\">\n            <i class=\"fa fa-search\"></i>\n          </span>\n        </div>\n      </form>\n    </li>\n  </ul>\n\n  <div class=\"shopping-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\">\n    <i class=\"fa fa-shopping-basket\"></i>\n  </div>\n</nav>\n\n<div class=\"nav2\" style=\"background: #f5f5f5;\">\n  <ul class=\"justify-content-center dieu-huong\">\n    <li class=\"\">\n      <a class=\"active left\" href=\"/home-page\">Khám Phá</a>\n    </li>\n    <li class=\"\">\n      <a class=\"\" href=\"/home-page\">Cửa Hàng</a>\n    </li>\n    <li class=\"\">\n      <a class=\"right\" href=\"/home-page\">Ngành Hàng</a>\n    </li>\n  </ul>\n\n  <!-- phần đăng ký -->\n  <form class=\"form-inline dang-ky mr-5\">\n    <span><i class=\"fa fa-user-o mr-2\"></i></span>\n    <span *ngIf=\"currentUser==null\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-login\" aria-expanded=\"false\" aria-controls=\"user-login\">\n      Đăng nhập & Đăng ký\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n\n    <span *ngIf=\"currentUser\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-info\" aria-expanded=\"false\" aria-controls=\"user-info\">\n      {{currentUser.name}}\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n    <!-- collapse đăng nhập -->\n    <div class=\"collapse\" id=\"user-login\">\n      <div class=\"card card-body\">\n        <button class=\"btn btn-danger mb-1\" data-toggle=\"modal\" data-target=\"#dang-nhap\">Đăng nhập</button>\n        <p>Chưa có tài khoản?\n          <br>\n          <a href=\"#\" class=\"dktk\" (click)=\"$event.preventDefault()\" data-toggle=\"modal\" data-target=\"#dang-ky\">Đăng ký tài khoản mới</a>\n        </p>\n      </div>\n    </div>\n    <!-- collapse đã đăng nhập -->\n    <div class=\"collapse\" id=\"user-info\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item pointer hover\" (click)=\"quanLyTaiKhoan()\">Quản lý tài khoản</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"router.navigate(['/hoan-tat-thanh-toan'])\">Đơn hàng của tôi</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"logOut()\">Đăng xuất</li>\n      </ul>\n    </div>\n  </form>\n</div>\n\n<!-- Modal đăng nhập -->\n<div class=\"modal fade\" id=\"dang-nhap\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Đăng nhập tài khoản</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <app-login></app-login>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- Modal Sign-up - đăng ký mới user -->\n<app-sign-up (currentUser)=\"getUser($event)\" [inputUser]=\"selectedUser\"></app-sign-up> "
 
 /***/ }),
 
@@ -2843,6 +3116,9 @@ var NavGuestComponent = (function () {
     };
     NavGuestComponent.prototype.getUser = function (event) {
         this.currentUser = event;
+    };
+    NavGuestComponent.prototype.donHangCuaToi = function () {
+        this.router.navigate(['/hoan-tat-thanh-toan']);
     };
     NavGuestComponent.prototype.ngOnInit = function () {
         this.numProduct = 0;
@@ -3147,7 +3423,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-guest></app-nav-guest>\n\n<div class=\"container mt-3\">\n    <nav class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\n        <a class=\"nav-item nav-link active\" id=\"nav-home-tab\" data-toggle=\"tab\" href=\"#nav-home\" role=\"tab\" aria-controls=\"nav-home\"\n            aria-selected=\"true\">thông tin cơ bản</a>\n        <a class=\"nav-item nav-link\" id=\"nav-profile-tab\" data-toggle=\"tab\" href=\"#nav-profile\" role=\"tab\" aria-controls=\"nav-profile\"\n            aria-selected=\"false\">Lịch sử đơn hàng</a>\n    </nav>\n    <div class=\"tab-content mt-4\" id=\"nav-tabContent\">\n        <div class=\"tab-pane fade show active\" id=\"nav-home\" role=\"tabpanel\" aria-labelledby=\"nav-home-tab\">\n            <button class=\"btn btn-outline-info btn-sm\" (click)=\"onSelect()\" data-toggle=\"modal\" data-target=\"#dang-ky\" >Sửa thông tin</button>\n            <button class=\"btn btn-outline-danger btn-sm\">Đổi password</button>\n            <h4 class=\"mt-3\">THÔNG TIN CƠ BẢN VỀ TÀI KHOẢN CỦA QUÝ KHÁCH</h4>\n            <!-- <hr> -->\n            <table *ngIf=\"currentUser\" class=\"table mt-3\">\n                <tr>\n                    <td>Họ tên</td>\n                    <td>{{currentUser.name}}</td>\n                </tr>\n                <tr>\n                    <td>Email</td>\n                    <td>{{currentUser.email}}</td>\n                </tr>\n                <tr>\n                    <td>Ngày sinh</td>\n                    <td>{{currentUser.birthday || \"Chưa có thông tin\"}}</td>\n                </tr>\n                <tr>\n                    <td>Địa chỉ</td>\n                    <td>{{currentUser.address}}</td>\n                </tr>\n                <tr>\n                    <td>Điện thoại</td>\n                    <td>{{currentUser.phone}}</td>\n                </tr>\n            </table>\n            \n        </div>\n \n        <div class=\"tab-pane fade\" id=\"nav-profile\" role=\"tabpanel\" aria-labelledby=\"nav-profile-tab\">\n            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat suscipit vitae quae veritatis sequi voluptatum possimus\n            explicabo itaque, officiis laborum unde nihil nobis quibusdam cupiditate asperiores non impedit, nam illum.\n        </div>\n    </div>\n</div>\n\n<!-- <app-sign-up [inputUser]=\"selectedUser\"></app-sign-up> -->\n<app-shopping-cart></app-shopping-cart>"
+module.exports = "<app-nav-guest></app-nav-guest>\n\n<div class=\"container mt-3\">\n    <nav class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\n        <a class=\"nav-item nav-link active\" id=\"nav-home-tab\" data-toggle=\"tab\" href=\"#nav-home\" role=\"tab\" aria-controls=\"nav-home\"\n            aria-selected=\"true\">thông tin cơ bản</a>\n        <a class=\"nav-item nav-link\" id=\"nav-profile-tab\" data-toggle=\"tab\" href=\"#nav-profile\" role=\"tab\" aria-controls=\"nav-profile\"\n            aria-selected=\"false\">Lịch sử đơn hàng</a>\n    </nav>\n    <div class=\"tab-content mt-4\" id=\"nav-tabContent\">\n        <div class=\"tab-pane fade show active\" id=\"nav-home\" role=\"tabpanel\" aria-labelledby=\"nav-home-tab\">\n            <!-- button Sửa thông tin -->\n            <button class=\"btn btn-outline-info btn-sm\" (click)=\"onSelect()\" data-toggle=\"modal\" data-target=\"#sua-thong-tin\" >Sửa thông tin</button>\n\n            <!-- button Đổi password -->\n            <button class=\"btn btn-outline-danger btn-sm\" (click)=\"onSelect()\"\n            data-toggle=\"modal\" data-target=\"#doi-password\">Đổi password</button>\n            <h4 class=\"mt-3\">THÔNG TIN CƠ BẢN VỀ TÀI KHOẢN CỦA QUÝ KHÁCH</h4>\n            <!-- <hr> -->\n            <table *ngIf=\"currentUser\" class=\"table mt-3\">\n                <tr>\n                    <td>Họ tên</td>\n                    <td>{{currentUser.name}}</td>\n                </tr>\n                <tr>\n                    <td>Email</td>\n                    <td>{{currentUser.email}}</td>\n                </tr>\n                <tr>\n                    <td>Ngày sinh</td>\n                    <td>{{currentUser.birthday || \"Chưa có thông tin\"}}</td>\n                </tr>\n\n                <tr>\n                    <td>Thành phố</td>\n                    <td>{{currentUser.city}}</td>\n                </tr>\n\n                <tr>\n                    <td>Địa chỉ</td>\n                    <td>{{currentUser.address}}</td>\n                </tr>\n                <tr>\n                    <td>Điện thoại</td>\n                    <td>{{currentUser.phone}}</td>\n                </tr>\n            </table>\n            \n        </div>\n \n        <div class=\"tab-pane fade\" id=\"nav-profile\" role=\"tabpanel\" aria-labelledby=\"nav-profile-tab\">\n            <app-lich-su-don-hang></app-lich-su-don-hang>\n        </div>\n    </div>\n</div>\n\n\n\n<!-- <app-sign-up [inputUser]=\"selectedUser\"></app-sign-up> -->\n<app-sua-thong-tin [inputUser]=\"selectedUser\"></app-sua-thong-tin>\n\n<app-doi-password [inputUserUpdate]=\"selectedUser\"></app-doi-password>\n<!-- <app-doi-password></app-doi-password> -->\n\n<app-shopping-cart></app-shopping-cart>"
 
 /***/ }),
 
@@ -3174,7 +3450,7 @@ var QuanLyTaiKhoanComponent = (function () {
     QuanLyTaiKhoanComponent.prototype.getCurrentUser = function () {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     };
-    QuanLyTaiKhoanComponent.prototype.onSelect = function (user) {
+    QuanLyTaiKhoanComponent.prototype.onSelect = function () {
         this.selectedUser = this.currentUser;
     };
     QuanLyTaiKhoanComponent.prototype.ngOnInit = function () {
@@ -3314,6 +3590,141 @@ SliderGuestComponent = __decorate([
 ], SliderGuestComponent);
 
 //# sourceMappingURL=slider-guest.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"sua-thong-tin\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Cập nhật tài khoản</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <form>\n          <div class=\"form-group form-group\">\n            <label for=\"ho-ten\">Họ và Tên\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"text\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.name\" id=\"ho-ten\" aria-describedby=\"hotenHelp\"\n              placeholder=\"Họ và Tên\" name=\"name\" required #name=\"ngModel\">\n            <!-- <small id=\"hotenHelp\" class=\"form-text text-muted\">vd: Cao Minh Hưng</small> -->\n            <div *ngIf=\"name.invalid && (name.dirty || name.touched || messageError.name)\">\n              <div *ngIf=\"name.errors.required\">\n                <span class=\"required\">Họ tên không được để trống</span>\n              </div>\n            </div>\n          </div>\n\n          <!-- Phone -->\n          <div class=\"form-group\">\n            <label for=\"phone\">Số điện thoại\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"phone\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.phone\" id=\"phone\" aria-describedby=\"phoneHelp\"\n              placeholder=\"Số điện thoại\" name=\"phone\" required #phone=\"ngModel\">\n            <div *ngIf=\"phone.invalid && (phone.dirty || phone.touched || messageError.phone)\">\n              <div *ngIf=\"phone.errors.required\">\n                <span class=\"required\">Số điện thoại không được để trống</span>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"birthday\">Ngày sinh</label>\n            <input type=\"date\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.birthday\" value=\"{{user.birthday}}\" id=\"birthday\"\n              aria-describedby=\"birthdayHelp\" placeholder=\"Ngày sinh\" min=\"1920-01-01\" max=\"2020-12-31\" name=\"birthday\">\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"city\">Thành phố\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"text\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.city\" id=\"city\" aria-describedby=\"cityHelp\"\n              placeholder=\"Địa chỉ\" name=\"city\" required #city=\"ngModel\">\n            <div *ngIf=\"city.invalid && (city.dirty || city.touched || messageError.city)\">\n              <div *ngIf=\"city.errors.required\">\n                <span class=\"required\">Địa chỉ không được để trống</span>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"address\">Địa chỉ\n              <span class=\"required\">*</span>\n            </label>\n            <input type=\"text\" class=\"form-control form-control-sm\" [(ngModel)]=\"user.address\" id=\"address\" aria-describedby=\"addressHelp\"\n              placeholder=\"Địa chỉ\" name=\"address\" required #address=\"ngModel\">\n            <div *ngIf=\"address.invalid && (address.dirty || address.touched || messageError.address)\">\n              <div *ngIf=\"address.errors.required\">\n                <span class=\"required\">Địa chỉ không được để trống</span>\n              </div>\n            </div>\n          </div>\n        </form>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-info btn-md\" data-dismiss=\"modal\">Close</button>\n        <button type=\"submit\" class=\"btn btn-success btn-md\" (click)=\"updateUser()\">Cập nhật</button>\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SuaThongTinComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SuaThongTinComponent = (function () {
+    function SuaThongTinComponent(mainService) {
+        this.mainService = mainService;
+        // @Input() inputUser: any = {};
+        this.currentUser = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.messageError = {};
+    }
+    Object.defineProperty(SuaThongTinComponent.prototype, "inputUser", {
+        get: function () { return this.user; },
+        set: function (_user) {
+            this.user = (_user || {});
+            // this.getCurrentUser();
+            console.log(this.user);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ;
+    SuaThongTinComponent.prototype.updateUser = function () {
+        this.checkFormInput(this.user);
+    };
+    SuaThongTinComponent.prototype.checkFormInput = function (form) {
+        if (form.name == "" || form.name == undefined) {
+            this.messageError.name = true;
+        }
+        else if (form.phone == "" || form.phone == undefined) {
+            this.messageError.phone = true;
+        }
+        else if (form.city == "" || form.city == undefined) {
+            this.messageError.city = true;
+        }
+        else if (form.address == "" || form.address == undefined) {
+            this.messageError.address = true;
+        }
+        else {
+            this.mainService.updateUserByGuest(form).then(function (res) {
+                console.log(res);
+                alert(res.message);
+                localStorage.setItem("currentUser", JSON.stringify(form));
+                location.reload();
+                // $("#sua-thong-tin").modal("hide");
+            }, function (res) { return console.log(res); });
+        }
+    };
+    SuaThongTinComponent.prototype.ngOnInit = function () {
+        this.initUser();
+        this.initMessageError();
+    };
+    SuaThongTinComponent.prototype.initUser = function () {
+        this.user = {
+            name: "",
+            phone: "",
+            birthday: new Date(),
+            address: "",
+            city: "",
+            role: "guest"
+        };
+    };
+    SuaThongTinComponent.prototype.initMessageError = function () {
+        this.messageError = {
+            name: false,
+            word: false,
+            phone: false,
+            city: false,
+            address: false
+        };
+    };
+    return SuaThongTinComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], SuaThongTinComponent.prototype, "inputUser", null);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["U" /* Output */])(),
+    __metadata("design:type", Object)
+], SuaThongTinComponent.prototype, "currentUser", void 0);
+SuaThongTinComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-sua-thong-tin',
+        template: __webpack_require__("../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */]) === "function" && _a || Object])
+], SuaThongTinComponent);
+
+var _a;
+//# sourceMappingURL=sua-thong-tin.component.js.map
 
 /***/ }),
 
@@ -3544,13 +3955,30 @@ var GuestService = (function () {
             .then(function (res) { return _this.result = res.json().data; })
             .catch(this.handleError);
     };
+    GuestService.prototype.deleteOrderByGuest = function (orderID) {
+        var _this = this;
+        var url = "api/order/" + orderID;
+        return this._http.delete(url, { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res.json(); })
+            .catch(this.handleError);
+    };
+    // Get orders by guest id
+    GuestService.prototype.getOrdersByGuestID = function (id) {
+        var _this = this;
+        var url = "/api/order/guest/" + id;
+        return this._http.get(url, { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res.json().data; })
+            .catch(this.handleError);
+    };
     // Admin cập nhật đơn hàng
     GuestService.prototype.updateOrderByAdmin = function (order) {
         var _this = this;
         var url = "api/order/" + order._id;
         return this._http.put(url, JSON.stringify(order), { headers: this.headers })
             .toPromise()
-            .then(function (res) { return _this.result = res; })
+            .then(function (res) { return _this.result = res.json().data; })
             .catch(this.handleError);
     };
     GuestService.prototype.handleError = function (error) {
@@ -3711,6 +4139,16 @@ var MainService = (function () {
         var _this = this;
         var url = "/api/user";
         return this._http.post(url, JSON.stringify(user), { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res.json(); })
+            .catch(this.handleError);
+    };
+    // Update User
+    MainService.prototype.updateUserByGuest = function (user) {
+        var _this = this;
+        var url = "/api/user/" + user._id;
+        console.log(url);
+        return this._http.put(url, JSON.stringify(user), { headers: this.headers })
             .toPromise()
             .then(function (res) { return _this.result = res.json(); })
             .catch(this.handleError);

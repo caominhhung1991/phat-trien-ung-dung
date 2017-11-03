@@ -14,7 +14,7 @@ export class QuanLyTaiKhoanComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  onSelect(user) {
+  onSelect() {
     this.selectedUser = this.currentUser;
   }
 

@@ -82,6 +82,7 @@ export class GuestService {
       .then(res => this.result = res)
       .catch(this.handleError);
   }
+
   // Admin lấy đơn hàng từ order
   getOrderByAdmin():Promise<any> {
     const url = "/api/order";
@@ -90,12 +91,30 @@ export class GuestService {
     .then(res => this.result = res.json().data)
     .catch(this.handleError);
   }
+
+  deleteOrderByGuest(orderID):Promise<any> {
+    const url = `api/order/${orderID}`;
+    return this._http.delete(url, {headers: this.headers})
+      .toPromise()  
+      .then(res => this.result = res.json())
+      .catch(this.handleError);
+  }
+
+  // Get orders by guest id
+  getOrdersByGuestID(id:any):Promise<any> {
+    const url = "/api/order/guest/"+id;
+    return this._http.get(url, {headers: this.headers})
+      .toPromise()
+      .then(res => this.result = res.json().data)
+      .catch(this.handleError);
+  }
+
   // Admin cập nhật đơn hàng
   updateOrderByAdmin(order:any):Promise<any> {
     const url = `api/order/${order._id}`;
     return this._http.put(url, JSON.stringify(order), {headers: this.headers})
       .toPromise()
-      .then(res => this.result = res)
+      .then(res => this.result = res.json().data)
       .catch(this.handleError);
   }
   

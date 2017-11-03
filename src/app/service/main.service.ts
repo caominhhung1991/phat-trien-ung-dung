@@ -141,6 +141,15 @@ export class MainService {
       .then(res => this.result = res.json())
       .catch(this.handleError)
   }
+  // Update User
+  updateUserByGuest(user:any):Promise<any> {
+    const url = `/api/user/${user._id}`;
+    console.log(url);
+    return this._http.put(url, JSON.stringify(user), {headers: this.headers})
+      .toPromise()
+      .then(res => this.result = res.json())
+      .catch(this.handleError);
+  }
 } 
 
 // name: false,

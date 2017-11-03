@@ -50,6 +50,8 @@ export class SignUpComponent implements OnInit {
       this.checkConfirmPassword();
     } else if(form.phone == "" || form.phone == undefined) {
       this.messageError.phone = true;
+    } else if(form.city == "" || form.city == undefined) {
+      this.messageError.city = true;
     } else if(form.address == "" || form.address == undefined) {
       this.messageError.address = true;
     } else {
@@ -103,6 +105,7 @@ export class SignUpComponent implements OnInit {
       password: "",
       phone: "",
       birthday: new Date(),
+      city: "",
       address: "",
       role: "guest"
     }
@@ -118,6 +121,7 @@ export class SignUpComponent implements OnInit {
           message: "Email đã được sử dụng!"
         }
       },
+      city: false,
       password: false,
       re_password: {
         confirm: { 

@@ -16,6 +16,9 @@ import { LoginComponent } from './../components/login/login.component';
 
 import { SignUpComponent} from './../components/sign-up/sign-up.component';
 import { QuanLyTaiKhoanComponent } from './quan-ly-tai-khoan/quan-ly-tai-khoan.component';
+import { SuaThongTinComponent } from './sua-thong-tin/sua-thong-tin.component';
+import { DoiPasswordComponent } from './doi-password/doi-password.component';
+import { LichSuDonHangComponent } from './lich-su-don-hang/lich-su-don-hang.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -33,7 +36,10 @@ import { QuanLyTaiKhoanComponent } from './quan-ly-tai-khoan/quan-ly-tai-khoan.c
     HoanTatThanhToanComponent,
     LoginComponent,
     SignUpComponent,
-    QuanLyTaiKhoanComponent
+    QuanLyTaiKhoanComponent,
+    SuaThongTinComponent,
+    DoiPasswordComponent,
+    LichSuDonHangComponent
   ]
 })
 export class GuestModule { }

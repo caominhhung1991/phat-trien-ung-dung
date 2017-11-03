@@ -8,7 +8,21 @@
     font-size: 11px;
 }
 
+.red {
+
+}
+
 .hover:hover {
     background: rgb(241, 241, 241);
+    font-weight: bold;
+}
+
+.hover-red:hover {
+    color: rgb(223, 0, 0);
+    font-weight: bold;
+}
+
+.hover-black:hover {
+    color: #333 !important;
     font-weight: bold;
 }
