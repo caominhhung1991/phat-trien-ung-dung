@@ -26,16 +26,29 @@ export class ChiTietDonHangComponent implements OnInit {
   ) { }
 
   // order - access, update, delete order
-  accessOrderByAdmin() {
-    let check = confirm("Bạn có muốn chấp nhận đơn hàng này?");
-    if(check) {
-      this.donhang.status = "Đang chờ giao";
-      this.donhang.access_person = (JSON.parse(localStorage.getItem("currentUser"))).name;
-      this.guestService.updateOrderByAdmin(this.donhang).then(res => {
-        console.log(res);
-        alert("success!")
-        location.reload();
-      }, res => console.log(res));
+  accessOrderByAdmin(status:string) {
+    if(status === 'Chưa xử lý') {
+      let check = confirm("Bạn có muốn chấp nhận đơn hàng này?");
+      if(check) {
+        this.donhang.status = "Đang chờ giao";
+        this.donhang.access_person = (JSON.parse(localStorage.getItem("currentUser"))).name;
+        this.guestService.updateOrderByAdmin(this.donhang).then(res => {
+          console.log(res);
+          alert("success!")
+          location.reload();
+        }, res => console.log(res));
+      }
+    } else if(status === 'Đang chờ giao') {
+      let check = confirm("Bạn có muốn xác nhận đơn hàng này đã giao?");
+      if(check) {
+        this.donhang.status = "Đã hoàn thành";
+        this.donhang.access_person = (JSON.parse(localStorage.getItem("currentUser"))).name;
+        this.guestService.updateOrderByAdmin(this.donhang).then(res => {
+          console.log(res);
+          alert("success!")
+          location.reload();
+        }, res => console.log(res));
+      }
     }
   }
 

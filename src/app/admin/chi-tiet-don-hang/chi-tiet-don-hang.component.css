@@ -18,8 +18,7 @@ table {
 }
 
 .product {
-    cursor: pointer;
-
+    /* cursor: pointer; */
 }
 
 th {

@@ -25,21 +25,21 @@ let response = {
 }
 // Get api
 // Get users
-router.get('/users', (req, res) => {
-	console.log("get users api");
-	connection((db) => {
-		db.collection('users')
-			.find()
-			.toArray()
-			.then((users) => {
-				response.data = users;
-				res.json(response);
-			})
-			.catch((err) => {
-				sendError(err, res);
-			});
-	});
-});
+// router.get('/users', (req, res) => {
+// 	console.log("get users api");
+// 	connection((db) => {
+// 		db.collection('user')
+// 			.find()
+// 			.toArray()
+// 			.then((users) => {
+// 				response.data = users;
+// 				res.json(response);
+// 			})
+// 			.catch((err) => {
+// 				sendError(err, res);
+// 			});
+// 	});
+// });
 
 // --------- San pham - Product API --------------
 // Get list of product
@@ -304,16 +304,17 @@ router.delete('/order/:id', (req, res, next) => {
 			});
 	})
 })
-// --- User ---
+// --- User - Người dùng - tài khoản ---
 // Get list user
-router.get("user", (req, res, next) => {
+router.get('/user', (req, res, next) => {
 	console.log("Get list user by Admin");
 	connection(db => {
 		db.collection('user')
 			.find()
 			.toArray()
-			.then(res => {
-				response.data = res;
+			.then(users => {
+				response.data = users;
+				// console.log(users);
 				res.json(response);
 			})
 			.catch(err => {
@@ -384,6 +385,23 @@ router.put('/user/:id', (req, res, next) => {
 			.then((_user) => {
 				response.data = _user;
 				response.message = "Update thành công";
+				res.json(response);
+			})
+			.catch(err => {
+				sendError(err, res);
+			})
+	})
+})
+
+router.delete('/user/:id', (req, res, next) => {
+	console.log("Xoa user by id");
+	var request = { '_id': new ObjectID(req.params.id) };
+	connection(db => {
+		db.collection('user')
+			.remove(request)
+			.then((result) => {
+				response.data = result;
+				response.message = "Xoá User thành công";
 				res.json(response);
 			})
 			.catch(err => {

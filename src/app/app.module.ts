@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module';
 import { GuestModule} from './guest/guest.module';
+import { ComponentModule } from './components/component.module';
 // guard 
 import { AuthguardGuard } from './guard/authguard.guard'
 // services
@@ -25,6 +26,7 @@ import { SignUpComponent} from './components/sign-up/sign-up.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ModalChooseProductComponent } from './components/modals/modal-choose-product/modal-choose-product.component';
 // import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component'
+import { SuaThongTinComponent} from './guest/sua-thong-tin/sua-thong-tin.component';
 
 @NgModule({
   imports: [
@@ -33,7 +35,8 @@ import { ModalChooseProductComponent } from './components/modals/modal-choose-pr
     AppRoutingModule,
     AdminModule,
     GuestModule,
-    FormsModule
+    FormsModule,
+    ComponentModule
   ],
   declarations: [
     AppComponent,
@@ -43,7 +46,8 @@ import { ModalChooseProductComponent } from './components/modals/modal-choose-pr
     // SignUpComponent,
     // ShoppingCartComponent,
     NotfoundComponent,
-    ModalChooseProductComponent
+    ModalChooseProductComponent,
+    // SuaThongTinComponent
   ],
   providers: [
     MainService,

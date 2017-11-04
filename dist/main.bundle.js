@@ -23,8 +23,9 @@ webpackEmptyAsyncContext.id = "../../../../../src lazy recursive";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__quan_ly_don_hang_quan_ly_don_hang_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-don-hang/quan-ly-don-hang.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__quan_ly_san_pham_quan_ly_san_pham_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/quan-ly-san-pham.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__thongke_doanh_thu_doanh_thu_component__ = __webpack_require__("../../../../../src/app/admin/thongke/doanh-thu/doanh-thu.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__chi_tiet_don_hang_chi_tiet_don_hang_component__ = __webpack_require__("../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__guard_authguard_guard__ = __webpack_require__("../../../../../src/app/guard/authguard.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__quan_ly_user_quan_ly_user_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-user/quan-ly-user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__chi_tiet_don_hang_chi_tiet_don_hang_component__ = __webpack_require__("../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__guard_authguard_guard__ = __webpack_require__("../../../../../src/app/guard/authguard.guard.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,14 +39,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 // guard
 
 var routes = [
     // { path: "admin", component: QuanLySanPhamComponent},
-    { path: "quanlydonhang", canActivate: [__WEBPACK_IMPORTED_MODULE_6__guard_authguard_guard__["a" /* AuthguardGuard */]], component: __WEBPACK_IMPORTED_MODULE_2__quan_ly_don_hang_quan_ly_don_hang_component__["a" /* QuanLyDonHangComponent */] },
-    { path: "quanlysanpham", canActivate: [__WEBPACK_IMPORTED_MODULE_6__guard_authguard_guard__["a" /* AuthguardGuard */]], component: __WEBPACK_IMPORTED_MODULE_3__quan_ly_san_pham_quan_ly_san_pham_component__["a" /* QuanLySanPhamComponent */] },
+    { path: "quanlydonhang", canActivate: [__WEBPACK_IMPORTED_MODULE_7__guard_authguard_guard__["a" /* AuthguardGuard */]], component: __WEBPACK_IMPORTED_MODULE_2__quan_ly_don_hang_quan_ly_don_hang_component__["a" /* QuanLyDonHangComponent */] },
+    { path: "quanlysanpham", canActivate: [__WEBPACK_IMPORTED_MODULE_7__guard_authguard_guard__["a" /* AuthguardGuard */]], component: __WEBPACK_IMPORTED_MODULE_3__quan_ly_san_pham_quan_ly_san_pham_component__["a" /* QuanLySanPhamComponent */] },
     { path: "quanlydoanhthu", component: __WEBPACK_IMPORTED_MODULE_4__thongke_doanh_thu_doanh_thu_component__["a" /* DoanhThuComponent */] },
-    { path: "donhang/:id", component: __WEBPACK_IMPORTED_MODULE_5__chi_tiet_don_hang_chi_tiet_don_hang_component__["a" /* ChiTietDonHangComponent */] }
+    { path: "quanlyuser", component: __WEBPACK_IMPORTED_MODULE_5__quan_ly_user_quan_ly_user_component__["a" /* QuanLyUserComponent */] },
+    { path: "donhang/:id", component: __WEBPACK_IMPORTED_MODULE_6__chi_tiet_don_hang_chi_tiet_don_hang_component__["a" /* ChiTietDonHangComponent */] }
 ];
 var AdminRoutingModule = (function () {
     function AdminRoutingModule() {
@@ -75,18 +78,20 @@ AdminRoutingModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng2_file_input__ = __webpack_require__("../../../../ng2-file-input/dist/ng2-file-input.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__admin_routing_module__ = __webpack_require__("../../../../../src/app/admin/admin-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__admin_admin_component__ = __webpack_require__("../../../../../src/app/admin/admin/admin.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__quan_ly_don_hang_quan_ly_don_hang_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-don-hang/quan-ly-don-hang.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__quan_ly_san_pham_quan_ly_san_pham_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/quan-ly-san-pham.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__thongke_doanh_thu_doanh_thu_component__ = __webpack_require__("../../../../../src/app/admin/thongke/doanh-thu/doanh-thu.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_go_back_go_back_component__ = __webpack_require__("../../../../../src/app/components/go-back/go-back.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__nav_admin_nav_admin_component__ = __webpack_require__("../../../../../src/app/admin/nav-admin/nav-admin.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__chi_tiet_don_hang_chi_tiet_don_hang_component__ = __webpack_require__("../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__quan_ly_san_pham_them_san_pham_them_san_pham_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/them-san-pham/them-san-pham.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__quan_ly_san_pham_all_product_all_product_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/all-product/all-product.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_modals_modal_product_modal_product_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-product/modal-product.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__quan_ly_san_pham_phieu_nhap_kho_phieu_nhap_kho_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/phieu-nhap-kho/phieu-nhap-kho.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_modals_modal_add_product_to_repository_modal_add_product_to_repository_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-add-product-to-repository/modal-add-product-to-repository.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__guest_guest_module__ = __webpack_require__("../../../../../src/app/guest/guest.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__admin_admin_component__ = __webpack_require__("../../../../../src/app/admin/admin/admin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__quan_ly_don_hang_quan_ly_don_hang_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-don-hang/quan-ly-don-hang.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__quan_ly_san_pham_quan_ly_san_pham_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/quan-ly-san-pham.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__thongke_doanh_thu_doanh_thu_component__ = __webpack_require__("../../../../../src/app/admin/thongke/doanh-thu/doanh-thu.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_go_back_go_back_component__ = __webpack_require__("../../../../../src/app/components/go-back/go-back.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__nav_admin_nav_admin_component__ = __webpack_require__("../../../../../src/app/admin/nav-admin/nav-admin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__chi_tiet_don_hang_chi_tiet_don_hang_component__ = __webpack_require__("../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__quan_ly_san_pham_them_san_pham_them_san_pham_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/them-san-pham/them-san-pham.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__quan_ly_san_pham_all_product_all_product_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/all-product/all-product.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_modals_modal_product_modal_product_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-product/modal-product.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__quan_ly_san_pham_phieu_nhap_kho_phieu_nhap_kho_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/phieu-nhap-kho/phieu-nhap-kho.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_modals_modal_add_product_to_repository_modal_add_product_to_repository_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-add-product-to-repository/modal-add-product-to-repository.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__quan_ly_user_quan_ly_user_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-user/quan-ly-user.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -101,7 +106,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 // module
 
+
 // component
+
 
 
 
@@ -127,22 +134,40 @@ AdminModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_6__admin_routing_module__["a" /* AdminRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */],
+            __WEBPACK_IMPORTED_MODULE_7__guest_guest_module__["a" /* GuestModule */],
             __WEBPACK_IMPORTED_MODULE_5_ng2_file_input__["a" /* Ng2FileInputModule */].forRoot()
         ],
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_7__admin_admin_component__["a" /* AdminComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__quan_ly_don_hang_quan_ly_don_hang_component__["a" /* QuanLyDonHangComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__quan_ly_san_pham_quan_ly_san_pham_component__["a" /* QuanLySanPhamComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__thongke_doanh_thu_doanh_thu_component__["a" /* DoanhThuComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__components_go_back_go_back_component__["a" /* GoBackComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__nav_admin_nav_admin_component__["a" /* NavAdminComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__chi_tiet_don_hang_chi_tiet_don_hang_component__["a" /* ChiTietDonHangComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__quan_ly_san_pham_them_san_pham_them_san_pham_component__["a" /* ThemSanPhamComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__quan_ly_san_pham_all_product_all_product_component__["a" /* AllProductComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__components_modals_modal_product_modal_product_component__["a" /* ModalProductComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__quan_ly_san_pham_phieu_nhap_kho_phieu_nhap_kho_component__["a" /* PhieuNhapKhoComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__components_modals_modal_add_product_to_repository_modal_add_product_to_repository_component__["a" /* ModalAddProductToRepositoryComponent */]
+            __WEBPACK_IMPORTED_MODULE_8__admin_admin_component__["a" /* AdminComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__quan_ly_don_hang_quan_ly_don_hang_component__["a" /* QuanLyDonHangComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__quan_ly_san_pham_quan_ly_san_pham_component__["a" /* QuanLySanPhamComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__thongke_doanh_thu_doanh_thu_component__["a" /* DoanhThuComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__components_go_back_go_back_component__["a" /* GoBackComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__nav_admin_nav_admin_component__["a" /* NavAdminComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__chi_tiet_don_hang_chi_tiet_don_hang_component__["a" /* ChiTietDonHangComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__quan_ly_san_pham_them_san_pham_them_san_pham_component__["a" /* ThemSanPhamComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__quan_ly_san_pham_all_product_all_product_component__["a" /* AllProductComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__components_modals_modal_product_modal_product_component__["a" /* ModalProductComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__quan_ly_san_pham_phieu_nhap_kho_phieu_nhap_kho_component__["a" /* PhieuNhapKhoComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__components_modals_modal_add_product_to_repository_modal_add_product_to_repository_component__["a" /* ModalAddProductToRepositoryComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__quan_ly_user_quan_ly_user_component__["a" /* QuanLyUserComponent */],
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_8__admin_admin_component__["a" /* AdminComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__quan_ly_don_hang_quan_ly_don_hang_component__["a" /* QuanLyDonHangComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__quan_ly_san_pham_quan_ly_san_pham_component__["a" /* QuanLySanPhamComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__thongke_doanh_thu_doanh_thu_component__["a" /* DoanhThuComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__components_go_back_go_back_component__["a" /* GoBackComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__nav_admin_nav_admin_component__["a" /* NavAdminComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__chi_tiet_don_hang_chi_tiet_don_hang_component__["a" /* ChiTietDonHangComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__quan_ly_san_pham_them_san_pham_them_san_pham_component__["a" /* ThemSanPhamComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__quan_ly_san_pham_all_product_all_product_component__["a" /* AllProductComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__components_modals_modal_product_modal_product_component__["a" /* ModalProductComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__quan_ly_san_pham_phieu_nhap_kho_phieu_nhap_kho_component__["a" /* PhieuNhapKhoComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__components_modals_modal_add_product_to_repository_modal_add_product_to_repository_component__["a" /* ModalAddProductToRepositoryComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__quan_ly_user_quan_ly_user_component__["a" /* QuanLyUserComponent */]
         ]
+        // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
 ], AdminModule);
 
@@ -224,7 +249,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".donhang {\r\n    font-size: 13px;\r\n}\r\n.card {\r\n    cursor: pointer;\r\n}\r\n.card-title {\r\n    font-size: 13px;\r\n}\r\n\r\ntable {\r\n    background-color: #fff;\r\n    border-radius: 5px;\r\n}\r\n\r\n.form-control {\r\n    margin-bottom: 8px;\r\n}\r\n\r\n.product {\r\n    cursor: pointer;\r\n\r\n}\r\n\r\nth {\r\n    text-align: center;\r\n}\r\n\r\n.product:hover {\r\n    background: rgba(0,0,0,0.05);\r\n}\r\n\r\n.badge-danger:hover {\r\n    background: #343a40;\r\n}\r\n\r\n/* .fa-window-close {\r\n    font-size: 19px;\r\n    color: red;\r\n}\r\n\r\n.fa-window-close:hover {\r\n    color: #333;\r\n} */", ""]);
+exports.push([module.i, ".donhang {\r\n    font-size: 13px;\r\n}\r\n.card {\r\n    cursor: pointer;\r\n}\r\n.card-title {\r\n    font-size: 13px;\r\n}\r\n\r\ntable {\r\n    background-color: #fff;\r\n    border-radius: 5px;\r\n}\r\n\r\n.form-control {\r\n    margin-bottom: 8px;\r\n}\r\n\r\n.product {\r\n    /* cursor: pointer; */\r\n}\r\n\r\nth {\r\n    text-align: center;\r\n}\r\n\r\n.product:hover {\r\n    background: rgba(0,0,0,0.05);\r\n}\r\n\r\n.badge-danger:hover {\r\n    background: #343a40;\r\n}\r\n\r\n/* .fa-window-close {\r\n    font-size: 19px;\r\n    color: red;\r\n}\r\n\r\n.fa-window-close:hover {\r\n    color: #333;\r\n} */", ""]);
 
 // exports
 
@@ -237,7 +262,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"donhang\" class=\"donhang mb-5 mt-2\">\r\n  <span class=\"pull-left\">Chi tiết đơn hàng #{{donhang.id}} </span> - <b>{{donhang.status}}</b>\r\n  <span class=\"pull-right\">Ngày đặt hàng: {{donhang.timeModified | date:'hh:mm - dd/MM/y'}}</span>\r\n\r\n  <div class=\"row mt-4 mb-4\">\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Địa chỉ người nhận</h4>\r\n          <label for=\"city\" class=\"label-control\">Thành phố:</label>\r\n          <input type=\"text\" id=\"city\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.city\" name=\"city\">\r\n          <label for=\"address\" class=\"label-control\">Địa chỉ:</label>\r\n          <input type=\"text\" id=\"address\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.address\" name=\"address\">\r\n          \r\n          <!-- <p class=\"card-text\">Địa chỉ: {{donhang.detail}} {{donhang.address}}</p> -->\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Thông tin khách hàng</h4>\r\n          <label for=\"name\" class=\"label-control\">Tên:</label>\r\n          <input type=\"text\" id=\"name\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.name\" name=\"name\">\r\n          <label for=\"phone\" class=\"label-control\">Phone:</label>\r\n          <input type=\"text\" id=\"phone\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.phone\" name=\"phone\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Lời nhắn</h4>\r\n          <textarea class=\"form-control form-control-sm\" name=\"payment\" id=\"payment\" cols=\"32\" rows=\"2\" \r\n            [(ngModel)]=\"donhang.loi_nhan\" placeholder=\"Lời nhắn của khách hàng\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <button data-toggle=\"modal\" data-target=\"#sanPham\" class=\"btn btn-outline-info btn-sm mb-2\">Thêm sản phẩm</button>\r\n  <!-- Thông tin chi tiết sản phẩm của đơn hàng -->\r\n  <div class=\"product\">\r\n    <table class=\"table\">\r\n      <thead class=\"thead-default\">\r\n        <tr>\r\n          <th>Mã SP</th>\r\n          <th width=\"45%\">Sản phẩm</th>\r\n          <th>Giá</th>\r\n          <th>Số lượng</th>\r\n          <th>Giảm giá</th>\r\n          <th width=\"10%\">Tạm tính</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let product of donhang.order_detail, index as i\">\r\n          <td>{{product.product_id}}</td>\r\n          <td width=\"50%\">\r\n            {{product.product_name}} <span class=\"badge badge-danger\" (click)=\"removeProduct(i)\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Delete this product\"> X</span>\r\n          </td>\r\n          <td style=\"text-align: right\">{{product.price | number}}</td>\r\n          <td><input type=\"number\" [(ngModel)]=\"product.quantity\" placeholder=\"{{product.quantity}}\" (change)=\"tinhTien(product)\"></td>\r\n          <td>{{product.sale}}0%</td>\r\n          <td style=\"text-align: right\">{{product.total_price | number}}</td>\r\n        </tr>\r\n        <tr>\r\n          <td colspan=\"5\" style=\"text-align: right\" width=\"10%\"><b>Tổng tiền</b></td>\r\n          <td style=\"text-align: right;\"><b>{{ donhang.tong_tien | number}}</b></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n\r\n  \r\n  <div class=\"xac-nhan\">\r\n    <button class=\"btn btn-sm btn-outline-danger pull-right ml-1\" (click)=\"deleteOrderByAdmin()\">Huỷ bỏ đơn hàng</button>\r\n    <button class=\"btn btn-sm btn-outline-primary pull-right ml-1\" (click)=\"updateOrderByAdmin()\">Cập nhật</button>\r\n    <button class=\"btn btn-sm btn-outline-info pull-right\" (click)=\"refresh()\">Refresh</button>\r\n\r\n    <button class=\"btn btn-lg btn-success pull-left mb-5\" (click)=\"accessOrderByAdmin()\">Xác nhận</button>\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n<div class=\"modal fade\" id=\"sanPham\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"sanPhamTitle\" aria-hidden=\"true\">\r\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h5 class=\"modal-title\" id=\"sanPhamTitle\">Thêm Sản Phẩm </h5>\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n          </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <table class=\"table\">\r\n            <thead>\r\n              <tr>\r\n                <th>STT</th>\r\n                <th>ID</th>\r\n                <th>Tên</th>\r\n                <th width=\"10%\">Hình</th>\r\n                <th width=\"15%\">Giá(đ)</th>\r\n              </tr>\r\n            </thead>\r\n\r\n            <tbody>\r\n                <tr *ngFor=\"let product of products, index as i_product\" class=\"product\" (click)=\"onAddProduct(product)\">\r\n                    <td><b>{{i_product+1}}</b></td>\r\n                    <td>{{product.product_id}}</td>\r\n                    <td>{{product.product_name}}</td>\r\n                    <td width=\"10%\">\r\n                      <img class=\"img-fluid\" [src]=\"product.product_image\" alt=\"image\">\r\n                    </td>\r\n                    <td style=\"text-align: right\" width=\"15%\"><strong>{{product.sub_prod[0].price | number}}</strong></td>\r\n                  </tr>\r\n            </tbody>\r\n            \r\n          </table>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>"
+module.exports = "<div *ngIf=\"donhang\" class=\"donhang mb-5 mt-2\">\r\n  <span class=\"pull-left\">Chi tiết đơn hàng #{{donhang.id}} </span> - <b>{{donhang.status}}</b>\r\n  <span class=\"pull-right\">Ngày đặt hàng: {{donhang.timeModified | date:'hh:mm - dd/MM/y'}}</span>\r\n\r\n  <div class=\"row mt-4 mb-4\">\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Địa chỉ người nhận</h4>\r\n          <label for=\"city\" class=\"label-control\">Thành phố:</label>\r\n          <input type=\"text\" id=\"city\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.city\" name=\"city\">\r\n          <label for=\"address\" class=\"label-control\">Địa chỉ:</label>\r\n          <input type=\"text\" id=\"address\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.address\" name=\"address\">\r\n          \r\n          <!-- <p class=\"card-text\">Địa chỉ: {{donhang.detail}} {{donhang.address}}</p> -->\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Thông tin khách hàng</h4>\r\n          <label for=\"name\" class=\"label-control\">Tên:</label>\r\n          <input type=\"text\" id=\"name\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.name\" name=\"name\">\r\n          <label for=\"phone\" class=\"label-control\">Phone:</label>\r\n          <input type=\"text\" id=\"phone\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.phone\" name=\"phone\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Lời nhắn</h4>\r\n          <textarea class=\"form-control form-control-sm\" name=\"payment\" id=\"payment\" cols=\"32\" rows=\"2\" \r\n            [(ngModel)]=\"donhang.loi_nhan\" placeholder=\"Lời nhắn của khách hàng\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <button *ngIf=\"donhang.status === 'Chưa xử lý'\" data-toggle=\"modal\" data-target=\"#sanPham\" class=\"btn btn-outline-info btn-sm mb-2\">Thêm sản phẩm</button>\r\n  <!-- Thông tin chi tiết sản phẩm của đơn hàng -->\r\n  <div class=\"product\">\r\n    <table class=\"table\">\r\n      <thead class=\"thead-default\">\r\n        <tr>\r\n          <th>Mã SP</th>\r\n          <th width=\"45%\">Sản phẩm</th>\r\n          <th>Giá</th>\r\n          <th>Số lượng</th>\r\n          <th>Giảm giá</th>\r\n          <th width=\"10%\">Tạm tính</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let product of donhang.order_detail, index as i\">\r\n          <td>{{product.product_id}}</td>\r\n          <td width=\"50%\">\r\n            {{product.product_name}} <span *ngIf=\"donhang.status === 'Chưa xử lý'\" class=\"badge badge-danger pointer\" (click)=\"removeProduct(i)\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Delete this product\"> X</span>\r\n          </td>\r\n          <td style=\"text-align: right\">{{product.price | number}}</td>\r\n          <td><input type=\"number\" [(ngModel)]=\"product.quantity\" placeholder=\"{{product.quantity}}\" (change)=\"tinhTien(product)\"></td>\r\n          <td>{{product.sale}}0%</td>\r\n          <td style=\"text-align: right\">{{product.total_price | number}}</td>\r\n        </tr>\r\n        <tr>\r\n          <td colspan=\"5\" style=\"text-align: right\" width=\"10%\"><b>Tổng tiền</b></td>\r\n          <td style=\"text-align: right;\"><b>{{ donhang.tong_tien | number}}</b></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n\r\n  \r\n  <div class=\"xac-nhan\" *ngIf=\"donhang.status === 'Chưa xử lý' || donhang.status === 'Đang chờ giao'\">\r\n    <button class=\"btn btn-sm btn-outline-danger pull-right ml-1\" (click)=\"deleteOrderByAdmin()\">Huỷ bỏ đơn hàng</button>\r\n    <button *ngIf=\"donhang.status === 'Chưa xử lý'\" class=\"btn btn-sm btn-outline-primary pull-right ml-1\" (click)=\"updateOrderByAdmin()\">Cập nhật</button>\r\n    <button class=\"btn btn-sm btn-outline-info pull-right\" (click)=\"refresh()\">Refresh</button>\r\n    <button class=\"btn btn-md btn-success pull-left mb-5\" (click)=\"accessOrderByAdmin(donhang.status)\">Xác nhận {{donhang.status}}</button>\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n<div class=\"modal fade\" id=\"sanPham\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"sanPhamTitle\" aria-hidden=\"true\">\r\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h5 class=\"modal-title\" id=\"sanPhamTitle\">Thêm Sản Phẩm </h5>\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n          </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <table class=\"table\">\r\n            <thead>\r\n              <tr>\r\n                <th>STT</th>\r\n                <th>ID</th>\r\n                <th>Tên</th>\r\n                <th width=\"10%\">Hình</th>\r\n                <th width=\"15%\">Giá(đ)</th>\r\n              </tr>\r\n            </thead>\r\n\r\n            <tbody>\r\n                <tr *ngFor=\"let product of products, index as i_product\" class=\"product\" (click)=\"onAddProduct(product)\">\r\n                    <td><b>{{i_product+1}}</b></td>\r\n                    <td>{{product.product_id}}</td>\r\n                    <td>{{product.product_name}}</td>\r\n                    <td width=\"10%\">\r\n                      <img class=\"img-fluid\" [src]=\"product.product_image\" alt=\"image\">\r\n                    </td>\r\n                    <td style=\"text-align: right\" width=\"15%\"><strong>{{product.sub_prod[0].price | number}}</strong></td>\r\n                  </tr>\r\n            </tbody>\r\n            \r\n          </table>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>"
 
 /***/ }),
 
@@ -283,16 +308,30 @@ var ChiTietDonHangComponent = (function () {
         this.products = new Array();
     }
     // order - access, update, delete order
-    ChiTietDonHangComponent.prototype.accessOrderByAdmin = function () {
-        var check = confirm("Bạn có muốn chấp nhận đơn hàng này?");
-        if (check) {
-            this.donhang.status = "Đang chờ giao";
-            this.donhang.access_person = (JSON.parse(localStorage.getItem("currentUser"))).name;
-            this.guestService.updateOrderByAdmin(this.donhang).then(function (res) {
-                console.log(res);
-                alert("success!");
-                location.reload();
-            }, function (res) { return console.log(res); });
+    ChiTietDonHangComponent.prototype.accessOrderByAdmin = function (status) {
+        if (status === 'Chưa xử lý') {
+            var check = confirm("Bạn có muốn chấp nhận đơn hàng này?");
+            if (check) {
+                this.donhang.status = "Đang chờ giao";
+                this.donhang.access_person = (JSON.parse(localStorage.getItem("currentUser"))).name;
+                this.guestService.updateOrderByAdmin(this.donhang).then(function (res) {
+                    console.log(res);
+                    alert("success!");
+                    location.reload();
+                }, function (res) { return console.log(res); });
+            }
+        }
+        else if (status === 'Đang chờ giao') {
+            var check = confirm("Bạn có muốn xác nhận đơn hàng này đã giao?");
+            if (check) {
+                this.donhang.status = "Đã hoàn thành";
+                this.donhang.access_person = (JSON.parse(localStorage.getItem("currentUser"))).name;
+                this.guestService.updateOrderByAdmin(this.donhang).then(function (res) {
+                    console.log(res);
+                    alert("success!");
+                    location.reload();
+                }, function (res) { return console.log(res); });
+            }
         }
     };
     ChiTietDonHangComponent.prototype.updateOrderByAdmin = function () {
@@ -388,7 +427,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/nav-admin/nav-admin.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-md navbar-dark bg-dark\">\r\n  <a class=\"navbar-brand\" routerLink=\"/\">Quản lí Shop Online</a>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExample04\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarsExample04\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\" [class.active]=\"isActive == 1\">\r\n        <a class=\"nav-link\" routerLink=\"/quanlydonhang\">Quản lí đơn hàng</a>\r\n      </li>\r\n\r\n      <li class=\"nav-item\" [class.active]=\"isActive == 2\">\r\n        <a class=\"nav-link\" routerLink=\"/quanlysanpham\">Quản lí sản phẩm</a>\r\n      </li>\r\n\r\n\r\n      <li class=\"nav-item dropdown\" [class.active]=\"isActive == 3\">\r\n        <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"\">Thống kê</a>\r\n        <div class=\"dropdown-menu\">\r\n          <a href=\"/quanlydoanhthu\" class=\"dropdown-item\">Quản lý doanh thu</a>\r\n        </div>\r\n      </li>\r\n\r\n      <!-- Welcome -->\r\n      <li class=\"nav-item dropdown\">\r\n        <a class=\"nav-link dropdown-toggle\" href=\"http://example.com\" data-toggle=\"dropdown\">Welcome {{name}}</a>\r\n        <div class=\"dropdown-menu\">\r\n          <a class=\"dropdown-item\" routerLink=\"/login\" (click)=\"logout()\">{{name=='unknown' ? 'Sign In': \"Logout\"}}</a>\r\n        </div>\r\n      </li>\r\n    </ul>\r\n\r\n  </div>\r\n</nav>"
+module.exports = "<nav class=\"navbar navbar-expand-md navbar-dark bg-dark\">\r\n  <a class=\"navbar-brand\" routerLink=\"/\">Quản lí Shop Online</a>\r\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarsExample04\">\r\n      <span class=\"navbar-toggler-icon\"></span>\r\n    </button>\r\n\r\n  <div class=\"collapse navbar-collapse\" id=\"navbarsExample04\">\r\n    <ul class=\"navbar-nav mr-auto\">\r\n      <li class=\"nav-item\" [class.active]=\"isActive == 1\">\r\n        <a class=\"nav-link\" routerLink=\"/quanlydonhang\">Quản lí đơn hàng</a>\r\n      </li>\r\n\r\n      <li class=\"nav-item\" [class.active]=\"isActive == 2\">\r\n        <a class=\"nav-link\" routerLink=\"/quanlysanpham\">Quản lí sản phẩm</a>\r\n      </li>\r\n\r\n      <li class=\"nav-item\" [class.active]=\"isActive == 3\">\r\n        <a class=\"nav-link\" routerLink=\"/quanlyuser\">Quản lí user</a>\r\n      </li>\r\n\r\n      <li class=\"nav-item dropdown\" [class.active]=\"isActive == 4\">\r\n        <a class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"\">Thống kê</a>\r\n        <div class=\"dropdown-menu\">\r\n          <a href=\"/quanlydoanhthu\" class=\"dropdown-item\">Quản lý doanh thu</a>\r\n        </div>\r\n      </li>\r\n\r\n      <!-- Welcome -->\r\n      <li class=\"nav-item dropdown\">\r\n        <a class=\"nav-link dropdown-toggle\" href=\"http://example.com\" data-toggle=\"dropdown\">Welcome {{name}}</a>\r\n        <div class=\"dropdown-menu\">\r\n          <a class=\"dropdown-item\" routerLink=\"/login\" (click)=\"logout()\">{{name=='unknown' ? 'Sign In': \"Logout\"}}</a>\r\n        </div>\r\n      </li>\r\n    </ul>\r\n\r\n  </div>\r\n</nav>"
 
 /***/ }),
 
@@ -461,7 +500,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/quan-ly-don-hang/quan-ly-don-hang.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-admin [isActive]=\"1\"></app-nav-admin>\r\n<div class=\"container-fluid quan-ly-don-hang\">\r\n    <div class=\"row d-flex d-md-block flex-nowrap wrapper\">\r\n        <div class=\"col-md-2 float-left col-1 pl-0 pr-0 collapse width show\" id=\"sidebar\">\r\n            <div class=\"list-group border-0 card text-center text-md-left\">\r\n\r\n                <!-- Đang chờ xử lý -->\r\n                <a href=\"#chua-xu-ly\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" data-parent=\"#sidebar\" aria-expanded=\"false\">\r\n                    <i class=\"fa fa-hand-lizard-o\"></i> \r\n                    <span class=\"d-none d-md-inline\">\r\n                        Chưa xử lý \r\n                        <span class=\"badge badge-danger\">{{numCXL}}</span> \r\n                    </span> \r\n                </a>\r\n                \r\n                <div class=\"collapse\" id=\"chua-xu-ly\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#chua-xu-ly\" *ngFor=\"let item_cxl of chuaXuLy, index as i_cxl\" \r\n                        (click)=\"onSelect(item_cxl)\" [style.cursor]=\"'pointer'\">\r\n                        {{i_cxl+1}} - {{item_cxl.id}}\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Đang chờ giao -->\r\n                <a href=\"#dang-cho-giao\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-truck\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            Đang chờ giao \r\n                            <span class=\"badge badge-warning\">{{numDCG}}</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"dang-cho-giao\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#dang-cho-giao\" *ngFor=\"let item_dcg of dangChoGiao, index as i_dcg\" \r\n                        (click)=\"onSelect(item_dcg)\" [style.cursor]=\"'pointer'\" >\r\n                        {{i_dcg+1}} - {{item_dcg.id}}\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Đã hoàn thành -->\r\n                <a href=\"#da-hoan-thanh\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-smile-o\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            Đã hoàn thành \r\n                            <span class=\"badge badge-info\">{{numDHT}}</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"da-hoan-thanh\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#da-hoan-thanh\" *ngFor=\"let item_dht of daHoanThanh, index as i_dht\"\r\n                        (click)=\"onSelect(item_dht)\" [style.cursor]=\"'pointer'\">\r\n                    {{i_dht+1}} - {{item_dht.id}}\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Đơn hàng khác -->\r\n                <a href=\"#all\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-database\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            All rest\r\n                            <span class=\"badge badge-info\">{{numAD}}</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"all\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#all\" *ngFor=\"let item_ad of allOrder, index as i_ad\"\r\n                    (click)=\"onSelect(item_ad)\" [style.cursor]=\"'pointer'\" >\r\n                        {{i_ad+1}} - {{item_ad.id}}\r\n                    </a>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n\r\n        <main class=\"col-md-10 main\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <app-chi-tiet-don-hang [donhang]=\"selectedDonhang\"></app-chi-tiet-don-hang>\r\n                </div>\r\n            </div>\r\n        </main>\r\n    </div>\r\n</div>\r\n\r\n"
+module.exports = "<app-nav-admin [isActive]=\"1\"></app-nav-admin>\r\n<div class=\"container-fluid quan-ly-don-hang\">\r\n    <div class=\"row d-flex d-md-block flex-nowrap wrapper\">\r\n        <div class=\"col-md-2 float-left col-1 pl-0 pr-0 collapse width show\" id=\"sidebar\">\r\n            <div class=\"list-group border-0 card text-center text-md-left\">\r\n\r\n                <!-- Đang chờ xử lý -->\r\n                <a href=\"#chua-xu-ly\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" data-parent=\"#sidebar\" aria-expanded=\"false\">\r\n                    <i class=\"fa fa-hand-lizard-o\"></i> \r\n                    <span class=\"d-none d-md-inline\">\r\n                        Chưa xử lý \r\n                        <span class=\"badge badge-danger\">{{numCXL}}</span> \r\n                    </span> \r\n                </a>\r\n                \r\n                <div class=\"collapse\" id=\"chua-xu-ly\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#chua-xu-ly\" *ngFor=\"let item_cxl of chuaXuLy, index as i_cxl\" \r\n                        (click)=\"onSelect(item_cxl)\" [style.cursor]=\"'pointer'\">\r\n                        {{i_cxl+1}} - {{item_cxl.id}}\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Đang chờ giao -->\r\n                <a href=\"#dang-cho-giao\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-truck\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            Đang chờ giao \r\n                            <span class=\"badge badge-warning\">{{numDCG}}</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"dang-cho-giao\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#dang-cho-giao\" *ngFor=\"let item_dcg of dangChoGiao, index as i_dcg\" \r\n                        (click)=\"onSelect(item_dcg)\" [style.cursor]=\"'pointer'\" >\r\n                        {{i_dcg+1}} - {{item_dcg.id}}\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Đã hoàn thành -->\r\n                <a href=\"#da-hoan-thanh\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-smile-o\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            Đã hoàn thành \r\n                            <span class=\"badge badge-info\">{{numDHT}}</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"da-hoan-thanh\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#da-hoan-thanh\" *ngFor=\"let item_dht of daHoanThanh, index as i_dht\"\r\n                        (click)=\"onSelect(item_dht)\" [style.cursor]=\"'pointer'\">\r\n                    {{i_dht+1}} - {{item_dht.id}}\r\n                    </a>\r\n                </div>\r\n\r\n                <!-- Đơn hàng khác -->\r\n                <a href=\"#all\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                        <i class=\"fa fa-database\"></i> \r\n                        <span class=\"d-none d-md-inline\">\r\n                            Đã huỷ\r\n                            <span class=\"badge badge-info\">{{numAD}}</span>\r\n                        </span> \r\n                    </a>\r\n                <div class=\"collapse\" id=\"all\">\r\n                    <a class=\"list-group-item donhang-id\" data-parent=\"#all\" *ngFor=\"let item_ad of allOrder, index as i_ad\"\r\n                    (click)=\"onSelect(item_ad)\" [style.cursor]=\"'pointer'\" >\r\n                        {{i_ad+1}} - {{item_ad.id}}\r\n                    </a>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n\r\n        <main class=\"col-md-10 main\">\r\n            <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                    <app-chi-tiet-don-hang [donhang]=\"selectedDonhang\"></app-chi-tiet-don-hang>\r\n                </div>\r\n            </div>\r\n        </main>\r\n    </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -1015,6 +1054,104 @@ var _a, _b, _c;
 
 /***/ }),
 
+/***/ "../../../../../src/app/admin/quan-ly-user/quan-ly-user.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\r\ntd, th {\r\n    font-size: 13px;\r\n}\r\nh5 {\r\n    font-size: 15px;\r\n}\r\na {\r\n    color: #333;\r\n}\r\na:hover {\r\n    text-decoration: none;\r\n    color: black;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/quan-ly-user/quan-ly-user.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<app-nav-admin [isActive]='3'></app-nav-admin>\n<h1 class=\"text-center mx-2\">Quản lý User</h1>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <div id=\"accordion\" role=\"tablist\">\n        <div class=\"card mb-1\" *ngFor=\"let user of users, index as i, first as f\">\n          <a data-toggle=\"collapse\" href=\"#collapse{{i}}\" aria-expanded=\"false\">\n            <div class=\"card-header\" role=\"tab\" id=\"heading{{i}}\">\n              <h5 class=\"mb-0\">\n                {{i+1}} - {{user.name}} - {{user.email}} -\n                <span class=\"text-danger\">{{user.role}}</span>\n              </h5>\n            </div>\n          </a>\n          <div id=\"collapse{{i}}\" class=\"collapse\" role=\"tabpanel\" data-parent=\"#accordion\" *ngIf=\"user.role !== 'admin'\">\n            <div class=\"card-body\">\n              <button class=\"btn btn-sm btn-outline-success\" (click)=\"onSelect(user)\" data-toggle=\"modal\" data-target=\"#xem-don-hang\">Xem đơn hàng</button>\n              <button class=\"btn btn-sm btn-outline-info\" data-toggle=\"modal\" data-target=\"#sua-thong-tin\" (click)=\"onSelect(user)\">Cập nhật</button>\n              <button class=\"btn btn-sm btn-outline-danger\" (click)=\"deleteUser(user._id)\">Xoá user</button>\n            </div>\n          </div>\n        </div>\n      </div>\n    <!-- </div>\n    <div class=\"col-md-6\">\n\n    </div> -->\n\n  </div>\n\n  <app-sua-thong-tin *ngIf=\"selectedUser\" [inputUser]=\"selectedUser\"></app-sua-thong-tin>\n\n  <!-- Modal Xem order bằng guest id -->\n  <!-- Modal -->\n  <div class=\"modal fade\" id=\"xem-don-hang\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h3 class=\"modal-title\" id=\"exampleModalLabel\">Thông tin đơn hàng</h3>\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n\n        <div class=\"modal-body\">\n          <app-lich-su-don-hang *ngIf=\"selectedUser\" [user]=\"selectedUser\"></app-lich-su-don-hang>\n        </div>\n      </div>\n    </div>\n  </div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/quan-ly-user/quan-ly-user.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QuanLyUserComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_admin_service__ = __webpack_require__("../../../../../src/app/service/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+//service
+
+
+var QuanLyUserComponent = (function () {
+    function QuanLyUserComponent(adminService, guestService) {
+        this.adminService = adminService;
+        this.guestService = guestService;
+        this.users = new Array();
+        this.donhangs = new Array();
+    }
+    QuanLyUserComponent.prototype.getUsers = function () {
+        var _this = this;
+        this.adminService.getUsers().then(function (res) {
+            _this.users = res;
+        }, function (res) { return console.log(res); });
+    };
+    QuanLyUserComponent.prototype.deleteUser = function (id) {
+        var _this = this;
+        var check = confirm("Bạn có chắc xoá user?");
+        if (check == true) {
+            this.adminService.deleteUser(id).then(function (res) {
+                console.log(res.message);
+                alert(res.message);
+                _this.getUsers();
+            }, function (res) { return console.log(res); });
+        }
+    };
+    QuanLyUserComponent.prototype.getOrderByGuestId = function (id) {
+        var _this = this;
+        this.guestService.getOrdersByGuestID(id).then(function (res) {
+            _this.donhangs = res;
+        });
+    };
+    QuanLyUserComponent.prototype.onSelect = function (user) {
+        this.selectedUser = user;
+    };
+    QuanLyUserComponent.prototype.ngOnInit = function () {
+        this.getUsers();
+    };
+    return QuanLyUserComponent;
+}());
+QuanLyUserComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-quan-ly-user',
+        template: __webpack_require__("../../../../../src/app/admin/quan-ly-user/quan-ly-user.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/admin/quan-ly-user/quan-ly-user.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_admin_service__["a" /* AdminService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_admin_service__["a" /* AdminService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__service_guest_service__["a" /* GuestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__service_guest_service__["a" /* GuestService */]) === "function" && _b || Object])
+], QuanLyUserComponent);
+
+var _a, _b;
+//# sourceMappingURL=quan-ly-user.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/admin/thongke/doanh-thu/doanh-thu.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1036,7 +1173,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/thongke/doanh-thu/doanh-thu.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-admin [isActive]=\"3\"></app-nav-admin>\r\n<div  class=\"mb-5 mt-5 text-center\">\r\n    <p>doanh-thu works!</p>\r\n    <app-go-back></app-go-back>\r\n</div>\r\n\r\n"
+module.exports = "<app-nav-admin [isActive]=\"4\"></app-nav-admin>\r\n<div  class=\"mb-5 mt-5 text-center\">\r\n    <p>doanh-thu works!</p>\r\n    <app-go-back></app-go-back>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -1308,18 +1445,19 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__admin_admin_module__ = __webpack_require__("../../../../../src/app/admin/admin.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__guest_guest_module__ = __webpack_require__("../../../../../src/app/guest/guest.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__guard_authguard_guard__ = __webpack_require__("../../../../../src/app/guard/authguard.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__service_admin_service__ = __webpack_require__("../../../../../src/app/service/admin.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__service_users_service__ = __webpack_require__("../../../../../src/app/service/users.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__service_test_service__ = __webpack_require__("../../../../../src/app/service/test.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_header_header_component__ = __webpack_require__("../../../../../src/app/components/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_footer_footer_component__ = __webpack_require__("../../../../../src/app/components/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__admin_user_user_component__ = __webpack_require__("../../../../../src/app/admin/user/user.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_notfound_notfound_component__ = __webpack_require__("../../../../../src/app/components/notfound/notfound.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_modals_modal_choose_product_modal_choose_product_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-choose-product/modal-choose-product.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_component_module__ = __webpack_require__("../../../../../src/app/components/component.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__guard_authguard_guard__ = __webpack_require__("../../../../../src/app/guard/authguard.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__service_admin_service__ = __webpack_require__("../../../../../src/app/service/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__service_users_service__ = __webpack_require__("../../../../../src/app/service/users.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__service_test_service__ = __webpack_require__("../../../../../src/app/service/test.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_header_header_component__ = __webpack_require__("../../../../../src/app/components/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_footer_footer_component__ = __webpack_require__("../../../../../src/app/components/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__admin_user_user_component__ = __webpack_require__("../../../../../src/app/admin/user/user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_notfound_notfound_component__ = __webpack_require__("../../../../../src/app/components/notfound/notfound.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_modals_modal_choose_product_modal_choose_product_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-choose-product/modal-choose-product.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1331,6 +1469,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 // module
+
 
 
 
@@ -1349,7 +1488,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-// import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component'
 var AppModule = (function () {
     function AppModule() {
     }
@@ -1363,31 +1501,73 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_4__app_routing_module__["a" /* AppRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_5__admin_admin_module__["a" /* AdminModule */],
             __WEBPACK_IMPORTED_MODULE_6__guest_guest_module__["a" /* GuestModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */]
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_7__components_component_module__["a" /* ComponentModule */]
         ],
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_13__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_header_header_component__["a" /* HeaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__components_footer_footer_component__["a" /* FooterComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__admin_user_user_component__["a" /* UserComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__components_header_header_component__["a" /* HeaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__components_footer_footer_component__["a" /* FooterComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__admin_user_user_component__["a" /* UserComponent */],
             // SignUpComponent,
             // ShoppingCartComponent,
-            __WEBPACK_IMPORTED_MODULE_17__components_notfound_notfound_component__["a" /* NotfoundComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__components_modals_modal_choose_product_modal_choose_product_component__["a" /* ModalChooseProductComponent */]
+            __WEBPACK_IMPORTED_MODULE_18__components_notfound_notfound_component__["a" /* NotfoundComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__components_modals_modal_choose_product_modal_choose_product_component__["a" /* ModalChooseProductComponent */],
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_8__service_main_service__["a" /* MainService */],
-            __WEBPACK_IMPORTED_MODULE_9__service_admin_service__["a" /* AdminService */],
-            __WEBPACK_IMPORTED_MODULE_10__service_guest_service__["a" /* GuestService */],
-            __WEBPACK_IMPORTED_MODULE_11__service_users_service__["a" /* UsersService */],
-            __WEBPACK_IMPORTED_MODULE_12__service_test_service__["a" /* TestService */],
-            __WEBPACK_IMPORTED_MODULE_7__guard_authguard_guard__["a" /* AuthguardGuard */]
+            __WEBPACK_IMPORTED_MODULE_9__service_main_service__["a" /* MainService */],
+            __WEBPACK_IMPORTED_MODULE_10__service_admin_service__["a" /* AdminService */],
+            __WEBPACK_IMPORTED_MODULE_11__service_guest_service__["a" /* GuestService */],
+            __WEBPACK_IMPORTED_MODULE_12__service_users_service__["a" /* UsersService */],
+            __WEBPACK_IMPORTED_MODULE_13__service_test_service__["a" /* TestService */],
+            __WEBPACK_IMPORTED_MODULE_8__guard_authguard_guard__["a" /* AuthguardGuard */]
         ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_13__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_14__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/component.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__guest_sua_thong_tin_sua_thong_tin_component__ = __webpack_require__("../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+var ComponentModule = (function () {
+    function ComponentModule() {
+    }
+    return ComponentModule;
+}());
+ComponentModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */]
+        ],
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_2__guest_sua_thong_tin_sua_thong_tin_component__["a" /* SuaThongTinComponent */]
+        ],
+        exports: [__WEBPACK_IMPORTED_MODULE_2__guest_sua_thong_tin_sua_thong_tin_component__["a" /* SuaThongTinComponent */]],
+    })
+], ComponentModule);
+
+//# sourceMappingURL=component.module.js.map
 
 /***/ }),
 
@@ -2657,21 +2837,22 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_page_home_page_component__ = __webpack_require__("../../../../../src/app/guest/home-page/home-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__nav_guest_nav_guest_component__ = __webpack_require__("../../../../../src/app/guest/nav-guest/nav-guest.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__slider_guest_slider_guest_component__ = __webpack_require__("../../../../../src/app/guest/slider-guest/slider-guest.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__products_products_component__ = __webpack_require__("../../../../../src/app/guest/products/products.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__product_detail_product_detail_component__ = __webpack_require__("../../../../../src/app/guest/product-detail/product-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__san_pham_tuong_tu_san_pham_tuong_tu_component__ = __webpack_require__("../../../../../src/app/guest/san-pham-tuong-tu/san-pham-tuong-tu.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_shopping_cart_shopping_cart_component__ = __webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_modals_modal_product_detail_modal_product_detail_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-product-detail/modal-product-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__ = __webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_sign_up_sign_up_component__ = __webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__quan_ly_tai_khoan_quan_ly_tai_khoan_component__ = __webpack_require__("../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__sua_thong_tin_sua_thong_tin_component__ = __webpack_require__("../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__doi_password_doi_password_component__ = __webpack_require__("../../../../../src/app/guest/doi-password/doi-password.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__lich_su_don_hang_lich_su_don_hang_component__ = __webpack_require__("../../../../../src/app/guest/lich-su-don-hang/lich-su-don-hang.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_component_module__ = __webpack_require__("../../../../../src/app/components/component.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_page_home_page_component__ = __webpack_require__("../../../../../src/app/guest/home-page/home-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__nav_guest_nav_guest_component__ = __webpack_require__("../../../../../src/app/guest/nav-guest/nav-guest.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__slider_guest_slider_guest_component__ = __webpack_require__("../../../../../src/app/guest/slider-guest/slider-guest.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__products_products_component__ = __webpack_require__("../../../../../src/app/guest/products/products.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__product_detail_product_detail_component__ = __webpack_require__("../../../../../src/app/guest/product-detail/product-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__san_pham_tuong_tu_san_pham_tuong_tu_component__ = __webpack_require__("../../../../../src/app/guest/san-pham-tuong-tu/san-pham-tuong-tu.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_shopping_cart_shopping_cart_component__ = __webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_modals_modal_product_detail_modal_product_detail_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-product-detail/modal-product-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__ = __webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_sign_up_sign_up_component__ = __webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__quan_ly_tai_khoan_quan_ly_tai_khoan_component__ = __webpack_require__("../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__sua_thong_tin_sua_thong_tin_component__ = __webpack_require__("../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__doi_password_doi_password_component__ = __webpack_require__("../../../../../src/app/guest/doi-password/doi-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__lich_su_don_hang_lich_su_don_hang_component__ = __webpack_require__("../../../../../src/app/guest/lich-su-don-hang/lich-su-don-hang.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2680,6 +2861,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 
 
+
+// Module
 
 //import component
 
@@ -2706,25 +2889,43 @@ GuestModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* CommonModule */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormsModule */]
+            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__components_component_module__["a" /* ComponentModule */]
         ],
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_3__home_page_home_page_component__["a" /* HomePageComponent */],
-            __WEBPACK_IMPORTED_MODULE_4__nav_guest_nav_guest_component__["a" /* NavGuestComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__slider_guest_slider_guest_component__["a" /* SliderGuestComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__products_products_component__["a" /* ProductsComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__product_detail_product_detail_component__["a" /* ProductDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__san_pham_tuong_tu_san_pham_tuong_tu_component__["a" /* SanPhamTuongTuComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__components_modals_modal_product_detail_modal_product_detail_component__["a" /* ModalProductDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__components_login_login_component__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__sua_thong_tin_sua_thong_tin_component__["a" /* SuaThongTinComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__doi_password_doi_password_component__["a" /* DoiPasswordComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__lich_su_don_hang_lich_su_don_hang_component__["a" /* LichSuDonHangComponent */]
+            __WEBPACK_IMPORTED_MODULE_4__home_page_home_page_component__["a" /* HomePageComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__nav_guest_nav_guest_component__["a" /* NavGuestComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__slider_guest_slider_guest_component__["a" /* SliderGuestComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__products_products_component__["a" /* ProductsComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__product_detail_product_detail_component__["a" /* ProductDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__san_pham_tuong_tu_san_pham_tuong_tu_component__["a" /* SanPhamTuongTuComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__components_modals_modal_product_detail_modal_product_detail_component__["a" /* ModalProductDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__components_login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__doi_password_doi_password_component__["a" /* DoiPasswordComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__lich_su_don_hang_lich_su_don_hang_component__["a" /* LichSuDonHangComponent */]
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_4__home_page_home_page_component__["a" /* HomePageComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__nav_guest_nav_guest_component__["a" /* NavGuestComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__slider_guest_slider_guest_component__["a" /* SliderGuestComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__products_products_component__["a" /* ProductsComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__product_detail_product_detail_component__["a" /* ProductDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__san_pham_tuong_tu_san_pham_tuong_tu_component__["a" /* SanPhamTuongTuComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__components_modals_modal_product_detail_modal_product_detail_component__["a" /* ModalProductDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__components_login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__doi_password_doi_password_component__["a" /* DoiPasswordComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__lich_su_don_hang_lich_su_don_hang_component__["a" /* LichSuDonHangComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__sua_thong_tin_sua_thong_tin_component__["a" /* SuaThongTinComponent */]
         ]
+        // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
 ], GuestModule);
 
@@ -3004,6 +3205,18 @@ var LichSuDonHangComponent = (function () {
         this.guestService = guestService;
         this.donhangs = new Array();
     }
+    Object.defineProperty(LichSuDonHangComponent.prototype, "user", {
+        set: function (_user) {
+            var _this = this;
+            // Từ admin: quản lý user, xem order trong danh sách
+            this.guestService.getOrdersByGuestID(_user._id).then(function (res) {
+                _this.donhangs = res;
+                console.log(_this.donhangs);
+            }, function (res) { return console.log(res); });
+        },
+        enumerable: true,
+        configurable: true
+    });
     LichSuDonHangComponent.prototype.huyDonHang = function (donhangID) {
         var check = confirm("Bạn có muốn huỷ?");
         if (check == true) {
@@ -3030,6 +3243,11 @@ var LichSuDonHangComponent = (function () {
     };
     return LichSuDonHangComponent;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], LichSuDonHangComponent.prototype, "user", null);
 LichSuDonHangComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-lich-su-don-hang',
@@ -3065,7 +3283,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/nav-guest/nav-guest.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-sm navbar-light bg-light sticky-top\">\n  <a class=\"navbar-brand\" href=\"/home-page\">\n    <img src=\"../../../assets/logo.svg\" width=\"40\" height=\"40\" class=\"d-inline-block align-top\" alt=\"\">\n  </a>\n\n  <ul class=\"navbar-nav mr-auto\">\n    <li class=\"nav-item\">\n      <form class=\"form-inline\">\n        <div class=\"input-group\">\n          <input type=\"search\" class=\"form-control\" placeholder=\"Tìm kiếm ...\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n          <span class=\"input-group-addon\" id=\"basic-addon1\">\n            <i class=\"fa fa-search\"></i>\n          </span>\n        </div>\n      </form>\n    </li>\n  </ul>\n\n  <div class=\"shopping-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\">\n    <i class=\"fa fa-shopping-basket\"></i>\n  </div>\n</nav>\n\n<div class=\"nav2\" style=\"background: #f5f5f5;\">\n  <ul class=\"justify-content-center dieu-huong\">\n    <li class=\"\">\n      <a class=\"active left\" href=\"/home-page\">Khám Phá</a>\n    </li>\n    <li class=\"\">\n      <a class=\"\" href=\"/home-page\">Cửa Hàng</a>\n    </li>\n    <li class=\"\">\n      <a class=\"right\" href=\"/home-page\">Ngành Hàng</a>\n    </li>\n  </ul>\n\n  <!-- phần đăng ký -->\n  <form class=\"form-inline dang-ky mr-5\">\n    <span><i class=\"fa fa-user-o mr-2\"></i></span>\n    <span *ngIf=\"currentUser==null\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-login\" aria-expanded=\"false\" aria-controls=\"user-login\">\n      Đăng nhập & Đăng ký\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n\n    <span *ngIf=\"currentUser\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-info\" aria-expanded=\"false\" aria-controls=\"user-info\">\n      {{currentUser.name}}\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n    <!-- collapse đăng nhập -->\n    <div class=\"collapse\" id=\"user-login\">\n      <div class=\"card card-body\">\n        <button class=\"btn btn-danger mb-1\" data-toggle=\"modal\" data-target=\"#dang-nhap\">Đăng nhập</button>\n        <p>Chưa có tài khoản?\n          <br>\n          <a href=\"#\" class=\"dktk\" (click)=\"$event.preventDefault()\" data-toggle=\"modal\" data-target=\"#dang-ky\">Đăng ký tài khoản mới</a>\n        </p>\n      </div>\n    </div>\n    <!-- collapse đã đăng nhập -->\n    <div class=\"collapse\" id=\"user-info\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item pointer hover\" (click)=\"quanLyTaiKhoan()\">Quản lý tài khoản</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"router.navigate(['/hoan-tat-thanh-toan'])\">Đơn hàng của tôi</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"logOut()\">Đăng xuất</li>\n      </ul>\n    </div>\n  </form>\n</div>\n\n<!-- Modal đăng nhập -->\n<div class=\"modal fade\" id=\"dang-nhap\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Đăng nhập tài khoản</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <app-login></app-login>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- Modal Sign-up - đăng ký mới user -->\n<app-sign-up (currentUser)=\"getUser($event)\" [inputUser]=\"selectedUser\"></app-sign-up> "
+module.exports = "<nav class=\"navbar navbar-expand-sm navbar-light bg-light sticky-top\">\n  <a class=\"navbar-brand\" href=\"/home-page\">\n    <img src=\"../../../assets/logo.svg\" width=\"40\" height=\"40\" class=\"d-inline-block align-top\" alt=\"\">\n  </a>\n\n  <ul class=\"navbar-nav mr-auto\">\n    <li class=\"nav-item\">\n      <form class=\"form-inline\">\n        <div class=\"input-group\">\n          <input type=\"search\" class=\"form-control\" placeholder=\"Tìm kiếm ...\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n          <span class=\"input-group-addon\" id=\"basic-addon1\">\n            <i class=\"fa fa-search\"></i>\n          </span>\n        </div>\n      </form>\n    </li>\n  </ul>\n\n  <div class=\"shopping-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\">\n    <i class=\"fa fa-shopping-basket\"></i>\n  </div>\n</nav>\n\n<div class=\"nav2\" style=\"background: #f5f5f5;\">\n  <ul class=\"justify-content-center dieu-huong\">\n    <li class=\"\">\n      <a class=\"active left\" href=\"/home-page\">Khám Phá</a>\n    </li>\n    <li class=\"\">\n      <a class=\"\" href=\"/home-page\" (click)=\"$event.preventDefault()\">Cửa Hàng</a>\n    </li>\n    <li class=\"\">\n      <a class=\"right\" href=\"/home-page\" (click)=\"$event.preventDefault()\">Ngành Hàng</a>\n    </li>\n  </ul>\n\n  <!-- phần đăng ký -->\n  <form class=\"form-inline dang-ky mr-5\">\n    <span><i class=\"fa fa-user-o mr-2\"></i></span>\n    <span *ngIf=\"currentUser==null\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-login\" aria-expanded=\"false\" aria-controls=\"user-login\">\n      Đăng nhập & Đăng ký\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n\n    <span *ngIf=\"currentUser\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-info\" aria-expanded=\"false\" aria-controls=\"user-info\">\n      {{currentUser.name}}\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n    <!-- collapse đăng nhập -->\n    <div class=\"collapse\" id=\"user-login\">\n      <div class=\"card card-body\">\n        <button class=\"btn btn-danger mb-1\" data-toggle=\"modal\" data-target=\"#dang-nhap\">Đăng nhập</button>\n        <p>Chưa có tài khoản?\n          <br>\n          <a href=\"#\" class=\"dktk\" (click)=\"$event.preventDefault()\" data-toggle=\"modal\" data-target=\"#dang-ky\">Đăng ký tài khoản mới</a>\n        </p>\n      </div>\n    </div>\n    <!-- collapse đã đăng nhập -->\n    <div class=\"collapse\" id=\"user-info\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item pointer hover\" (click)=\"quanLyTaiKhoan()\">Quản lý tài khoản</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"router.navigate(['/hoan-tat-thanh-toan'])\">Đơn hàng của tôi</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"logOut()\">Đăng xuất</li>\n      </ul>\n    </div>\n  </form>\n</div>\n\n<!-- Modal đăng nhập -->\n<div class=\"modal fade\" id=\"dang-nhap\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Đăng nhập tài khoản</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <app-login></app-login>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- Modal Sign-up - đăng ký mới user -->\n<app-sign-up (currentUser)=\"getUser($event)\" [inputUser]=\"selectedUser\"></app-sign-up> "
 
 /***/ }),
 
@@ -3647,8 +3865,6 @@ var SuaThongTinComponent = (function () {
         get: function () { return this.user; },
         set: function (_user) {
             this.user = (_user || {});
-            // this.getCurrentUser();
-            console.log(this.user);
         },
         enumerable: true,
         configurable: true
@@ -3762,6 +3978,8 @@ var Product = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3771,6 +3989,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -3823,6 +4042,7 @@ var donhangs = [
 var AdminService = (function () {
     function AdminService(_http) {
         this._http = _http;
+        this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
         this.username = "unknown";
         this.isUserLoggedIn = false;
     }
@@ -3835,8 +4055,19 @@ var AdminService = (function () {
     };
     AdminService.prototype.getUsers = function () {
         var _this = this;
-        return this._http.get("/api/users")
-            .map(function (result) { return _this.result = result.json().data; });
+        var url = 'api/user';
+        return this._http.get(url, { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res.json().data; })
+            .catch(this.handleError);
+    };
+    AdminService.prototype.deleteUser = function (id) {
+        var _this = this;
+        var url = "api/user/" + id;
+        return this._http.delete(url, { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res.json(); })
+            .catch(this.handleError);
     };
     AdminService.prototype.getDonHangs = function () {
         return Promise.resolve(donhangs);
@@ -3845,6 +4076,10 @@ var AdminService = (function () {
         return this.getDonHangs().then(function (donhangs) {
             donhangs.find(function (donhang) { return donhang.donhang_id === id; });
         });
+    };
+    AdminService.prototype.handleError = function (error) {
+        console.error('An error occurred', error); //for demo purposes only
+        return Promise.reject(error.massage || error);
     };
     return AdminService;
 }());

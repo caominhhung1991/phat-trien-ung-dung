@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GuestService } from './../../service/guest.service';
 
 @Component({
@@ -7,6 +7,14 @@ import { GuestService } from './../../service/guest.service';
   styleUrls: ['./lich-su-don-hang.component.css']
 })
 export class LichSuDonHangComponent implements OnInit {
+  @Input() set user(_user:any) {
+    // Từ admin: quản lý user, xem order trong danh sách
+      this.guestService.getOrdersByGuestID(_user._id).then(res => {
+        this.donhangs = res;
+        console.log(this.donhangs)
+      }, res => console.log(res))
+  }
+
   donhangs: any = new Array();
   id: any;
   constructor(

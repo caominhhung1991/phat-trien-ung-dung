@@ -13,8 +13,6 @@ export class SuaThongTinComponent implements OnInit {
 
   @Input() set inputUser(_user:any) {
     this.user = (_user || {});
-    // this.getCurrentUser();
-    console.log(this.user);
   } 
   get inputUser():any { return this.user };
 

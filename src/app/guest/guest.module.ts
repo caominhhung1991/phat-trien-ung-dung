@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule} from '@angular/forms'
 import { CommonModule } from '@angular/common';
-
+// Module
+import { ComponentModule } from './../components/component.module';
 //import component
 import { HomePageComponent} from './home-page/home-page.component';
 import { NavGuestComponent } from './nav-guest/nav-guest.component';
@@ -22,7 +23,8 @@ import { LichSuDonHangComponent } from './lich-su-don-hang/lich-su-don-hang.comp
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ComponentModule
   ],
   declarations: [
     HomePageComponent,
@@ -37,9 +39,26 @@ import { LichSuDonHangComponent } from './lich-su-don-hang/lich-su-don-hang.comp
     LoginComponent,
     SignUpComponent,
     QuanLyTaiKhoanComponent,
-    SuaThongTinComponent,
     DoiPasswordComponent,
     LichSuDonHangComponent
+  ],
+  exports: [
+    HomePageComponent,
+    NavGuestComponent,
+    SliderGuestComponent,
+    ProductsComponent,
+    ProductDetailComponent,
+    SanPhamTuongTuComponent,
+    ShoppingCartComponent,
+    ModalProductDetailComponent,
+    HoanTatThanhToanComponent,
+    LoginComponent,
+    SignUpComponent,
+    QuanLyTaiKhoanComponent,
+    DoiPasswordComponent,
+    LichSuDonHangComponent,
+    SuaThongTinComponent
   ]
+  // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class GuestModule { }

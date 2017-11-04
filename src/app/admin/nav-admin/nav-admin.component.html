@@ -14,8 +14,11 @@
         <a class="nav-link" routerLink="/quanlysanpham">Quản lí sản phẩm</a>
       </li>
 
+      <li class="nav-item" [class.active]="isActive == 3">
+        <a class="nav-link" routerLink="/quanlyuser">Quản lí user</a>
+      </li>
 
-      <li class="nav-item dropdown" [class.active]="isActive == 3">
+      <li class="nav-item dropdown" [class.active]="isActive == 4">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Thống kê</a>
         <div class="dropdown-menu">
           <a href="/quanlydoanhthu" class="dropdown-item">Quản lý doanh thu</a>

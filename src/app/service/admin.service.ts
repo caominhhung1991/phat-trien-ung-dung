@@ -3,6 +3,7 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { HttpModule } from '@angular/http';
 
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 const donhangs = [
   {
@@ -59,6 +60,8 @@ export class AdminService {
   constructor(private _http: Http) {
     this.isUserLoggedIn = false;
   }
+
+  private headers = new Headers({'Content-Type': 'application/json'});
   
   private isUserLoggedIn;
   public username = "unknown";
@@ -72,9 +75,20 @@ export class AdminService {
     return this.isUserLoggedIn;
   }
 
-  getUsers() {
-    return this._http.get("/api/users")
-      .map(result => this.result = result.json().data);
+  getUsers():Promise<any> {
+    const url = 'api/user';
+    return this._http.get(url, {headers: this.headers})
+      .toPromise()
+      .then(res => this.result = res.json().data)
+      .catch(this.handleError)
+  }
+
+  deleteUser(id:string):Promise<any> {
+    const url = `api/user/${id}`
+    return this._http.delete(url, {headers: this.headers})
+      .toPromise()
+      .then(res => this.result = res.json())
+      .catch(this.handleError)
   }
 
   getDonHangs(): Promise<any> {
@@ -82,8 +96,14 @@ export class AdminService {
   }
 
   getDonHang(id: number) {
-    return this.getDonHangs().then(donhangs => {
-      donhangs.find(donhang => donhang.donhang_id === id);
-    })
+    return this.getDonHangs().then(donhangs => 
+      {
+        donhangs.find(donhang => donhang.donhang_id === id);
+    });
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); //for demo purposes only
+    return Promise.reject(error.massage || error);
   }
 }
