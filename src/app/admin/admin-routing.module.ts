@@ -14,8 +14,8 @@ const routes: Routes = [
   // { path: "admin", component: QuanLySanPhamComponent},
   { path: "quanlydonhang", canActivate:[AuthguardGuard], component: QuanLyDonHangComponent},
   { path: "quanlysanpham", canActivate:[AuthguardGuard], component: QuanLySanPhamComponent},
-  { path: "quanlydoanhthu", component: DoanhThuComponent},
-  { path: "quanlyuser", component: QuanLyUserComponent},
+  { path: "quanlydoanhthu",canActivate:[AuthguardGuard], component: DoanhThuComponent},
+  { path: "quanlyuser", canActivate:[AuthguardGuard], component: QuanLyUserComponent},
   { path: "donhang/:id", component: ChiTietDonHangComponent}
 ]
 

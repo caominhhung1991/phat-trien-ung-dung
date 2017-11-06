@@ -12,7 +12,7 @@
 }
 
 .thong-tin-san-pham {
-    width: 800px;
+    /* width: 800px; */
 }
 
 .display-4 {
@@ -91,4 +91,9 @@ p, li, div {
 .nav-item .active {
     color: red !important;
     border-bottom: 3px solid red;
+}
+
+.tab-pane {
+    height: 400px;
+    overflow: auto;
 }

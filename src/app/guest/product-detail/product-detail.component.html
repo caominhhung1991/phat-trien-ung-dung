@@ -12,6 +12,7 @@
           <span class="price-present">{{product?.price | number}}đ</span>
         </div>
 
+        <app-go-back></app-go-back> 
         <!-- <hr>
 
         <div class="shopee-product-info-body__row shopee-product-info-body__free-shipping">
@@ -19,7 +20,6 @@
         </div>
         <div class="shopee-product-info-body__shipping-block-label">Vận chuyển tới: Hà Nội, Huyện Ba Vì</div>
         <div class="shopee-product-info-body__shipping-block-label">phí vận chuyển: ₫0</div> -->
-
         <hr>
 
         <div class="btn-group mr-2" role="group" aria-label="First group">
@@ -46,11 +46,16 @@
           <h2 class="display-4">Thông tin sản phẩm</h2>
         </a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link" id="comment-tab" data-toggle="tab" href="#comment" role="tab" aria-controls="comments" (click)="onSelectID()">
+          <h2 class="display-4">Bình luận</h2>
+        </a>
+      </li>
     </ul>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
         <div class="thong-so-san-pham" id="tab_content_product_specifications">
-
           <table class="table table-bordered" id="tblGeneralAttribute">
             <tbody>
               <tr class="row-info">
@@ -98,6 +103,14 @@
           <p>{{product?.product_decription}}</p>
         </div>
       </div>
+
+      <div class="tab-pane fade" id="comment" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="thong-tin-san-pham mb-4">
+          
+          <app-comment *ngIf="selectedProductID" [ProductID]="selectedProductID"></app-comment>
+        </div>
+      </div>
+      
     </div>
     <app-shopping-cart [productOP]="selectedProduct" ></app-shopping-cart>
     <!-- <app-san-pham-tuong-tu></app-san-pham-tuong-tu> -->

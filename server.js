@@ -40,4 +40,17 @@ app.set('port', port);
 
 const server = http.createServer(app);
 
-server.listen(port, () => console.log(`Running on localhost:${port}`)); 
+server.listen(port, () => {
+    console.log(`Running on localhost:${port}`);
+}); 
+
+module.exports = {
+    sayHello: function() {
+        return `Running on localhost:${port}`;
+    },
+    addNumber: function(val1, val2) {
+        return val1 + val2;
+    }
+}
+
+// module.exports = server;

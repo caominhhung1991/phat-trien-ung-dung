@@ -62,7 +62,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\n.pointer {\r\n    cursor: pointer;\r\n}\r\n\r\n.required {\r\n    color: #dc143c;\r\n    font-size: 11px;\r\n}\r\n\r\n.red {\r\n\r\n}\r\n\r\n.hover:hover {\r\n    background: rgb(241, 241, 241);\r\n    font-weight: bold;\r\n}\r\n\r\n.hover-red:hover {\r\n    color: rgb(223, 0, 0);\r\n    font-weight: bold;\r\n}\r\n\r\n.hover-black:hover {\r\n    color: #333 !important;\r\n    font-weight: bold;\r\n}", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\n.pointer {\r\n    cursor: pointer;\r\n}\r\n\r\n.required {\r\n    color: #dc143c;\r\n    font-size: 11px;\r\n}\r\n\r\n.red {\r\n\r\n}\r\n\r\n.hover:hover {\r\n    background: rgb(241, 241, 241);\r\n    font-weight: bold;\r\n}\r\n\r\n.hover-red:hover {\r\n    color: rgb(223, 0, 0);\r\n    font-weight: bold;\r\n}\r\n\r\n.hover-black:hover {\r\n    color: #333 !important;\r\n    font-weight: bold;\r\n}\r\n\r\n.font-22 {\r\n    font-size:22px;\r\n}", ""]);
 
 // exports
 

@@ -69,6 +69,25 @@ export class GuestService {
     this.router.navigate(['product/' + id]);
   }
 
+  // Lấy comments của product
+  getCommentByProductID(id:string) {
+    const url = `api/comment/${id}`
+    return this._http.get(url, {headers: this.headers})
+      .toPromise()
+      .then(res => this.result = res.json())
+      .catch(this.handleError);
+  }
+
+  // Thêm comment cho product
+  addCommentByProductID(comment:any):Promise<any> {
+    const url = `api/comment/${comment._id}`
+    return this._http.put(url, JSON.stringify(comment), {headers: this.headers})
+      .toPromise()
+      .then(res => this.result = res.json())
+      .catch(this.handleError);
+  }
+
+
   hoanTatThanhToan() {
     this.router.navigate(['hoan-tat-thanh-toan']);
     location.reload();

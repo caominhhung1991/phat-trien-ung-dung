@@ -3,6 +3,7 @@ import { FormsModule} from '@angular/forms'
 import { CommonModule } from '@angular/common';
 // Module
 import { ComponentModule } from './../components/component.module';
+import { AdminModule } from './../admin/admin.module'
 //import component
 import { HomePageComponent} from './home-page/home-page.component';
 import { NavGuestComponent } from './nav-guest/nav-guest.component';
@@ -20,6 +21,8 @@ import { QuanLyTaiKhoanComponent } from './quan-ly-tai-khoan/quan-ly-tai-khoan.c
 import { SuaThongTinComponent } from './sua-thong-tin/sua-thong-tin.component';
 import { DoiPasswordComponent } from './doi-password/doi-password.component';
 import { LichSuDonHangComponent } from './lich-su-don-hang/lich-su-don-hang.component';
+import { CommentComponent } from './comment/comment.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -40,7 +43,8 @@ import { LichSuDonHangComponent } from './lich-su-don-hang/lich-su-don-hang.comp
     SignUpComponent,
     QuanLyTaiKhoanComponent,
     DoiPasswordComponent,
-    LichSuDonHangComponent
+    LichSuDonHangComponent,
+    CommentComponent
   ],
   exports: [
     HomePageComponent,
@@ -57,7 +61,8 @@ import { LichSuDonHangComponent } from './lich-su-don-hang/lich-su-don-hang.comp
     QuanLyTaiKhoanComponent,
     DoiPasswordComponent,
     LichSuDonHangComponent,
-    SuaThongTinComponent
+    SuaThongTinComponent,
+    CommentComponent
   ]
   // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

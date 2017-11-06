@@ -17,6 +17,8 @@ export class ProductDetailComponent implements OnInit {
   product:any;
   testProducts:any;
   selectedProduct:any;
+  selectedProductID:string;
+
   constructor(
     private mainService: MainService,
     private guestService: GuestService,
@@ -35,6 +37,10 @@ export class ProductDetailComponent implements OnInit {
       quantity: product.quantity
     }
     console.log(this.selectedProduct);
+  }
+
+  onSelectID() {
+    this.selectedProductID = this.product._id;
   }
 
   getProduct():void {

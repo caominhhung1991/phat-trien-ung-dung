@@ -7,6 +7,7 @@ import { Ng2FileInputModule } from 'ng2-file-input';
 // module
 import { AdminRoutingModule } from './admin-routing.module';
 import { GuestModule } from './../guest/guest.module';
+import { ComponentModule } from './../components/component.module';
 // component
 import { AdminComponent } from './admin/admin.component';
 import { QuanLyDonHangComponent } from './quan-ly-don-hang/quan-ly-don-hang.component';
@@ -31,6 +32,7 @@ import { SuaThongTinComponent } from './../guest/sua-thong-tin/sua-thong-tin.com
     AdminRoutingModule,
     RouterModule,
     GuestModule,
+    ComponentModule,
     Ng2FileInputModule.forRoot()
   ],
   declarations: [
@@ -38,7 +40,6 @@ import { SuaThongTinComponent } from './../guest/sua-thong-tin/sua-thong-tin.com
     QuanLyDonHangComponent, 
     QuanLySanPhamComponent, 
     DoanhThuComponent,
-    GoBackComponent,
     NavAdminComponent,
     ChiTietDonHangComponent,
     ThemSanPhamComponent,
@@ -53,7 +54,6 @@ import { SuaThongTinComponent } from './../guest/sua-thong-tin/sua-thong-tin.com
     QuanLyDonHangComponent, 
     QuanLySanPhamComponent, 
     DoanhThuComponent,
-    GoBackComponent,
     NavAdminComponent,
     ChiTietDonHangComponent,
     ThemSanPhamComponent,

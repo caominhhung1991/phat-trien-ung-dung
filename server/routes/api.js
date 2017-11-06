@@ -410,41 +410,43 @@ router.delete('/user/:id', (req, res, next) => {
 	})
 })
 
+
+// comment - Bình luận - 
+// Lấy bình luân của sản phẩm
+router.get('/comment/:id', (req, res, next) => {
+	console.log("Get comment by product id");
+	var request = { '_id': new ObjectID(req.params.id)};
+	connection(db => {
+		db.collection('comment')
+			.findOne(request)
+			.then(comment => {
+				response.data = comment;
+				console.log(comment);
+				res.json(response);
+			})
+			.catch(err => {
+				sendError(err, res);
+			});
+	});
+})
+// Thêm 1 bình luận vào 
+router.put('/comment/:id', (req, res, next) => {
+	console.log("add comment");
+	var comment = req.body;
+	comment._id = new ObjectID(comment._id);
+	var request = { '_id': new ObjectID(req.params.id) };
+	connection(db => {
+		db.collection('comment')
+			.update(request, comment, { upsert: true })
+			.then(result => {
+				response.data = result;
+				res.json(response)
+			})
+			.catch(err => {
+				sendError(err, res);
+			})
+	})
+})
+
+
 module.exports = router;
-
-// connection((db) => {
-//     db.collection('users')
-//         .find()
-//         .toArray()
-//         .then((users) => {
-//             response.data = users;
-//             res.json(response);
-//         })
-//         .catch((err) => {
-//             sendError(err, res);
-//         });
-// });
-
-// var request = {'_id': new ObjectID(req.params.id)};
-// connection((db) => {
-//     db.collection('inventory')
-//         .findOne(request, (err, product) => {
-//             if (err) {
-//                 res.send(err);
-//             }
-//             res.json(product);
-//         });
-// });
-
-// order._id = new ObjectID(order._id);
-// console.log("update order from admin");
-// var request = {'_id': new ObjectID(req.params.id)};
-// connection((db) => {
-//     db.collection('order')
-//         .update(request, order, {save:true}, (err, order) => {
-//             if (err) {
-//                 res.send(err);
-//             }
-//             res.json(order);
-//         });
-// });

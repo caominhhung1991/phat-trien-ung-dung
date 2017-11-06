@@ -46,8 +46,8 @@ var routes = [
     // { path: "admin", component: QuanLySanPhamComponent},
     { path: "quanlydonhang", canActivate: [__WEBPACK_IMPORTED_MODULE_7__guard_authguard_guard__["a" /* AuthguardGuard */]], component: __WEBPACK_IMPORTED_MODULE_2__quan_ly_don_hang_quan_ly_don_hang_component__["a" /* QuanLyDonHangComponent */] },
     { path: "quanlysanpham", canActivate: [__WEBPACK_IMPORTED_MODULE_7__guard_authguard_guard__["a" /* AuthguardGuard */]], component: __WEBPACK_IMPORTED_MODULE_3__quan_ly_san_pham_quan_ly_san_pham_component__["a" /* QuanLySanPhamComponent */] },
-    { path: "quanlydoanhthu", component: __WEBPACK_IMPORTED_MODULE_4__thongke_doanh_thu_doanh_thu_component__["a" /* DoanhThuComponent */] },
-    { path: "quanlyuser", component: __WEBPACK_IMPORTED_MODULE_5__quan_ly_user_quan_ly_user_component__["a" /* QuanLyUserComponent */] },
+    { path: "quanlydoanhthu", canActivate: [__WEBPACK_IMPORTED_MODULE_7__guard_authguard_guard__["a" /* AuthguardGuard */]], component: __WEBPACK_IMPORTED_MODULE_4__thongke_doanh_thu_doanh_thu_component__["a" /* DoanhThuComponent */] },
+    { path: "quanlyuser", canActivate: [__WEBPACK_IMPORTED_MODULE_7__guard_authguard_guard__["a" /* AuthguardGuard */]], component: __WEBPACK_IMPORTED_MODULE_5__quan_ly_user_quan_ly_user_component__["a" /* QuanLyUserComponent */] },
     { path: "donhang/:id", component: __WEBPACK_IMPORTED_MODULE_6__chi_tiet_don_hang_chi_tiet_don_hang_component__["a" /* ChiTietDonHangComponent */] }
 ];
 var AdminRoutingModule = (function () {
@@ -79,11 +79,11 @@ AdminRoutingModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng2_file_input__ = __webpack_require__("../../../../ng2-file-input/dist/ng2-file-input.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__admin_routing_module__ = __webpack_require__("../../../../../src/app/admin/admin-routing.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__guest_guest_module__ = __webpack_require__("../../../../../src/app/guest/guest.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__admin_admin_component__ = __webpack_require__("../../../../../src/app/admin/admin/admin.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__quan_ly_don_hang_quan_ly_don_hang_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-don-hang/quan-ly-don-hang.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__quan_ly_san_pham_quan_ly_san_pham_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/quan-ly-san-pham.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__thongke_doanh_thu_doanh_thu_component__ = __webpack_require__("../../../../../src/app/admin/thongke/doanh-thu/doanh-thu.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_go_back_go_back_component__ = __webpack_require__("../../../../../src/app/components/go-back/go-back.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_component_module__ = __webpack_require__("../../../../../src/app/components/component.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__admin_admin_component__ = __webpack_require__("../../../../../src/app/admin/admin/admin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__quan_ly_don_hang_quan_ly_don_hang_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-don-hang/quan-ly-don-hang.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__quan_ly_san_pham_quan_ly_san_pham_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/quan-ly-san-pham.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__thongke_doanh_thu_doanh_thu_component__ = __webpack_require__("../../../../../src/app/admin/thongke/doanh-thu/doanh-thu.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__nav_admin_nav_admin_component__ = __webpack_require__("../../../../../src/app/admin/nav-admin/nav-admin.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__chi_tiet_don_hang_chi_tiet_don_hang_component__ = __webpack_require__("../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__quan_ly_san_pham_them_san_pham_them_san_pham_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/them-san-pham/them-san-pham.component.ts");
@@ -107,8 +107,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 // module
 
 
-// component
 
+// component
 
 
 
@@ -135,14 +135,14 @@ AdminModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_6__admin_routing_module__["a" /* AdminRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_7__guest_guest_module__["a" /* GuestModule */],
+            __WEBPACK_IMPORTED_MODULE_8__components_component_module__["a" /* ComponentModule */],
             __WEBPACK_IMPORTED_MODULE_5_ng2_file_input__["a" /* Ng2FileInputModule */].forRoot()
         ],
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_8__admin_admin_component__["a" /* AdminComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__quan_ly_don_hang_quan_ly_don_hang_component__["a" /* QuanLyDonHangComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__quan_ly_san_pham_quan_ly_san_pham_component__["a" /* QuanLySanPhamComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__thongke_doanh_thu_doanh_thu_component__["a" /* DoanhThuComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__components_go_back_go_back_component__["a" /* GoBackComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__admin_admin_component__["a" /* AdminComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__quan_ly_don_hang_quan_ly_don_hang_component__["a" /* QuanLyDonHangComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__quan_ly_san_pham_quan_ly_san_pham_component__["a" /* QuanLySanPhamComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__thongke_doanh_thu_doanh_thu_component__["a" /* DoanhThuComponent */],
             __WEBPACK_IMPORTED_MODULE_13__nav_admin_nav_admin_component__["a" /* NavAdminComponent */],
             __WEBPACK_IMPORTED_MODULE_14__chi_tiet_don_hang_chi_tiet_don_hang_component__["a" /* ChiTietDonHangComponent */],
             __WEBPACK_IMPORTED_MODULE_15__quan_ly_san_pham_them_san_pham_them_san_pham_component__["a" /* ThemSanPhamComponent */],
@@ -153,11 +153,10 @@ AdminModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_20__quan_ly_user_quan_ly_user_component__["a" /* QuanLyUserComponent */],
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_8__admin_admin_component__["a" /* AdminComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__quan_ly_don_hang_quan_ly_don_hang_component__["a" /* QuanLyDonHangComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__quan_ly_san_pham_quan_ly_san_pham_component__["a" /* QuanLySanPhamComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__thongke_doanh_thu_doanh_thu_component__["a" /* DoanhThuComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__components_go_back_go_back_component__["a" /* GoBackComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__admin_admin_component__["a" /* AdminComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__quan_ly_don_hang_quan_ly_don_hang_component__["a" /* QuanLyDonHangComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__quan_ly_san_pham_quan_ly_san_pham_component__["a" /* QuanLySanPhamComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__thongke_doanh_thu_doanh_thu_component__["a" /* DoanhThuComponent */],
             __WEBPACK_IMPORTED_MODULE_13__nav_admin_nav_admin_component__["a" /* NavAdminComponent */],
             __WEBPACK_IMPORTED_MODULE_14__chi_tiet_don_hang_chi_tiet_don_hang_component__["a" /* ChiTietDonHangComponent */],
             __WEBPACK_IMPORTED_MODULE_15__quan_ly_san_pham_them_san_pham_them_san_pham_component__["a" /* ThemSanPhamComponent */],
@@ -1173,7 +1172,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/thongke/doanh-thu/doanh-thu.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-admin [isActive]=\"4\"></app-nav-admin>\r\n<div  class=\"mb-5 mt-5 text-center\">\r\n    <p>doanh-thu works!</p>\r\n    <app-go-back></app-go-back>\r\n</div>\r\n\r\n"
+module.exports = "<app-nav-admin [isActive]=\"4\"></app-nav-admin>\r\n<div  class=\"mb-5 mt-5 text-center\">\r\n    <p>Doanh thu theo tuần</p>\r\n    <p>Doanh thu theo tháng</p>\r\n</div>\r\n\r\n<!-- <app-go-back></app-go-back> -->\r\n"
 
 /***/ }),
 
@@ -1539,12 +1538,14 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__guest_sua_thong_tin_sua_thong_tin_component__ = __webpack_require__("../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__go_back_go_back_component__ = __webpack_require__("../../../../../src/app/components/go-back/go-back.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1561,9 +1562,11 @@ ComponentModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */]
         ],
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__guest_sua_thong_tin_sua_thong_tin_component__["a" /* SuaThongTinComponent */]
+            __WEBPACK_IMPORTED_MODULE_2__guest_sua_thong_tin_sua_thong_tin_component__["a" /* SuaThongTinComponent */],
+            __WEBPACK_IMPORTED_MODULE_4__go_back_go_back_component__["a" /* GoBackComponent */]
         ],
-        exports: [__WEBPACK_IMPORTED_MODULE_2__guest_sua_thong_tin_sua_thong_tin_component__["a" /* SuaThongTinComponent */]],
+        exports: [__WEBPACK_IMPORTED_MODULE_2__guest_sua_thong_tin_sua_thong_tin_component__["a" /* SuaThongTinComponent */],
+            __WEBPACK_IMPORTED_MODULE_4__go_back_go_back_component__["a" /* GoBackComponent */]],
     })
 ], ComponentModule);
 
@@ -1653,7 +1656,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/go-back/go-back.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<button class=\"btn btn-sm btn-primary\" (click)=\"goBack()\">Back</button>"
+module.exports = "<button class=\"btn btn-sm btn-primary\" (click)=\"goBack()\">Quay trở lại</button>"
 
 /***/ }),
 
@@ -2677,6 +2680,134 @@ var _a, _b;
 
 /***/ }),
 
+/***/ "../../../../../src/app/guest/comment/comment.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "/* #comment:focus + .btn-comment  {\r\n    display: block;\r\n}\r\n\r\n.btn-comment {\r\n    display: none;\r\n}\r\n\r\n.btn-comment:hover {\r\n    display: block;\r\n} */\r\n\r\n.comment-heading {\r\n    font-size: 15px;\r\n    margin-bottom: 0px;\r\n}\r\n\r\n.comment-text {\r\n    font-size: 13px;\r\n}\r\n\r\n\r\n\r\n/* .rating > span:hover:before {\r\n    content: \"\\2605\";\r\n    position: absolute;\r\n    \r\n } */\r\n\r\n\r\n .rating {\r\n    unicode-bidi: bidi-override;\r\n    direction: rtl;\r\n  }\r\n  .rating > span:hover:before,\r\n  .rating > span:hover ~ span:before {\r\n     content: \"\\2605\";\r\n     position: relative;\r\n     cursor: pointer;\r\n  }\r\n\r\n  .ngayHT {\r\n    color: #a7a7a7;\r\n    font-size: 13px;\r\n    position: relative;\r\n    /* top: -2px; */\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/comment/comment.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"check\">\n    <h5>Bình luận nổi bật</h5>\n    <section class=\"mb-3\" *ngFor=\"let com of comments\">\n      <h5 class=\"comment-heading\">{{ com.nameUser }}</h5>\n      <span class=\"ngayHT\"> {{com.time | date}}</span>\n      <p class=\"comment-text\">{{ com.productComment }}</p>\n    </section>\n    <hr>\n</div>\n\n\n<h5>Đánh giá & Bình luận</h5>\n\n<div class=\"form-group\">\n  <input type=\"text\" placeholder=\"Tên của bạn..\" class=\"form-control w-30\" name=\"name\" [(ngModel)]=\"nameUser\" #name=\"ngModel\">\n</div>\n\n<div class=\"form-group\">\n  <textarea name=\"comment\" id=\"comment\" rows=\"3\" placeholder=\"Nhập bình luận của bạn...\" class=\"form-control\" (focus)=\"showBtnGui(true)\" [(ngModel)]=\"productComment\" #comment=\"ngModel\"></textarea>\n  <button *ngIf=\"focusComment\" class=\"btn btn-outline-danger mt-2 btn-comment pointer\" (click)=\"addComment()\">Gửi bình luận</button>\n</div>\n\n<!-- <div class=\"rating font-22\">\n  <span>☆</span>\n  <span>☆</span>\n  <span>☆</span>\n  <span>☆</span>\n  <span>☆</span>\n</div> -->"
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/comment/comment.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CommentComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+// service
+
+var CommentComponent = (function () {
+    function CommentComponent(guestService) {
+        this.guestService = guestService;
+        this.nameUser = "";
+        this.productComment = "";
+        this.comment = {};
+        this.comments = new Array();
+        this.check = false;
+        this.focusComment = false;
+        if ((JSON.parse(localStorage.getItem("currentUser"))) !== null) {
+            this.nameUser = (JSON.parse(localStorage.getItem("currentUser"))).name;
+        }
+    }
+    Object.defineProperty(CommentComponent.prototype, "ProductID", {
+        set: function (id) {
+            console.log("get comments");
+            this.productID = id;
+            this.getCommentProduct(id);
+            console.log(this.comment);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    CommentComponent.prototype.getCommentProduct = function (id) {
+        var _this = this;
+        this.guestService.getCommentByProductID(id).then(function (res) {
+            console.log(res);
+            _this.comment = res.data;
+            if (_this.comment !== null) {
+                _this.check = true;
+                _this.comments = _this.comment.comments;
+            }
+            else {
+                _this.comment = {
+                    time: new Date()
+                };
+            }
+        }, function (res) { return console.log(res); });
+    };
+    CommentComponent.prototype.addComment = function () {
+        var _this = this;
+        if (this.nameUser === "" || this.nameUser === undefined) {
+            console.log("nameUser");
+        }
+        else if (this.productComment === "" || this.productComment === undefined) {
+            console.log("productName");
+        }
+        else {
+            console.log(this.productID);
+            this.comment._id = this.productID;
+            this.comments.push({ nameUser: this.nameUser, productComment: this.productComment, time: new Date() });
+            this.comment.comments = this.comments;
+            this.check = true;
+            this.guestService.addCommentByProductID(this.comment).then(function (res) {
+                _this.productComment = "";
+            }, function (res) { return console.log(res); });
+        }
+    };
+    CommentComponent.prototype.showBtnGui = function (a) {
+        this.focusComment = a;
+    };
+    CommentComponent.prototype.ngOnInit = function () {
+    };
+    return CommentComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [Object])
+], CommentComponent.prototype, "ProductID", null);
+CommentComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-comment',
+        template: __webpack_require__("../../../../../src/app/guest/comment/comment.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/guest/comment/comment.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_guest_service__["a" /* GuestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_guest_service__["a" /* GuestService */]) === "function" && _a || Object])
+], CommentComponent);
+
+var _a;
+//# sourceMappingURL=comment.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/guest/doi-password/doi-password.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2853,6 +2984,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__sua_thong_tin_sua_thong_tin_component__ = __webpack_require__("../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__doi_password_doi_password_component__ = __webpack_require__("../../../../../src/app/guest/doi-password/doi-password.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__lich_su_don_hang_lich_su_don_hang_component__ = __webpack_require__("../../../../../src/app/guest/lich-su-don-hang/lich-su-don-hang.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__comment_comment_component__ = __webpack_require__("../../../../../src/app/guest/comment/comment.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2865,6 +2997,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 // Module
 
 //import component
+
 
 
 
@@ -2906,7 +3039,8 @@ GuestModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_14__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
             __WEBPACK_IMPORTED_MODULE_15__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */],
             __WEBPACK_IMPORTED_MODULE_17__doi_password_doi_password_component__["a" /* DoiPasswordComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__lich_su_don_hang_lich_su_don_hang_component__["a" /* LichSuDonHangComponent */]
+            __WEBPACK_IMPORTED_MODULE_18__lich_su_don_hang_lich_su_don_hang_component__["a" /* LichSuDonHangComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__comment_comment_component__["a" /* CommentComponent */]
         ],
         exports: [
             __WEBPACK_IMPORTED_MODULE_4__home_page_home_page_component__["a" /* HomePageComponent */],
@@ -2923,7 +3057,8 @@ GuestModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_15__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */],
             __WEBPACK_IMPORTED_MODULE_17__doi_password_doi_password_component__["a" /* DoiPasswordComponent */],
             __WEBPACK_IMPORTED_MODULE_18__lich_su_don_hang_lich_su_don_hang_component__["a" /* LichSuDonHangComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__sua_thong_tin_sua_thong_tin_component__["a" /* SuaThongTinComponent */]
+            __WEBPACK_IMPORTED_MODULE_16__sua_thong_tin_sua_thong_tin_component__["a" /* SuaThongTinComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__comment_comment_component__["a" /* CommentComponent */]
         ]
         // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
@@ -3372,7 +3507,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "  \r\n#tab_content_product_specifications {\r\n    /* width: 800px; */\r\n}\r\n.row-info {\r\n    font-size: 13px;\r\n}\r\n\r\n.row-info td:nth-child(1) {\r\n    width: 200px;\r\n    background: #F7F7F7 !important;\r\n}\r\n\r\n.thong-tin-san-pham {\r\n    width: 800px;\r\n}\r\n\r\n.display-4 {\r\n    font-size: 2.5rem;\r\n}\r\n\r\nh3 {\r\n    font-size: 20px;\r\n}\r\n\r\np, li, div {\r\n    font-size: 13px;\r\n}\r\n\r\n.item-price {\r\n    font-size: 18px;\r\n    font-weight: 700 !important;\r\n    color: #C63829;\r\n    margin-right: 4px;\r\n}\r\n\r\n.gioi-thieu-san-pham {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n}\r\n\r\n.product_gallery {\r\n    /* display: flex; */\r\n}\r\n\r\n.product_info {\r\n    /* display: flex; */\r\n}\r\n\r\n.item-title {\r\n    font-size: 29px;\r\n}\r\n\r\n/* product image */\r\n.product-info {\r\n    background: white;\r\n    padding: 20px;\r\n}\r\n\r\n.image {\r\n    width: 100%;\r\n}\r\n\r\n.display-4 {\r\n    font-size: 20px;\r\n}\r\n\r\n.nav-link {\r\n    color: #333 !important;\r\n}\r\n\r\n.price-present {\r\n    font-size: 18px;\r\n    font-weight: 700 !important;\r\n    color: #C63829;\r\n    margin-right: 4px;\r\n}\r\n\r\n.btn-primary {\r\n    background-color: #C63829;\r\n    border: 0;\r\n}\r\n\r\n#myTab, #myTabContent {\r\n    background: white;\r\n}\r\n\r\n#myTabContent {\r\n    padding: 20px;\r\n}\r\n\r\n.nav-item .active {\r\n    color: red !important;\r\n    border-bottom: 3px solid red;\r\n}", ""]);
+exports.push([module.i, "  \r\n#tab_content_product_specifications {\r\n    /* width: 800px; */\r\n}\r\n.row-info {\r\n    font-size: 13px;\r\n}\r\n\r\n.row-info td:nth-child(1) {\r\n    width: 200px;\r\n    background: #F7F7F7 !important;\r\n}\r\n\r\n.thong-tin-san-pham {\r\n    /* width: 800px; */\r\n}\r\n\r\n.display-4 {\r\n    font-size: 2.5rem;\r\n}\r\n\r\nh3 {\r\n    font-size: 20px;\r\n}\r\n\r\np, li, div {\r\n    font-size: 13px;\r\n}\r\n\r\n.item-price {\r\n    font-size: 18px;\r\n    font-weight: 700 !important;\r\n    color: #C63829;\r\n    margin-right: 4px;\r\n}\r\n\r\n.gioi-thieu-san-pham {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n}\r\n\r\n.product_gallery {\r\n    /* display: flex; */\r\n}\r\n\r\n.product_info {\r\n    /* display: flex; */\r\n}\r\n\r\n.item-title {\r\n    font-size: 29px;\r\n}\r\n\r\n/* product image */\r\n.product-info {\r\n    background: white;\r\n    padding: 20px;\r\n}\r\n\r\n.image {\r\n    width: 100%;\r\n}\r\n\r\n.display-4 {\r\n    font-size: 20px;\r\n}\r\n\r\n.nav-link {\r\n    color: #333 !important;\r\n}\r\n\r\n.price-present {\r\n    font-size: 18px;\r\n    font-weight: 700 !important;\r\n    color: #C63829;\r\n    margin-right: 4px;\r\n}\r\n\r\n.btn-primary {\r\n    background-color: #C63829;\r\n    border: 0;\r\n}\r\n\r\n#myTab, #myTabContent {\r\n    background: white;\r\n}\r\n\r\n#myTabContent {\r\n    padding: 20px;\r\n}\r\n\r\n.nav-item .active {\r\n    color: red !important;\r\n    border-bottom: 3px solid red;\r\n}\r\n\r\n.tab-pane {\r\n    height: 400px;\r\n    overflow: auto;\r\n}", ""]);
 
 // exports
 
@@ -3385,7 +3520,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/product-detail/product-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-guest></app-nav-guest>\n\n<div style=\"background: #f5f5f5;\">\n  <div class=\"\">\n    <div class=\"gioi-thieu-san-pham row mb-4\">\n      <div class=\"product-image col-md-4\">\n        <img class=\"image\" [src]=\"product?.product_image\" alt=\"\">\n      </div>\n      <div class=\"product-info col-md-8\">\n        <h2 class=\"display-4\">{{product?.product_name}}</h2>\n        <div class=\"price\">\n          <span class=\"price-present\">{{product?.price | number}}đ</span>\n        </div>\n\n        <!-- <hr>\n\n        <div class=\"shopee-product-info-body__row shopee-product-info-body__free-shipping\">\n          <span class=\"shopee-product-info-body__free-shipping-text\">Miễn Phí Vận Chuyển cho đơn hàng có giá trị từ ₫180.000 (giảm tối đa 50.000 VNĐ)</span>\n        </div>\n        <div class=\"shopee-product-info-body__shipping-block-label\">Vận chuyển tới: Hà Nội, Huyện Ba Vì</div>\n        <div class=\"shopee-product-info-body__shipping-block-label\">phí vận chuyển: ₫0</div> -->\n\n        <hr>\n\n        <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\n          <button type=\"button\" class=\"btn btn-danger\" (click)=\"decrease()\">-</button>\n          <input type=\"number\" style=\"width: 40px !important;\" value=\"{{product?.quantity}}\" min=\"1\" max=\"20\">\n          <button type=\"button\" class=\"btn btn-danger\" (click)=\"increase()\">+</button>\n        </div>\n        <br>\n        <br>\n\n        <button class=\"btn btn-danger add-to-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\" (click)=\"onSelect(product)\">Cho vào giỏ hàng</button>\n        <!-- <a href=\"#\" class=\"btn btn-info add-to-cart\">Mua ngay</a> -->\n      </div>\n    </div>\n\n    <ul class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link active\" id=\"home-tab\" data-toggle=\"tab\" href=\"#home\" role=\"tab\" aria-controls=\"home\" aria-expanded=\"true\">\n          <h2 class=\"display-4\">Thông số sản phẩm</h2>\n        </a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" id=\"profile-tab\" data-toggle=\"tab\" href=\"#profile\" role=\"tab\" aria-controls=\"profile\" required>\n          <h2 class=\"display-4\">Thông tin sản phẩm</h2>\n        </a>\n      </li>\n    </ul>\n    <div class=\"tab-content\" id=\"myTabContent\">\n      <div class=\"tab-pane fade show active\" id=\"home\" role=\"tabpanel\" aria-labelledby=\"home-tab\">\n        <div class=\"thong-so-san-pham\" id=\"tab_content_product_specifications\">\n\n          <table class=\"table table-bordered\" id=\"tblGeneralAttribute\">\n            <tbody>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Xuất xứ</strong>\n                </td>\n                <td>{{product?.product_madein}}</td>\n              </tr>\n\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Giới tính</strong>\n                </td>\n                <td>{{product?.product_gender}}</td>\n              </tr>\n\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Hướng dẫn sử dụng</strong>\n                </td>\n                <td>{{product?.product_instruction}}</td>\n              </tr>\n\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Hướng dẫn bảo quản</strong>\n                </td>\n                <td>Bảo quản nơi khô ráo, thoáng mát</td>\n              </tr>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Dung tích</strong>\n                </td>\n                <td>{{product?.product_size}}</td>\n              </tr>\n            </tbody>\n          </table>\n\n        </div>\n      </div>\n\n      <div class=\"tab-pane fade\" id=\"profile\" role=\"tabpanel\" aria-labelledby=\"profile-tab\">\n        <div class=\"thong-tin-san-pham mb-4\">\n          <h3>{{product?.product_name}}</h3>\n          <p>{{product?.product_decription}}</p>\n        </div>\n      </div>\n    </div>\n    <app-shopping-cart [productOP]=\"selectedProduct\" ></app-shopping-cart>\n    <!-- <app-san-pham-tuong-tu></app-san-pham-tuong-tu> -->\n  </div>\n</div>"
+module.exports = "<app-nav-guest></app-nav-guest>\n\n<div style=\"background: #f5f5f5;\">\n  <div class=\"\">\n    <div class=\"gioi-thieu-san-pham row mb-4\">\n      <div class=\"product-image col-md-4\">\n        <img class=\"image\" [src]=\"product?.product_image\" alt=\"\">\n      </div>\n      <div class=\"product-info col-md-8\">\n        <h2 class=\"display-4\">{{product?.product_name}}</h2>\n        <div class=\"price\">\n          <span class=\"price-present\">{{product?.price | number}}đ</span>\n        </div>\n\n        <app-go-back></app-go-back> \n        <!-- <hr>\n\n        <div class=\"shopee-product-info-body__row shopee-product-info-body__free-shipping\">\n          <span class=\"shopee-product-info-body__free-shipping-text\">Miễn Phí Vận Chuyển cho đơn hàng có giá trị từ ₫180.000 (giảm tối đa 50.000 VNĐ)</span>\n        </div>\n        <div class=\"shopee-product-info-body__shipping-block-label\">Vận chuyển tới: Hà Nội, Huyện Ba Vì</div>\n        <div class=\"shopee-product-info-body__shipping-block-label\">phí vận chuyển: ₫0</div> -->\n        <hr>\n\n        <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\n          <button type=\"button\" class=\"btn btn-danger\" (click)=\"decrease()\">-</button>\n          <input type=\"number\" style=\"width: 40px !important;\" value=\"{{product?.quantity}}\" min=\"1\" max=\"20\">\n          <button type=\"button\" class=\"btn btn-danger\" (click)=\"increase()\">+</button>\n        </div>\n        <br>\n        <br>\n\n        <button class=\"btn btn-danger add-to-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\" (click)=\"onSelect(product)\">Cho vào giỏ hàng</button>\n        <!-- <a href=\"#\" class=\"btn btn-info add-to-cart\">Mua ngay</a> -->\n      </div>\n    </div>\n\n    <ul class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link active\" id=\"home-tab\" data-toggle=\"tab\" href=\"#home\" role=\"tab\" aria-controls=\"home\" aria-expanded=\"true\">\n          <h2 class=\"display-4\">Thông số sản phẩm</h2>\n        </a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" id=\"profile-tab\" data-toggle=\"tab\" href=\"#profile\" role=\"tab\" aria-controls=\"profile\" required>\n          <h2 class=\"display-4\">Thông tin sản phẩm</h2>\n        </a>\n      </li>\n\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" id=\"comment-tab\" data-toggle=\"tab\" href=\"#comment\" role=\"tab\" aria-controls=\"comments\" (click)=\"onSelectID()\">\n          <h2 class=\"display-4\">Bình luận</h2>\n        </a>\n      </li>\n    </ul>\n    <div class=\"tab-content\" id=\"myTabContent\">\n      <div class=\"tab-pane fade show active\" id=\"home\" role=\"tabpanel\" aria-labelledby=\"home-tab\">\n        <div class=\"thong-so-san-pham\" id=\"tab_content_product_specifications\">\n          <table class=\"table table-bordered\" id=\"tblGeneralAttribute\">\n            <tbody>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Xuất xứ</strong>\n                </td>\n                <td>{{product?.product_madein}}</td>\n              </tr>\n\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Giới tính</strong>\n                </td>\n                <td>{{product?.product_gender}}</td>\n              </tr>\n\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Hướng dẫn sử dụng</strong>\n                </td>\n                <td>{{product?.product_instruction}}</td>\n              </tr>\n\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Hướng dẫn bảo quản</strong>\n                </td>\n                <td>Bảo quản nơi khô ráo, thoáng mát</td>\n              </tr>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Dung tích</strong>\n                </td>\n                <td>{{product?.product_size}}</td>\n              </tr>\n            </tbody>\n          </table>\n\n        </div>\n      </div>\n\n      <div class=\"tab-pane fade\" id=\"profile\" role=\"tabpanel\" aria-labelledby=\"profile-tab\">\n        <div class=\"thong-tin-san-pham mb-4\">\n          <h3>{{product?.product_name}}</h3>\n          <p>{{product?.product_decription}}</p>\n        </div>\n      </div>\n\n      <div class=\"tab-pane fade\" id=\"comment\" role=\"tabpanel\" aria-labelledby=\"profile-tab\">\n        <div class=\"thong-tin-san-pham mb-4\">\n          \n          <app-comment *ngIf=\"selectedProductID\" [ProductID]=\"selectedProductID\"></app-comment>\n        </div>\n      </div>\n      \n    </div>\n    <app-shopping-cart [productOP]=\"selectedProduct\" ></app-shopping-cart>\n    <!-- <app-san-pham-tuong-tu></app-san-pham-tuong-tu> -->\n  </div>\n</div>"
 
 /***/ }),
 
@@ -3437,6 +3572,9 @@ var ProductDetailComponent = (function () {
             quantity: product.quantity
         };
         console.log(this.selectedProduct);
+    };
+    ProductDetailComponent.prototype.onSelectID = function () {
+        this.selectedProductID = this.product._id;
     };
     ProductDetailComponent.prototype.getProduct = function () {
     };
@@ -3710,7 +3848,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/san-pham-tuong-tu/san-pham-tuong-tu.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"san-pham-tuong-tu mt-4\">\n    <h2 class=\"display-4\">CÁC SẢN PHẨM KHÁC CỦA SHOP</h2>\n</div>\n\n<app-products class=\"mb-4\"></app-products>"
+module.exports = "<h1>Sản phẩm tương tự</h1>"
 
 /***/ }),
 
@@ -4167,6 +4305,24 @@ var GuestService = (function () {
     };
     GuestService.prototype.selectProductDetail = function (id) {
         this.router.navigate(['product/' + id]);
+    };
+    // Lấy comments của product
+    GuestService.prototype.getCommentByProductID = function (id) {
+        var _this = this;
+        var url = "api/comment/" + id;
+        return this._http.get(url, { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res.json(); })
+            .catch(this.handleError);
+    };
+    // Thêm comment cho product
+    GuestService.prototype.addCommentByProductID = function (comment) {
+        var _this = this;
+        var url = "api/comment/" + comment._id;
+        return this._http.put(url, JSON.stringify(comment), { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res.json(); })
+            .catch(this.handleError);
     };
     GuestService.prototype.hoanTatThanhToan = function () {
         this.router.navigate(['hoan-tat-thanh-toan']);
