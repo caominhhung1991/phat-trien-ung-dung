@@ -48,6 +48,7 @@ router.get('/products', (req, res) => {
 	connection((db) => {
 		db.collection('product')
 			.find()
+			.sort({ product_id: 1 })
 			.toArray()
 			.then((users) => {
 				response.data = users;
@@ -140,7 +141,65 @@ router.post('/purchasing', (req, res, next) => {
 	})
 });
 
+// Get purchasing by ProductID
+router.get('/purchasing/product/:id', (req, res, next) => {
+	console.log("Lấy sản phẩm trong phiếu nhập xuất")
+	connection((db) => {
+		var request = { "products_detail._id": (req.params.id).toString() };
+		// var request = {"products_detail._id": "59e3ae714ff6fe3e80e34dcf"};
+		console.log(request);
+		db.collection('purchasing')
+			.find(request)
+			.sort({ "nowDate": 1 })
+			.toArray()
+			.then((purchase) => {
+				response.data = purchase;
+				console.log(purchase)
+				res.json(response);
+			})
+			.catch((err) => {
+				sendError(err, res);
+			});
+	});
+})
+
+
+// Get purchasings
+// router.get('/inventory', (req, res, next) => {
+// 	console.log("get products in inventory from admin");
+// 	connection((db) => {
+// 		db.collection('inventory')
+// 			.find()
+// 			.sort({product_id: 1})
+// 			.toArray()
+// 			.then((products) => {
+// 				response.data = products;
+// 				res.json(response);
+// 			})
+// 			.catch((err) => {
+// 				sendError(err, res);
+// 			});
+// 	});
+// });
 // --- Kho - inventory ---
+// Get products from inventory
+router.get('/inventory', (req, res, next) => {
+	console.log("get products in inventory from admin");
+	connection((db) => {
+		db.collection('inventory')
+			.find()
+			.sort({ product_id: 1 })
+			.toArray()
+			.then((products) => {
+				response.data = products;
+				res.json(response);
+			})
+			.catch((err) => {
+				sendError(err, res);
+			});
+	});
+});
+
 // Get one product from inventory
 router.get('/inventory/:id', (req, res, next) => {
 	console.log("get 1 product from inventory!")
@@ -184,6 +243,24 @@ router.put('/inventory/:id', (req, res, next) => {
 	});
 });
 
+// Update quantity of one product to inventory
+router.put('/inventory/product/:id', (req, res, next) => {
+	console.log("Update quantity of one product to inventory");
+	var product = req.body;
+	var request = { '_id': new ObjectID(req.params.id) };
+	connection((db) => {
+		db.collection('inventory')
+			.update(request, { $inc: { quantity: -product.quantity} })
+			.then((result) => {
+				response.data = result;
+				res.json(response);
+			})
+			.catch((err) => {
+				sendError(err, res);
+			});;
+	});
+});
+
 // --- List product by join ---
 // Get list of products
 router.get('/products-guest', (req, res, next) => {
@@ -202,8 +279,9 @@ router.get('/products-guest', (req, res, next) => {
 				}
 			])
 			.toArray()
-			.then((users) => {
-				response.data = users;
+			.then((products) => {
+				response.data = products;
+				console.log(products);
 				res.json(response);
 			})
 			.catch((err) => {
@@ -289,7 +367,7 @@ router.put('/order/:id', (req, res, next) => {
 // Xoá 1 đơn hàng chưa xử lý từ khách hàng
 router.delete('/order/:id', (req, res, next) => {
 	console.log("Delete a order by guest");
-	var request = {'id': req.params.id, 'status': 'Chưa xử lý'};
+	var request = { 'id': req.params.id, 'status': 'Chưa xử lý' };
 	console.log(request);
 	connection(db => {
 		db.collection('order')
@@ -415,7 +493,7 @@ router.delete('/user/:id', (req, res, next) => {
 // Lấy bình luân của sản phẩm
 router.get('/comment/:id', (req, res, next) => {
 	console.log("Get comment by product id");
-	var request = { '_id': new ObjectID(req.params.id)};
+	var request = { '_id': new ObjectID(req.params.id) };
 	connection(db => {
 		db.collection('comment')
 			.findOne(request)

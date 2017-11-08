@@ -67,11 +67,11 @@ export class MainService {
   }
 
   // --- Phiếu Nhập Kho api --- //
-  addPhieuNhapKho(phieuNhapKho: any):Promise<void> {
+  addPhieuNhapXuatKho(phieu: any):Promise<void> {
     const url = "/api/purchasing";
-    return this._http.post(url, phieuNhapKho, {headers: this.headers})
+    return this._http.post(url, phieu, {headers: this.headers})
       .toPromise()
-      .then((res) => phieuNhapKho)
+      .then((res) => phieu)
       .catch(this.handleError);
   }
 

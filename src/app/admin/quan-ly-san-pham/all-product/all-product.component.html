@@ -4,10 +4,7 @@
         <th>ID</th>
         <th class="name">Tên</th>
         <th>Loại</th>
-        <th>Nhãn hiệu </th>
-        <th>Xuất xứ</th>
         <th>Dung tích</th>
-        <th>Giới tính</th>
         <th class="image-url">Hình ảnh</th>
     </tr>
 
@@ -15,12 +12,9 @@
         <td>{{product.product_id}}</td>
         <td class="name">{{product.product_name}}</td>
         <td>{{product.product_kind}}</td>
-        <td>{{product.product_label}}</td>
-        <td>{{product.product_madein}}</td>
         <td>{{product.product_size}}</td>
-        <td>{{product.product_gender}}</td>
         <td class="image-url">
-            {{product.product_image}}
+            <img src="{{product.product_image}}" width="60px" >
         </td>
     </tr>
 </table>

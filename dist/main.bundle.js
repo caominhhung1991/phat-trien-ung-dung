@@ -92,6 +92,9 @@ AdminRoutingModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__quan_ly_san_pham_phieu_nhap_kho_phieu_nhap_kho_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/phieu-nhap-kho/phieu-nhap-kho.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_modals_modal_add_product_to_repository_modal_add_product_to_repository_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-add-product-to-repository/modal-add-product-to-repository.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__quan_ly_user_quan_ly_user_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-user/quan-ly-user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__quan_ly_kho_quan_ly_kho_component__ = __webpack_require__("../../../../../src/app/admin/quan-ly-kho/quan-ly-kho.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__kho_kho_component__ = __webpack_require__("../../../../../src/app/admin/kho/kho.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__phieu_xuat_kho_phieu_xuat_kho_component__ = __webpack_require__("../../../../../src/app/admin/phieu-xuat-kho/phieu-xuat-kho.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -109,6 +112,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 // component
+
+
+
 
 
 
@@ -151,6 +157,9 @@ AdminModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_18__quan_ly_san_pham_phieu_nhap_kho_phieu_nhap_kho_component__["a" /* PhieuNhapKhoComponent */],
             __WEBPACK_IMPORTED_MODULE_19__components_modals_modal_add_product_to_repository_modal_add_product_to_repository_component__["a" /* ModalAddProductToRepositoryComponent */],
             __WEBPACK_IMPORTED_MODULE_20__quan_ly_user_quan_ly_user_component__["a" /* QuanLyUserComponent */],
+            __WEBPACK_IMPORTED_MODULE_21__quan_ly_kho_quan_ly_kho_component__["a" /* QuanLyKhoComponent */],
+            __WEBPACK_IMPORTED_MODULE_22__kho_kho_component__["a" /* KhoComponent */],
+            __WEBPACK_IMPORTED_MODULE_23__phieu_xuat_kho_phieu_xuat_kho_component__["a" /* PhieuXuatKhoComponent */],
         ],
         exports: [
             __WEBPACK_IMPORTED_MODULE_9__admin_admin_component__["a" /* AdminComponent */],
@@ -261,7 +270,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"donhang\" class=\"donhang mb-5 mt-2\">\r\n  <span class=\"pull-left\">Chi tiết đơn hàng #{{donhang.id}} </span> - <b>{{donhang.status}}</b>\r\n  <span class=\"pull-right\">Ngày đặt hàng: {{donhang.timeModified | date:'hh:mm - dd/MM/y'}}</span>\r\n\r\n  <div class=\"row mt-4 mb-4\">\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Địa chỉ người nhận</h4>\r\n          <label for=\"city\" class=\"label-control\">Thành phố:</label>\r\n          <input type=\"text\" id=\"city\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.city\" name=\"city\">\r\n          <label for=\"address\" class=\"label-control\">Địa chỉ:</label>\r\n          <input type=\"text\" id=\"address\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.address\" name=\"address\">\r\n          \r\n          <!-- <p class=\"card-text\">Địa chỉ: {{donhang.detail}} {{donhang.address}}</p> -->\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Thông tin khách hàng</h4>\r\n          <label for=\"name\" class=\"label-control\">Tên:</label>\r\n          <input type=\"text\" id=\"name\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.name\" name=\"name\">\r\n          <label for=\"phone\" class=\"label-control\">Phone:</label>\r\n          <input type=\"text\" id=\"phone\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.phone\" name=\"phone\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Lời nhắn</h4>\r\n          <textarea class=\"form-control form-control-sm\" name=\"payment\" id=\"payment\" cols=\"32\" rows=\"2\" \r\n            [(ngModel)]=\"donhang.loi_nhan\" placeholder=\"Lời nhắn của khách hàng\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <button *ngIf=\"donhang.status === 'Chưa xử lý'\" data-toggle=\"modal\" data-target=\"#sanPham\" class=\"btn btn-outline-info btn-sm mb-2\">Thêm sản phẩm</button>\r\n  <!-- Thông tin chi tiết sản phẩm của đơn hàng -->\r\n  <div class=\"product\">\r\n    <table class=\"table\">\r\n      <thead class=\"thead-default\">\r\n        <tr>\r\n          <th>Mã SP</th>\r\n          <th width=\"45%\">Sản phẩm</th>\r\n          <th>Giá</th>\r\n          <th>Số lượng</th>\r\n          <th>Giảm giá</th>\r\n          <th width=\"10%\">Tạm tính</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let product of donhang.order_detail, index as i\">\r\n          <td>{{product.product_id}}</td>\r\n          <td width=\"50%\">\r\n            {{product.product_name}} <span *ngIf=\"donhang.status === 'Chưa xử lý'\" class=\"badge badge-danger pointer\" (click)=\"removeProduct(i)\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Delete this product\"> X</span>\r\n          </td>\r\n          <td style=\"text-align: right\">{{product.price | number}}</td>\r\n          <td><input type=\"number\" [(ngModel)]=\"product.quantity\" placeholder=\"{{product.quantity}}\" (change)=\"tinhTien(product)\"></td>\r\n          <td>{{product.sale}}0%</td>\r\n          <td style=\"text-align: right\">{{product.total_price | number}}</td>\r\n        </tr>\r\n        <tr>\r\n          <td colspan=\"5\" style=\"text-align: right\" width=\"10%\"><b>Tổng tiền</b></td>\r\n          <td style=\"text-align: right;\"><b>{{ donhang.tong_tien | number}}</b></td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n\r\n  \r\n  <div class=\"xac-nhan\" *ngIf=\"donhang.status === 'Chưa xử lý' || donhang.status === 'Đang chờ giao'\">\r\n    <button class=\"btn btn-sm btn-outline-danger pull-right ml-1\" (click)=\"deleteOrderByAdmin()\">Huỷ bỏ đơn hàng</button>\r\n    <button *ngIf=\"donhang.status === 'Chưa xử lý'\" class=\"btn btn-sm btn-outline-primary pull-right ml-1\" (click)=\"updateOrderByAdmin()\">Cập nhật</button>\r\n    <button class=\"btn btn-sm btn-outline-info pull-right\" (click)=\"refresh()\">Refresh</button>\r\n    <button class=\"btn btn-md btn-success pull-left mb-5\" (click)=\"accessOrderByAdmin(donhang.status)\">Xác nhận {{donhang.status}}</button>\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n<div class=\"modal fade\" id=\"sanPham\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"sanPhamTitle\" aria-hidden=\"true\">\r\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\r\n      <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n          <h5 class=\"modal-title\" id=\"sanPhamTitle\">Thêm Sản Phẩm </h5>\r\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n          </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n          <table class=\"table\">\r\n            <thead>\r\n              <tr>\r\n                <th>STT</th>\r\n                <th>ID</th>\r\n                <th>Tên</th>\r\n                <th width=\"10%\">Hình</th>\r\n                <th width=\"15%\">Giá(đ)</th>\r\n              </tr>\r\n            </thead>\r\n\r\n            <tbody>\r\n                <tr *ngFor=\"let product of products, index as i_product\" class=\"product\" (click)=\"onAddProduct(product)\">\r\n                    <td><b>{{i_product+1}}</b></td>\r\n                    <td>{{product.product_id}}</td>\r\n                    <td>{{product.product_name}}</td>\r\n                    <td width=\"10%\">\r\n                      <img class=\"img-fluid\" [src]=\"product.product_image\" alt=\"image\">\r\n                    </td>\r\n                    <td style=\"text-align: right\" width=\"15%\"><strong>{{product.sub_prod[0].price | number}}</strong></td>\r\n                  </tr>\r\n            </tbody>\r\n            \r\n          </table>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>"
+module.exports = "<div *ngIf=\"donhang\" class=\"donhang mb-5 mt-2\">\r\n  <span class=\"pull-left\">Chi tiết đơn hàng #{{donhang.id}} </span> -\r\n  <b>{{donhang.status}}</b>\r\n  <span class=\"pull-right\">Ngày đặt hàng: {{donhang.timeModified | date:'hh:mm - dd/MM/y'}}</span>\r\n\r\n  <div class=\"row mt-4 mb-4\">\r\n    <!-- Địa chỉ người người nhận -->\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Địa chỉ người nhận</h4>\r\n          <label for=\"city\" class=\"label-control\">Thành phố:</label>\r\n          <input type=\"text\" id=\"city\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.city\" name=\"city\">\r\n          <label for=\"address\" class=\"label-control\">Địa chỉ:</label>\r\n          <input type=\"text\" id=\"address\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.address\" name=\"address\">\r\n\r\n          <!-- <p class=\"card-text\">Địa chỉ: {{donhang.detail}} {{donhang.address}}</p> -->\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <!-- Thông tin khách hàng -->\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Thông tin khách hàng</h4>\r\n          <label for=\"name\" class=\"label-control\">Tên:</label>\r\n          <input type=\"text\" id=\"name\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.name\" name=\"name\">\r\n          <label for=\"phone\" class=\"label-control\">Phone:</label>\r\n          <input type=\"text\" id=\"phone\" class=\"form-control form-control-sm\" [(ngModel)]=\"donhang.phone\" name=\"phone\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <!-- Lời nhắn -->\r\n    <div class=\"col-md-4\">\r\n      <div class=\"card\">\r\n        <div class=\"card-body\">\r\n          <h4 class=\"card-title\">Lời nhắn</h4>\r\n          <textarea class=\"form-control form-control-sm\" name=\"payment\" id=\"payment\" cols=\"32\" rows=\"2\" [(ngModel)]=\"donhang.loi_nhan\"\r\n            placeholder=\"Lời nhắn của khách hàng\"></textarea>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <button *ngIf=\"donhang.status === 'Chưa xử lý'\" data-toggle=\"modal\" data-target=\"#sanPham\" class=\"btn btn-outline-info btn-sm mb-2\">Thêm sản phẩm</button>\r\n  <!-- Thông tin chi tiết sản phẩm của đơn hàng -->\r\n  <div class=\"product\">\r\n    <table class=\"table\">\r\n      <thead class=\"thead-default\">\r\n        <tr>\r\n          <th>Mã SP</th>\r\n          <th width=\"45%\">Sản phẩm</th>\r\n          <th>Giá</th>\r\n          <th width=\"13%\">Số lượng</th>\r\n          <th width=\"10%\">SL tồn kho</th>\r\n          <th width=\"10%\">Tạm tính</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor=\"let product of donhang.order_detail, index as i\">\r\n          <td>{{product.product_id}}</td>\r\n          <td width=\"50%\">\r\n            {{product.product_name}}\r\n            <span *ngIf=\"donhang.status === 'Chưa xử lý'\" class=\"badge badge-danger pointer\" (click)=\"removeProduct(i)\"\r\n              data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Delete this product\"> X</span>\r\n          </td>\r\n          <td style=\"text-align: right\">{{product.price | number}}</td>\r\n          <td width=\"13%\">\r\n            <input type=\"number\" class=\"form-control form-control-sm\" [ngClass]=\"{'bg-danger text-white': product.quantity > productInventory[product._id]}\"\r\n              [disabled]=\"donhang.status=='Đang chờ giao'\" [(ngModel)]=\"product.quantity\" placeholder=\"{{product.quantity}}\"\r\n              (change)=\"tinhTien(product)\">\r\n          </td>\r\n          <td width=\"10%\">\r\n            <span *ngIf=\"donhang.status === 'Chưa xử lý'\">\r\n              {{ productInventory[product._id] }}\r\n            </span>\r\n          </td>\r\n          <td style=\"text-align: right\">{{product.total_price | number}}</td>\r\n        </tr>\r\n        <tr>\r\n          <td colspan=\"5\" style=\"text-align: right\" width=\"10%\">\r\n            <b>Tổng tiền</b>\r\n          </td>\r\n          <td style=\"text-align: right;\">\r\n            <b>{{ donhang.tong_tien | number}}</b>\r\n          </td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n\r\n\r\n  <div class=\"xac-nhan clearfix\" *ngIf=\"donhang.status === 'Chưa xử lý' || donhang.status === 'Đang chờ giao'\">\r\n    <button class=\"btn btn-sm btn-outline-danger pull-right ml-1\" (click)=\"deleteOrderByAdmin()\">Huỷ bỏ đơn hàng</button>\r\n    <button *ngIf=\"donhang.status === 'Chưa xử lý'\" class=\"btn btn-sm btn-outline-primary pull-right ml-1\" (click)=\"updateOrderByAdmin()\">Cập nhật</button>\r\n    <button class=\"btn btn-sm btn-outline-info pull-right\" (click)=\"refresh()\">Refresh</button>\r\n    <button class=\"btn btn-md btn-success pull-left mb-3\" (click)=\"accessOrderByAdmin(donhang.status)\">Xác nhận {{donhang.status}}</button>\r\n  </div>\r\n\r\n  <app-phieu-xuat-kho *ngIf=\"donhang.status === 'Chưa xử lý'\" [donhang]=\"donhang\"></app-phieu-xuat-kho>\r\n</div>\r\n\r\n<!-- Modal Thêm Sản Phẩm -->\r\n<div class=\"modal fade\" id=\"sanPham\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"sanPhamTitle\" aria-hidden=\"true\">\r\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h5 class=\"modal-title\" id=\"sanPhamTitle\">Thêm Sản Phẩm </h5>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <table class=\"table\">\r\n          <thead>\r\n            <tr>\r\n              <th>STT</th>\r\n              <th>ID</th>\r\n              <th>Tên</th>\r\n              <th width=\"10%\">Hình</th>\r\n              <th width=\"15%\">Giá(đ)</th>\r\n            </tr>\r\n          </thead>\r\n\r\n          <tbody>\r\n            <tr *ngFor=\"let product of products, index as i_product\" class=\"product\" (click)=\"onAddProduct(product)\">\r\n              <td>\r\n                <b>{{i_product+1}}</b>\r\n              </td>\r\n              <td>{{product.product_id}}</td>\r\n              <td>{{product.product_name}}</td>\r\n              <td width=\"10%\">\r\n                <img class=\"img-fluid\" [src]=\"product.product_image\" alt=\"image\">\r\n              </td>\r\n              <td style=\"text-align: right\" width=\"15%\">\r\n                <strong>{{product.sub_prod[0].price | number}}</strong>\r\n              </td>\r\n            </tr>\r\n          </tbody>\r\n\r\n        </table>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -278,6 +287,8 @@ module.exports = "<div *ngIf=\"donhang\" class=\"donhang mb-5 mt-2\">\r\n  <span
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__service_admin_service__ = __webpack_require__("../../../../../src/app/service/admin.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__guest_products_products_component__ = __webpack_require__("../../../../../src/app/guest/products/products.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__phieu_xuat_kho_phieu_xuat_kho_component__ = __webpack_require__("../../../../../src/app/admin/phieu-xuat-kho/phieu-xuat-kho.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -295,21 +306,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+// component
+
+
 var ChiTietDonHangComponent = (function () {
     // private donhang: any;
-    function ChiTietDonHangComponent(mainService, guestService, adminService, route, location) {
+    function ChiTietDonHangComponent(mainService, guestService, adminService, route, location, productsComponent, phieuXuatKhoComponent) {
         this.mainService = mainService;
         this.guestService = guestService;
         this.adminService = adminService;
         this.route = route;
         this.location = location;
+        this.productsComponent = productsComponent;
+        this.phieuXuatKhoComponent = phieuXuatKhoComponent;
         this.donhang = {};
         this.products = new Array();
+        this.productInventory = {};
     }
-    // order - access, update, delete order
+    // order - access, update, delete order 
+    // Xác nhận đơn hàng chưa giao, chưa xử lý
     ChiTietDonHangComponent.prototype.accessOrderByAdmin = function (status) {
         if (status === 'Chưa xử lý') {
-            var check = confirm("Bạn có muốn chấp nhận đơn hàng này?");
+            for (var _i = 0, _a = this.donhang.order_detail; _i < _a.length; _i++) {
+                var item = _a[_i];
+                console.log(item.quantity, this.productInventory[item._id]);
+                if (item.quantity > this.productInventory[item._id]) {
+                    alert("Sản phẩm đặt vượt quá số lượng trong kho! Hãy chọn số lượng phù hợp. :))");
+                    return 0;
+                }
+            }
+            this.phieuXuatKhoComponent.addPhieuXuatKho(this.donhang);
+            var check = confirm("Bạn có muốn chấp nhận đơn hàng này? Nếu bạn xác nhận thì đơn hàng sẽ tạo một phiếu xuất kho.");
             if (check) {
                 this.donhang.status = "Đang chờ giao";
                 this.donhang.access_person = (JSON.parse(localStorage.getItem("currentUser"))).name;
@@ -379,11 +406,28 @@ var ChiTietDonHangComponent = (function () {
         location.reload();
     };
     ChiTietDonHangComponent.prototype.ngOnInit = function () {
-        this.products = JSON.parse(localStorage.getItem("products"));
+        if (sessionStorage.getItem("products") !== null) {
+            this.products = JSON.parse(sessionStorage.getItem("products"));
+        }
+        else {
+            this.products = this.productsComponent.getProducts();
+        }
+        // Lấy sản phẩm từ kho để lấy số lượng sp trong kho
+        this.getProductsFromInventory();
         console.log(this.products);
         // this.route.paramMap
         //   .switchMap((params: ParamMap) => this.adminService.getDonHang(+params.get('id')))
         //   .subscribe(donhang => this.donhang = donhang);
+    };
+    ChiTietDonHangComponent.prototype.getProductsFromInventory = function () {
+        var _this = this;
+        this.adminService.getProductsFromInventory().then(function (res) {
+            for (var _i = 0, res_1 = res; _i < res_1.length; _i++) {
+                var item = res_1[_i];
+                _this.productInventory[item._id] = item.quantity;
+            }
+            console.log(_this.productInventory);
+        });
     };
     return ChiTietDonHangComponent;
 }());
@@ -395,13 +439,119 @@ ChiTietDonHangComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-chi-tiet-don-hang',
         template: __webpack_require__("../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.css")]
+        styles: [__webpack_require__("../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_7__guest_products_products_component__["a" /* ProductsComponent */], __WEBPACK_IMPORTED_MODULE_8__phieu_xuat_kho_phieu_xuat_kho_component__["a" /* PhieuXuatKhoComponent */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__service_main_service__["a" /* MainService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__service_guest_service__["a" /* GuestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__service_guest_service__["a" /* GuestService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__service_admin_service__["a" /* AdminService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__service_admin_service__["a" /* AdminService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__service_main_service__["a" /* MainService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__service_guest_service__["a" /* GuestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__service_guest_service__["a" /* GuestService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__service_admin_service__["a" /* AdminService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__service_admin_service__["a" /* AdminService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__guest_products_products_component__["a" /* ProductsComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__guest_products_products_component__["a" /* ProductsComponent */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_8__phieu_xuat_kho_phieu_xuat_kho_component__["a" /* PhieuXuatKhoComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__phieu_xuat_kho_phieu_xuat_kho_component__["a" /* PhieuXuatKhoComponent */]) === "function" && _g || Object])
 ], ChiTietDonHangComponent);
 
-var _a, _b, _c, _d, _e;
+var _a, _b, _c, _d, _e, _f, _g;
 //# sourceMappingURL=chi-tiet-don-hang.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/kho/kho.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "th, td {\r\n    font-size: 13px;\r\n}\r\n\r\nh5 {\r\n    font-size: 16px;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/kho/kho.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div id=\"accordion\" role=\"tablist\">\n      <div class=\"card mb-1\" *ngFor=\"let product of products, index as i, first as f\">\n        <a data-toggle=\"collapse\" href=\"#collapse{{i}}\" aria-expanded=\"false\" (click)=\"onSelect(product)\">\n          <div class=\"card-header\" role=\"tab\" id=\"heading{{i}}\">\n            <h5 class=\"mb-0\">\n              {{i+1}} - {{product.product_id}} - Số lượng tồn: {{product.quantity}} {{product.don_vi_tinh}} - Giá: {{product.price | number}}đ\n            </h5>\n          </div>\n        </a>\n        <div id=\"collapse{{i}}\" class=\"collapse\" role=\"tabpanel\" data-parent=\"#accordion\">\n          <div class=\"card-body\" *ngIf=\"product === selectedProduct\" >\n            <button class=\"btn btn-sm btn-outline-success\" data-toggle=\"modal\" data-target=\"#xem-san-pham\">Xem chi tiết</button>\n            <button class=\"btn btn-sm btn-outline-danger\" data-toggle=\"modal\" data-target=\"#lich-su-nhap-xuat\">Xem lịch sử nhập xuất kho</button>\n            <img src=\"{{product_detail?.product_image}}\" alt=\"\" height=\"30px\">\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n\n  <!-- Modal -->\n  <!-- xem san pham chi tiet trong kho -->\n  <div class=\"modal fade\" id=\"xem-san-pham\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h3 class=\"modal-title\" id=\"exampleModalLabel\">Thông tin chi tiết</h3>\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n\n        <div class=\"modal-body\">\n          <div class=\"row\">\n            <div class=\"col-md-6\">\n\n              <div class=\"form-group\">\n                <label>Mã sản phẩm</label>\n                <input type=\"text\" class=\"form-control form-control-sm\" value=\"{{selectedProduct?.product_id}}\">\n              </div>\n\n              <div class=\"form-group\">\n                <label>Tên sản phẩm</label>\n                <input type=\"text\" class=\"form-control form-control-sm\" value=\"{{product_detail.product_name}}\">\n              </div>\n\n              <div class=\"form-group\">\n                <label>Số lượng còn lại trong kho</label>\n                <input type=\"text\" class=\"form-control form-control-sm\" value=\"{{selectedProduct?.quantity}} {{selectedProduct?.don_vi_tinh}}\">\n              </div>\n            </div>\n\n            <div class=\"col-md-6\">\n              <img src=\"{{product_detail.product_image}}\" width=\"100%\">\n            </div>\n          </div>\n\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <!-- xem lich su nhap xuat kho -->\n  <div class=\"modal fade\" id=\"lich-su-nhap-xuat\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h3 class=\"modal-title\" id=\"exampleModalLabel\">Lịch sử nhập xuất kho</h3>\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n\n        <div class=\"modal-body\">\n          <table class=\"table\">\n            <thead>\n              <tr>\n                <th>Mã phiếu</th>\n                <th>Người lập</th>\n                <th>Loại</th>\n                <th>Số lượng</th>\n                <th>Đơn giá</th>\n                <th>Thành tiền</th>\n                <th>Thời gian</th>\n              </tr>\n            </thead>\n            <tbody *ngIf=\"phieuNhapXuat\">\n              <tr *ngFor=\"let phieu of phieuNhapXuat, index as i\">\n                <td>{{phieu.phieu_id}}</td>\n                <td>{{phieu.nguoi_lap_phieu}}</td>\n                <td>{{phieu.kind}}</td>\n                <td>\n                  <span *ngFor=\"let p of phieu.products_detail\">\n                    <span *ngIf=\"p._id === selectedProduct._id\">\n                      {{p.quantity}} {{p.don_vi_tinh}}\n                    </span>\n                  </span>\n                </td>\n\n                <td>\n                    <span *ngFor=\"let p of phieu.products_detail\">\n                      <span *ngIf=\"p._id === selectedProduct._id\">\n                        {{p.price | number}}đ\n                      </span>\n                    </span>\n                  </td>\n\n                <td>\n                  <span *ngFor=\"let p of phieu.products_detail\">\n                    <span *ngIf=\"p._id === selectedProduct._id\">\n                      {{p.thanh_tien | number}}đ\n                    </span>\n                  </span>\n                </td>\n\n                <td>{{phieu.nowDate | date}}</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/kho/kho.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return KhoComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_admin_service__ = __webpack_require__("../../../../../src/app/service/admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+// service
+
+
+var KhoComponent = (function () {
+    function KhoComponent(adminService, guestService) {
+        this.adminService = adminService;
+        this.guestService = guestService;
+        this.products = new Array();
+        this.product_detail = {};
+        this.phieuNhapXuat = new Array();
+        this.PNX_product = {};
+    }
+    KhoComponent.prototype.getProductsFromInventory = function () {
+        var _this = this;
+        this.adminService.getProductsFromInventory().then(function (res) {
+            console.log(res);
+            _this.products = res;
+        }, function (res) { return console.log(res); });
+        [];
+    };
+    // Chọn sản phẩm và lấy sản phẩm ra
+    KhoComponent.prototype.onSelect = function (product) {
+        this.product_detail = {};
+        this.selectedProduct = product;
+        this.getProductByProductID(product._id);
+        this.getPurchaseByProductID(product._id);
+    };
+    // Lấy sản phẩm để hiện chi tiết
+    KhoComponent.prototype.getProductByProductID = function (id) {
+        var _this = this;
+        this.guestService.getProductDetail(id).subscribe(function (res) {
+            _this.product_detail = res;
+            console.log(res);
+        }, function (res) { return console.log(res); });
+    };
+    // Lấy list phiếu nhập xuất và lọc lấy số lượng, tổng tiền
+    KhoComponent.prototype.getPurchaseByProductID = function (id) {
+        var _this = this;
+        this.adminService.getPurchaseByProductID(id).then(function (res) {
+            _this.phieuNhapXuat = res;
+            console.log(res);
+        }, function (res) { return console.log(res); });
+    };
+    KhoComponent.prototype.ngOnInit = function () {
+        this.getProductsFromInventory();
+    };
+    return KhoComponent;
+}());
+KhoComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-kho',
+        template: __webpack_require__("../../../../../src/app/admin/kho/kho.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/admin/kho/kho.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_admin_service__["a" /* AdminService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_admin_service__["a" /* AdminService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__service_guest_service__["a" /* GuestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__service_guest_service__["a" /* GuestService */]) === "function" && _b || Object])
+], KhoComponent);
+
+var _a, _b;
+//# sourceMappingURL=kho.component.js.map
 
 /***/ }),
 
@@ -475,6 +625,135 @@ NavAdminComponent = __decorate([
 
 var _a;
 //# sourceMappingURL=nav-admin.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/phieu-xuat-kho/phieu-xuat-kho.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/phieu-xuat-kho/phieu-xuat-kho.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h3 class=\"display-4 mb-4\">Phiếu Xuất Kho - Ngày: {{phieuXuatKho.nowDate | date:'dd/MM/y'}}</h3>\n<table class=\"table table-bordered mt-2\">\n    <thead class=\"thead-default\">\n        <tr>\n            <th>Mã phiếu</th>\n            <th>Người lập phiếu</th>\n            <th>Thời gian lập</th>\n        </tr>\n    </thead>\n    <tbody>\n        <tr>\n            <td width=\"200px\">\n                <input id=\"ma_phieu\" type=\"text\" class=\"form-control\" placeholder=\"PXK201719101\">\n            </td>\n            <td id=\"nguoi_lap_phieu\">Cao Minh Hưng</td>\n            <td>{{phieuXuatKho.nowDate | date:'hh:mm - dd/MM/y'}}</td>\n        </tr>\n    </tbody>\n</table>\n\n<table class=\"table table-striped mt-3\">\n    <thead class=\"thead-inverse\">\n        <tr>\n            <th>STT</th>\n            <th>Tên SP</th>\n            <th>Mã</th>\n            <th>Đơn vị tính</th>\n            <th>Số lượng</th>\n            <th>Đơn giá</th>\n            <th>Thành tiền</th>\n        </tr>\n    </thead>\n\n    <tbody>\n        <tr *ngFor=\"let product of donhang.order_detail, let i = index\">\n            <td scope=\"row\">{{i+1}}</td>\n            <td>{{product.product_name}}</td>\n            <td>{{product.product_id}}</td>\n            <td>{{product.don_vi_tinh}}</td>\n            <td>{{product.quantity}}</td>\n            <td>{{product.price | number}}</td>\n            <td>{{product.total_price| number}}</td>\n        </tr>\n        <tr>\n            <td colspan=\"6\" class=\"tong-tien text-right\">Tổng tiền</td>\n            <td colspan=\"2\" class=\"thanh-tien text-right\">{{donhang.tong_tien | number}}đ</td>\n        </tr>\n    </tbody>\n</table>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/phieu-xuat-kho/phieu-xuat-kho.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PhieuXuatKhoComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_main_service__ = __webpack_require__("../../../../../src/app/service/main.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_admin_service__ = __webpack_require__("../../../../../src/app/service/admin.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+// service
+
+
+var PhieuXuatKhoComponent = (function () {
+    function PhieuXuatKhoComponent(mainService, adminService) {
+        this.mainService = mainService;
+        this.adminService = adminService;
+        this.phieuXuatKho = {};
+    }
+    PhieuXuatKhoComponent.prototype.addPhieuXuatKho = function (donhang) {
+        var _this = this;
+        this.phieuXuatKho.phieu_id = $('#ma_phieu').val();
+        this.phieuXuatKho.kind = "Xuất kho";
+        this.phieuXuatKho.nowDate = new Date;
+        this.phieuXuatKho.tong_tien = donhang.tong_tien;
+        this.phieuXuatKho.products_detail = donhang.order_detail;
+        this.phieuXuatKho.nguoi_lap_phieu = $("#nguoi_lap_phieu").html();
+        console.log(this.phieuXuatKho);
+        // this.adminService.getProductsFromInventory().then(res => {
+        //   console.log(res);
+        // })
+        if (donhang.order_detail.length != 0) {
+            this.mainService.addPhieuNhapXuatKho(this.phieuXuatKho)
+                .then(function (res) {
+                console.log("Thêm phiếu xuất hàng thành công.");
+                /*Sau khi thêm phiếu thành công thì giảm sp trong kho
+                  thì cập nhật số lượng*/
+                _this.updateProductsToInventory(_this.phieuXuatKho.products_detail);
+            }, function (res) { return console.log(res); });
+        }
+    };
+    PhieuXuatKhoComponent.prototype.updateProductsToInventory = function (sanPham) {
+        console.log(sanPham);
+        for (var _i = 0, sanPham_1 = sanPham; _i < sanPham_1.length; _i++) {
+            var item = sanPham_1[_i];
+            console.log(item);
+            // Cộng thêm sản phẩm vào kho
+            this.adminService.updateProductQuantityToInventory(item).then(function (res) {
+                console.log(res);
+            }, function (res) { return console.log(res); });
+        }
+    };
+    PhieuXuatKhoComponent.prototype.ngOnInit = function () {
+        this.initPhieuXuatKho();
+    };
+    // updateOneProductToIncentory(item: any): any {
+    //   console.log("Update new product");
+    //   this.oneProduct = {
+    //     _id: item._id,
+    //     product_id: item.product_id,
+    //     price: item.price,
+    //     quantity: item.quantity,
+    //     modifiedDate: new Date()
+    //   };
+    //   this.mainService.updateProductToInventory(this.oneProduct).then(res => {
+    //     console.log(res);
+    //   }, res => console.log(res));
+    // }
+    PhieuXuatKhoComponent.prototype.initPhieuXuatKho = function () {
+        this.phieuXuatKho = {
+            nowDate: new Date(),
+            tong_tien: 0,
+            kind: "Xuất kho"
+        };
+        $("#ma_phieu").val("PXK" + this.mainService.convertTime());
+    };
+    return PhieuXuatKhoComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object)
+], PhieuXuatKhoComponent.prototype, "donhang", void 0);
+PhieuXuatKhoComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-phieu-xuat-kho',
+        template: __webpack_require__("../../../../../src/app/admin/phieu-xuat-kho/phieu-xuat-kho.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/admin/phieu-xuat-kho/phieu-xuat-kho.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_main_service__["a" /* MainService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__service_admin_service__["a" /* AdminService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__service_admin_service__["a" /* AdminService */]) === "function" && _b || Object])
+], PhieuXuatKhoComponent);
+
+var _a, _b;
+//# sourceMappingURL=phieu-xuat-kho.component.js.map
 
 /***/ }),
 
@@ -582,6 +861,67 @@ var _a, _b;
 
 /***/ }),
 
+/***/ "../../../../../src/app/admin/quan-ly-kho/quan-ly-kho.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/quan-ly-kho/quan-ly-kho.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  quan-ly-kho works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/quan-ly-kho/quan-ly-kho.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QuanLyKhoComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var QuanLyKhoComponent = (function () {
+    function QuanLyKhoComponent() {
+    }
+    QuanLyKhoComponent.prototype.ngOnInit = function () {
+    };
+    return QuanLyKhoComponent;
+}());
+QuanLyKhoComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-quan-ly-kho',
+        template: __webpack_require__("../../../../../src/app/admin/quan-ly-kho/quan-ly-kho.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/admin/quan-ly-kho/quan-ly-kho.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], QuanLyKhoComponent);
+
+//# sourceMappingURL=quan-ly-kho.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/admin/quan-ly-san-pham/all-product/all-product.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -590,7 +930,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "td {\r\n    padding: 10px;\r\n}\r\n\r\ntable {\r\n    table-layout: fixed;\r\n}\r\n\r\ntable, td {\r\n    border-collapse: collapse;\r\n    vertical-align: top;\r\n    border-top: 1px solid #e9ecef;\r\n}\r\n\r\nth {\r\n    text-align: center;\r\n}\r\n\r\ntr {\r\n    cursor: pointer;\r\n}\r\n\r\ntr:hover {\r\n    background: rgba(0,0,0,0.1);\r\n}\r\n\r\n.name {\r\n    width: 25%;\r\n    overflow-x: hidden;\r\n}\r\n.image-url {\r\n    max-width: 100px;\r\n    overflow-x: hidden;\r\n}\r\n\r\n/* \r\n@media only screen and (max-width: 768px) {\r\n    \r\n} */", ""]);
+exports.push([module.i, "td {\r\n    padding: 10px;\r\n}\r\n\r\ntable {\r\n    table-layout: fixed;\r\n}\r\n\r\ntable, td {\r\n    border-collapse: collapse;\r\n    vertical-align: top;\r\n    border-top: 1px solid #e9ecef; \r\n}\r\n\r\nth {\r\n    text-align: center;\r\n    font-size: 13px;\r\n}\r\n\r\ntr {\r\n    cursor: pointer;\r\n    font-size: 13px;\r\n}\r\n\r\ntr:hover {\r\n    background: rgba(0,0,0,0.1);\r\n}\r\n\r\n.name {\r\n    width: 25%;\r\n    overflow-x: hidden;\r\n}\r\n.image-url {\r\n    max-width: 100px;\r\n    overflow-x: hidden;\r\n}\r\n\r\n/* \r\n@media only screen and (max-width: 768px) {\r\n    \r\n} */", ""]);
 
 // exports
 
@@ -603,7 +943,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/quan-ly-san-pham/all-product/all-product.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Tất cả các sản phẩm</h3>\r\n<table class=\"table table-default table-bordered\">\r\n    <tr>\r\n        <th>ID</th>\r\n        <th class=\"name\">Tên</th>\r\n        <th>Loại</th>\r\n        <th>Nhãn hiệu </th>\r\n        <th>Xuất xứ</th>\r\n        <th>Dung tích</th>\r\n        <th>Giới tính</th>\r\n        <th class=\"image-url\">Hình ảnh</th>\r\n    </tr>\r\n\r\n    <tr *ngFor=\"let product of products\" data-toggle=\"modal\" data-target=\"#modalProduct\" [class.selected]=\"product === selectedProduct\" (click)=\"onSelect(product)\">\r\n        <td>{{product.product_id}}</td>\r\n        <td class=\"name\">{{product.product_name}}</td>\r\n        <td>{{product.product_kind}}</td>\r\n        <td>{{product.product_label}}</td>\r\n        <td>{{product.product_madein}}</td>\r\n        <td>{{product.product_size}}</td>\r\n        <td>{{product.product_gender}}</td>\r\n        <td class=\"image-url\">\r\n            {{product.product_image}}\r\n        </td>\r\n    </tr>\r\n</table>\r\n\r\n<!-- Button trigger modal\r\nKhi click vào mỗi dòng sẽ hiện modal của từng sản phẩm để admin có thể thay đổi thông tin sản phẩm\r\n-->\r\n\r\n<!-- Modal -->\r\n<app-modal-product [product]=\"selectedProduct\"></app-modal-product>"
+module.exports = "<h3>Tất cả các sản phẩm</h3>\r\n<table class=\"table table-default table-bordered\">\r\n    <tr>\r\n        <th>ID</th>\r\n        <th class=\"name\">Tên</th>\r\n        <th>Loại</th>\r\n        <th>Dung tích</th>\r\n        <th class=\"image-url\">Hình ảnh</th>\r\n    </tr>\r\n\r\n    <tr *ngFor=\"let product of products\" data-toggle=\"modal\" data-target=\"#modalProduct\" [class.selected]=\"product === selectedProduct\" (click)=\"onSelect(product)\">\r\n        <td>{{product.product_id}}</td>\r\n        <td class=\"name\">{{product.product_name}}</td>\r\n        <td>{{product.product_kind}}</td>\r\n        <td>{{product.product_size}}</td>\r\n        <td class=\"image-url\">\r\n            <img src=\"{{product.product_image}}\" width=\"60px\" >\r\n        </td>\r\n    </tr>\r\n</table>\r\n\r\n<!-- Button trigger modal\r\nKhi click vào mỗi dòng sẽ hiện modal của từng sản phẩm để admin có thể thay đổi thông tin sản phẩm\r\n-->\r\n\r\n<!-- Modal -->\r\n<app-modal-product [product]=\"selectedProduct\"></app-modal-product>"
 
 /***/ }),
 
@@ -681,7 +1021,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/quan-ly-san-pham/phieu-nhap-kho/phieu-nhap-kho.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3 class=\"display-3 mb-4\">Phiếu Nhập Kho - Ngày: {{phieuNhapKho.nowDate | date:'dd/MM/y'}}</h3>\r\n\r\n<table class=\"table table-bordered mt-2\">\r\n    <thead class=\"thead-default\">\r\n        <tr>\r\n            <th>Mã phiếu</th>\r\n            <th>Người lập phiếu</th>\r\n            <th>Thời gian lập</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td width=\"200px\">\r\n                <input id=\"ma_phieu\" type=\"text\" class=\"form-control\" placeholder=\"PNK201719101\">\r\n            </td>\r\n            <td id=\"nguoi_lap_phieu\">Cao Minh Hưng</td>\r\n            <td>{{phieuNhapKho.nowDate | date:'hh:mm - dd/MM/y'}}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n\r\n<!-- button Thêm sản phẩm -->\r\n<button class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#add-product-to-repository\">Thêm sản phẩm</button>\r\n<app-modal-add-product-to-repository (oneProduct)=\"pushOneProduct($event)\">\r\n</app-modal-add-product-to-repository>\r\n<button class=\"btn btn-success float-right\" (click)=\"addPhieuNhapKho()\">Lưu Phiếu Nhập Kho</button>\r\n\r\n<table class=\"table table-striped mt-3\">\r\n    <thead class=\"thead-inverse\">\r\n        <tr>\r\n            <th>STT</th>\r\n            <th>Tên SP</th>\r\n            <th>Mã</th>\r\n            <th>Đơn vị tính</th>\r\n            <th>Số lượng</th>\r\n            <th>Đơn giá</th>\r\n            <th>Thành tiền</th>\r\n            <th>Xoá</th>\r\n        </tr>\r\n    </thead>\r\n\r\n    <tbody>\r\n        <tr *ngFor=\"let product of products, let i = index\">\r\n            <td scope=\"row\">{{i+1}}</td>\r\n            <td>{{product.product_name}}</td>\r\n            <td>{{product.product_id}}</td>\r\n            <td>{{product.don_vi_tinh}}</td>\r\n            <td>{{product.quantity}}</td>\r\n            <td>{{product.price}}</td>\r\n            <td>{{product.thanh_tien}}</td>\r\n            <td>\r\n                <button class=\"btn btn-danger btn-sm\" (click)=\"deleteOneProcut(i)\">x</button>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td colspan=\"6\" class=\"tong-tien\">Tổng tiền</td>\r\n            <td colspan=\"2\" class=\"thanh-tien\">{{phieuNhapKho.tong_tien}}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n\r\n"
+module.exports = "<h3 class=\"display-3 mb-4\">Phiếu Nhập Kho - Ngày: {{phieuNhapKho.nowDate | date:'dd/MM/y'}}</h3>\r\n<table class=\"table table-bordered mt-2\">\r\n    <thead class=\"thead-default\">\r\n        <tr>\r\n            <th>Mã phiếu</th>\r\n            <th>Người lập phiếu</th>\r\n            <th>Thời gian lập</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td width=\"200px\">\r\n                <input id=\"ma_phieu\" type=\"text\" class=\"form-control\" placeholder=\"PNK201719101\">\r\n            </td>\r\n            <td id=\"nguoi_lap_phieu\">Cao Minh Hưng</td>\r\n            <td>{{phieuNhapKho.nowDate | date:'hh:mm - dd/MM/y'}}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n\r\n<!-- button Thêm sản phẩm -->\r\n<button class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#add-product-to-repository\">Thêm sản phẩm</button>\r\n\r\n<app-modal-add-product-to-repository (oneProduct)=\"pushOneProduct($event)\">\r\n</app-modal-add-product-to-repository>\r\n<button class=\"btn btn-success float-right\" (click)=\"addPhieuNhapKho()\">Lưu Phiếu Nhập Kho</button>\r\n\r\n<table class=\"table table-striped mt-3\">\r\n    <thead class=\"thead-inverse\">\r\n        <tr>\r\n            <th>STT</th>\r\n            <th>Tên SP</th>\r\n            <th>Mã</th>\r\n            <th>Đơn vị tính</th>\r\n            <th>Số lượng</th>\r\n            <th>Đơn giá</th>\r\n            <th>Thành tiền</th>\r\n            <th>Xoá</th>\r\n        </tr>\r\n    </thead>\r\n\r\n    <tbody>\r\n        <tr *ngFor=\"let product of products, let i = index\">\r\n            <td scope=\"row\">{{i+1}}</td>\r\n            <td>{{product.product_name}}</td>\r\n            <td>{{product.product_id}}</td>\r\n            <td>{{product.don_vi_tinh}}</td>\r\n            <td>{{product.quantity}}</td>\r\n            <td>{{product.price}}</td>\r\n            <td>{{product.thanh_tien}}</td>\r\n            <td>\r\n                <button class=\"btn btn-danger btn-sm\" (click)=\"deleteOneProcut(i)\">x</button>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td colspan=\"6\" class=\"tong-tien\">Tổng tiền</td>\r\n            <td colspan=\"2\" class=\"thanh-tien\">{{phieuNhapKho.tong_tien}}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n\r\n"
 
 /***/ }),
 
@@ -735,11 +1075,12 @@ var PhieuNhapKhoComponent = (function () {
     };
     PhieuNhapKhoComponent.prototype.addPhieuNhapKho = function () {
         var _this = this;
-        this.phieuNhapKho.phieuNhapKho_id = $('#ma_phieu').val();
+        this.phieuNhapKho.phieu_id = $('#ma_phieu').val();
         this.phieuNhapKho.products_detail = this.products;
         this.phieuNhapKho.nguoi_lap_phieu = $("#nguoi_lap_phieu").html();
         if (this.products.length != 0) {
-            this.mainService.addPhieuNhapKho(this.phieuNhapKho)
+            console.log(this.products);
+            this.mainService.addPhieuNhapXuatKho(this.phieuNhapKho)
                 .then(function (res) {
                 console.log("Add Purchasing Success!");
                 alert("Thêm phiếu nhập hàng thành công.");
@@ -755,6 +1096,7 @@ var PhieuNhapKhoComponent = (function () {
     // inventory
     PhieuNhapKhoComponent.prototype.addProductsToInventory = function (phieuNhapKho) {
         var _this = this;
+        console.log(phieuNhapKho);
         var _loop_1 = function (item) {
             this_1.mainService.getProductFromInventory(item._id).then(function (res) {
                 if (res === null) {
@@ -778,6 +1120,7 @@ var PhieuNhapKhoComponent = (function () {
         this.oneProduct = {
             _id: item._id,
             product_id: item.product_id,
+            don_vi_tinh: item.don_vi_tinh,
             price: item.price,
             quantity: item.quantity,
             modifiedDate: new Date()
@@ -807,7 +1150,8 @@ var PhieuNhapKhoComponent = (function () {
         this.products = new Array();
         this.phieuNhapKho = {
             nowDate: new Date(),
-            tong_tien: 0
+            tong_tien: 0,
+            kind: "Nhập kho"
         };
         $("#ma_phieu").val("PNK" + this.mainService.convertTime());
     };
@@ -848,7 +1192,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/quan-ly-san-pham/quan-ly-san-pham.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-admin [isActive]=\"2\"></app-nav-admin>\r\n\r\n<div class=\"container-fluid quan-ly-san-pham\">\r\n    <div class=\"row wrapper\">\r\n        <div class=\"col-md-2 col-1 pl-0 pr-0 collapse width show\" id=\"sidebar\">\r\n            <div class=\"list-group border-0 card text-center text-md-left\">\r\n                <a data-toggle=\"tab\" href=\"#new-product\" roll=\"tab\" class=\"list-group-item d-inline-block collapsed\" data-parent=\"#sidebar\" aria-controls=\"new-product\">\r\n                    <i class=\"fa fa-hand-lizard-o\"></i> \r\n                    <span class=\"d-none d-md-inline\">\r\n                        Thêm sản phẩm \r\n                    </span> \r\n                </a>\r\n\r\n                <a data-toggle=\"tab\" href=\"#phieu-nhap-hang\" roll=\"tab\" class=\"list-group-item d-inline-block collapsed\" data-parent=\"#sidebar\" aria-controls=\"phieu-nhap-hang\">\r\n                    <i class=\"fa fa-ticket\"></i> \r\n                    <span class=\"d-none d-md-inline\">\r\n                        Phiếu nhập kho\r\n                    </span> \r\n                </a>\r\n\r\n                <a href=\"#loai-san-pham\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                    <i class=\"fa fa-truck\"></i> \r\n                    <span class=\"d-none d-md-inline\">Loại sản phẩm</span> \r\n                </a>\r\n\r\n                <div class=\"collapse\" id=\"loai-san-pham\">\r\n                    <a class=\"list-group-item\" data-parent=\"#loai-san-pham\" [style.cursor]=\"'pointer'\">Chăm sóc da <span class=\"badge badge-light\">30</span></a>\r\n\r\n                    <a class=\"list-group-item\" data-parent=\"#loai-san-pham\" [style.cursor]=\"'pointer'\">Chăm sóc body <span class=\"badge badge-light\">10</span></a>\r\n\r\n                    <a class=\"list-group-item\" data-parent=\"#loai-san-pham\" [style.cursor]=\"'pointer'\">Son môi <span class=\"badge badge-light\">15</span></a>\r\n                </div>\r\n                <a class=\"list-group-item d-inline-block collapsed\" data-toggle=\"tab\" href=\"#all\" roll=\"tab\"  aria-controls=\"all\" (click)=\"getProducts()\">\r\n                        <i class=\"fa fa-database\"></i> \r\n                        <span class=\"d-none d-md-inline\">All \r\n                            <span class=\"badge badge-info\">55</span>\r\n                        </span> \r\n                </a>\r\n            </div>\r\n        </div>\r\n        <main class=\"col-md-10 pb-4 pt-3\">\r\n            <div class=\"tab-content\" id=\"myTabContent\">\r\n                <div class=\"tab-pane fade\" id=\"new-product\" role=\"tabpanel\">\r\n                    <app-them-san-pham></app-them-san-pham>\r\n                </div>\r\n                <div class=\"tab-pane fade show active\" id=\"phieu-nhap-hang\" role=\"tabpanel\">\r\n                    <app-phieu-nhap-kho></app-phieu-nhap-kho>\r\n                </div>\r\n                <div class=\"tab-pane fade\" id=\"all\" role=\"tabpanel\">\r\n                    <app-all-product></app-all-product>\r\n                </div>\r\n            </div>\r\n        </main>\r\n    </div>\r\n</div>"
+module.exports = "<app-nav-admin [isActive]=\"2\"></app-nav-admin>\r\n\r\n<div class=\"container-fluid quan-ly-san-pham\">\r\n    <div class=\"row wrapper\">\r\n        <div class=\"col-md-2 col-1 pl-0 pr-0 collapse width show\" id=\"sidebar\">\r\n            <div class=\"list-group border-0 card text-center text-md-left\">\r\n                <a data-toggle=\"tab\" href=\"#new-product\" roll=\"tab\" class=\"list-group-item d-inline-block collapsed\" data-parent=\"#sidebar\"\r\n                    aria-controls=\"new-product\">\r\n                    <i class=\"fa fa-hand-lizard-o\"></i>\r\n                    <span class=\"d-none d-md-inline\">\r\n                        Thêm sản phẩm\r\n                    </span>\r\n                </a>\r\n\r\n                <a class=\"list-group-item d-inline-block collapsed\" data-toggle=\"tab\" href=\"#all\" roll=\"tab\" aria-controls=\"all\" (click)=\"getProducts()\">\r\n                    <i class=\"fa fa-database\"></i>\r\n                    <span class=\"d-none d-md-inline\">Sản phẩm\r\n                        <span class=\"badge badge-info\"></span>\r\n                    </span>\r\n                </a>\r\n\r\n                <a data-toggle=\"tab\" href=\"#phieu-nhap-hang\" roll=\"tab\" class=\"list-group-item d-inline-block collapsed\" data-parent=\"#sidebar\"\r\n                    aria-controls=\"phieu-nhap-hang\">\r\n                    <i class=\"fa fa-ticket\"></i>\r\n                    <span class=\"d-none d-md-inline\">\r\n                        Phiếu nhập kho\r\n                    </span>\r\n                </a>\r\n\r\n                <a class=\"list-group-item d-inline-block collapsed\" data-toggle=\"tab\" href=\"#kho\" roll=\"tab\" aria-controls=\"kho\" (click)=\"getProducts()\">\r\n                    <i class=\"fa fa-database\"></i>\r\n                    <span class=\"d-none d-md-inline\">Kho\r\n                        <span class=\"badge badge-info\"></span>\r\n                    </span>\r\n                </a>\r\n\r\n                <a href=\"#loai-san-pham\" class=\"list-group-item d-inline-block collapsed\" data-toggle=\"collapse\" aria-expanded=\"false\">\r\n                    <i class=\"fa fa-truck\"></i>\r\n                    <span class=\"d-none d-md-inline\">Loại sản phẩm</span>\r\n                </a>\r\n\r\n                <div class=\"collapse\" id=\"loai-san-pham\">\r\n                    <a class=\"list-group-item\" data-parent=\"#loai-san-pham\" [style.cursor]=\"'pointer'\">Chăm sóc da\r\n                        <span class=\"badge badge-light\">30</span>\r\n                    </a>\r\n\r\n                    <a class=\"list-group-item\" data-parent=\"#loai-san-pham\" [style.cursor]=\"'pointer'\">Chăm sóc body\r\n                        <span class=\"badge badge-light\">10</span>\r\n                    </a>\r\n\r\n                    <a class=\"list-group-item\" data-parent=\"#loai-san-pham\" [style.cursor]=\"'pointer'\">Son môi\r\n                        <span class=\"badge badge-light\">15</span>\r\n                    </a>\r\n                </div>\r\n               \r\n            </div>\r\n        </div>\r\n        <main class=\"col-md-10 pb-4 pt-3\">\r\n            <div class=\"tab-content\" id=\"myTabContent\">\r\n                <div class=\"tab-pane fade\" id=\"new-product\" role=\"tabpanel\">\r\n                    <app-them-san-pham></app-them-san-pham>\r\n                </div>\r\n                <div class=\"tab-pane fade show active\" id=\"phieu-nhap-hang\" role=\"tabpanel\">\r\n                    <app-phieu-nhap-kho></app-phieu-nhap-kho>\r\n                </div>\r\n                <div class=\"tab-pane fade\" id=\"all\" role=\"tabpanel\">\r\n                    <app-all-product></app-all-product>\r\n                </div>\r\n                <div class=\"tab-pane fade\" id=\"kho\" role=\"tabpanel\">\r\n                    <app-kho></app-kho>\r\n                </div>\r\n            </div>\r\n        </main>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1880,7 +2224,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "label {\r\n    font-size: 14px;\r\n}", ""]);
 
 // exports
 
@@ -1893,7 +2237,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/modals/modal-add-product-to-repository/modal-add-product-to-repository.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"add-product-to-repository\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"add-product-to-repositoryLabel\"\n  aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"add-product-to-repositoryLabel\">Thêm một sản phẩm</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n \n        <form>\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <label for=\"product_name\">Tên sản phẩm</label>\n                <select #productName class=\"form-control\" id=\"product_name\" (change)=\"onSelect(productName.value)\">\n                  <option *ngFor=\"let product of products\" >{{ product.product_name}}</option>\n                </select>\n              </div>\n              <div class=\"col-md-6\">\n                <label for=\"product_id\">Mã sản phẩm</label>\n                <input *ngIf=\"selectedProduct\" type=\"text\" class=\"form-control\" id=\"product_id\" placeholder=\"Mã sản phẩm\" [(ngModel)]=\"selectedProduct.product_id\"\n                  name=\"product_id\">\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"don-vi-tinh\">Đơn vị tính</label>\n            <select *ngIf=\"selectedProduct\" id=\"don-vi-tinh\" class=\"form-control\" [(ngModel)]=\"selectedProduct.don_vi_tinh\"  name=\"don_vi_tinh\">\n              <option value=\"Hộp\" selected>Hộp</option>\n              <option value=\"Thỏi\">Thỏi</option>\n              <option value=\"Tuýt\">Tuýt</option>\n            </select>\n          </div>\n\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <label for=\"quantity\">Số lượng</label>\n                <input *ngIf=\"selectedProduct\" id=\"quantity\" class=\"form-control\" type=\"number\" min=\"1\" max=\"1000\" (blur)=\"tinhThanhTien()\"\n                  [(ngModel)]=\"selectedProduct.quantity\" name=\"quantity\">\n              </div>\n              <div class=\"col-md-6\">\n                <label for=\"price\">Đơn giá</label>\n                <input *ngIf=\"selectedProduct\" id=\"price\" class=\"form-control\" type=\"number\" min=\"1000\" max=\"10000000\" step=\"1000\" (blur)=\"tinhThanhTien()\"\n                  [(ngModel)]=\"selectedProduct.price\" name=\"price\">\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <label for=\"thanh-tien\">Thành tiền</label>\n            <input *ngIf=\"selectedProduct\" id=\"thanh-tien\" class=\"form-control\" type=\"number\" [(ngModel)]=\"selectedProduct.thanh_tien\"\n              name=\"thanh_tien\" disabled>\n          </div>\n        </form>\n      </div>\n\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"pushOneProduct()\">Save changes</button>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"add-product-to-repository\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"add-product-to-repositoryLabel\"\n  aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"add-product-to-repositoryLabel\">Thêm một sản phẩm</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n \n        <form>\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <label for=\"product_name\">Tên sản phẩm</label>\n                <select #productName class=\"form-control form-control-sm\" id=\"product_name\" (change)=\"onSelect(productName.value)\">\n                  <option *ngFor=\"let product of products\" >\n                    {{product.product_name}}\n                  </option>\n                </select>\n              </div>\n              <div class=\"col-md-6\">\n                <label for=\"product_id\">Mã sản phẩm</label>\n                <input *ngIf=\"selectedProduct\" type=\"text\" class=\"form-control form-control-sm\" id=\"product_id\" placeholder=\"Mã sản phẩm\" [(ngModel)]=\"selectedProduct.product_id\"\n                  name=\"product_id\">\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                  <label for=\"don-vi-tinh\">Đơn vị tính</label>\n                  <select *ngIf=\"selectedProduct\" id=\"don-vi-tinh\" class=\"form-control form-control-sm\" [(ngModel)]=\"selectedProduct.don_vi_tinh\"  name=\"don_vi_tinh\">\n                    <option value=\"Hộp\" selected>Hộp</option>\n                    <option value=\"Thỏi\">Thỏi</option>\n                    <option value=\"Tuýt\">Tuýt</option>\n                  </select>\n              </div>\n\n              <div class=\"col-md-6\">\n                  <label for=\"size\">Trọng lượng</label>\n                  <input *ngIf=\"selectedProduct\" id=\"size\" class=\"form-control form-control-sm\" type=\"text\"\n                  [(ngModel)]=\"selectedProduct.product_size\" name=\"size\" disabled>\n              </div>\n            </div>\n            \n          </div>\n\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-4\">\n                <label for=\"quantity\">Số lượng</label>\n                <input *ngIf=\"selectedProduct\" id=\"quantity\" class=\"form-control form-control-sm\" type=\"number\" min=\"1\" max=\"1000\" (blur)=\"tinhThanhTien()\"\n                  [(ngModel)]=\"selectedProduct.quantity\" name=\"quantity\">\n              </div>\n              <div class=\"col-md-4\">\n                <label for=\"price\">Đơn giá</label>\n                <input *ngIf=\"selectedProduct\" id=\"price\" class=\"form-control form-control-sm\" type=\"number\" min=\"1000\" max=\"10000000\" step=\"1000\" (blur)=\"tinhThanhTien()\"\n                  [(ngModel)]=\"selectedProduct.price\" name=\"price\">\n              </div>\n\n              <div class=\"col-md-4\">\n                  <label for=\"thanh-tien\">Thành tiền</label>\n                  <input *ngIf=\"selectedProduct\" id=\"thanh-tien\" class=\"form-control form-control-sm\" type=\"number\" [(ngModel)]=\"selectedProduct.thanh_tien\"\n                    name=\"thanh_tien\" disabled>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                  <label>Hình sản phẩm</label> <br>\n                  <img src=\"{{selectedProduct?.product_image}}\" width=\"70px\">\n              </div>\n            </div>\n          </div>\n        </form>\n      </div>\n\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"pushOneProduct()\">Save changes</button>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -3520,7 +3864,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/product-detail/product-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-guest></app-nav-guest>\n\n<div style=\"background: #f5f5f5;\">\n  <div class=\"\">\n    <div class=\"gioi-thieu-san-pham row mb-4\">\n      <div class=\"product-image col-md-4\">\n        <img class=\"image\" [src]=\"product?.product_image\" alt=\"\">\n      </div>\n      <div class=\"product-info col-md-8\">\n        <h2 class=\"display-4\">{{product?.product_name}}</h2>\n        <div class=\"price\">\n          <span class=\"price-present\">{{product?.price | number}}đ</span>\n        </div>\n\n        <app-go-back></app-go-back> \n        <!-- <hr>\n\n        <div class=\"shopee-product-info-body__row shopee-product-info-body__free-shipping\">\n          <span class=\"shopee-product-info-body__free-shipping-text\">Miễn Phí Vận Chuyển cho đơn hàng có giá trị từ ₫180.000 (giảm tối đa 50.000 VNĐ)</span>\n        </div>\n        <div class=\"shopee-product-info-body__shipping-block-label\">Vận chuyển tới: Hà Nội, Huyện Ba Vì</div>\n        <div class=\"shopee-product-info-body__shipping-block-label\">phí vận chuyển: ₫0</div> -->\n        <hr>\n\n        <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\n          <button type=\"button\" class=\"btn btn-danger\" (click)=\"decrease()\">-</button>\n          <input type=\"number\" style=\"width: 40px !important;\" value=\"{{product?.quantity}}\" min=\"1\" max=\"20\">\n          <button type=\"button\" class=\"btn btn-danger\" (click)=\"increase()\">+</button>\n        </div>\n        <br>\n        <br>\n\n        <button class=\"btn btn-danger add-to-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\" (click)=\"onSelect(product)\">Cho vào giỏ hàng</button>\n        <!-- <a href=\"#\" class=\"btn btn-info add-to-cart\">Mua ngay</a> -->\n      </div>\n    </div>\n\n    <ul class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link active\" id=\"home-tab\" data-toggle=\"tab\" href=\"#home\" role=\"tab\" aria-controls=\"home\" aria-expanded=\"true\">\n          <h2 class=\"display-4\">Thông số sản phẩm</h2>\n        </a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" id=\"profile-tab\" data-toggle=\"tab\" href=\"#profile\" role=\"tab\" aria-controls=\"profile\" required>\n          <h2 class=\"display-4\">Thông tin sản phẩm</h2>\n        </a>\n      </li>\n\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" id=\"comment-tab\" data-toggle=\"tab\" href=\"#comment\" role=\"tab\" aria-controls=\"comments\" (click)=\"onSelectID()\">\n          <h2 class=\"display-4\">Bình luận</h2>\n        </a>\n      </li>\n    </ul>\n    <div class=\"tab-content\" id=\"myTabContent\">\n      <div class=\"tab-pane fade show active\" id=\"home\" role=\"tabpanel\" aria-labelledby=\"home-tab\">\n        <div class=\"thong-so-san-pham\" id=\"tab_content_product_specifications\">\n          <table class=\"table table-bordered\" id=\"tblGeneralAttribute\">\n            <tbody>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Xuất xứ</strong>\n                </td>\n                <td>{{product?.product_madein}}</td>\n              </tr>\n\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Giới tính</strong>\n                </td>\n                <td>{{product?.product_gender}}</td>\n              </tr>\n\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Hướng dẫn sử dụng</strong>\n                </td>\n                <td>{{product?.product_instruction}}</td>\n              </tr>\n\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Hướng dẫn bảo quản</strong>\n                </td>\n                <td>Bảo quản nơi khô ráo, thoáng mát</td>\n              </tr>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Dung tích</strong>\n                </td>\n                <td>{{product?.product_size}}</td>\n              </tr>\n            </tbody>\n          </table>\n\n        </div>\n      </div>\n\n      <div class=\"tab-pane fade\" id=\"profile\" role=\"tabpanel\" aria-labelledby=\"profile-tab\">\n        <div class=\"thong-tin-san-pham mb-4\">\n          <h3>{{product?.product_name}}</h3>\n          <p>{{product?.product_decription}}</p>\n        </div>\n      </div>\n\n      <div class=\"tab-pane fade\" id=\"comment\" role=\"tabpanel\" aria-labelledby=\"profile-tab\">\n        <div class=\"thong-tin-san-pham mb-4\">\n          \n          <app-comment *ngIf=\"selectedProductID\" [ProductID]=\"selectedProductID\"></app-comment>\n        </div>\n      </div>\n      \n    </div>\n    <app-shopping-cart [productOP]=\"selectedProduct\" ></app-shopping-cart>\n    <!-- <app-san-pham-tuong-tu></app-san-pham-tuong-tu> -->\n  </div>\n</div>"
+module.exports = "<app-nav-guest></app-nav-guest>\n\n<div style=\"background: #f5f5f5;\">\n  <div class=\"\">\n    <div class=\"gioi-thieu-san-pham row mb-4\">\n      <div class=\"product-image col-md-4\">\n        <img class=\"image\" [src]=\"product?.product_image\" alt=\"\">\n      </div>\n      <div class=\"product-info col-md-8\">\n        <h2 class=\"display-4\">{{product?.product_name}}</h2>\n        <div class=\"price\">\n          <span class=\"price-present\">{{product?.price | number}}đ</span>\n        </div>\n\n        <!-- <app-go-back></app-go-back>  -->\n        <!-- <hr>\n\n        <div class=\"shopee-product-info-body__row shopee-product-info-body__free-shipping\">\n          <span class=\"shopee-product-info-body__free-shipping-text\">Miễn Phí Vận Chuyển cho đơn hàng có giá trị từ ₫180.000 (giảm tối đa 50.000 VNĐ)</span>\n        </div>\n        <div class=\"shopee-product-info-body__shipping-block-label\">Vận chuyển tới: Hà Nội, Huyện Ba Vì</div>\n        <div class=\"shopee-product-info-body__shipping-block-label\">phí vận chuyển: ₫0</div> -->\n        <hr>\n\n        <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"First group\">\n          <button type=\"button\" class=\"btn btn-danger\" (click)=\"decrease()\">-</button>\n          <input type=\"number\" style=\"width: 40px !important;\" value=\"{{product?.quantity}}\" min=\"1\" max=\"20\">\n          <button type=\"button\" class=\"btn btn-danger\" (click)=\"increase()\">+</button>\n        </div>\n        <br>\n        <br>\n\n        <button class=\"btn btn-danger add-to-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\" (click)=\"onSelect(product)\">Cho vào giỏ hàng</button>\n        <!-- <a href=\"#\" class=\"btn btn-info add-to-cart\">Mua ngay</a> -->\n      </div>\n    </div>\n\n    <ul class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link active\" id=\"home-tab\" data-toggle=\"tab\" href=\"#home\" role=\"tab\" aria-controls=\"home\" aria-expanded=\"true\">\n          <h2 class=\"display-4\">Thông số sản phẩm</h2>\n        </a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" id=\"profile-tab\" data-toggle=\"tab\" href=\"#profile\" role=\"tab\" aria-controls=\"profile\" required>\n          <h2 class=\"display-4\">Thông tin sản phẩm</h2>\n        </a>\n      </li>\n\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" id=\"comment-tab\" data-toggle=\"tab\" href=\"#comment\" role=\"tab\" aria-controls=\"comments\" (click)=\"onSelectID()\">\n          <h2 class=\"display-4\">Bình luận</h2>\n        </a>\n      </li>\n    </ul>\n    <div class=\"tab-content\" id=\"myTabContent\">\n      <div class=\"tab-pane fade show active\" id=\"home\" role=\"tabpanel\" aria-labelledby=\"home-tab\">\n        <div class=\"thong-so-san-pham\" id=\"tab_content_product_specifications\">\n          <table class=\"table table-bordered\" id=\"tblGeneralAttribute\">\n            <tbody>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Xuất xứ</strong>\n                </td>\n                <td>{{product?.product_madein}}</td>\n              </tr>\n\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Giới tính</strong>\n                </td>\n                <td>{{product?.product_gender}}</td>\n              </tr>\n\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Hướng dẫn sử dụng</strong>\n                </td>\n                <td>{{product?.product_instruction}}</td>\n              </tr>\n\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Hướng dẫn bảo quản</strong>\n                </td>\n                <td>Bảo quản nơi khô ráo, thoáng mát</td>\n              </tr>\n              <tr class=\"row-info\">\n                <td>\n                  <strong>Dung tích</strong>\n                </td>\n                <td>{{product?.product_size}}</td>\n              </tr>\n            </tbody>\n          </table>\n\n        </div>\n      </div>\n\n      <div class=\"tab-pane fade\" id=\"profile\" role=\"tabpanel\" aria-labelledby=\"profile-tab\">\n        <div class=\"thong-tin-san-pham mb-4\">\n          <h3>{{product?.product_name}}</h3>\n          <p>{{product?.product_decription}}</p>\n        </div>\n      </div>\n\n      <div class=\"tab-pane fade\" id=\"comment\" role=\"tabpanel\" aria-labelledby=\"profile-tab\">\n        <div class=\"thong-tin-san-pham mb-4\">\n          \n          <app-comment *ngIf=\"selectedProductID\" [ProductID]=\"selectedProductID\"></app-comment>\n        </div>\n      </div>\n      \n    </div>\n    <app-shopping-cart [productOP]=\"selectedProduct\" ></app-shopping-cart>\n    <!-- <app-san-pham-tuong-tu></app-san-pham-tuong-tu> -->\n  </div>\n</div>"
 
 /***/ }),
 
@@ -3606,11 +3950,24 @@ var ProductDetailComponent = (function () {
                 .subscribe(function (res) {
                 _this.product = res;
                 _this.product.quantity = 1;
-                _this.guestService.getProductfromInventory(_this.product._id).subscribe(function (res) {
-                    _this.product.price = res.price;
+                if (sessionStorage.getItem("products") !== null) {
+                    var prods = JSON.parse(sessionStorage.getItem("products"));
+                    for (var _i = 0, prods_1 = prods; _i < prods_1.length; _i++) {
+                        var i = prods_1[_i];
+                        if (i.sub_prod[0]._id === _this.id) {
+                            _this.product.price = i.sub_prod[0].price;
+                            break;
+                        }
+                    }
                     sessionStorage.setItem(res._id, JSON.stringify(_this.product));
-                    console.log("add product detail to session");
-                });
+                    console.log("add product " + _this.product.product_id + " detail to session");
+                }
+                else {
+                    _this.guestService.getProductfromInventory(_this.product._id).subscribe(function (res) {
+                        _this.product.price = res.price;
+                        sessionStorage.setItem(res._id, JSON.stringify(_this.product));
+                    });
+                }
             });
         }
         else {
@@ -3703,17 +4060,18 @@ var ProductsComponent = (function () {
         }
         else {
             this.guestService.GetListProductsByJoin().subscribe(function (res) {
-                console.log(res);
                 for (var _i = 0, res_1 = res; _i < res_1.length; _i++) {
                     var item = res_1[_i];
                     if (item.sub_prod[0]) {
                         _this.products.push(item);
                     }
                 }
+                console.log(_this.products);
                 sessionStorage.setItem('products', JSON.stringify(_this.products));
-                localStorage.setItem('products', JSON.stringify(_this.products));
+                // localStorage.setItem('products', JSON.stringify(this.products));
             }, function (res) { return console.log(res); });
         }
+        return this.products;
     };
     ProductsComponent.prototype.onSelect = function (product) {
         this.selectedProduct = {
@@ -4131,52 +4489,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var donhangs = [
-    {
-        'donhang_id': '00001',
-        'status': 'Đang chờ xử lý',
-        'order_date': '2017-08-13 20:01:32',
-        'address': '12 Nguyễn Văn Bảo, Gò Vấp, Tp.HCM',
-        'transport': 'Vận chuyển Tiết Kiệm (dự kiến giao hàng vào Thứ tư, 16/08/2017) Miễn phí vận chuyển',
-        'payment': 'Thanh toán tiền mặt khi nhận hàng',
-        'products': [
-            {
-                'product_name': 'Thương Hiệu - Mở Lối Thành Công',
-                'price': '84000',
-                'quantity': '1',
-                'sale': '0'
-            },
-            {
-                'product_name': '[Gift] - Mã Coupon B2SVPP05 Giảm Thêm 5% Cho Đơn Hàng Văn Phòng Phẩm (Hạn Sử Dụng 31.08)',
-                'price': '0',
-                'quantity': '1',
-                'sale': '0'
-            }
-        ]
-    },
-    {
-        'donhang_id': '00002',
-        'status': 'Đang chờ xử lý',
-        'order_date': '2017-08-14 20:01:32',
-        'address': '33 Nguyễn Văn Bảo, Gò Vấp, Tp.HCM',
-        'transport': 'Vận chuyển Tiết Kiệm (dự kiến giao hàng vào Thứ tư, 16/08/2017) Miễn phí vận chuyển',
-        'payment': 'Thanh toán tiền mặt khi nhận hàng',
-        'products': [
-            {
-                'product_name': 'Anne Tóc Đỏ Dưới Chái Nhà Xanh',
-                'price': '30000',
-                'quantity': '1',
-                'sale': '0'
-            },
-            {
-                'product_name': 'Tuyển tập TS Lê Thẩm Dương: Cảm Xúc Là Kẻ Thù Số Một Của Thành Công (Bản Đặc Biệt)',
-                'price': '175000',
-                'quantity': '1',
-                'sale': '0'
-            }
-        ]
-    }
-];
+var donhangs = {};
 var AdminService = (function () {
     function AdminService(_http) {
         this._http = _http;
@@ -4207,13 +4520,43 @@ var AdminService = (function () {
             .then(function (res) { return _this.result = res.json(); })
             .catch(this.handleError);
     };
+    // Purchasing - Phiếu nhập xuất
     AdminService.prototype.getDonHangs = function () {
         return Promise.resolve(donhangs);
     };
+    // 
     AdminService.prototype.getDonHang = function (id) {
         return this.getDonHangs().then(function (donhangs) {
             donhangs.find(function (donhang) { return donhang.donhang_id === id; });
         });
+    };
+    AdminService.prototype.getPurchaseByProductID = function (id) {
+        var _this = this;
+        var url = "/api/purchasing/product/" + id;
+        return this._http.get(url, { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res.json().data; })
+            .catch(this.handleError);
+    };
+    // Kho - Inventory
+    // Lấy list Sản Phẩm từ kho
+    AdminService.prototype.getProductsFromInventory = function () {
+        var _this = this;
+        var url = '/api/inventory';
+        return this._http.get(url, { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res.json().data; })
+            .catch(this.handleError);
+    };
+    // cập nhật sản phẩm trong kho
+    AdminService.prototype.updateProductQuantityToInventory = function (product) {
+        var _this = this;
+        var url = "/api/inventory/product/" + product._id;
+        console.log(url);
+        return this._http.put(url, JSON.stringify(product), { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res.json().data; })
+            .catch(this.handleError);
     };
     AdminService.prototype.handleError = function (error) {
         console.error('An error occurred', error); //for demo purposes only
@@ -4462,11 +4805,11 @@ var MainService = (function () {
             .catch(this.handleError);
     };
     // --- Phiếu Nhập Kho api --- //
-    MainService.prototype.addPhieuNhapKho = function (phieuNhapKho) {
+    MainService.prototype.addPhieuNhapXuatKho = function (phieu) {
         var url = "/api/purchasing";
-        return this._http.post(url, phieuNhapKho, { headers: this.headers })
+        return this._http.post(url, phieu, { headers: this.headers })
             .toPromise()
-            .then(function (res) { return phieuNhapKho; })
+            .then(function (res) { return phieu; })
             .catch(this.handleError);
     };
     // --- Kho - Inventory--- //

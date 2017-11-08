@@ -47,11 +47,12 @@ export class PhieuNhapKhoComponent implements OnInit {
   }
  
   addPhieuNhapKho() {
-    this.phieuNhapKho.phieuNhapKho_id = $('#ma_phieu').val();
+    this.phieuNhapKho.phieu_id = $('#ma_phieu').val();
     this.phieuNhapKho.products_detail = this.products;
     this.phieuNhapKho.nguoi_lap_phieu = $("#nguoi_lap_phieu").html();
     if(this.products.length != 0) {
-      this.mainService.addPhieuNhapKho(this.phieuNhapKho)
+      console.log(this.products);
+      this.mainService.addPhieuNhapXuatKho(this.phieuNhapKho)
         .then(res =>{
           console.log("Add Purchasing Success!");
           alert("Thêm phiếu nhập hàng thành công.");
@@ -67,6 +68,7 @@ export class PhieuNhapKhoComponent implements OnInit {
   // Inventory
   // inventory
   addProductsToInventory(phieuNhapKho) {
+    console.log(phieuNhapKho);
     for(let item of phieuNhapKho.products_detail) {
       this.mainService.getProductFromInventory(item._id).then(res => {
         if(res === null) {
@@ -87,6 +89,7 @@ export class PhieuNhapKhoComponent implements OnInit {
     this.oneProduct = {
       _id: item._id,
       product_id: item.product_id,
+      don_vi_tinh: item.don_vi_tinh,
       price: item.price,
       quantity: item.quantity,
       modifiedDate: new Date()
@@ -118,7 +121,8 @@ export class PhieuNhapKhoComponent implements OnInit {
     this.products = new Array();
     this.phieuNhapKho = {
       nowDate: new Date(),
-      tong_tien: 0
+      tong_tien: 0,
+      kind: "Nhập kho"
     };
     $("#ma_phieu").val("PNK" + this.mainService.convertTime());
   }

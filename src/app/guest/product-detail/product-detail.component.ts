@@ -78,11 +78,23 @@ export class ProductDetailComponent implements OnInit {
       .subscribe(res => {
           this.product = res;
           this.product.quantity = 1;
-          this.guestService.getProductfromInventory(this.product._id).subscribe( res => {
-            this.product.price = res.price;
+          if(sessionStorage.getItem("products") !== null) {
+            let prods = JSON.parse(sessionStorage.getItem("products"));
+            for(let i of prods) {
+              if(i.sub_prod[0]._id ===  this.id) {
+                this.product.price = i.sub_prod[0].price;
+                break;
+              }
+            }
             sessionStorage.setItem(res._id, JSON.stringify(this.product));
-            console.log("add product detail to session");
-          }) 
+            console.log(`add product ${this.product.product_id} detail to session`);
+          } else {
+            this.guestService.getProductfromInventory(this.product._id).subscribe( res => {
+              this.product.price = res.price;
+              sessionStorage.setItem(res._id, JSON.stringify(this.product));
+            }) 
+          }
+          
       });
     } else {
       this.product = JSON.parse(sessionStorage.getItem(_id));

@@ -1,5 +1,4 @@
 <h3 class="display-3 mb-4">Phiếu Nhập Kho - Ngày: {{phieuNhapKho.nowDate | date:'dd/MM/y'}}</h3>
-
 <table class="table table-bordered mt-2">
     <thead class="thead-default">
         <tr>
@@ -21,6 +20,7 @@
 
 <!-- button Thêm sản phẩm -->
 <button class="btn btn-info" data-toggle="modal" data-target="#add-product-to-repository">Thêm sản phẩm</button>
+
 <app-modal-add-product-to-repository (oneProduct)="pushOneProduct($event)">
 </app-modal-add-product-to-repository>
 <button class="btn btn-success float-right" (click)="addPhieuNhapKho()">Lưu Phiếu Nhập Kho</button>

@@ -1,12 +1,12 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 // service 
-import { MainService} from './../../service/main.service';
+import { MainService } from './../../service/main.service';
 import { GuestService } from './../../service/guest.service';
 import { TestService } from './../../service/test.service';
- // declare variable jquery and $ to use jquery plugin
- declare var jquery:any;
- declare var $:any;
+// declare variable jquery and $ to use jquery plugin
+declare var jquery: any;
+declare var $: any;
 
 @Component({
   selector: 'app-products',
@@ -16,41 +16,42 @@ import { TestService } from './../../service/test.service';
 export class ProductsComponent implements OnInit {
   numToNav: number;
   selectedProduct: any;
-  testProducts:any;
-  product2:any;
+  testProducts: any;
+  product2: any;
   products: any = new Array();
   products2: any;
-  listArray:any = new Array();
+  listArray: any = new Array();
   constructor(
     private mainService: MainService,
     private guestService: GuestService,
     private test: TestService,
     private router: Router
   ) { }
- 
+
   addProduct() {
     this.test.addToCarts(this.selectedProduct);
     this.testProducts = this.test.getCarts();
   }
 
   getProducts() {
-    if(JSON.parse(sessionStorage.getItem('products')) != null) {
+    if (JSON.parse(sessionStorage.getItem('products')) != null) {
       this.products = JSON.parse(sessionStorage.getItem('products'));
     } else {
       this.guestService.GetListProductsByJoin().subscribe(res => {
-      console.log(res)
-        for(let item of res) {
-          if(item.sub_prod[0]) {
+        for (let item of res) {
+          if (item.sub_prod[0]) {
             this.products.push(item);
           }
         }
-        sessionStorage.setItem('products', JSON.stringify( this.products));
-        localStorage.setItem('products', JSON.stringify( this.products));
-      },res => console.log(res));
+        console.log(this.products);
+        sessionStorage.setItem('products', JSON.stringify(this.products));
+        // localStorage.setItem('products', JSON.stringify(this.products));
+      }, res => console.log(res));
     }
+    return this.products;
   }
 
-  onSelect(product:any) {
+  onSelect(product: any) {
     this.selectedProduct = {
       _id: product._id,
       product_id: product.product_id,
@@ -69,9 +70,9 @@ export class ProductsComponent implements OnInit {
   putToNav(event) {
     this.numToNav = event;
   }
- 
+
   selectProductDetail(product) {
-      this.guestService.selectProductDetail(product._id);
+    this.guestService.selectProductDetail(product._id);
   };
 
   ngOnInit() {

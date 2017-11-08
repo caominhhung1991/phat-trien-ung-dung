@@ -22,7 +22,10 @@ import { ModalProductComponent} from './../components/modals/modal-product/modal
 import { PhieuNhapKhoComponent } from './quan-ly-san-pham/phieu-nhap-kho/phieu-nhap-kho.component';
 import { ModalAddProductToRepositoryComponent } from './../components/modals/modal-add-product-to-repository/modal-add-product-to-repository.component';
 import { QuanLyUserComponent } from './quan-ly-user/quan-ly-user.component';
-import { SuaThongTinComponent } from './../guest/sua-thong-tin/sua-thong-tin.component'; 
+import { SuaThongTinComponent } from './../guest/sua-thong-tin/sua-thong-tin.component';
+import { QuanLyKhoComponent } from './quan-ly-kho/quan-ly-kho.component';
+import { KhoComponent } from './kho/kho.component';
+import { PhieuXuatKhoComponent } from './phieu-xuat-kho/phieu-xuat-kho.component'; 
 
 @NgModule({
   imports: [
@@ -48,6 +51,9 @@ import { SuaThongTinComponent } from './../guest/sua-thong-tin/sua-thong-tin.com
     PhieuNhapKhoComponent,
     ModalAddProductToRepositoryComponent,
     QuanLyUserComponent,
+    QuanLyKhoComponent,
+    KhoComponent,
+    PhieuXuatKhoComponent,
   ],
   exports: [
     AdminComponent,
