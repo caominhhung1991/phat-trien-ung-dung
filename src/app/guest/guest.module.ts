@@ -1,9 +1,12 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule} from '@angular/forms'
+import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 // Module
 import { ComponentModule } from './../components/component.module';
-import { AdminModule } from './../admin/admin.module'
+import { AdminModule } from './../admin/admin.module';
+import { GuestRoutingModule } from './guest-routing.module';
 //import component
 import { HomePageComponent} from './home-page/home-page.component';
 import { NavGuestComponent } from './nav-guest/nav-guest.component';
@@ -22,12 +25,17 @@ import { SuaThongTinComponent } from './sua-thong-tin/sua-thong-tin.component';
 import { DoiPasswordComponent } from './doi-password/doi-password.component';
 import { LichSuDonHangComponent } from './lich-su-don-hang/lich-su-don-hang.component';
 import { CommentComponent } from './comment/comment.component';
+import { ContactComponent } from './contact/contact.component';
+import { NganhHangComponent } from './nganh-hang/nganh-hang.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ComponentModule
+    BrowserModule,
+    ComponentModule,
+    RouterModule,
+    GuestRoutingModule
   ],
   declarations: [
     HomePageComponent,
@@ -44,7 +52,9 @@ import { CommentComponent } from './comment/comment.component';
     QuanLyTaiKhoanComponent,
     DoiPasswordComponent,
     LichSuDonHangComponent,
-    CommentComponent
+    CommentComponent,
+    ContactComponent,
+    NganhHangComponent
   ],
   exports: [
     HomePageComponent,
@@ -62,7 +72,8 @@ import { CommentComponent } from './comment/comment.component';
     DoiPasswordComponent,
     LichSuDonHangComponent,
     SuaThongTinComponent,
-    CommentComponent
+    CommentComponent,
+    ContactComponent
   ]
   // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

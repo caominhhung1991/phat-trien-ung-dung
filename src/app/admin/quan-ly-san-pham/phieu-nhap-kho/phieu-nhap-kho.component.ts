@@ -32,12 +32,12 @@ export class PhieuNhapKhoComponent implements OnInit {
     this.testProduct.don_vi_tinh = product.don_vi_tinh;
     this.testProduct.quantity = product.quantity;
     this.testProduct.price = product.price;
-    this.testProduct.thanh_tien = product.thanh_tien;
+    this.testProduct.total_price = product.total_price;
     let check = this.products.indexOf()
     this.products.push(this.testProduct);
     this.phieuNhapKho.tong_tien = 0;
     for(let item of this.products) {
-      this.phieuNhapKho.tong_tien += item.thanh_tien;
+      this.phieuNhapKho.tong_tien += item.total_price;
     }
     // this.updateProducts()
   }

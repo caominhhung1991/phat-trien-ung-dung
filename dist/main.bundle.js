@@ -471,7 +471,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/kho/kho.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div id=\"accordion\" role=\"tablist\">\n      <div class=\"card mb-1\" *ngFor=\"let product of products, index as i, first as f\">\n        <a data-toggle=\"collapse\" href=\"#collapse{{i}}\" aria-expanded=\"false\" (click)=\"onSelect(product)\">\n          <div class=\"card-header\" role=\"tab\" id=\"heading{{i}}\">\n            <h5 class=\"mb-0\">\n              {{i+1}} - {{product.product_id}} - Số lượng tồn: {{product.quantity}} {{product.don_vi_tinh}} - Giá: {{product.price | number}}đ\n            </h5>\n          </div>\n        </a>\n        <div id=\"collapse{{i}}\" class=\"collapse\" role=\"tabpanel\" data-parent=\"#accordion\">\n          <div class=\"card-body\" *ngIf=\"product === selectedProduct\" >\n            <button class=\"btn btn-sm btn-outline-success\" data-toggle=\"modal\" data-target=\"#xem-san-pham\">Xem chi tiết</button>\n            <button class=\"btn btn-sm btn-outline-danger\" data-toggle=\"modal\" data-target=\"#lich-su-nhap-xuat\">Xem lịch sử nhập xuất kho</button>\n            <img src=\"{{product_detail?.product_image}}\" alt=\"\" height=\"30px\">\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n\n  <!-- Modal -->\n  <!-- xem san pham chi tiet trong kho -->\n  <div class=\"modal fade\" id=\"xem-san-pham\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h3 class=\"modal-title\" id=\"exampleModalLabel\">Thông tin chi tiết</h3>\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n\n        <div class=\"modal-body\">\n          <div class=\"row\">\n            <div class=\"col-md-6\">\n\n              <div class=\"form-group\">\n                <label>Mã sản phẩm</label>\n                <input type=\"text\" class=\"form-control form-control-sm\" value=\"{{selectedProduct?.product_id}}\">\n              </div>\n\n              <div class=\"form-group\">\n                <label>Tên sản phẩm</label>\n                <input type=\"text\" class=\"form-control form-control-sm\" value=\"{{product_detail.product_name}}\">\n              </div>\n\n              <div class=\"form-group\">\n                <label>Số lượng còn lại trong kho</label>\n                <input type=\"text\" class=\"form-control form-control-sm\" value=\"{{selectedProduct?.quantity}} {{selectedProduct?.don_vi_tinh}}\">\n              </div>\n            </div>\n\n            <div class=\"col-md-6\">\n              <img src=\"{{product_detail.product_image}}\" width=\"100%\">\n            </div>\n          </div>\n\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <!-- xem lich su nhap xuat kho -->\n  <div class=\"modal fade\" id=\"lich-su-nhap-xuat\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h3 class=\"modal-title\" id=\"exampleModalLabel\">Lịch sử nhập xuất kho</h3>\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n\n        <div class=\"modal-body\">\n          <table class=\"table\">\n            <thead>\n              <tr>\n                <th>Mã phiếu</th>\n                <th>Người lập</th>\n                <th>Loại</th>\n                <th>Số lượng</th>\n                <th>Đơn giá</th>\n                <th>Thành tiền</th>\n                <th>Thời gian</th>\n              </tr>\n            </thead>\n            <tbody *ngIf=\"phieuNhapXuat\">\n              <tr *ngFor=\"let phieu of phieuNhapXuat, index as i\">\n                <td>{{phieu.phieu_id}}</td>\n                <td>{{phieu.nguoi_lap_phieu}}</td>\n                <td>{{phieu.kind}}</td>\n                <td>\n                  <span *ngFor=\"let p of phieu.products_detail\">\n                    <span *ngIf=\"p._id === selectedProduct._id\">\n                      {{p.quantity}} {{p.don_vi_tinh}}\n                    </span>\n                  </span>\n                </td>\n\n                <td>\n                    <span *ngFor=\"let p of phieu.products_detail\">\n                      <span *ngIf=\"p._id === selectedProduct._id\">\n                        {{p.price | number}}đ\n                      </span>\n                    </span>\n                  </td>\n\n                <td>\n                  <span *ngFor=\"let p of phieu.products_detail\">\n                    <span *ngIf=\"p._id === selectedProduct._id\">\n                      {{p.thanh_tien | number}}đ\n                    </span>\n                  </span>\n                </td>\n\n                <td>{{phieu.nowDate | date}}</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>"
+module.exports = "<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div id=\"accordion\" role=\"tablist\">\n      <div class=\"card mb-1\" *ngFor=\"let product of products, index as i, first as f\">\n        <a data-toggle=\"collapse\" href=\"#collapse{{i}}\" aria-expanded=\"false\" (click)=\"onSelect(product)\">\n          <div class=\"card-header\" role=\"tab\" id=\"heading{{i}}\">\n            <h5 class=\"mb-0\">\n              {{i+1}} - {{product.product_id}} - Số lượng tồn: {{product.quantity}} {{product.don_vi_tinh}} - Giá: {{product.price | number}}đ\n            </h5>\n          </div>\n        </a>\n        <div id=\"collapse{{i}}\" class=\"collapse\" role=\"tabpanel\" data-parent=\"#accordion\">\n          <div class=\"card-body\" *ngIf=\"product === selectedProduct\" >\n            <button class=\"btn btn-sm btn-outline-success\" data-toggle=\"modal\" data-target=\"#xem-san-pham\">Xem chi tiết</button>\n            <button class=\"btn btn-sm btn-outline-danger\" data-toggle=\"modal\" data-target=\"#lich-su-nhap-xuat\">Xem lịch sử nhập xuất kho</button>\n            <img src=\"{{product_detail?.product_image}}\" alt=\"\" height=\"30px\">\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n\n  <!-- Modal -->\n  <!-- xem san pham chi tiet trong kho -->\n  <div class=\"modal fade\" id=\"xem-san-pham\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h3 class=\"modal-title\" id=\"exampleModalLabel\">Thông tin chi tiết</h3>\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n\n        <div class=\"modal-body\">\n          <div class=\"row\">\n            <div class=\"col-md-6\">\n\n              <div class=\"form-group\">\n                <label>Mã sản phẩm</label>\n                <input type=\"text\" class=\"form-control form-control-sm\" value=\"{{selectedProduct?.product_id}}\">\n              </div>\n\n              <div class=\"form-group\">\n                <label>Tên sản phẩm</label>\n                <input type=\"text\" class=\"form-control form-control-sm\" value=\"{{product_detail.product_name}}\">\n              </div>\n\n              <div class=\"form-group\">\n                <label>Số lượng còn lại trong kho</label>\n                <input type=\"text\" class=\"form-control form-control-sm\" value=\"{{selectedProduct?.quantity}} {{selectedProduct?.don_vi_tinh}}\">\n              </div>\n            </div>\n\n            <div class=\"col-md-6\">\n              <img src=\"{{product_detail.product_image}}\" width=\"100%\">\n            </div>\n          </div>\n\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <!-- xem lich su nhap xuat kho -->\n  <div class=\"modal fade\" id=\"lich-su-nhap-xuat\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-lg\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h3 class=\"modal-title\" id=\"exampleModalLabel\">Lịch sử nhập xuất kho</h3>\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n\n        <div class=\"modal-body\">\n          <table class=\"table\">\n            <thead>\n              <tr>\n                <th>Mã phiếu</th>\n                <th>Người lập</th>\n                <th>Loại</th>\n                <th>Số lượng</th>\n                <th>Đơn giá</th>\n                <th>Thành tiền</th>\n                <th>Thời gian</th>\n              </tr>\n            </thead>\n            <tbody *ngIf=\"phieuNhapXuat\">\n              <tr *ngFor=\"let phieu of phieuNhapXuat, index as i\">\n                <td>{{phieu.phieu_id}}</td>\n                <td>{{phieu.nguoi_lap_phieu}}</td>\n                <td>{{phieu.kind}}</td>\n                <td>\n                  <span *ngFor=\"let p of phieu.products_detail\">\n                    <span *ngIf=\"p._id === selectedProduct._id\">\n                      {{p.quantity}} {{p.don_vi_tinh}}\n                    </span>\n                  </span>\n                </td>\n\n                <td>\n                    <span *ngFor=\"let p of phieu.products_detail\">\n                      <span *ngIf=\"p._id === selectedProduct._id\">\n                        {{p.price | number}}đ\n                      </span>\n                    </span>\n                  </td>\n\n                <td>\n                  <span *ngFor=\"let p of phieu.products_detail\">\n                    <span *ngIf=\"p._id === selectedProduct._id\">\n                      {{p.total_price | number}}đ\n                    </span>\n                  </span>\n                </td>\n\n                <td>{{phieu.nowDate | date}}</td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>"
 
 /***/ }),
 
@@ -1021,7 +1021,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/quan-ly-san-pham/phieu-nhap-kho/phieu-nhap-kho.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3 class=\"display-3 mb-4\">Phiếu Nhập Kho - Ngày: {{phieuNhapKho.nowDate | date:'dd/MM/y'}}</h3>\r\n<table class=\"table table-bordered mt-2\">\r\n    <thead class=\"thead-default\">\r\n        <tr>\r\n            <th>Mã phiếu</th>\r\n            <th>Người lập phiếu</th>\r\n            <th>Thời gian lập</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td width=\"200px\">\r\n                <input id=\"ma_phieu\" type=\"text\" class=\"form-control\" placeholder=\"PNK201719101\">\r\n            </td>\r\n            <td id=\"nguoi_lap_phieu\">Cao Minh Hưng</td>\r\n            <td>{{phieuNhapKho.nowDate | date:'hh:mm - dd/MM/y'}}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n\r\n<!-- button Thêm sản phẩm -->\r\n<button class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#add-product-to-repository\">Thêm sản phẩm</button>\r\n\r\n<app-modal-add-product-to-repository (oneProduct)=\"pushOneProduct($event)\">\r\n</app-modal-add-product-to-repository>\r\n<button class=\"btn btn-success float-right\" (click)=\"addPhieuNhapKho()\">Lưu Phiếu Nhập Kho</button>\r\n\r\n<table class=\"table table-striped mt-3\">\r\n    <thead class=\"thead-inverse\">\r\n        <tr>\r\n            <th>STT</th>\r\n            <th>Tên SP</th>\r\n            <th>Mã</th>\r\n            <th>Đơn vị tính</th>\r\n            <th>Số lượng</th>\r\n            <th>Đơn giá</th>\r\n            <th>Thành tiền</th>\r\n            <th>Xoá</th>\r\n        </tr>\r\n    </thead>\r\n\r\n    <tbody>\r\n        <tr *ngFor=\"let product of products, let i = index\">\r\n            <td scope=\"row\">{{i+1}}</td>\r\n            <td>{{product.product_name}}</td>\r\n            <td>{{product.product_id}}</td>\r\n            <td>{{product.don_vi_tinh}}</td>\r\n            <td>{{product.quantity}}</td>\r\n            <td>{{product.price}}</td>\r\n            <td>{{product.thanh_tien}}</td>\r\n            <td>\r\n                <button class=\"btn btn-danger btn-sm\" (click)=\"deleteOneProcut(i)\">x</button>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td colspan=\"6\" class=\"tong-tien\">Tổng tiền</td>\r\n            <td colspan=\"2\" class=\"thanh-tien\">{{phieuNhapKho.tong_tien}}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n\r\n"
+module.exports = "<h3 class=\"display-3 mb-4\">Phiếu Nhập Kho - Ngày: {{phieuNhapKho.nowDate | date:'dd/MM/y'}}</h3>\r\n<table class=\"table table-bordered mt-2\">\r\n    <thead class=\"thead-default\">\r\n        <tr>\r\n            <th>Mã phiếu</th>\r\n            <th>Người lập phiếu</th>\r\n            <th>Thời gian lập</th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr>\r\n            <td width=\"200px\">\r\n                <input id=\"ma_phieu\" type=\"text\" class=\"form-control\" placeholder=\"PNK201719101\">\r\n            </td>\r\n            <td id=\"nguoi_lap_phieu\">Cao Minh Hưng</td>\r\n            <td>{{phieuNhapKho.nowDate | date:'hh:mm - dd/MM/y'}}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n\r\n<!-- button Thêm sản phẩm -->\r\n<button class=\"btn btn-info\" data-toggle=\"modal\" data-target=\"#add-product-to-repository\">Thêm sản phẩm</button>\r\n\r\n<app-modal-add-product-to-repository (oneProduct)=\"pushOneProduct($event)\">\r\n</app-modal-add-product-to-repository>\r\n<button class=\"btn btn-success float-right\" (click)=\"addPhieuNhapKho()\">Lưu Phiếu Nhập Kho</button>\r\n\r\n<table class=\"table table-striped mt-3\">\r\n    <thead class=\"thead-inverse\">\r\n        <tr>\r\n            <th>STT</th>\r\n            <th>Tên SP</th>\r\n            <th>Mã</th>\r\n            <th>Đơn vị tính</th>\r\n            <th>Số lượng</th>\r\n            <th>Đơn giá</th>\r\n            <th>Thành tiền</th>\r\n            <th>Xoá</th>\r\n        </tr>\r\n    </thead>\r\n\r\n    <tbody>\r\n        <tr *ngFor=\"let product of products, let i = index\">\r\n            <td scope=\"row\">{{i+1}}</td>\r\n            <td>{{product.product_name}}</td>\r\n            <td>{{product.product_id}}</td>\r\n            <td>{{product.don_vi_tinh}}</td>\r\n            <td>{{product.quantity}}</td>\r\n            <td>{{product.price}}</td>\r\n            <td>{{product.total_price}}</td>\r\n            <td>\r\n                <button class=\"btn btn-danger btn-sm\" (click)=\"deleteOneProcut(i)\">x</button>\r\n            </td>\r\n        </tr>\r\n        <tr>\r\n            <td colspan=\"6\" class=\"tong-tien\">Tổng tiền</td>\r\n            <td colspan=\"2\" class=\"thanh-tien\">{{phieuNhapKho.tong_tien}}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n\r\n"
 
 /***/ }),
 
@@ -1060,13 +1060,13 @@ var PhieuNhapKhoComponent = (function () {
         this.testProduct.don_vi_tinh = product.don_vi_tinh;
         this.testProduct.quantity = product.quantity;
         this.testProduct.price = product.price;
-        this.testProduct.thanh_tien = product.thanh_tien;
+        this.testProduct.total_price = product.total_price;
         var check = this.products.indexOf();
         this.products.push(this.testProduct);
         this.phieuNhapKho.tong_tien = 0;
         for (var _i = 0, _a = this.products; _i < _a.length; _i++) {
             var item = _a[_i];
-            this.phieuNhapKho.tong_tien += item.thanh_tien;
+            this.phieuNhapKho.tong_tien += item.total_price;
         }
         // this.updateProducts()
     };
@@ -1272,7 +1272,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/admin/quan-ly-san-pham/them-san-pham/them-san-pham.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form (submit)=\"onSubmit()\" class=\"row\" #themsanpham=\"ngForm\">\r\n  <div class=\"flex-item col-md-4\">\r\n    <div class=\"form-group\">\r\n      <input type=\"submit\" class=\"btn btn-success\" value=\"Thêm sản phẩm\">\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>ID: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" id=\"product_id\" placeholder=\"Mã sản phẩm\" required [(ngModel)]=\"product.product_id\" name=\"product_id\"  #productID=\"ngModel\">\r\n\r\n      <div *ngIf=\"productID.invalid && (productID.dirty || productID.touched || messageError.productID)\">\r\n        <div *ngIf=\"productID.errors.required\">\r\n          <span class=\"required\">Mã sản phẩm không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Tên: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" required [(ngModel)]=\"product.product_name\" name=\"product_name\" placeholder=\"Tên sản phẩm\" #name=\"ngModel\">\r\n      <div *ngIf=\"name.invalid && (name.dirty || name.touched || messageError.name)\">\r\n        <div *ngIf=\"name.errors.required\">\r\n          <span class=\"required\">Tên sản phẩm không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Dung tích: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_size\" required name=\"product_size\" placeholder=\"Trọng lượng, dung lượng sản phẩm\" #size=\"ngModel\">\r\n      <div *ngIf=\"size.invalid && (size.dirty || size.touched || messageError.size)\">\r\n        <div *ngIf=\"size.errors.required\">\r\n          <span class=\"required\">Dung tích sản phẩm không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n\r\n  <div class=\"flex-item col-md-4\">\r\n    <div class=\"form-group\">\r\n      <label>Xuất xứ: </label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_madein\" name=\"product_madein\" placeholder=\"Xuất xứ\">\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Loại sản phẩm: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_kind\" required name=\"product_kind\" placeholder=\"Loại sản phẩm\" #kind=\"ngModel\">\r\n      <div *ngIf=\"kind.invalid && (kind.dirty || kind.touched || messageError.kind)\">\r\n        <div *ngIf=\"kind.errors.required\">\r\n          <span class=\"required\">Loại sản phẩm không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Nhãn hiệu: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_label\" name=\"product_label\" placeholder=\"Nhãn hiệu\" required #label=\"ngModel\">\r\n      <div *ngIf=\"label.invalid && (label.dirty || label.touched || messageError.label)\">\r\n        <div *ngIf=\"label.errors.required\">\r\n          <span class=\"required\">Nhãn hiệu không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Giới tính: </label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_gender\" name=\"product_gender\" placeholder=\"Giới tính\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"flex-item col-md-4\">\r\n    <div class=\"form-group\">\r\n      <label>Thông tin sản phẩm: </label>\r\n      <textarea type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_decription\" name=\"product_decription\" placeholder=\"Mô tả sản phẩm\"></textarea>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Hướng dẫn xử dụng: </label>\r\n      <textarea type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_instruction\" name=\"product_instruction\" placeholder=\"Hướng dẫn sử dụng\"></textarea>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Hình sản phẩm: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_image\" name=\"product_image\" placeholder=\"Hình sản phẩm\" required #image=\"ngModel\">\r\n      <div *ngIf=\"image.invalid && (image.dirty || image.touched || messageError.image)\">\r\n        <div *ngIf=\"image.errors.required\">\r\n          <span class=\"required\">Hình ảnh không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</form>"
+module.exports = "<form (submit)=\"onSubmit()\" class=\"row\" #themsanpham=\"ngForm\">\r\n  <div class=\"flex-item col-md-4\">\r\n    <div class=\"form-group\">\r\n      <input type=\"submit\" class=\"btn btn-success\" value=\"Thêm sản phẩm\">\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>ID: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" id=\"product_id\" placeholder=\"Mã sản phẩm\" required [(ngModel)]=\"product.product_id\" name=\"product_id\"  #productID=\"ngModel\">\r\n\r\n      <div *ngIf=\"productID.invalid && (productID.dirty || productID.touched || messageError.productID)\">\r\n        <div *ngIf=\"productID.errors.required\">\r\n          <span class=\"required\">Mã sản phẩm không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Tên: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" required [(ngModel)]=\"product.product_name\" name=\"product_name\" placeholder=\"Tên sản phẩm\" #name=\"ngModel\">\r\n      <div *ngIf=\"name.invalid && (name.dirty || name.touched || messageError.name)\">\r\n        <div *ngIf=\"name.errors.required\">\r\n          <span class=\"required\">Tên sản phẩm không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Dung tích: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_size\" required name=\"product_size\" placeholder=\"Trọng lượng, dung lượng sản phẩm\" #size=\"ngModel\">\r\n      <div *ngIf=\"size.invalid && (size.dirty || size.touched || messageError.size)\">\r\n        <div *ngIf=\"size.errors.required\">\r\n          <span class=\"required\">Dung tích sản phẩm không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    \r\n  </div>\r\n\r\n  <div class=\"flex-item col-md-4\">\r\n    <div class=\"form-group\">\r\n      <label>Xuất xứ: </label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_madein\" name=\"product_madein\" placeholder=\"Xuất xứ\">\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Loại sản phẩm: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_kind\" required name=\"product_kind\" placeholder=\"Loại sản phẩm\" #kind=\"ngModel\">\r\n      <div *ngIf=\"kind.invalid && (kind.dirty || kind.touched || messageError.kind)\">\r\n        <div *ngIf=\"kind.errors.required\">\r\n          <span class=\"required\">Loại sản phẩm không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Nhãn hiệu: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_label\" name=\"product_label\" placeholder=\"Nhãn hiệu\" required #label=\"ngModel\">\r\n      <div *ngIf=\"label.invalid && (label.dirty || label.touched || messageError.label)\">\r\n        <div *ngIf=\"label.errors.required\">\r\n          <span class=\"required\">Nhãn hiệu không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Giới tính: </label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_gender\" name=\"product_gender\" placeholder=\"Giới tính\">\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"flex-item col-md-4\">\r\n    <div class=\"form-group\">\r\n      <label>Thông tin sản phẩm: </label>\r\n      <textarea type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_decription\" name=\"product_decription\" placeholder=\"Mô tả sản phẩm\"></textarea>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Hướng dẫn xử dụng: </label>\r\n      <textarea type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_instruction\" name=\"product_instruction\" placeholder=\"Hướng dẫn sử dụng\"></textarea>\r\n    </div>\r\n\r\n    <div class=\"form-group\">\r\n      <label>Hình sản phẩm: <span class=\"required\">*</span></label>\r\n      <input type=\"text\" class=\"form-control\" [(ngModel)]=\"product.product_image\" name=\"product_image\" placeholder=\"Hình sản phẩm\" required #image=\"ngModel\">\r\n      <div *ngIf=\"image.invalid && (image.dirty || image.touched || messageError.image)\">\r\n        <div *ngIf=\"image.errors.required\">\r\n          <span class=\"required\">Hình ảnh không được để trống</span>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <img [src]=\"product?.product_image\" width=\"100px\">\r\n  </div>\r\n</form>"
 
 /***/ }),
 
@@ -1642,6 +1642,8 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_shopping_cart_shopping_cart_component__ = __webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__guest_hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__ = __webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__guest_quan_ly_tai_khoan_quan_ly_tai_khoan_component__ = __webpack_require__("../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__guest_contact_contact_component__ = __webpack_require__("../../../../../src/app/guest/contact/contact.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__guest_nganh_hang_nganh_hang_component__ = __webpack_require__("../../../../../src/app/guest/nganh-hang/nganh-hang.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1663,8 +1665,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var routes = [
-    { path: '', redirectTo: '/home-page', pathMatch: 'full' },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_8__guest_home_page_home_page_component__["a" /* HomePageComponent */] },
     { path: 'admin', canActivate: [__WEBPACK_IMPORTED_MODULE_3__guard_authguard_guard__["a" /* AuthguardGuard */]], component: __WEBPACK_IMPORTED_MODULE_4__admin_admin_admin_component__["a" /* AdminComponent */] },
     { path: 'guest', component: __WEBPACK_IMPORTED_MODULE_12__guest_quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */] },
     // { path: 'admin', component: AdminComponent},
@@ -1677,6 +1681,8 @@ var routes = [
     { path: 'product/:id', component: __WEBPACK_IMPORTED_MODULE_9__guest_product_detail_product_detail_component__["a" /* ProductDetailComponent */] },
     { path: 'shopping-cart', component: __WEBPACK_IMPORTED_MODULE_10__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */] },
     { path: 'home-page', component: __WEBPACK_IMPORTED_MODULE_8__guest_home_page_home_page_component__["a" /* HomePageComponent */] },
+    { path: 'contact', component: __WEBPACK_IMPORTED_MODULE_13__guest_contact_contact_component__["a" /* ContactComponent */] },
+    { path: 'nganh-hang', component: __WEBPACK_IMPORTED_MODULE_14__guest_nganh_hang_nganh_hang_component__["a" /* NganhHangComponent */] },
     // { path: 'product-detail', component: ProductDetailComponent },
     { path: '**', component: __WEBPACK_IMPORTED_MODULE_7__components_notfound_notfound_component__["a" /* NotfoundComponent */] }
 ];
@@ -2237,7 +2243,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/modals/modal-add-product-to-repository/modal-add-product-to-repository.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"add-product-to-repository\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"add-product-to-repositoryLabel\"\n  aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"add-product-to-repositoryLabel\">Thêm một sản phẩm</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n \n        <form>\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <label for=\"product_name\">Tên sản phẩm</label>\n                <select #productName class=\"form-control form-control-sm\" id=\"product_name\" (change)=\"onSelect(productName.value)\">\n                  <option *ngFor=\"let product of products\" >\n                    {{product.product_name}}\n                  </option>\n                </select>\n              </div>\n              <div class=\"col-md-6\">\n                <label for=\"product_id\">Mã sản phẩm</label>\n                <input *ngIf=\"selectedProduct\" type=\"text\" class=\"form-control form-control-sm\" id=\"product_id\" placeholder=\"Mã sản phẩm\" [(ngModel)]=\"selectedProduct.product_id\"\n                  name=\"product_id\">\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                  <label for=\"don-vi-tinh\">Đơn vị tính</label>\n                  <select *ngIf=\"selectedProduct\" id=\"don-vi-tinh\" class=\"form-control form-control-sm\" [(ngModel)]=\"selectedProduct.don_vi_tinh\"  name=\"don_vi_tinh\">\n                    <option value=\"Hộp\" selected>Hộp</option>\n                    <option value=\"Thỏi\">Thỏi</option>\n                    <option value=\"Tuýt\">Tuýt</option>\n                  </select>\n              </div>\n\n              <div class=\"col-md-6\">\n                  <label for=\"size\">Trọng lượng</label>\n                  <input *ngIf=\"selectedProduct\" id=\"size\" class=\"form-control form-control-sm\" type=\"text\"\n                  [(ngModel)]=\"selectedProduct.product_size\" name=\"size\" disabled>\n              </div>\n            </div>\n            \n          </div>\n\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-4\">\n                <label for=\"quantity\">Số lượng</label>\n                <input *ngIf=\"selectedProduct\" id=\"quantity\" class=\"form-control form-control-sm\" type=\"number\" min=\"1\" max=\"1000\" (blur)=\"tinhThanhTien()\"\n                  [(ngModel)]=\"selectedProduct.quantity\" name=\"quantity\">\n              </div>\n              <div class=\"col-md-4\">\n                <label for=\"price\">Đơn giá</label>\n                <input *ngIf=\"selectedProduct\" id=\"price\" class=\"form-control form-control-sm\" type=\"number\" min=\"1000\" max=\"10000000\" step=\"1000\" (blur)=\"tinhThanhTien()\"\n                  [(ngModel)]=\"selectedProduct.price\" name=\"price\">\n              </div>\n\n              <div class=\"col-md-4\">\n                  <label for=\"thanh-tien\">Thành tiền</label>\n                  <input *ngIf=\"selectedProduct\" id=\"thanh-tien\" class=\"form-control form-control-sm\" type=\"number\" [(ngModel)]=\"selectedProduct.thanh_tien\"\n                    name=\"thanh_tien\" disabled>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                  <label>Hình sản phẩm</label> <br>\n                  <img src=\"{{selectedProduct?.product_image}}\" width=\"70px\">\n              </div>\n            </div>\n          </div>\n        </form>\n      </div>\n\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"pushOneProduct()\">Save changes</button>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<!-- Modal -->\n<div class=\"modal fade\" id=\"add-product-to-repository\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"add-product-to-repositoryLabel\"\n  aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-lg\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"add-product-to-repositoryLabel\">Thêm một sản phẩm</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n \n        <form>\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                <label for=\"product_name\">Tên sản phẩm</label>\n                <select #productName class=\"form-control form-control-sm\" id=\"product_name\" (change)=\"onSelect(productName.value)\">\n                  <option *ngFor=\"let product of products\" >\n                    {{product.product_name}}\n                  </option>\n                </select>\n              </div>\n              <div class=\"col-md-6\">\n                <label for=\"product_id\">Mã sản phẩm</label>\n                <input *ngIf=\"selectedProduct\" type=\"text\" class=\"form-control form-control-sm\" id=\"product_id\" placeholder=\"Mã sản phẩm\" [(ngModel)]=\"selectedProduct.product_id\"\n                  name=\"product_id\">\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                  <label for=\"don-vi-tinh\">Đơn vị tính</label>\n                  <select *ngIf=\"selectedProduct\" id=\"don-vi-tinh\" class=\"form-control form-control-sm\" [(ngModel)]=\"selectedProduct.don_vi_tinh\"  name=\"don_vi_tinh\">\n                    <option value=\"Hộp\" selected>Hộp</option>\n                    <option value=\"Thỏi\">Thỏi</option>\n                    <option value=\"Tuýt\">Tuýt</option>\n                  </select>\n              </div>\n\n              <div class=\"col-md-6\">\n                  <label for=\"size\">Trọng lượng</label>\n                  <input *ngIf=\"selectedProduct\" id=\"size\" class=\"form-control form-control-sm\" type=\"text\"\n                  [(ngModel)]=\"selectedProduct.product_size\" name=\"size\" disabled>\n              </div>\n            </div>\n            \n          </div>\n\n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-4\">\n                <label for=\"quantity\">Số lượng</label>\n                <input *ngIf=\"selectedProduct\" id=\"quantity\" class=\"form-control form-control-sm\" type=\"number\" min=\"1\" max=\"1000\" (blur)=\"tinhThanhTien()\"\n                  [(ngModel)]=\"selectedProduct.quantity\" name=\"quantity\">\n              </div>\n              <div class=\"col-md-4\">\n                <label for=\"price\">Đơn giá</label>\n                <input *ngIf=\"selectedProduct\" id=\"price\" class=\"form-control form-control-sm\" type=\"number\" min=\"1000\" max=\"10000000\" step=\"1000\" (blur)=\"tinhThanhTien()\"\n                  [(ngModel)]=\"selectedProduct.price\" name=\"price\">\n              </div>\n\n              <div class=\"col-md-4\">\n                  <label for=\"thanh-tien\">Thành tiền</label>\n                  <input *ngIf=\"selectedProduct\" id=\"thanh-tien\" class=\"form-control form-control-sm\" type=\"number\" [(ngModel)]=\"selectedProduct.total_price\"\n                    name=\"total_price\" disabled>\n              </div>\n            </div>\n          </div>\n \n          <div class=\"form-group\">\n            <div class=\"row\">\n              <div class=\"col-md-6\">\n                  <label>Hình sản phẩm</label> <br>\n                  <img src=\"{{selectedProduct?.product_image}}\" width=\"70px\">\n              </div>\n            </div>\n          </div>\n        </form>\n      </div>\n\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"pushOneProduct()\">Save changes</button>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2274,7 +2280,7 @@ var ModalAddProductToRepositoryComponent = (function () {
         });
     };
     ModalAddProductToRepositoryComponent.prototype.tinhThanhTien = function () {
-        this.selectedProduct.thanh_tien = this.selectedProduct.quantity * this.selectedProduct.price;
+        this.selectedProduct.total_price = this.selectedProduct.quantity * this.selectedProduct.price;
     };
     ModalAddProductToRepositoryComponent.prototype.onSelect = function (name) {
         // Match the selected ID with the ID's in array
@@ -2284,7 +2290,7 @@ var ModalAddProductToRepositoryComponent = (function () {
     ModalAddProductToRepositoryComponent.prototype.initSelectedProduct = function () {
         this.selectedProduct.quantity = 1;
         this.selectedProduct.price = 1000;
-        this.selectedProduct.thanh_tien = this.selectedProduct.quantity * this.selectedProduct.price;
+        this.selectedProduct.total_price = this.selectedProduct.quantity * this.selectedProduct.price;
         this.selectedProduct.don_vi_tinh = "Hộp";
     };
     ModalAddProductToRepositoryComponent.prototype.pushOneProduct = function () {
@@ -2684,6 +2690,7 @@ var ShoppingCartComponent = (function () {
     Object.defineProperty(ShoppingCartComponent.prototype, "productOP", {
         get: function () { return this._product; },
         set: function (product) {
+            console.log(product);
             if (product !== undefined) {
                 var list = JSON.parse(localStorage.getItem('cart'));
                 if (list) {
@@ -3152,6 +3159,112 @@ var _a;
 
 /***/ }),
 
+/***/ "../../../../../src/app/guest/contact/contact.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/contact/contact.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<app-nav-guest [isActive]=\"3\"></app-nav-guest>\n\n<div class=\"container mt-2\">\n    <form>\n        <h4 class=\"display-4 text-center\">\n            Liên hệ với chúng tôi\n        </h4>\n        <div class=\"form-group\">\n            <input type=\"text\" placeholder=\"Tên của bạn..\" class=\"form-control w-30\" name=\"name\" [(ngModel)]=\"name_\" #name=\"ngModel\" required>\n            <div *ngIf=\"name.invalid && (name.dirty || name.touched || messageError.name)\">\n                <div *ngIf=\"name.errors.required\">\n                    <span class=\"required\">Họ tên không được để trống</span>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"form-group\">\n            <input type=\"email\" placeholder=\"Email của bạn..\" class=\"form-control w-30\" name=\"email\" [(ngModel)]=\"email_\" #email=\"ngModel\" required email>\n            <div *ngIf=\"email.invalid && (email.dirty || email.touched || messageError.email.required)\">\n                <div *ngIf=\"email.errors.required\">\n                  <span class=\"required\">Email không được để trống</span>\n                </div>\n                <div *ngIf=\"email.errors.email && !email.errors.required\">\n                  <span class=\"required\">Email không đúng định dạng</span>\n                </div>\n              </div>\n        </div>\n\n        <div class=\"form-group\">\n            <textarea name=\"content\" id=\"content\" rows=\"3\" placeholder=\"Nhập nội dung phản hồi của bạn...\" class=\"form-control\" [(ngModel)]=\"content_\"\n                #content=\"ngModel\" required></textarea>\n            <button class=\"btn btn-outline-danger mt-2 btn-comment pointer\" (click)=\"addContact()\">Gửi phản hồi</button>\n        </div>\n    </form>\n</div>\n\n<app-shopping-cart></app-shopping-cart>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/contact/contact.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_guest_service__ = __webpack_require__("../../../../../src/app/service/guest.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+//service
+
+var ContactComponent = (function () {
+    function ContactComponent(guestService) {
+        this.guestService = guestService;
+    }
+    ContactComponent.prototype.addContact = function () {
+        var _this = this;
+        if (this.name_ == "" || this.name_ == undefined) {
+            this.messageError.name = true;
+        }
+        else if (this.email_ == "" || this.email_ == undefined) {
+            this.messageError.email = true;
+        }
+        else if (this.content_ == "" || this.content_ == undefined) {
+            this.messageError.content = true;
+        }
+        else {
+            var contact = {
+                name: this.name_,
+                email: this.email_,
+                content: this.content_,
+                date: new Date()
+            };
+            this.guestService.addContact(contact).then(function (res) {
+                console.log(res);
+                alert(res.message);
+                _this.content_ = "";
+            }, function (res) { return console.log(res); });
+        }
+    };
+    ContactComponent.prototype.ngOnInit = function () {
+        this.initMessageError();
+        if (localStorage.getItem("currentUser") !== null) {
+            var user = JSON.parse(localStorage.getItem("currentUser"));
+            this.name_ = user.name;
+            this.email_ = user.email;
+        }
+        else {
+        }
+    };
+    ContactComponent.prototype.initMessageError = function () {
+        this.messageError = {
+            name: false,
+            email: false,
+            content: false
+        };
+    };
+    return ContactComponent;
+}());
+ContactComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-contact',
+        template: __webpack_require__("../../../../../src/app/guest/contact/contact.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/guest/contact/contact.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__service_guest_service__["a" /* GuestService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__service_guest_service__["a" /* GuestService */]) === "function" && _a || Object])
+], ContactComponent);
+
+var _a;
+//# sourceMappingURL=contact.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/guest/doi-password/doi-password.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3304,6 +3417,46 @@ var _a;
 
 /***/ }),
 
+/***/ "../../../../../src/app/guest/guest-routing.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GuestRoutingModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_contact_component__ = __webpack_require__("../../../../../src/app/guest/contact/contact.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__nganh_hang_nganh_hang_component__ = __webpack_require__("../../../../../src/app/guest/nganh-hang/nganh-hang.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+// component
+
+
+var routes = [
+    { path: 'contact', component: __WEBPACK_IMPORTED_MODULE_2__contact_contact_component__["a" /* ContactComponent */] },
+    { path: 'nganh-hang', component: __WEBPACK_IMPORTED_MODULE_3__nganh_hang_nganh_hang_component__["a" /* NganhHangComponent */] }
+];
+var GuestRoutingModule = (function () {
+    function GuestRoutingModule() {
+    }
+    return GuestRoutingModule;
+}());
+GuestRoutingModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+        imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forChild(routes)],
+        exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
+    })
+], GuestRoutingModule);
+
+//# sourceMappingURL=guest-routing.module.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/guest/guest.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3311,24 +3464,29 @@ var _a;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GuestModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_component_module__ = __webpack_require__("../../../../../src/app/components/component.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_page_home_page_component__ = __webpack_require__("../../../../../src/app/guest/home-page/home-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__nav_guest_nav_guest_component__ = __webpack_require__("../../../../../src/app/guest/nav-guest/nav-guest.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__slider_guest_slider_guest_component__ = __webpack_require__("../../../../../src/app/guest/slider-guest/slider-guest.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__products_products_component__ = __webpack_require__("../../../../../src/app/guest/products/products.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__product_detail_product_detail_component__ = __webpack_require__("../../../../../src/app/guest/product-detail/product-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__san_pham_tuong_tu_san_pham_tuong_tu_component__ = __webpack_require__("../../../../../src/app/guest/san-pham-tuong-tu/san-pham-tuong-tu.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_shopping_cart_shopping_cart_component__ = __webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_modals_modal_product_detail_modal_product_detail_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-product-detail/modal-product-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__ = __webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_sign_up_sign_up_component__ = __webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__quan_ly_tai_khoan_quan_ly_tai_khoan_component__ = __webpack_require__("../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__sua_thong_tin_sua_thong_tin_component__ = __webpack_require__("../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__doi_password_doi_password_component__ = __webpack_require__("../../../../../src/app/guest/doi-password/doi-password.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__lich_su_don_hang_lich_su_don_hang_component__ = __webpack_require__("../../../../../src/app/guest/lich-su-don-hang/lich-su-don-hang.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__comment_comment_component__ = __webpack_require__("../../../../../src/app/guest/comment/comment.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_component_module__ = __webpack_require__("../../../../../src/app/components/component.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__guest_routing_module__ = __webpack_require__("../../../../../src/app/guest/guest-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_page_home_page_component__ = __webpack_require__("../../../../../src/app/guest/home-page/home-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__nav_guest_nav_guest_component__ = __webpack_require__("../../../../../src/app/guest/nav-guest/nav-guest.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__slider_guest_slider_guest_component__ = __webpack_require__("../../../../../src/app/guest/slider-guest/slider-guest.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__products_products_component__ = __webpack_require__("../../../../../src/app/guest/products/products.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__product_detail_product_detail_component__ = __webpack_require__("../../../../../src/app/guest/product-detail/product-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__san_pham_tuong_tu_san_pham_tuong_tu_component__ = __webpack_require__("../../../../../src/app/guest/san-pham-tuong-tu/san-pham-tuong-tu.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_shopping_cart_shopping_cart_component__ = __webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_modals_modal_product_detail_modal_product_detail_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-product-detail/modal-product-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__ = __webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_sign_up_sign_up_component__ = __webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__quan_ly_tai_khoan_quan_ly_tai_khoan_component__ = __webpack_require__("../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__sua_thong_tin_sua_thong_tin_component__ = __webpack_require__("../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__doi_password_doi_password_component__ = __webpack_require__("../../../../../src/app/guest/doi-password/doi-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__lich_su_don_hang_lich_su_don_hang_component__ = __webpack_require__("../../../../../src/app/guest/lich-su-don-hang/lich-su-don-hang.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__comment_comment_component__ = __webpack_require__("../../../../../src/app/guest/comment/comment.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__contact_contact_component__ = __webpack_require__("../../../../../src/app/guest/contact/contact.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__nganh_hang_nganh_hang_component__ = __webpack_require__("../../../../../src/app/guest/nganh-hang/nganh-hang.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3338,9 +3496,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 // Module
 
+
 //import component
+
+
 
 
 
@@ -3365,44 +3528,50 @@ var GuestModule = (function () {
 GuestModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
         imports: [
-            __WEBPACK_IMPORTED_MODULE_2__angular_common__["b" /* CommonModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__components_component_module__["a" /* ComponentModule */]
+            __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_5__components_component_module__["a" /* ComponentModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */],
+            __WEBPACK_IMPORTED_MODULE_6__guest_routing_module__["a" /* GuestRoutingModule */]
         ],
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_4__home_page_home_page_component__["a" /* HomePageComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__nav_guest_nav_guest_component__["a" /* NavGuestComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__slider_guest_slider_guest_component__["a" /* SliderGuestComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__products_products_component__["a" /* ProductsComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__product_detail_product_detail_component__["a" /* ProductDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__san_pham_tuong_tu_san_pham_tuong_tu_component__["a" /* SanPhamTuongTuComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__components_modals_modal_product_detail_modal_product_detail_component__["a" /* ModalProductDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__components_login_login_component__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__doi_password_doi_password_component__["a" /* DoiPasswordComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__lich_su_don_hang_lich_su_don_hang_component__["a" /* LichSuDonHangComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__comment_comment_component__["a" /* CommentComponent */]
+            __WEBPACK_IMPORTED_MODULE_7__home_page_home_page_component__["a" /* HomePageComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__nav_guest_nav_guest_component__["a" /* NavGuestComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__slider_guest_slider_guest_component__["a" /* SliderGuestComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__products_products_component__["a" /* ProductsComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__product_detail_product_detail_component__["a" /* ProductDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__san_pham_tuong_tu_san_pham_tuong_tu_component__["a" /* SanPhamTuongTuComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__components_modals_modal_product_detail_modal_product_detail_component__["a" /* ModalProductDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__components_login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__doi_password_doi_password_component__["a" /* DoiPasswordComponent */],
+            __WEBPACK_IMPORTED_MODULE_21__lich_su_don_hang_lich_su_don_hang_component__["a" /* LichSuDonHangComponent */],
+            __WEBPACK_IMPORTED_MODULE_22__comment_comment_component__["a" /* CommentComponent */],
+            __WEBPACK_IMPORTED_MODULE_23__contact_contact_component__["a" /* ContactComponent */],
+            __WEBPACK_IMPORTED_MODULE_24__nganh_hang_nganh_hang_component__["a" /* NganhHangComponent */]
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_4__home_page_home_page_component__["a" /* HomePageComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__nav_guest_nav_guest_component__["a" /* NavGuestComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__slider_guest_slider_guest_component__["a" /* SliderGuestComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__products_products_component__["a" /* ProductsComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__product_detail_product_detail_component__["a" /* ProductDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__san_pham_tuong_tu_san_pham_tuong_tu_component__["a" /* SanPhamTuongTuComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__components_modals_modal_product_detail_modal_product_detail_component__["a" /* ModalProductDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__components_login_login_component__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__doi_password_doi_password_component__["a" /* DoiPasswordComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__lich_su_don_hang_lich_su_don_hang_component__["a" /* LichSuDonHangComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__sua_thong_tin_sua_thong_tin_component__["a" /* SuaThongTinComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__comment_comment_component__["a" /* CommentComponent */]
+            __WEBPACK_IMPORTED_MODULE_7__home_page_home_page_component__["a" /* HomePageComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__nav_guest_nav_guest_component__["a" /* NavGuestComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__slider_guest_slider_guest_component__["a" /* SliderGuestComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__products_products_component__["a" /* ProductsComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__product_detail_product_detail_component__["a" /* ProductDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__san_pham_tuong_tu_san_pham_tuong_tu_component__["a" /* SanPhamTuongTuComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__components_modals_modal_product_detail_modal_product_detail_component__["a" /* ModalProductDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__components_login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__doi_password_doi_password_component__["a" /* DoiPasswordComponent */],
+            __WEBPACK_IMPORTED_MODULE_21__lich_su_don_hang_lich_su_don_hang_component__["a" /* LichSuDonHangComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__sua_thong_tin_sua_thong_tin_component__["a" /* SuaThongTinComponent */],
+            __WEBPACK_IMPORTED_MODULE_22__comment_comment_component__["a" /* CommentComponent */],
+            __WEBPACK_IMPORTED_MODULE_23__contact_contact_component__["a" /* ContactComponent */]
         ]
         // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
@@ -3762,7 +3931,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/nav-guest/nav-guest.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-sm navbar-light bg-light sticky-top\">\n  <a class=\"navbar-brand\" href=\"/home-page\">\n    <img src=\"../../../assets/logo.svg\" width=\"40\" height=\"40\" class=\"d-inline-block align-top\" alt=\"\">\n  </a>\n\n  <ul class=\"navbar-nav mr-auto\">\n    <li class=\"nav-item\">\n      <form class=\"form-inline\">\n        <div class=\"input-group\">\n          <input type=\"search\" class=\"form-control\" placeholder=\"Tìm kiếm ...\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n          <span class=\"input-group-addon\" id=\"basic-addon1\">\n            <i class=\"fa fa-search\"></i>\n          </span>\n        </div>\n      </form>\n    </li>\n  </ul>\n\n  <div class=\"shopping-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\">\n    <i class=\"fa fa-shopping-basket\"></i>\n  </div>\n</nav>\n\n<div class=\"nav2\" style=\"background: #f5f5f5;\">\n  <ul class=\"justify-content-center dieu-huong\">\n    <li class=\"\">\n      <a class=\"active left\" href=\"/home-page\">Khám Phá</a>\n    </li>\n    <li class=\"\">\n      <a class=\"\" href=\"/home-page\" (click)=\"$event.preventDefault()\">Cửa Hàng</a>\n    </li>\n    <li class=\"\">\n      <a class=\"right\" href=\"/home-page\" (click)=\"$event.preventDefault()\">Ngành Hàng</a>\n    </li>\n  </ul>\n\n  <!-- phần đăng ký -->\n  <form class=\"form-inline dang-ky mr-5\">\n    <span><i class=\"fa fa-user-o mr-2\"></i></span>\n    <span *ngIf=\"currentUser==null\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-login\" aria-expanded=\"false\" aria-controls=\"user-login\">\n      Đăng nhập & Đăng ký\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n\n    <span *ngIf=\"currentUser\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-info\" aria-expanded=\"false\" aria-controls=\"user-info\">\n      {{currentUser.name}}\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n    <!-- collapse đăng nhập -->\n    <div class=\"collapse\" id=\"user-login\">\n      <div class=\"card card-body\">\n        <button class=\"btn btn-danger mb-1\" data-toggle=\"modal\" data-target=\"#dang-nhap\">Đăng nhập</button>\n        <p>Chưa có tài khoản?\n          <br>\n          <a href=\"#\" class=\"dktk\" (click)=\"$event.preventDefault()\" data-toggle=\"modal\" data-target=\"#dang-ky\">Đăng ký tài khoản mới</a>\n        </p>\n      </div>\n    </div>\n    <!-- collapse đã đăng nhập -->\n    <div class=\"collapse\" id=\"user-info\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item pointer hover\" (click)=\"quanLyTaiKhoan()\">Quản lý tài khoản</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"router.navigate(['/hoan-tat-thanh-toan'])\">Đơn hàng của tôi</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"logOut()\">Đăng xuất</li>\n      </ul>\n    </div>\n  </form>\n</div>\n\n<!-- Modal đăng nhập -->\n<div class=\"modal fade\" id=\"dang-nhap\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Đăng nhập tài khoản</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <app-login></app-login>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- Modal Sign-up - đăng ký mới user -->\n<app-sign-up (currentUser)=\"getUser($event)\" [inputUser]=\"selectedUser\"></app-sign-up> "
+module.exports = "<nav class=\"navbar navbar-expand-sm navbar-light bg-light sticky-top\">\n  <a class=\"navbar-brand\" routerLink=\"/home-page\">\n    <img src=\"../../../assets/logo.svg\" width=\"40\" height=\"40\" class=\"d-inline-block align-top\" alt=\"\">\n  </a>\n\n  <ul class=\"navbar-nav mr-auto\">\n    <li class=\"nav-item\">\n      <form class=\"form-inline\">\n        <div class=\"input-group\">\n          <input type=\"search\" class=\"form-control\" placeholder=\"Tìm kiếm ...\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n          <span class=\"input-group-addon\" id=\"basic-addon1\">\n            <i class=\"fa fa-search\"></i>\n          </span>\n        </div>\n      </form>\n    </li>\n  </ul>\n\n  <div class=\"shopping-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\">\n    <i class=\"fa fa-shopping-basket\"></i>\n  </div>\n</nav>\n\n<div class=\"nav2\" style=\"background: #f5f5f5;\">\n  <ul class=\"justify-content-center dieu-huong\">\n    <li class=\"\">\n      <a  class=\"left\" [class.active]=\"isActive == 1\" routerLink=\"/home-page\">Khám Phá</a>\n    </li>\n    <li class=\"\">\n      <a [class.active]=\"isActive == 2\" routerLink=\"/nganh-hang\">Ngành Hàng</a>\n    </li>\n    <li class=\"\">\n      <a class=\"right\" [class.active]=\"isActive == 3\"  routerLink=\"/contact\">Phản hồi</a>\n    </li>\n  </ul>\n\n  <!-- phần đăng ký -->\n  <form class=\"form-inline dang-ky mr-5\">\n    <span><i class=\"fa fa-user-o mr-2\"></i></span>\n    <span *ngIf=\"currentUser==null\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-login\" aria-expanded=\"false\" aria-controls=\"user-login\">\n      Đăng nhập & Đăng ký\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n\n    <span *ngIf=\"currentUser\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-info\" aria-expanded=\"false\" aria-controls=\"user-info\">\n      {{currentUser.name}}\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n    <!-- collapse đăng nhập -->\n    <div class=\"collapse\" id=\"user-login\">\n      <div class=\"card card-body\">\n        <button class=\"btn btn-danger mb-1\" data-toggle=\"modal\" data-target=\"#dang-nhap\">Đăng nhập</button>\n        <p>Chưa có tài khoản?\n          <br>\n          <a href=\"#\" class=\"dktk\" (click)=\"$event.preventDefault()\" data-toggle=\"modal\" data-target=\"#dang-ky\">Đăng ký tài khoản mới</a>\n        </p>\n      </div>\n    </div>\n    <!-- collapse đã đăng nhập -->\n    <div class=\"collapse\" id=\"user-info\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item pointer hover\" (click)=\"quanLyTaiKhoan()\">Quản lý tài khoản</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"router.navigate(['/hoan-tat-thanh-toan'])\">Đơn hàng của tôi</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"logOut()\">Đăng xuất</li>\n      </ul>\n    </div>\n  </form>\n</div>\n\n<!-- Modal đăng nhập -->\n<div class=\"modal fade\" id=\"dang-nhap\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Đăng nhập tài khoản</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <app-login></app-login>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- Modal Sign-up - đăng ký mới user -->\n<app-sign-up (currentUser)=\"getUser($event)\" [inputUser]=\"selectedUser\"></app-sign-up> "
 
 /***/ }),
 
@@ -3829,6 +3998,10 @@ __decorate([
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], NavGuestComponent.prototype, "numOfProduct", null);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object)
+], NavGuestComponent.prototype, "isActive", void 0);
 NavGuestComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-nav-guest',
@@ -3840,6 +4013,67 @@ NavGuestComponent = __decorate([
 
 var _a, _b;
 //# sourceMappingURL=nav-guest.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/nganh-hang/nganh-hang.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/nganh-hang/nganh-hang.component.html":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "../../../../../src/app/guest/nganh-hang/nganh-hang.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NganhHangComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var NganhHangComponent = (function () {
+    function NganhHangComponent() {
+    }
+    NganhHangComponent.prototype.ngOnInit = function () {
+    };
+    return NganhHangComponent;
+}());
+NganhHangComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-nganh-hang',
+        template: __webpack_require__("../../../../../src/app/guest/nganh-hang/nganh-hang.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/guest/nganh-hang/nganh-hang.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], NganhHangComponent);
+
+//# sourceMappingURL=nganh-hang.component.js.map
 
 /***/ }),
 
@@ -4011,7 +4245,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/products/products.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-guest></app-nav-guest>\n\n<app-slider-guest></app-slider-guest>\n\n<div class=\"container mt-4 mb-4\">\n  <div class=\"row\">\n      <div *ngFor=\"let product of products\" class=\"col-md-3 col-sm-4 col-xs-6 product\" >\n          <a class=\"product-a\">\n            <div class=\"card\" style=\"width: 20rem;\">\n              <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n                style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n              <div class=\"card-body\" >\n                <p class=\"product-info card-text\">{{product?.product_name}}</p>\n                <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n    \n                <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n              </div>\n            </div>\n          </a>\n        </div>\n  </div>\n</div>\n\n<!-- Modal shopping cart giỏ hàng của khách hàng -->\n<app-shopping-cart [productOP]=\"selectedProduct\"></app-shopping-cart>"
+module.exports = "<app-nav-guest [isActive]='1'></app-nav-guest>\n\n<app-slider-guest></app-slider-guest>\n\n<div class=\"container mt-4 mb-4\">\n  <h4 class=\"display-4\">Sản phẩm ưa chuộng</h4>\n  <div class=\"row\">\n    <div *ngFor=\"let product of products\" class=\"col-md-3 col-sm-4 col-xs-6 product\">\n      <a class=\"product-a\">\n        <div class=\"card\" style=\"width: 20rem;\">\n          <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n            style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n          <div class=\"card-body\">\n            <p class=\"product-info card-text\">{{product?.product_name}}</p>\n            <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n\n            <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n          </div>\n        </div>\n      </a>\n    </div>\n  </div>\n</div>\n\n\n<div id=\"nganh-hang\">\n  <div *ngIf=\"mat.length > 0\" class=\"container mt-4 mb-4\">\n    <hr>\n    <h4 class=\"display-4\">Sản phẩm dành cho mắt</h4>\n    <div class=\"row\">\n      <div *ngFor=\"let product of mat\" class=\"col-md-3 col-sm-4 col-xs-6 product\">\n        <a class=\"product-a\">\n          <div class=\"card\" style=\"width: 20rem;\">\n            <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n              style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n            <div class=\"card-body\">\n              <p class=\"product-info card-text\">{{product?.product_name}}</p>\n              <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n\n              <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf=\"moi.length > 0\" class=\"container mt-4 mb-4\">\n    <hr>\n    <h4 class=\"display-4\">Sản phẩm dành cho môi</h4>\n    <div class=\"row\">\n      <div *ngFor=\"let product of moi\" class=\"col-md-3 col-sm-4 col-xs-6 product\">\n        <a class=\"product-a\">\n          <div class=\"card\" style=\"width: 20rem;\">\n            <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n              style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n            <div class=\"card-body\">\n              <p class=\"product-info card-text\">{{product?.product_name}}</p>\n              <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n\n              <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf=\"da.length > 0\" class=\"container mt-4 mb-4\">\n    <hr>\n    <h4 class=\"display-4\">Sản phẩm dành cho da</h4>\n    <div class=\"row\">\n      <div *ngFor=\"let product of da\" class=\"col-md-3 col-sm-4 col-xs-6 product\">\n        <a class=\"product-a\">\n          <div class=\"card\" style=\"width: 20rem;\">\n            <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n              style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n            <div class=\"card-body\">\n              <p class=\"product-info card-text\">{{product?.product_name}}</p>\n              <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n\n              <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf=\"khac.length > 0\" class=\"container mt-4 mb-4\">\n      <hr>\n      <h4 class=\"display-4\">Các loại khác</h4>\n      <div class=\"row\">\n        <div *ngFor=\"let product of khac\" class=\"col-md-3 col-sm-4 col-xs-6 product\">\n          <a class=\"product-a\">\n            <div class=\"card\" style=\"width: 20rem;\">\n              <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n                style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n              <div class=\"card-body\">\n                <p class=\"product-info card-text\">{{product?.product_name}}</p>\n                <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n  \n                <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n              </div>\n            </div>\n          </a>\n        </div>\n      </div>\n    </div>\n</div>\n\n<!-- Modal shopping cart giỏ hàng của khách hàng -->\n<app-shopping-cart [productOP]=\"selectedProduct\"></app-shopping-cart>"
 
 /***/ }),
 
@@ -4048,6 +4282,10 @@ var ProductsComponent = (function () {
         this.router = router;
         this.products = new Array();
         this.listArray = new Array();
+        this.mat = new Array();
+        this.da = new Array();
+        this.moi = new Array();
+        this.khac = new Array();
     }
     ProductsComponent.prototype.addProduct = function () {
         this.test.addToCarts(this.selectedProduct);
@@ -4057,6 +4295,22 @@ var ProductsComponent = (function () {
         var _this = this;
         if (JSON.parse(sessionStorage.getItem('products')) != null) {
             this.products = JSON.parse(sessionStorage.getItem('products'));
+            for (var _i = 0, _a = this.products; _i < _a.length; _i++) {
+                var item = _a[_i];
+                if (item.product_kind === "Mắt") {
+                    this.mat.push(item);
+                }
+                else if (item.product_kind == "Da") {
+                    this.da.push(item);
+                }
+                else if (item.product_kind == "Môi") {
+                    this.moi.push(item);
+                }
+                else {
+                    console.log(item);
+                    this.khac.push(item);
+                }
+            }
         }
         else {
             this.guestService.GetListProductsByJoin().subscribe(function (res) {
@@ -4064,10 +4318,27 @@ var ProductsComponent = (function () {
                     var item = res_1[_i];
                     if (item.sub_prod[0]) {
                         _this.products.push(item);
+                        if (item.product_kind === "Mắt") {
+                            _this.mat.push(item);
+                        }
+                        else if (item.product_kind == "Da") {
+                            _this.da.push(item);
+                        }
+                        else if (item.product_kind == "Môi") {
+                            _this.moi.push(item);
+                        }
+                        else {
+                            console.log(item);
+                            _this.khac.push(item);
+                        }
                     }
                 }
                 console.log(_this.products);
                 sessionStorage.setItem('products', JSON.stringify(_this.products));
+                sessionStorage.setItem('mat', JSON.stringify(_this.mat));
+                sessionStorage.setItem('da', JSON.stringify(_this.da));
+                sessionStorage.setItem('moi', JSON.stringify(_this.moi));
+                sessionStorage.setItem('khac', JSON.stringify(_this.khac));
                 // localStorage.setItem('products', JSON.stringify(this.products));
             }, function (res) { return console.log(res); });
         }
@@ -4076,6 +4347,7 @@ var ProductsComponent = (function () {
     ProductsComponent.prototype.onSelect = function (product) {
         this.selectedProduct = {
             _id: product._id,
+            don_vi_tinh: product.sub_prod[0].don_vi_tinh,
             product_id: product.product_id,
             product_name: product.product_name,
             product_image: product.product_image,
@@ -4713,6 +4985,15 @@ var GuestService = (function () {
         return this._http.put(url, JSON.stringify(order), { headers: this.headers })
             .toPromise()
             .then(function (res) { return _this.result = res.json().data; })
+            .catch(this.handleError);
+    };
+    // Add contact
+    GuestService.prototype.addContact = function (contact) {
+        var _this = this;
+        var url = "api/contact";
+        return this._http.post(url, JSON.stringify(contact), { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return _this.result = res.json(); })
             .catch(this.handleError);
     };
     GuestService.prototype.handleError = function (error) {

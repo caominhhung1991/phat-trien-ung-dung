@@ -23,6 +23,7 @@ export class ShoppingCartComponent implements OnInit {
   checkCart:number;
 
   @Input() set productOP(product) {
+    console.log(product);
     if(product !== undefined) {
       let list = JSON.parse(localStorage.getItem('cart'))
       if(list) {

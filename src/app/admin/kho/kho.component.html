@@ -111,7 +111,7 @@
                 <td>
                   <span *ngFor="let p of phieu.products_detail">
                     <span *ngIf="p._id === selectedProduct._id">
-                      {{p.thanh_tien | number}}đ
+                      {{p.total_price | number}}đ
                     </span>
                   </span>
                 </td>

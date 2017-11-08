@@ -21,6 +21,11 @@ export class ProductsComponent implements OnInit {
   products: any = new Array();
   products2: any;
   listArray: any = new Array();
+  mat:any = new Array();
+  da:any = new Array();
+  moi:any = new Array();
+  khac:any = new Array();
+
   constructor(
     private mainService: MainService,
     private guestService: GuestService,
@@ -36,15 +41,42 @@ export class ProductsComponent implements OnInit {
   getProducts() {
     if (JSON.parse(sessionStorage.getItem('products')) != null) {
       this.products = JSON.parse(sessionStorage.getItem('products'));
+      for (let item of this.products) {
+          if (item.product_kind === "Mắt") {
+            this.mat.push(item);
+          } else if (item.product_kind == "Da") {
+            this.da.push(item);
+          } else if (item.product_kind == "Môi") {
+            this.moi.push(item);
+          } else {
+            console.log(item);
+            this.khac.push(item);
+          }
+      }
     } else {
       this.guestService.GetListProductsByJoin().subscribe(res => {
         for (let item of res) {
           if (item.sub_prod[0]) {
             this.products.push(item);
+
+            if (item.product_kind === "Mắt") {
+              this.mat.push(item);
+            } else if (item.product_kind == "Da") {
+              this.da.push(item);
+            } else if (item.product_kind == "Môi") {
+              this.moi.push(item);
+            } else {
+              console.log(item);
+              this.khac.push(item);
+            }
           }
         }
         console.log(this.products);
         sessionStorage.setItem('products', JSON.stringify(this.products));
+        sessionStorage.setItem('mat', JSON.stringify(this.mat));
+        sessionStorage.setItem('da', JSON.stringify(this.da));
+        sessionStorage.setItem('moi', JSON.stringify(this.moi));
+        sessionStorage.setItem('khac', JSON.stringify(this.khac));
         // localStorage.setItem('products', JSON.stringify(this.products));
       }, res => console.log(res));
     }
@@ -54,6 +86,7 @@ export class ProductsComponent implements OnInit {
   onSelect(product: any) {
     this.selectedProduct = {
       _id: product._id,
+      don_vi_tinh: product.sub_prod[0].don_vi_tinh,
       product_id: product.product_id,
       product_name: product.product_name,
       product_image: product.product_image,

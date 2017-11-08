@@ -15,9 +15,11 @@ import { ProductDetailComponent} from './guest/product-detail/product-detail.com
 import { ShoppingCartComponent} from './components/shopping-cart/shopping-cart.component';
 import { HoanTatThanhToanComponent } from './guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component';
 import { QuanLyTaiKhoanComponent } from './guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component';
+import { ContactComponent } from './guest/contact/contact.component';
+import { NganhHangComponent } from './guest/nganh-hang/nganh-hang.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/home-page', pathMatch: 'full' },
+    { path: '', component: HomePageComponent },
     { path: 'admin', canActivate: [AuthguardGuard], component: AdminComponent },
     { path: 'guest', component: QuanLyTaiKhoanComponent},
     // { path: 'admin', component: AdminComponent},
@@ -30,6 +32,8 @@ const routes: Routes = [
     { path: 'product/:id', component: ProductDetailComponent},
     { path: 'shopping-cart', component: ShoppingCartComponent },
     { path: 'home-page', component: HomePageComponent },
+    { path: 'contact', component: ContactComponent},
+    { path: 'nganh-hang', component: NganhHangComponent},
     // { path: 'product-detail', component: ProductDetailComponent },
     { path: '**', component: NotfoundComponent }
 ]

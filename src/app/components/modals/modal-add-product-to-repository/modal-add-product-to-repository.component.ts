@@ -34,7 +34,7 @@ export class ModalAddProductToRepositoryComponent implements OnInit {
   }
 
   tinhThanhTien() {
-    this.selectedProduct.thanh_tien = this.selectedProduct.quantity*this.selectedProduct.price;
+    this.selectedProduct.total_price = this.selectedProduct.quantity*this.selectedProduct.price;
     
   }
   
@@ -47,7 +47,7 @@ export class ModalAddProductToRepositoryComponent implements OnInit {
   initSelectedProduct() {
     this.selectedProduct.quantity = 1;
     this.selectedProduct.price = 1000;
-    this.selectedProduct.thanh_tien = this.selectedProduct.quantity * this.selectedProduct.price;
+    this.selectedProduct.total_price = this.selectedProduct.quantity * this.selectedProduct.price;
     this.selectedProduct.don_vi_tinh = "Hộp";
   }
 

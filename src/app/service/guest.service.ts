@@ -136,6 +136,15 @@ export class GuestService {
       .then(res => this.result = res.json().data)
       .catch(this.handleError);
   }
+
+  // Add contact
+  addContact(contact):Promise<any> {
+    const url = `api/contact`;
+    return this._http.post(url, JSON.stringify(contact), {headers: this.headers})
+      .toPromise()
+      .then(res => this.result = res.json())
+      .catch(this.handleError);
+  }
   
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); //for demo purposes only

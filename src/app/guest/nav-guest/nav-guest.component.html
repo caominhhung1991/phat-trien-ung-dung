@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light sticky-top">
-  <a class="navbar-brand" href="/home-page">
+  <a class="navbar-brand" routerLink="/home-page">
     <img src="../../../assets/logo.svg" width="40" height="40" class="d-inline-block align-top" alt="">
   </a>
 
@@ -24,13 +24,13 @@
 <div class="nav2" style="background: #f5f5f5;">
   <ul class="justify-content-center dieu-huong">
     <li class="">
-      <a class="active left" href="/home-page">Khám Phá</a>
+      <a  class="left" [class.active]="isActive == 1" routerLink="/home-page">Khám Phá</a>
     </li>
     <li class="">
-      <a class="" href="/home-page" (click)="$event.preventDefault()">Cửa Hàng</a>
+      <a [class.active]="isActive == 2" routerLink="/nganh-hang">Ngành Hàng</a>
     </li>
     <li class="">
-      <a class="right" href="/home-page" (click)="$event.preventDefault()">Ngành Hàng</a>
+      <a class="right" [class.active]="isActive == 3"  routerLink="/contact">Phản hồi</a>
     </li>
   </ul>
 

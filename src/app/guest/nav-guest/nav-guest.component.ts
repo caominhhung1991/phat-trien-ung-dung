@@ -18,6 +18,9 @@ export class NavGuestComponent implements OnInit {
     console.log("num");
     console.log(this.numProduct);
   };
+
+  @Input() isActive:any;
+
   numProduct:number;
   constructor(
     private mainService: MainService,

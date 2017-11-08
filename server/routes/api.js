@@ -526,5 +526,23 @@ router.put('/comment/:id', (req, res, next) => {
 	})
 })
 
+// -- Contact - Phản hồi
+// Phản hồi khách hàng
+router.post('/contact', (req, res, next) => {
+	console.log("add contact by Guest");
+	var contact = req.body;
+	connection(db => {
+		db.collection('contact')
+			.save(contact)
+			.then(result => {
+				response.data = result;
+				response.message = 'Thêm phản hồi thành công!';
+				res.json(response)
+			})
+			.catch(err => {
+				sendError(err, res);
+			})
+	})
+})
 
 module.exports = router;
