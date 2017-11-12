@@ -4060,6 +4060,7 @@ var NavGuestComponent = (function () {
     };
     NavGuestComponent.prototype.seeProductDetail = function (p) {
         this.router.navigate(['product/' + p._id]);
+        this.removeTextSearch();
     };
     NavGuestComponent.prototype.ngOnInit = function () {
         var _this = this;

@@ -106,6 +106,7 @@ export class NavGuestComponent implements OnInit {
   
   seeProductDetail(p) {
     this.router.navigate(['product/'+p._id]);
+    this.removeTextSearch();
   }
 
   productFilter:any = {
