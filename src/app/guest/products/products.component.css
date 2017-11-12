@@ -166,3 +166,16 @@ p, li, div {
 .input-group-addon {
     width: 130px;
 }
+
+.form-inline {
+    
+}
+
+.form-inline input[type='radio'] {
+    margin-top: -17px;
+    margin-left: 10px;
+}
+
+.form-inline label {
+    margin-top: -17px;
+}

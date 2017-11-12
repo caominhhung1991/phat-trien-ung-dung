@@ -30,3 +30,36 @@
 .font-22 {
     font-size:22px;
 }
+
+/* // Extra small devices (porxtrait phones, less than 576px) */
+@media (min-width: 575px) {
+    .search-product {
+        width: 100% !important;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+/* // Small devices (landscape phones, less than 768px) */
+@media (min-width: 767px) {
+    .search-product {
+        width: 40% !important;
+    }
+}
+
+/* // Medium devices (tablets, less than 992px) */
+@media (min-width: 991px) { 
+    .search-product {
+        width: 30% !important;
+    }
+}

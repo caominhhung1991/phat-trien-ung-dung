@@ -56,7 +56,7 @@ var AdminRoutingModule = (function () {
     return AdminRoutingModule;
 }());
 AdminRoutingModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
     })
@@ -133,7 +133,7 @@ var AdminModule = (function () {
     return AdminModule;
 }());
 AdminModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
@@ -236,7 +236,7 @@ var AdminComponent = (function () {
     return AdminComponent;
 }());
 AdminComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-admin',
         template: __webpack_require__("../../../../../src/app/admin/admin/admin.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/admin/admin.component.css")]
@@ -432,11 +432,11 @@ var ChiTietDonHangComponent = (function () {
     return ChiTietDonHangComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object)
 ], ChiTietDonHangComponent.prototype, "donhang", void 0);
 ChiTietDonHangComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-chi-tiet-don-hang',
         template: __webpack_require__("../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/chi-tiet-don-hang/chi-tiet-don-hang.component.css")],
@@ -542,7 +542,7 @@ var KhoComponent = (function () {
     return KhoComponent;
 }());
 KhoComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-kho',
         template: __webpack_require__("../../../../../src/app/admin/kho/kho.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/kho/kho.component.css")]
@@ -611,11 +611,11 @@ var NavAdminComponent = (function () {
     return NavAdminComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object)
 ], NavAdminComponent.prototype, "isActive", void 0);
 NavAdminComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-nav-admin',
         template: __webpack_require__("../../../../../src/app/admin/nav-admin/nav-admin.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/nav-admin/nav-admin.component.css")]
@@ -740,11 +740,11 @@ var PhieuXuatKhoComponent = (function () {
     return PhieuXuatKhoComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object)
 ], PhieuXuatKhoComponent.prototype, "donhang", void 0);
 PhieuXuatKhoComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-phieu-xuat-kho',
         template: __webpack_require__("../../../../../src/app/admin/phieu-xuat-kho/phieu-xuat-kho.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/phieu-xuat-kho/phieu-xuat-kho.component.css")]
@@ -848,7 +848,7 @@ var QuanLyDonHangComponent = (function () {
     return QuanLyDonHangComponent;
 }());
 QuanLyDonHangComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-quan-ly-don-hang',
         template: __webpack_require__("../../../../../src/app/admin/quan-ly-don-hang/quan-ly-don-hang.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/quan-ly-don-hang/quan-ly-don-hang.component.css")]
@@ -910,7 +910,7 @@ var QuanLyKhoComponent = (function () {
     return QuanLyKhoComponent;
 }());
 QuanLyKhoComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-quan-ly-kho',
         template: __webpack_require__("../../../../../src/app/admin/quan-ly-kho/quan-ly-kho.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/quan-ly-kho/quan-ly-kho.component.css")]
@@ -987,7 +987,7 @@ var AllProductComponent = (function () {
     return AllProductComponent;
 }());
 AllProductComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-all-product',
         template: __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/all-product/all-product.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/all-product/all-product.component.css")]
@@ -1158,7 +1158,7 @@ var PhieuNhapKhoComponent = (function () {
     return PhieuNhapKhoComponent;
 }());
 PhieuNhapKhoComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-phieu-nhap-kho',
         template: __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/phieu-nhap-kho/phieu-nhap-kho.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/phieu-nhap-kho/phieu-nhap-kho.component.css")]
@@ -1238,7 +1238,7 @@ var QuanLySanPhamComponent = (function () {
     return QuanLySanPhamComponent;
 }());
 QuanLySanPhamComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-quan-ly-san-pham',
         template: __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/quan-ly-san-pham.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/quan-ly-san-pham.component.css")]
@@ -1384,7 +1384,7 @@ var ThemSanPhamComponent = (function () {
     return ThemSanPhamComponent;
 }());
 ThemSanPhamComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-them-san-pham',
         template: __webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/them-san-pham/them-san-pham.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/quan-ly-san-pham/them-san-pham/them-san-pham.component.css")]
@@ -1482,7 +1482,7 @@ var QuanLyUserComponent = (function () {
     return QuanLyUserComponent;
 }());
 QuanLyUserComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-quan-ly-user',
         template: __webpack_require__("../../../../../src/app/admin/quan-ly-user/quan-ly-user.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/quan-ly-user/quan-ly-user.component.css")]
@@ -1544,7 +1544,7 @@ var DoanhThuComponent = (function () {
     return DoanhThuComponent;
 }());
 DoanhThuComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-doanh-thu',
         template: __webpack_require__("../../../../../src/app/admin/thongke/doanh-thu/doanh-thu.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/thongke/doanh-thu/doanh-thu.component.css")]
@@ -1611,7 +1611,7 @@ var UserComponent = (function () {
     return UserComponent;
 }());
 UserComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-user',
         template: __webpack_require__("../../../../../src/app/admin/user/user.component.html"),
         styles: [__webpack_require__("../../../../../src/app/admin/user/user.component.css")]
@@ -1692,7 +1692,7 @@ var AppRoutingModule = (function () {
     return AppRoutingModule;
 }());
 AppRoutingModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_2__admin_admin_routing_module__["a" /* AdminRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes)
@@ -1769,7 +1769,7 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
@@ -1843,7 +1843,7 @@ var AppModule = (function () {
     return AppModule;
 }());
 AppModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* HttpModule */],
@@ -1851,7 +1851,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_5__admin_admin_module__["a" /* AdminModule */],
             __WEBPACK_IMPORTED_MODULE_6__guest_guest_module__["a" /* GuestModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_7__components_component_module__["a" /* ComponentModule */]
+            __WEBPACK_IMPORTED_MODULE_7__components_component_module__["a" /* ComponentModule */],
         ],
         declarations: [
             __WEBPACK_IMPORTED_MODULE_14__app_component__["a" /* AppComponent */],
@@ -1906,7 +1906,7 @@ var ComponentModule = (function () {
     return ComponentModule;
 }());
 ComponentModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */]
@@ -1973,7 +1973,7 @@ var FooterComponent = (function () {
     return FooterComponent;
 }());
 FooterComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-footer',
         template: __webpack_require__("../../../../../src/app/components/footer/footer.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/footer/footer.component.css")]
@@ -2040,7 +2040,7 @@ var GoBackComponent = (function () {
     return GoBackComponent;
 }());
 GoBackComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-go-back',
         template: __webpack_require__("../../../../../src/app/components/go-back/go-back.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/go-back/go-back.component.css")]
@@ -2102,7 +2102,7 @@ var HeaderComponent = (function () {
     return HeaderComponent;
 }());
 HeaderComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-header',
         template: __webpack_require__("../../../../../src/app/components/header/header.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/header/header.component.css")]
@@ -2209,7 +2209,7 @@ var LoginComponent = (function () {
     return LoginComponent;
 }());
 LoginComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-login',
         template: __webpack_require__("../../../../../src/app/components/login/login.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/login/login.component.css")]
@@ -2269,7 +2269,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ModalAddProductToRepositoryComponent = (function () {
     function ModalAddProductToRepositoryComponent(mainService) {
         this.mainService = mainService;
-        this.oneProduct = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.oneProduct = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     ModalAddProductToRepositoryComponent.prototype.getProducts = function () {
         var _this = this;
@@ -2304,11 +2304,11 @@ var ModalAddProductToRepositoryComponent = (function () {
     return ModalAddProductToRepositoryComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["U" /* Output */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
     __metadata("design:type", Object)
 ], ModalAddProductToRepositoryComponent.prototype, "oneProduct", void 0);
 ModalAddProductToRepositoryComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-modal-add-product-to-repository',
         template: __webpack_require__("../../../../../src/app/components/modals/modal-add-product-to-repository/modal-add-product-to-repository.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/modals/modal-add-product-to-repository/modal-add-product-to-repository.component.css")]
@@ -2370,7 +2370,7 @@ var ModalChooseProductComponent = (function () {
     return ModalChooseProductComponent;
 }());
 ModalChooseProductComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-modal-choose-product',
         template: __webpack_require__("../../../../../src/app/components/modals/modal-choose-product/modal-choose-product.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/modals/modal-choose-product/modal-choose-product.component.css")]
@@ -2448,12 +2448,12 @@ var ModalProductDetailComponent = (function () {
     return ModalProductDetailComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], ModalProductDetailComponent.prototype, "productInput", null);
 ModalProductDetailComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-modal-product-detail',
         template: __webpack_require__("../../../../../src/app/components/modals/modal-product-detail/modal-product-detail.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/modals/modal-product-detail/modal-product-detail.component.css")]
@@ -2548,11 +2548,11 @@ var ModalProductComponent = (function () {
     return ModalProductComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__objects_product__["a" /* Product */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__objects_product__["a" /* Product */]) === "function" && _a || Object)
 ], ModalProductComponent.prototype, "product", void 0);
 ModalProductComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-modal-product',
         template: __webpack_require__("../../../../../src/app/components/modals/modal-product/modal-product.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/modals/modal-product/modal-product.component.css")]
@@ -2620,7 +2620,7 @@ var NotfoundComponent = (function () {
     return NotfoundComponent;
 }());
 NotfoundComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-notfound',
         template: __webpack_require__("../../../../../src/app/components/notfound/notfound.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/notfound/notfound.component.css")]
@@ -2764,12 +2764,12 @@ var ShoppingCartComponent = (function () {
     return ShoppingCartComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], ShoppingCartComponent.prototype, "productOP", null);
 ShoppingCartComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-shopping-cart',
         template: __webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.css")],
@@ -2833,7 +2833,7 @@ var SignUpComponent = (function () {
         this.mainService = mainService;
         this.navGuest = navGuest;
         // @Input() inputUser: any = {};
-        this.currentUser = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.currentUser = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.updateUser = false;
         this.messageError = {};
     }
@@ -2962,16 +2962,16 @@ var SignUpComponent = (function () {
     return SignUpComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], SignUpComponent.prototype, "inputUser", null);
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["U" /* Output */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
     __metadata("design:type", Object)
 ], SignUpComponent.prototype, "currentUser", void 0);
 SignUpComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-sign-up',
         template: __webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.css")],
@@ -3022,7 +3022,7 @@ var AuthguardGuard = (function () {
     return AuthguardGuard;
 }());
 AuthguardGuard = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__service_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__service_main_service__["a" /* MainService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object])
 ], AuthguardGuard);
 
@@ -3141,12 +3141,12 @@ var CommentComponent = (function () {
     return CommentComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], CommentComponent.prototype, "ProductID", null);
 CommentComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-comment',
         template: __webpack_require__("../../../../../src/app/guest/comment/comment.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/comment/comment.component.css")]
@@ -3252,7 +3252,7 @@ var ContactComponent = (function () {
     return ContactComponent;
 }());
 ContactComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-contact',
         template: __webpack_require__("../../../../../src/app/guest/contact/contact.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/contact/contact.component.css")]
@@ -3399,12 +3399,12 @@ var DoiPasswordComponent = (function () {
     return DoiPasswordComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], DoiPasswordComponent.prototype, "inputUserUpdate", null);
 DoiPasswordComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-doi-password',
         template: __webpack_require__("../../../../../src/app/guest/doi-password/doi-password.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/doi-password/doi-password.component.css")]
@@ -3447,7 +3447,7 @@ var GuestRoutingModule = (function () {
     return GuestRoutingModule;
 }());
 GuestRoutingModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forChild(routes)],
         exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
     })
@@ -3469,24 +3469,29 @@ GuestRoutingModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_component_module__ = __webpack_require__("../../../../../src/app/components/component.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__guest_routing_module__ = __webpack_require__("../../../../../src/app/guest/guest-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__home_page_home_page_component__ = __webpack_require__("../../../../../src/app/guest/home-page/home-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__nav_guest_nav_guest_component__ = __webpack_require__("../../../../../src/app/guest/nav-guest/nav-guest.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__slider_guest_slider_guest_component__ = __webpack_require__("../../../../../src/app/guest/slider-guest/slider-guest.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__products_products_component__ = __webpack_require__("../../../../../src/app/guest/products/products.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__product_detail_product_detail_component__ = __webpack_require__("../../../../../src/app/guest/product-detail/product-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__san_pham_tuong_tu_san_pham_tuong_tu_component__ = __webpack_require__("../../../../../src/app/guest/san-pham-tuong-tu/san-pham-tuong-tu.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_shopping_cart_shopping_cart_component__ = __webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_modals_modal_product_detail_modal_product_detail_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-product-detail/modal-product-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__ = __webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_sign_up_sign_up_component__ = __webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__quan_ly_tai_khoan_quan_ly_tai_khoan_component__ = __webpack_require__("../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__sua_thong_tin_sua_thong_tin_component__ = __webpack_require__("../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__doi_password_doi_password_component__ = __webpack_require__("../../../../../src/app/guest/doi-password/doi-password.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__lich_su_don_hang_lich_su_don_hang_component__ = __webpack_require__("../../../../../src/app/guest/lich-su-don-hang/lich-su-don-hang.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__comment_comment_component__ = __webpack_require__("../../../../../src/app/guest/comment/comment.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__contact_contact_component__ = __webpack_require__("../../../../../src/app/guest/contact/contact.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__nganh_hang_nganh_hang_component__ = __webpack_require__("../../../../../src/app/guest/nganh-hang/nganh-hang.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ng2_order_pipe__ = __webpack_require__("../../../../ng2-order-pipe/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ng2_order_pipe___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_ng2_order_pipe__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ngx_pagination__ = __webpack_require__("../../../../ngx-pagination/dist/ngx-pagination.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ng2_filter_pipe__ = __webpack_require__("../../../../ng2-filter-pipe/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ng2_filter_pipe___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_ng2_filter_pipe__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__home_page_home_page_component__ = __webpack_require__("../../../../../src/app/guest/home-page/home-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__nav_guest_nav_guest_component__ = __webpack_require__("../../../../../src/app/guest/nav-guest/nav-guest.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__slider_guest_slider_guest_component__ = __webpack_require__("../../../../../src/app/guest/slider-guest/slider-guest.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__products_products_component__ = __webpack_require__("../../../../../src/app/guest/products/products.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__product_detail_product_detail_component__ = __webpack_require__("../../../../../src/app/guest/product-detail/product-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__san_pham_tuong_tu_san_pham_tuong_tu_component__ = __webpack_require__("../../../../../src/app/guest/san-pham-tuong-tu/san-pham-tuong-tu.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_shopping_cart_shopping_cart_component__ = __webpack_require__("../../../../../src/app/components/shopping-cart/shopping-cart.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_modals_modal_product_detail_modal_product_detail_component__ = __webpack_require__("../../../../../src/app/components/modals/modal-product-detail/modal-product-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__ = __webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_login_login_component__ = __webpack_require__("../../../../../src/app/components/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_sign_up_sign_up_component__ = __webpack_require__("../../../../../src/app/components/sign-up/sign-up.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__quan_ly_tai_khoan_quan_ly_tai_khoan_component__ = __webpack_require__("../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__sua_thong_tin_sua_thong_tin_component__ = __webpack_require__("../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__doi_password_doi_password_component__ = __webpack_require__("../../../../../src/app/guest/doi-password/doi-password.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__lich_su_don_hang_lich_su_don_hang_component__ = __webpack_require__("../../../../../src/app/guest/lich-su-don-hang/lich-su-don-hang.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__comment_comment_component__ = __webpack_require__("../../../../../src/app/guest/comment/comment.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__contact_contact_component__ = __webpack_require__("../../../../../src/app/guest/contact/contact.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__nganh_hang_nganh_hang_component__ = __webpack_require__("../../../../../src/app/guest/nganh-hang/nganh-hang.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3500,6 +3505,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 // Module
 
+
+ //importing the order
+ // import the pagination
 
 //import component
 
@@ -3526,52 +3534,56 @@ var GuestModule = (function () {
     return GuestModule;
 }());
 GuestModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_3__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_5__components_component_module__["a" /* ComponentModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */],
-            __WEBPACK_IMPORTED_MODULE_6__guest_routing_module__["a" /* GuestRoutingModule */]
+            __WEBPACK_IMPORTED_MODULE_6__guest_routing_module__["a" /* GuestRoutingModule */],
+            __WEBPACK_IMPORTED_MODULE_9_ng2_filter_pipe__["Ng2FilterPipeModule"],
+            // Ng2SearchPipeModule, //Search
+            __WEBPACK_IMPORTED_MODULE_7_ng2_order_pipe__["Ng2OrderModule"],
+            __WEBPACK_IMPORTED_MODULE_8_ngx_pagination__["a" /* NgxPaginationModule */],
         ],
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_7__home_page_home_page_component__["a" /* HomePageComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__nav_guest_nav_guest_component__["a" /* NavGuestComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__slider_guest_slider_guest_component__["a" /* SliderGuestComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__products_products_component__["a" /* ProductsComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__product_detail_product_detail_component__["a" /* ProductDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__san_pham_tuong_tu_san_pham_tuong_tu_component__["a" /* SanPhamTuongTuComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_modals_modal_product_detail_modal_product_detail_component__["a" /* ModalProductDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__components_login_login_component__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */],
-            __WEBPACK_IMPORTED_MODULE_20__doi_password_doi_password_component__["a" /* DoiPasswordComponent */],
-            __WEBPACK_IMPORTED_MODULE_21__lich_su_don_hang_lich_su_don_hang_component__["a" /* LichSuDonHangComponent */],
-            __WEBPACK_IMPORTED_MODULE_22__comment_comment_component__["a" /* CommentComponent */],
-            __WEBPACK_IMPORTED_MODULE_23__contact_contact_component__["a" /* ContactComponent */],
-            __WEBPACK_IMPORTED_MODULE_24__nganh_hang_nganh_hang_component__["a" /* NganhHangComponent */]
+            __WEBPACK_IMPORTED_MODULE_10__home_page_home_page_component__["a" /* HomePageComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__nav_guest_nav_guest_component__["a" /* NavGuestComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__slider_guest_slider_guest_component__["a" /* SliderGuestComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__products_products_component__["a" /* ProductsComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__product_detail_product_detail_component__["a" /* ProductDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__san_pham_tuong_tu_san_pham_tuong_tu_component__["a" /* SanPhamTuongTuComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__components_modals_modal_product_detail_modal_product_detail_component__["a" /* ModalProductDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__components_login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
+            __WEBPACK_IMPORTED_MODULE_21__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */],
+            __WEBPACK_IMPORTED_MODULE_23__doi_password_doi_password_component__["a" /* DoiPasswordComponent */],
+            __WEBPACK_IMPORTED_MODULE_24__lich_su_don_hang_lich_su_don_hang_component__["a" /* LichSuDonHangComponent */],
+            __WEBPACK_IMPORTED_MODULE_25__comment_comment_component__["a" /* CommentComponent */],
+            __WEBPACK_IMPORTED_MODULE_26__contact_contact_component__["a" /* ContactComponent */],
+            __WEBPACK_IMPORTED_MODULE_27__nganh_hang_nganh_hang_component__["a" /* NganhHangComponent */]
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_7__home_page_home_page_component__["a" /* HomePageComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__nav_guest_nav_guest_component__["a" /* NavGuestComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__slider_guest_slider_guest_component__["a" /* SliderGuestComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__products_products_component__["a" /* ProductsComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__product_detail_product_detail_component__["a" /* ProductDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__san_pham_tuong_tu_san_pham_tuong_tu_component__["a" /* SanPhamTuongTuComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_modals_modal_product_detail_modal_product_detail_component__["a" /* ModalProductDetailComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */],
-            __WEBPACK_IMPORTED_MODULE_16__components_login_login_component__["a" /* LoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
-            __WEBPACK_IMPORTED_MODULE_18__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */],
-            __WEBPACK_IMPORTED_MODULE_20__doi_password_doi_password_component__["a" /* DoiPasswordComponent */],
-            __WEBPACK_IMPORTED_MODULE_21__lich_su_don_hang_lich_su_don_hang_component__["a" /* LichSuDonHangComponent */],
-            __WEBPACK_IMPORTED_MODULE_19__sua_thong_tin_sua_thong_tin_component__["a" /* SuaThongTinComponent */],
-            __WEBPACK_IMPORTED_MODULE_22__comment_comment_component__["a" /* CommentComponent */],
-            __WEBPACK_IMPORTED_MODULE_23__contact_contact_component__["a" /* ContactComponent */]
+            __WEBPACK_IMPORTED_MODULE_10__home_page_home_page_component__["a" /* HomePageComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__nav_guest_nav_guest_component__["a" /* NavGuestComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__slider_guest_slider_guest_component__["a" /* SliderGuestComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__products_products_component__["a" /* ProductsComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__product_detail_product_detail_component__["a" /* ProductDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__san_pham_tuong_tu_san_pham_tuong_tu_component__["a" /* SanPhamTuongTuComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__components_shopping_cart_shopping_cart_component__["a" /* ShoppingCartComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__components_modals_modal_product_detail_modal_product_detail_component__["a" /* ModalProductDetailComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__hoan_tat_thanh_toan_hoan_tat_thanh_toan_component__["a" /* HoanTatThanhToanComponent */],
+            __WEBPACK_IMPORTED_MODULE_19__components_login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__components_sign_up_sign_up_component__["a" /* SignUpComponent */],
+            __WEBPACK_IMPORTED_MODULE_21__quan_ly_tai_khoan_quan_ly_tai_khoan_component__["a" /* QuanLyTaiKhoanComponent */],
+            __WEBPACK_IMPORTED_MODULE_23__doi_password_doi_password_component__["a" /* DoiPasswordComponent */],
+            __WEBPACK_IMPORTED_MODULE_24__lich_su_don_hang_lich_su_don_hang_component__["a" /* LichSuDonHangComponent */],
+            __WEBPACK_IMPORTED_MODULE_22__sua_thong_tin_sua_thong_tin_component__["a" /* SuaThongTinComponent */],
+            __WEBPACK_IMPORTED_MODULE_25__comment_comment_component__["a" /* CommentComponent */],
+            __WEBPACK_IMPORTED_MODULE_26__contact_contact_component__["a" /* ContactComponent */]
         ]
         // schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
@@ -3731,7 +3743,7 @@ var HoanTatThanhToanComponent = (function () {
     return HoanTatThanhToanComponent;
 }());
 HoanTatThanhToanComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-hoan-tat-thanh-toan',
         template: __webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/hoan-tat-thanh-toan/hoan-tat-thanh-toan.component.css")],
@@ -3793,7 +3805,7 @@ var HomePageComponent = (function () {
     return HomePageComponent;
 }());
 HomePageComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-home-page',
         template: __webpack_require__("../../../../../src/app/guest/home-page/home-page.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/home-page/home-page.component.css")]
@@ -3892,12 +3904,12 @@ var LichSuDonHangComponent = (function () {
     return LichSuDonHangComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], LichSuDonHangComponent.prototype, "user", null);
 LichSuDonHangComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-lich-su-don-hang',
         template: __webpack_require__("../../../../../src/app/guest/lich-su-don-hang/lich-su-don-hang.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/lich-su-don-hang/lich-su-don-hang.component.css")]
@@ -3918,7 +3930,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "nav {\r\n    background: #FAEFF4 !important;\r\n    /* position: relative; */\r\n}\r\n\r\ninput[type=search] {\r\n    background: #FAEFF4 !important;\r\n    border-radius: 20px; \r\n    border-right: none;\r\n}\r\n\r\ninput[type=search]:focus {\r\n    \r\n}\r\n\r\n.input-group-addon {\r\n    background: #FAEFF4;\r\n    border-top-right-radius: 20px;\r\n    border-bottom-right-radius: 20px;\r\n    cursor: pointer;\r\n    border-left: none;\r\n    color: lightgray;\r\n}\r\n\r\n.shopping-cart {\r\n    font-size: 30px;\r\n    color: white;\r\n    background: #D87179;\r\n    padding: 10px;\r\n    position: absolute;\r\n    right: 0;\r\n    cursor: pointer;\r\n}\r\n\r\n.num-of-product {\r\n    position: absolute;\r\n    right: 0;\r\n    font-size: 13px;\r\n    color: white;\r\n    height: 20px;\r\n    width: 20px;\r\n    line-height: -10px;\r\n    font-weight: bold;\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    background-color: rgb(224, 0, 0);\r\n}\r\n/* Điều hướng */\r\n/* .slider {\r\n    padding: 50px 0 50px 0;\r\n    background-image: url(\"../../../assets/gioi-thieu6.jpg\");\r\n    background-size: cover;\r\n} */\r\n\r\n\r\n.nav2 {\r\n    position: relative;\r\n    \r\n}\r\n\r\n.dieu-huong {\r\n    list-style-type: none;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    margin: 0;\r\n    padding: 15px 0;\r\n}\r\n\r\n.dieu-huong li {\r\n    float: left;\r\n    \r\n}\r\n\r\n\r\n.dieu-huong a {\r\n    display: block;\r\n    background: white;\r\n    padding: 8px 18px;\r\n    color: black;\r\n    border: 0.5px solid rgb(228, 228, 228);\r\n}\r\n\r\n.dieu-huong a:hover {\r\n    background: #FAEFF4;\r\n    text-decoration: none;\r\n    color: #333 !important;\r\n}\r\n\r\n.active {\r\n    background: #D87179 !important;\r\n    color: white !important;\r\n}\r\n\r\n\r\n.left {\r\n    border-top-left-radius: 25px;\r\n    border-bottom-left-radius: 25px;\r\n}\r\n\r\n.right {\r\n    border-top-right-radius: 25px;\r\n    border-bottom-right-radius: 25px;\r\n}\r\n\r\n.dang-ky {\r\n    position: absolute;\r\n    right: 20px;\r\n    top: 17px;\r\n    font-size: 14px;\r\n}\r\n\r\n.dang-ky a {\r\n    color: black;\r\n    \r\n}\r\n\r\n.dang-ky a:hover {\r\n    color: darkred;\r\n    text-decoration: underline;\r\n}\r\n\r\n.fa-sort-desc {\r\n    position: relative;\r\n    top: -3px;\r\n}\r\n\r\n.fa-user-o {\r\n    font-size: 30px;\r\n}\r\n\r\n#user-login, #user-info {\r\n    width: 250px;\r\n    position: absolute;\r\n    top: 45px;\r\n    right: -30px;\r\n    z-index: 10;\r\n}\r\n\r\n.dktk {\r\n    color: rgb(2, 140, 253) !important;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, "nav {\r\n    background: #FAEFF4 !important;\r\n    /* position: relative; */\r\n}\r\n\r\ninput[type=search] {\r\n    background: #FAEFF4 !important;\r\n    border-radius: 20px; \r\n    border-right: none;\r\n}\r\n\r\ninput[type=search]:focus {\r\n    \r\n}\r\n\r\n.input-group-addon {\r\n    background: #FAEFF4;\r\n    border-top-right-radius: 20px;\r\n    border-bottom-right-radius: 20px;\r\n    cursor: pointer;\r\n    border-left: none;\r\n    color: lightgray;\r\n}\r\n\r\n.shopping-cart {\r\n    font-size: 30px;\r\n    color: white;\r\n    background: #D87179;\r\n    padding: 10px;\r\n    position: absolute;\r\n    right: 0;\r\n    cursor: pointer;\r\n}\r\n\r\n.num-of-product {\r\n    position: absolute;\r\n    right: 0;\r\n    font-size: 13px;\r\n    color: white;\r\n    height: 20px;\r\n    width: 20px;\r\n    line-height: -10px;\r\n    font-weight: bold;\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    background-color: rgb(224, 0, 0);\r\n}\r\n/* Điều hướng */\r\n/* .slider {\r\n    padding: 50px 0 50px 0;\r\n    background-image: url(\"../../../assets/gioi-thieu6.jpg\");\r\n    background-size: cover;\r\n} */\r\n\r\n\r\n.nav2 {\r\n    position: relative;\r\n    \r\n}\r\n\r\n.dieu-huong {\r\n    list-style-type: none;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    margin: 0;\r\n    padding: 15px 0;\r\n}\r\n\r\n.dieu-huong li {\r\n    float: left;\r\n    \r\n}\r\n\r\n\r\n.dieu-huong a {\r\n    display: block;\r\n    background: white;\r\n    padding: 8px 18px;\r\n    color: black;\r\n    border: 0.5px solid rgb(228, 228, 228);\r\n}\r\n\r\n.dieu-huong a:hover {\r\n    background: #FAEFF4;\r\n    text-decoration: none;\r\n    color: #333 !important;\r\n}\r\n\r\n.active {\r\n    background: #D87179 !important;\r\n    color: white !important;\r\n}\r\n\r\n\r\n.left {\r\n    border-top-left-radius: 25px;\r\n    border-bottom-left-radius: 25px;\r\n}\r\n\r\n.right {\r\n    border-top-right-radius: 25px;\r\n    border-bottom-right-radius: 25px;\r\n}\r\n\r\n.dang-ky {\r\n    position: absolute;\r\n    right: 20px;\r\n    top: 17px;\r\n    font-size: 14px;\r\n}\r\n\r\n.dang-ky a {\r\n    color: black;\r\n    \r\n}\r\n\r\n.dang-ky a:hover {\r\n    color: darkred;\r\n    text-decoration: underline;\r\n}\r\n\r\n.fa-sort-desc {\r\n    position: relative;\r\n    top: -3px;\r\n}\r\n\r\n.fa-user-o {\r\n    font-size: 30px;\r\n}\r\n\r\n#user-login, #user-info {\r\n    width: 250px;\r\n    position: absolute;\r\n    top: 45px;\r\n    right: -30px;\r\n    z-index: 10;\r\n}\r\n\r\n.dktk {\r\n    color: rgb(2, 140, 253) !important;\r\n}\r\n\r\nthead > tr > th {\r\n    cursor: pointer;\r\n}\r\n\r\n.search-form {\r\n    position: relative;\r\n}\r\n\r\n#search-result {\r\n    margin-top: 2px;\r\n    position: absolute;\r\n    top: 45px;\r\n    left: 0;\r\n    background-color: rgba(255, 255, 255, 0.8);\r\n    padding: 5px;\r\n    border-radius: 10px;\r\n}\r\n\r\n#search-result li {\r\n    padding: 3px 3px;\r\n    border-radius: 10px;\r\n    cursor: pointer;\r\n}\r\n\r\n#search-result li:hover {\r\n    background-color: rgba(212, 211, 211, 0.5);\r\n}", ""]);
 
 // exports
 
@@ -3931,7 +3943,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/nav-guest/nav-guest.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-sm navbar-light bg-light sticky-top\">\n  <a class=\"navbar-brand\" routerLink=\"/home-page\">\n    <img src=\"../../../assets/logo.svg\" width=\"40\" height=\"40\" class=\"d-inline-block align-top\" alt=\"\">\n  </a>\n\n  <ul class=\"navbar-nav mr-auto\">\n    <li class=\"nav-item\">\n      <form class=\"form-inline\">\n        <div class=\"input-group\">\n          <input type=\"search\" class=\"form-control\" placeholder=\"Tìm kiếm ...\" aria-label=\"Username\" aria-describedby=\"basic-addon1\">\n          <span class=\"input-group-addon\" id=\"basic-addon1\">\n            <i class=\"fa fa-search\"></i>\n          </span>\n        </div>\n      </form>\n    </li>\n  </ul>\n\n  <div class=\"shopping-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\">\n    <i class=\"fa fa-shopping-basket\"></i>\n  </div>\n</nav>\n\n<div class=\"nav2\" style=\"background: #f5f5f5;\">\n  <ul class=\"justify-content-center dieu-huong\">\n    <li class=\"\">\n      <a  class=\"left\" [class.active]=\"isActive == 1\" routerLink=\"/home-page\">Khám Phá</a>\n    </li>\n    <li class=\"\">\n      <a [class.active]=\"isActive == 2\" href=\"#nganh-hang\">Ngành Hàng</a>\n    </li>\n    <li class=\"\">\n      <a class=\"right\" [class.active]=\"isActive == 3\"  routerLink=\"/contact\">Phản hồi</a>\n    </li>\n  </ul>\n\n  <!-- phần đăng ký -->\n  <form class=\"form-inline dang-ky mr-5\">\n    <span><i class=\"fa fa-user-o mr-2\"></i></span>\n    <span *ngIf=\"currentUser==null\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-login\" aria-expanded=\"false\" aria-controls=\"user-login\">\n      Đăng nhập & Đăng ký\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n\n    <span *ngIf=\"currentUser\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-info\" aria-expanded=\"false\" aria-controls=\"user-info\">\n      {{currentUser.name}}\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n    <!-- collapse đăng nhập -->\n    <div class=\"collapse\" id=\"user-login\">\n      <div class=\"card card-body\">\n        <button class=\"btn btn-danger mb-1\" data-toggle=\"modal\" data-target=\"#dang-nhap\">Đăng nhập</button>\n        <p>Chưa có tài khoản?\n          <br>\n          <a href=\"#\" class=\"dktk\" (click)=\"$event.preventDefault()\" data-toggle=\"modal\" data-target=\"#dang-ky\">Đăng ký tài khoản mới</a>\n        </p>\n      </div>\n    </div>\n    <!-- collapse đã đăng nhập -->\n    <div class=\"collapse\" id=\"user-info\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item pointer hover\" (click)=\"quanLyTaiKhoan()\">Quản lý tài khoản</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"router.navigate(['/hoan-tat-thanh-toan'])\">Đơn hàng của tôi</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"logOut()\">Đăng xuất</li>\n      </ul>\n    </div>\n  </form>\n</div>\n\n<!-- Modal đăng nhập -->\n<div class=\"modal fade\" id=\"dang-nhap\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Đăng nhập tài khoản</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <app-login></app-login>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- Modal Sign-up - đăng ký mới user -->\n<app-sign-up (currentUser)=\"getUser($event)\" [inputUser]=\"selectedUser\"></app-sign-up> "
+module.exports = "<nav class=\"navbar navbar-expand-sm navbar-light bg-light sticky-top\">\n  <a class=\"navbar-brand\" routerLink=\"/home-page\">\n    <img src=\"../../../assets/logo.svg\" width=\"40\" height=\"40\" class=\"d-inline-block align-top\" alt=\"\">\n  </a>\n\n  <ul class=\"navbar-nav mr-auto\">\n    <li class=\"nav-item\">\n      <form class=\"form-inline search-form\">\n        <div class=\"input-group\">\n          <input id=\"search\" type=\"search\" class=\"form-control\" placeholder=\"Tìm kiếm ...\" aria-label=\"Username\" aria-describedby=\"basic-addon1\" name=\"search\" [(ngModel)]=\"productFilter.product_name\" #search=\"ngModel\" required>\n          <span class=\"input-group-addon\" id=\"basic-addon1\" (click)=\"removeTextSearch()\">\n              <span style=\"font-size:19px\">&times;</span>\n          </span>\n        </div>\n        <div *ngIf=\"search.valid && search.dirty\" id=\"search-result\">\n            <li *ngFor=\"let p of products_search| filterBy:productFilter\" (click)=\"seeProductDetail(p)\">{{p.product_name}}</li>\n        </div>\n      </form>\n\n    </li>\n\n  </ul>\n  \n  <div class=\"shopping-cart\" data-toggle=\"modal\" data-target=\"#shopping-cart\">\n    <i class=\"fa fa-shopping-basket\"></i>\n  </div>\n</nav>\n\n<div class=\"nav2\" style=\"background: #f5f5f5;\">\n  <ul class=\"justify-content-center dieu-huong\">\n    <li class=\"\">\n      <a class=\"left\" [class.active]=\"isActive == 1\" routerLink=\"/home-page\">Khám Phá</a>\n    </li>\n    <li class=\"\">\n      <a [class.active]=\"isActive == 2\" href=\"#nganh-hang\">Ngành Hàng</a>\n    </li>\n    <li class=\"\">\n      <a class=\"right\" [class.active]=\"isActive == 3\" routerLink=\"/contact\">Phản hồi</a>\n    </li>\n  </ul>\n\n  <!-- phần đăng ký -->\n  <form class=\"form-inline dang-ky mr-5\">\n    <span>\n      <i class=\"fa fa-user-o mr-2\"></i>\n    </span>\n    <span *ngIf=\"currentUser==null\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-login\" aria-expanded=\"false\" aria-controls=\"user-login\">\n      Đăng nhập & Đăng ký\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n\n    <span *ngIf=\"currentUser\" class=\"pointer\" data-toggle=\"collapse\" data-target=\"#user-info\" aria-expanded=\"false\" aria-controls=\"user-info\">\n      {{currentUser.name}}\n      <br>Tài khoản\n      <i class=\"fa fa-sort-desc\"></i>\n    </span>\n    <!-- collapse đăng nhập -->\n    <div class=\"collapse\" id=\"user-login\">\n      <div class=\"card card-body\">\n        <button class=\"btn btn-danger mb-1\" data-toggle=\"modal\" data-target=\"#dang-nhap\">Đăng nhập</button>\n        <p>Chưa có tài khoản?\n          <br>\n          <a href=\"#\" class=\"dktk\" (click)=\"$event.preventDefault()\" data-toggle=\"modal\" data-target=\"#dang-ky\">Đăng ký tài khoản mới</a>\n        </p>\n      </div>\n    </div>\n    <!-- collapse đã đăng nhập -->\n    <div class=\"collapse\" id=\"user-info\">\n      <ul class=\"list-group\">\n        <li class=\"list-group-item pointer hover\" (click)=\"quanLyTaiKhoan()\">Quản lý tài khoản</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"router.navigate(['/hoan-tat-thanh-toan'])\">Đơn hàng của tôi</li>\n        <li class=\"list-group-item pointer hover\" (click)=\"logOut()\">Đăng xuất</li>\n      </ul>\n    </div>\n  </form>\n</div>\n\n<!-- Modal đăng nhập -->\n<div class=\"modal fade\" id=\"dang-nhap\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Đăng nhập tài khoản</h5>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n      <div class=\"modal-body\">\n        <app-login></app-login>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- Modal Sign-up - đăng ký mới user -->\n<app-sign-up (currentUser)=\"getUser($event)\" [inputUser]=\"selectedUser\"></app-sign-up>\n\n\n<!-- <div class=\"container\">\n  <div class=\"row\">\n    <nav class=\"navbar\">\n      <input class=\"form-control\" type=\"text\" name=\"search\" [(ngModel)]=\"filter\">\n    </nav>\n    <table class=\"table\">\n      <thead>\n        <tr>\n          <th>#</th>\n          <th (click)=\"sort('name')\">\n            Name <span class=\"fa\" *ngIf=\"key =='name'\" [ngClass]=\"{'fa-chevron-up':reverse,'fa-chevron-down':!reverse}\"></span>\n          </th>\n          <th (click)=\"sort('genre')\">\n            Genre <span class=\"fa\" *ngIf=\"key =='genre'\" [ngClass]=\"{'fa-chevron-up':reverse,'fa-chevron-down':!reverse}\"></span>\n          </th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let game of games | orderBy: key: reverse | filter:filter | paginate: {itemsPerPage: 5, currentPage: p}; let i = index\">\n          <td>{{i+1}}</td>\n          <td>{{game.name}}</td>\n          <td>{{game.genre}}</td>\n        </tr>\n      </tbody>\n      <pagination-controls (pageChange)=\"p = $event\"></pagination-controls>\n    </table>\n  </div>\n</div> -->"
 
 /***/ }),
 
@@ -3959,8 +3971,68 @@ var NavGuestComponent = (function () {
     function NavGuestComponent(mainService, router) {
         this.mainService = mainService;
         this.router = router;
+        this.games = [
+            {
+                "id": "1",
+                "name": "DOTA 2",
+                "genre": "Strategy"
+            },
+            {
+                "id": "2",
+                "name": "AOE 3",
+                "genre": "Strategy"
+            },
+            {
+                "id": "3",
+                "name": "GTA 5",
+                "genre": "RPG"
+            },
+            {
+                "id": "4",
+                "name": "Far Cry 3",
+                "genre": "Action"
+            },
+            {
+                "id": "5",
+                "name": "GTA San Andreas",
+                "genre": "RPG"
+            },
+            {
+                "id": "6",
+                "name": "Hitman",
+                "genre": "Action"
+            },
+            {
+                "id": "7",
+                "name": "NFS MW",
+                "genre": "Sport"
+            }, {
+                "id": "8",
+                "name": "Fifa 16",
+                "genre": "Sport"
+            }, {
+                "id": "9",
+                "name": "NFS Sen 2",
+                "genre": "Sport"
+            }, {
+                "id": "10",
+                "name": "Witcher Assasins on King",
+                "genre": "Adventure"
+            }
+        ];
+        this.key = 'name'; //set default
+        this.reverse = false;
+        this.p = 1;
         this.currentUser = {};
+        this.productFilter = {
+            product_name: ''
+        };
+        this.products_search = {};
     }
+    NavGuestComponent.prototype.sort = function (key) {
+        this.key = key;
+        this.reverse = !this.reverse;
+    };
     Object.defineProperty(NavGuestComponent.prototype, "numOfProduct", {
         set: function (num) {
             this.numProduct = num;
@@ -3986,24 +4058,40 @@ var NavGuestComponent = (function () {
     NavGuestComponent.prototype.donHangCuaToi = function () {
         this.router.navigate(['/hoan-tat-thanh-toan']);
     };
+    NavGuestComponent.prototype.seeProductDetail = function (p) {
+        this.router.navigate(['product/' + p._id]);
+    };
     NavGuestComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.numProduct = 0;
         this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
         console.log(this.currentUser);
+        if (sessionStorage.getItem("products") != null) {
+            this.products_search = JSON.parse(sessionStorage.getItem("products"));
+        }
+        else {
+            $(document).ready(function () {
+                _this.products_search = JSON.parse(sessionStorage.getItem("products"));
+            });
+        }
+    };
+    NavGuestComponent.prototype.removeTextSearch = function () {
+        $("#search").val("");
+        this.productFilter.product_name = "";
     };
     return NavGuestComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], NavGuestComponent.prototype, "numOfProduct", null);
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object)
 ], NavGuestComponent.prototype, "isActive", void 0);
 NavGuestComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-nav-guest',
         template: __webpack_require__("../../../../../src/app/guest/nav-guest/nav-guest.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/nav-guest/nav-guest.component.css")]
@@ -4065,7 +4153,7 @@ var NganhHangComponent = (function () {
     return NganhHangComponent;
 }());
 NganhHangComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-nganh-hang',
         template: __webpack_require__("../../../../../src/app/guest/nganh-hang/nganh-hang.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/nganh-hang/nganh-hang.component.css")]
@@ -4211,7 +4299,7 @@ var ProductDetailComponent = (function () {
     return ProductDetailComponent;
 }());
 ProductDetailComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-product-detail',
         template: __webpack_require__("../../../../../src/app/guest/product-detail/product-detail.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/product-detail/product-detail.component.css")]
@@ -4232,7 +4320,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".card {\r\n    width: 100% !important;\r\n}\r\n\r\n.col-md-3, .col-sm-4, .col-xs-6 {\r\n    padding: 0;\r\n}\r\n\r\n.card {\r\n    /* border: 0; */\r\n    /* border-radius: 0; */\r\n    border: 1.2px solid white;\r\n    /* cursor: pointer; */\r\n    position: relative;\r\n    height: 100%;\r\n}\r\n\r\n.card:hover {\r\n    border: 1.2px solid lightgray;\r\n    /* transition: 0.2s ease; */\r\n    \r\n}\r\n\r\n.btn-primary {\r\n    background-color: #C63829;\r\n    border: 0;\r\n}\r\n\r\n.add-to-cart {\r\n    /* position: absolute; */\r\n    /* bottom: 10px; */\r\n    visibility: hidden;\r\n    cursor: pointer;\r\n}\r\n\r\n.card:hover .add-to-cart{\r\n    visibility: visible;\r\n    \r\n}\r\n\r\n.product-info {\r\n    color: #666;\r\n    line-height: 18px;\r\n    font-size: 13px;\r\n}\r\n\r\n.product-price {\r\n    font-size: 18px;\r\n    font-weight: 700 !important;\r\n    color: #C63829;\r\n    margin-right: 4px;\r\n}\r\n\r\n.product-a {\r\n    text-decoration: none;\r\n}\r\n\r\n.card-img-top {\r\n    height: 250px !important;\r\n    cursor: pointer;\r\n}\r\n.card-text {\r\n    height: 40px !important;\r\n    overflow: hidden;\r\n}\r\n\r\n/* sssssssssssssssss */\r\n\r\n  \r\n#tab_content_product_specifications {\r\n    /* width: 800px; */\r\n}\r\n.row-info {\r\n    font-size: 13px;\r\n}\r\n\r\n.row-info td:nth-child(1) {\r\n    width: 200px;\r\n    background: #F7F7F7 !important;\r\n}\r\n\r\n.thong-tin-san-pham {\r\n    width: 100%;\r\n}\r\n\r\n.display-4 {\r\n    font-size: 2.5rem;\r\n}\r\n\r\nh3 {\r\n    font-size: 20px;\r\n}\r\n\r\np, li, div {\r\n    font-size: 13px;\r\n}\r\n\r\n.item-price {\r\n    font-size: 18px;\r\n    font-weight: 700 !important;\r\n    color: #C63829;\r\n    margin-right: 4px;\r\n}\r\n\r\n.gioi-thieu-san-pham {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n}\r\n\r\n.product_gallery {\r\n    /* display: flex; */\r\n}\r\n\r\n.product_info {\r\n    /* display: flex; */\r\n}\r\n\r\n.item-title {\r\n    font-size: 29px;\r\n}\r\n\r\n/* product image */\r\n.product-info {\r\n    background: white;\r\n    /* padding: 20px; */\r\n}\r\n\r\n.image {\r\n    width: 100%;\r\n}\r\n\r\n.display-4 {\r\n    font-size: 20px;\r\n}\r\n\r\n.nav-link {\r\n    color: #333 !important;\r\n}\r\n\r\n.price-present {\r\n    font-size: 18px;\r\n    font-weight: 700 !important;\r\n    color: #C63829;\r\n    margin-right: 4px;\r\n}\r\n\r\n.btn-primary {\r\n    background-color: #C63829;\r\n    border: 0;\r\n}\r\n\r\n#myTab, #myTabContent {\r\n    background: white;\r\n}\r\n\r\n#myTabContent {\r\n    padding: 20px;\r\n}\r\n\r\n.nav-item .active {\r\n    color: red !important;\r\n    border-bottom: 3px solid red;\r\n}\r\n.input-group {\r\n    margin-bottom: 5px;\r\n}\r\n.input-group-addon {\r\n    width: 130px;\r\n}", ""]);
+exports.push([module.i, ".card {\r\n    width: 100% !important;\r\n}\r\n\r\n.col-md-3, .col-sm-4, .col-xs-6 {\r\n    padding: 0;\r\n}\r\n\r\n.card {\r\n    /* border: 0; */\r\n    /* border-radius: 0; */\r\n    border: 1.2px solid white;\r\n    /* cursor: pointer; */\r\n    position: relative;\r\n    height: 100%;\r\n}\r\n\r\n.card:hover {\r\n    border: 1.2px solid lightgray;\r\n    /* transition: 0.2s ease; */\r\n    \r\n}\r\n\r\n.btn-primary {\r\n    background-color: #C63829;\r\n    border: 0;\r\n}\r\n\r\n.add-to-cart {\r\n    /* position: absolute; */\r\n    /* bottom: 10px; */\r\n    visibility: hidden;\r\n    cursor: pointer;\r\n}\r\n\r\n.card:hover .add-to-cart{\r\n    visibility: visible;\r\n    \r\n}\r\n\r\n.product-info {\r\n    color: #666;\r\n    line-height: 18px;\r\n    font-size: 13px;\r\n}\r\n\r\n.product-price {\r\n    font-size: 18px;\r\n    font-weight: 700 !important;\r\n    color: #C63829;\r\n    margin-right: 4px;\r\n}\r\n\r\n.product-a {\r\n    text-decoration: none;\r\n}\r\n\r\n.card-img-top {\r\n    height: 250px !important;\r\n    cursor: pointer;\r\n}\r\n.card-text {\r\n    height: 40px !important;\r\n    overflow: hidden;\r\n}\r\n\r\n/* sssssssssssssssss */\r\n\r\n  \r\n#tab_content_product_specifications {\r\n    /* width: 800px; */\r\n}\r\n.row-info {\r\n    font-size: 13px;\r\n}\r\n\r\n.row-info td:nth-child(1) {\r\n    width: 200px;\r\n    background: #F7F7F7 !important;\r\n}\r\n\r\n.thong-tin-san-pham {\r\n    width: 100%;\r\n}\r\n\r\n.display-4 {\r\n    font-size: 2.5rem;\r\n}\r\n\r\nh3 {\r\n    font-size: 20px;\r\n}\r\n\r\np, li, div {\r\n    font-size: 13px;\r\n}\r\n\r\n.item-price {\r\n    font-size: 18px;\r\n    font-weight: 700 !important;\r\n    color: #C63829;\r\n    margin-right: 4px;\r\n}\r\n\r\n.gioi-thieu-san-pham {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n}\r\n\r\n.product_gallery {\r\n    /* display: flex; */\r\n}\r\n\r\n.product_info {\r\n    /* display: flex; */\r\n}\r\n\r\n.item-title {\r\n    font-size: 29px;\r\n}\r\n\r\n/* product image */\r\n.product-info {\r\n    background: white;\r\n    /* padding: 20px; */\r\n}\r\n\r\n.image {\r\n    width: 100%;\r\n}\r\n\r\n.display-4 {\r\n    font-size: 20px;\r\n}\r\n\r\n.nav-link {\r\n    color: #333 !important;\r\n}\r\n\r\n.price-present {\r\n    font-size: 18px;\r\n    font-weight: 700 !important;\r\n    color: #C63829;\r\n    margin-right: 4px;\r\n}\r\n\r\n.btn-primary {\r\n    background-color: #C63829;\r\n    border: 0;\r\n}\r\n\r\n#myTab, #myTabContent {\r\n    background: white;\r\n}\r\n\r\n#myTabContent {\r\n    padding: 20px;\r\n}\r\n\r\n.nav-item .active {\r\n    color: red !important;\r\n    border-bottom: 3px solid red;\r\n}\r\n.input-group {\r\n    margin-bottom: 5px;\r\n}\r\n.input-group-addon {\r\n    width: 130px;\r\n}\r\n\r\n.form-inline {\r\n    \r\n}\r\n\r\n.form-inline input[type='radio'] {\r\n    margin-top: -17px;\r\n    margin-left: 10px;\r\n}\r\n\r\n.form-inline label {\r\n    margin-top: -17px;\r\n}", ""]);
 
 // exports
 
@@ -4245,7 +4333,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/guest/products/products.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav-guest [isActive]='1'></app-nav-guest>\n\n<app-slider-guest></app-slider-guest>\n\n<!-- <div class=\"container mt-4 mb-4\">\n  <h4 class=\"display-4\">Sản phẩm ưa chuộng</h4>\n  <div class=\"row\">\n    <div *ngFor=\"let product of products\" class=\"col-md-3 col-sm-4 col-xs-6 product\">\n      <a class=\"product-a\">\n        <div class=\"card\" style=\"width: 20rem;\">\n          <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n            style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n          <div class=\"card-body\">\n            <p class=\"product-info card-text\">{{product?.product_name}}</p>\n            <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n\n            <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n          </div>\n        </div>\n      </a>\n    </div>\n  </div>\n</div> -->\n\n\n<div id=\"nganh-hang\">\n  <div *ngIf=\"mat.length > 0\" class=\"container mt-4 mb-4\">\n    <hr>\n    <h4 class=\"display-4\">Sản phẩm dành cho mắt</h4>\n    <div class=\"row\">\n      <div *ngFor=\"let product of mat\" class=\"col-md-3 col-sm-4 col-xs-6 product\">\n        <a class=\"product-a\">\n          <div class=\"card\" style=\"width: 20rem;\">\n            <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n              style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n            <div class=\"card-body\">\n              <p class=\"product-info card-text\">{{product?.product_name}}</p>\n              <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n\n              <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf=\"moi.length > 0\" class=\"container mt-4 mb-4\">\n    <hr>\n    <h4 class=\"display-4\">Sản phẩm dành cho môi</h4>\n    <div class=\"row\">\n      <div *ngFor=\"let product of moi\" class=\"col-md-3 col-sm-4 col-xs-6 product\">\n        <a class=\"product-a\">\n          <div class=\"card\" style=\"width: 20rem;\">\n            <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n              style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n            <div class=\"card-body\">\n              <p class=\"product-info card-text\">{{product?.product_name}}</p>\n              <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n\n              <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf=\"da.length > 0\" class=\"container mt-4 mb-4\">\n    <hr>\n    <h4 class=\"display-4\">Sản phẩm dành cho da</h4>\n    <div class=\"row\">\n      <div *ngFor=\"let product of da\" class=\"col-md-3 col-sm-4 col-xs-6 product\">\n        <a class=\"product-a\">\n          <div class=\"card\" style=\"width: 20rem;\">\n            <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n              style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n            <div class=\"card-body\">\n              <p class=\"product-info card-text\">{{product?.product_name}}</p>\n              <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n\n              <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf=\"khac.length > 0\" class=\"container mt-4 mb-4\">\n      <hr>\n      <h4 class=\"display-4\">Các loại khác</h4>\n      <div class=\"row\">\n        <div *ngFor=\"let product of khac\" class=\"col-md-3 col-sm-4 col-xs-6 product\">\n          <a class=\"product-a\">\n            <div class=\"card\" style=\"width: 20rem;\">\n              <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n                style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n              <div class=\"card-body\">\n                <p class=\"product-info card-text\">{{product?.product_name}}</p>\n                <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n  \n                <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n              </div>\n            </div>\n          </a>\n        </div>\n      </div>\n    </div>\n</div>\n\n<!-- Modal shopping cart giỏ hàng của khách hàng -->\n<app-shopping-cart [productOP]=\"selectedProduct\"></app-shopping-cart>"
+module.exports = "<app-nav-guest [isActive]='1'></app-nav-guest>\n\n<app-slider-guest></app-slider-guest>\n<div class=\"container mt-4 mb-4\">\n  <!-- Thanh search Sản phẩm -->\n  <h4 class=\"display-4\">Lọc sản phẩm theo tên...</h4>\n  <form class=\"form-inline\">\n      <input class=\"search-product form-control form-control-sm mb-3\" type=\"search\" placeholder=\"Tìm theo tên sản phẩm...\" [(ngModel)]=\"productFilter.product_name\" name=\"search\">\n      <input id=\"all\" type=\"radio\" name=\"kind\" value=\"all\" checked (click)=\"search('all')\"> <label for=\"all\">Tất cả</label>\n      <input id=\"moi\" type=\"radio\" name=\"kind\" value=\"Môi\" (click)=\"search('Môi')\"> <label for=\"moi\">SP cho Môi</label>\n      <input id=\"mat\" type=\"radio\" name=\"kind\" value=\"Mắt\" (click)=\"search('Mắt')\"> <label for=\"mat\">SP cho Mắt</label>\n      <input id=\"da\" type=\"radio\" name=\"kind\" value=\"Da\" (click)=\"search('Da')\"> <label for=\"da\">SP cho Da</label>\n  </form>\n\n  <!-- Sản phẩm ưa chuộng -->\n  <h4 class=\"display-4\">Tất cả sản phẩm</h4>\n  <div class=\"row\">\n    <div *ngFor=\"let product of products | filterBy:productFilter\" class=\"col-md-3 col-sm-4 col-xs-6 product\">\n      <a class=\"product-a\">\n        <div class=\"card\" style=\"width: 20rem;\">\n          <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n            style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n          <div class=\"card-body\">\n            <p class=\"product-info card-text\">{{product?.product_name}}</p>\n            <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n\n            <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n          </div>\n        </div>\n      </a>\n    </div>\n  </div>\n</div>\n\n\n<!-- <div id=\"nganh-hang\">\n  <div *ngIf=\"mat.length > 0\" class=\"container mt-4 mb-4\">\n    <hr>\n    <h4 class=\"display-4\">Sản phẩm dành cho mắt</h4>\n    <div class=\"row\">\n      <div *ngFor=\"let product of mat\" class=\"col-md-3 col-sm-4 col-xs-6 product\">\n        <a class=\"product-a\">\n          <div class=\"card\" style=\"width: 20rem;\">\n            <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n              style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n            <div class=\"card-body\">\n              <p class=\"product-info card-text\">{{product?.product_name}}</p>\n              <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n\n              <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf=\"moi.length > 0\" class=\"container mt-4 mb-4\">\n    <hr>\n    <h4 class=\"display-4\">Sản phẩm dành cho môi</h4>\n    <div class=\"row\">\n      <div *ngFor=\"let product of moi\" class=\"col-md-3 col-sm-4 col-xs-6 product\">\n        <a class=\"product-a\">\n          <div class=\"card\" style=\"width: 20rem;\">\n            <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n              style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n            <div class=\"card-body\">\n              <p class=\"product-info card-text\">{{product?.product_name}}</p>\n              <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n\n              <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf=\"da.length > 0\" class=\"container mt-4 mb-4\">\n    <hr>\n    <h4 class=\"display-4\">Sản phẩm dành cho da</h4>\n    <div class=\"row\">\n      <div *ngFor=\"let product of da\" class=\"col-md-3 col-sm-4 col-xs-6 product\">\n        <a class=\"product-a\">\n          <div class=\"card\" style=\"width: 20rem;\">\n            <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n              style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n            <div class=\"card-body\">\n              <p class=\"product-info card-text\">{{product?.product_name}}</p>\n              <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n\n              <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n\n  <div *ngIf=\"khac.length > 0\" class=\"container mt-4 mb-4\">\n      <hr>\n      <h4 class=\"display-4\">Các loại khác</h4>\n      <div class=\"row\">\n        <div *ngFor=\"let product of khac\" class=\"col-md-3 col-sm-4 col-xs-6 product\">\n          <a class=\"product-a\">\n            <div class=\"card\" style=\"width: 20rem;\">\n              <img class=\"card-img-top\" [src]=\"product.product_image\" alt=\"Card image cap\" data-toggle=\"modal\" data-target=\"#product-detail\"\n                style=\"cursor: pointer\" (click)=\"selectProductDetail(product)\">\n              <div class=\"card-body\">\n                <p class=\"product-info card-text\">{{product?.product_name}}</p>\n                <p class=\"card-text product-price\">{{product?.sub_prod[0].price | number}}đ</p>\n  \n                <button class=\"btn btn-primary add-to-cart\" (click)=\"onSelect(product)\" data-toggle=\"modal\" data-target=\"#shopping-cart\">Cho vào giỏ hàng</button>\n              </div>\n            </div>\n          </a>\n        </div>\n      </div>\n    </div>\n</div> -->\n\n<!-- Modal shopping cart giỏ hàng của khách hàng -->\n<app-shopping-cart [productOP]=\"selectedProduct\"></app-shopping-cart>"
 
 /***/ }),
 
@@ -4286,6 +4374,12 @@ var ProductsComponent = (function () {
         this.da = new Array();
         this.moi = new Array();
         this.khac = new Array();
+        // dùng để search
+        this.productFilter = {
+            product_name: '',
+            product_kind: ''
+        };
+        this.key = 'all';
     }
     ProductsComponent.prototype.addProduct = function () {
         this.test.addToCarts(this.selectedProduct);
@@ -4366,6 +4460,20 @@ var ProductsComponent = (function () {
         this.guestService.selectProductDetail(product._id);
     };
     ;
+    ProductsComponent.prototype.search = function (key) {
+        if (key === 'Môi') {
+            this.products = JSON.parse(sessionStorage.getItem("moi"));
+        }
+        else if (key === 'Mắt') {
+            this.products = JSON.parse(sessionStorage.getItem("mat"));
+        }
+        else if (key == 'Da') {
+            this.products = JSON.parse(sessionStorage.getItem('da'));
+        }
+        else if (key === 'all') {
+            this.products = JSON.parse(sessionStorage.getItem("products"));
+        }
+    };
     ProductsComponent.prototype.ngOnInit = function () {
         // localStorage.removeItem('products')
         this.getProducts();
@@ -4375,7 +4483,7 @@ var ProductsComponent = (function () {
     return ProductsComponent;
 }());
 ProductsComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-products',
         template: __webpack_require__("../../../../../src/app/guest/products/products.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/products/products.component.css")]
@@ -4445,7 +4553,7 @@ var QuanLyTaiKhoanComponent = (function () {
     return QuanLyTaiKhoanComponent;
 }());
 QuanLyTaiKhoanComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-quan-ly-tai-khoan',
         template: __webpack_require__("../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/quan-ly-tai-khoan/quan-ly-tai-khoan.component.css")]
@@ -4506,7 +4614,7 @@ var SanPhamTuongTuComponent = (function () {
     return SanPhamTuongTuComponent;
 }());
 SanPhamTuongTuComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-san-pham-tuong-tu',
         template: __webpack_require__("../../../../../src/app/guest/san-pham-tuong-tu/san-pham-tuong-tu.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/san-pham-tuong-tu/san-pham-tuong-tu.component.css")]
@@ -4567,7 +4675,7 @@ var SliderGuestComponent = (function () {
     return SliderGuestComponent;
 }());
 SliderGuestComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-slider-guest',
         template: __webpack_require__("../../../../../src/app/guest/slider-guest/slider-guest.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/slider-guest/slider-guest.component.css")]
@@ -4626,7 +4734,7 @@ var SuaThongTinComponent = (function () {
     function SuaThongTinComponent(mainService) {
         this.mainService = mainService;
         // @Input() inputUser: any = {};
-        this.currentUser = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.currentUser = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.messageError = {};
     }
     Object.defineProperty(SuaThongTinComponent.prototype, "inputUser", {
@@ -4690,16 +4798,16 @@ var SuaThongTinComponent = (function () {
     return SuaThongTinComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [Object])
 ], SuaThongTinComponent.prototype, "inputUser", null);
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["U" /* Output */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
     __metadata("design:type", Object)
 ], SuaThongTinComponent.prototype, "currentUser", void 0);
 SuaThongTinComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-sua-thong-tin',
         template: __webpack_require__("../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.html"),
         styles: [__webpack_require__("../../../../../src/app/guest/sua-thong-tin/sua-thong-tin.component.css")]
@@ -4837,7 +4945,7 @@ var AdminService = (function () {
     return AdminService;
 }());
 AdminService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], AdminService);
 
@@ -5003,7 +5111,7 @@ var GuestService = (function () {
     return GuestService;
 }());
 GuestService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */]) === "function" && _c || Object])
 ], GuestService);
 
@@ -5171,7 +5279,7 @@ var MainService = (function () {
     return MainService;
 }());
 MainService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], MainService);
 
@@ -5215,7 +5323,7 @@ var TestService = (function () {
     return TestService;
 }());
 TestService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [])
 ], TestService);
 
@@ -5245,7 +5353,7 @@ var UsersService = (function () {
     return UsersService;
 }());
 UsersService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [])
 ], UsersService);
 
@@ -5291,7 +5399,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_24" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["enableProdMode"])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map

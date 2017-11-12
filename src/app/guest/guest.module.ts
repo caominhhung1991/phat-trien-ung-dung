@@ -7,6 +7,10 @@ import { Router, RouterModule } from '@angular/router';
 import { ComponentModule } from './../components/component.module';
 import { AdminModule } from './../admin/admin.module';
 import { GuestRoutingModule } from './guest-routing.module';
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; //importing the search
+import { Ng2OrderModule } from 'ng2-order-pipe' //importing the order
+import { NgxPaginationModule } from 'ngx-pagination'; // import the pagination
+import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 //import component
 import { HomePageComponent} from './home-page/home-page.component';
 import { NavGuestComponent } from './nav-guest/nav-guest.component';
@@ -35,7 +39,12 @@ import { NganhHangComponent } from './nganh-hang/nganh-hang.component';
     BrowserModule,
     ComponentModule,
     RouterModule,
-    GuestRoutingModule
+    GuestRoutingModule,
+    Ng2FilterPipeModule, // Filter product name
+    // Ng2SearchPipeModule, //Search
+    Ng2OrderModule, //Sort tăng giảm
+    NgxPaginationModule, //Pagination
+    
   ],
   declarations: [
     HomePageComponent,

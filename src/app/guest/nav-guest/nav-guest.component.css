@@ -139,3 +139,30 @@ input[type=search]:focus {
     color: rgb(2, 140, 253) !important;
 }
 
+thead > tr > th {
+    cursor: pointer;
+}
+
+.search-form {
+    position: relative;
+}
+
+#search-result {
+    margin-top: 2px;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#search-result li {
+    padding: 3px 3px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#search-result li:hover {
+    background-color: rgba(212, 211, 211, 0.5);
+}

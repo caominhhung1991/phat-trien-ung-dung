@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module';
 import { GuestModule} from './guest/guest.module';
 import { ComponentModule } from './components/component.module';
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; //importing the module
 // guard 
 import { AuthguardGuard } from './guard/authguard.guard'
 // services
@@ -36,7 +37,8 @@ import { SuaThongTinComponent} from './guest/sua-thong-tin/sua-thong-tin.compone
     AdminModule,
     GuestModule,
     FormsModule,
-    ComponentModule
+    ComponentModule,
+    // Ng2SearchPipeModule
   ],
   declarations: [
     AppComponent,

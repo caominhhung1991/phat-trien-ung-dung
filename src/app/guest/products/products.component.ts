@@ -21,10 +21,10 @@ export class ProductsComponent implements OnInit {
   products: any = new Array();
   products2: any;
   listArray: any = new Array();
-  mat:any = new Array();
-  da:any = new Array();
-  moi:any = new Array();
-  khac:any = new Array();
+  mat: any = new Array();
+  da: any = new Array();
+  moi: any = new Array();
+  khac: any = new Array();
 
   constructor(
     private mainService: MainService,
@@ -42,16 +42,16 @@ export class ProductsComponent implements OnInit {
     if (JSON.parse(sessionStorage.getItem('products')) != null) {
       this.products = JSON.parse(sessionStorage.getItem('products'));
       for (let item of this.products) {
-          if (item.product_kind === "Mắt") {
-            this.mat.push(item);
-          } else if (item.product_kind == "Da") {
-            this.da.push(item);
-          } else if (item.product_kind == "Môi") {
-            this.moi.push(item);
-          } else {
-            console.log(item);
-            this.khac.push(item);
-          }
+        if (item.product_kind === "Mắt") {
+          this.mat.push(item);
+        } else if (item.product_kind == "Da") {
+          this.da.push(item);
+        } else if (item.product_kind == "Môi") {
+          this.moi.push(item);
+        } else {
+          console.log(item);
+          this.khac.push(item);
+        }
       }
     } else {
       this.guestService.GetListProductsByJoin().subscribe(res => {
@@ -83,6 +83,8 @@ export class ProductsComponent implements OnInit {
     return this.products;
   }
 
+
+
   onSelect(product: any) {
     this.selectedProduct = {
       _id: product._id,
@@ -107,6 +109,25 @@ export class ProductsComponent implements OnInit {
   selectProductDetail(product) {
     this.guestService.selectProductDetail(product._id);
   };
+
+  // dùng để search
+  productFilter: any = {
+    product_name: '',
+    product_kind: ''
+  }
+
+  key:string = 'all';
+  search(key) {
+    if(key === 'Môi') {
+      this.products = JSON.parse(sessionStorage.getItem("moi"));
+    } else if(key === 'Mắt') {
+      this.products = JSON.parse(sessionStorage.getItem("mat"))
+    } else if(key == 'Da') {
+      this.products = JSON.parse(sessionStorage.getItem('da'))
+    } else if(key === 'all'){
+      this.products = JSON.parse(sessionStorage.getItem("products"))
+    }
+  }
 
   ngOnInit() {
     // localStorage.removeItem('products')
